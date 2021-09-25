@@ -92,7 +92,7 @@
 			<div class="social">
 				
 					
-						<a class="github" href="#" 
+						<a class="github" href="https://github.com/00hello00" 
 												title="GitHub" target="_blank"><i class="icon-github"></i></a>
 					
 				
@@ -148,7 +148,7 @@
 					
 						
 						<a class="github" target="_blank" 
-							href="#" title="GitHub"><i class="icon-github"></i></a>
+							href="https://github.com/00hello00" title="GitHub"><i class="icon-github"></i></a>
 						
 					
 						
@@ -407,7 +407,7 @@
             </li>
           
             <li class="search-li">
-              <a href="https://github.com/JoeyBling" target="_blank" 
+              <a href="https://github.com/00hello00" target="_blank" 
                 class="search-title" >
                 
                   <i class="icon-link icon"></i>
@@ -538,7 +538,7 @@
       jsonPath: modelJsonPath
     },
     display: {
-       position: "right", 
+       position: "left", 
        width: 145, 
        height: 315, 
        hOffset: 50, 
@@ -556,6 +556,16 @@
 </script>
 
   
+  
+  <script type="text/javascript" src="/lib/snow.js"></script>
+  <script type="text/javascript" src="/lib/jquery-2.1.4.min.js"></script>
+  <script>
+    snow.down();
+    $(window).resize(function() {
+      $("canvas").css("z-index","500").remove();
+      snow.down();
+    });
+  </script>
   
 </body>
 
