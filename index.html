@@ -188,31 +188,45 @@
             
 
   
-    <article id="post-sql注入原理" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+    <article id="post-docker命令大全-容器rootfs命令与镜像仓库" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
+      <header class="article-header">
+  
+  
+    <h1 itemprop="name">
+	
+	  <a class="article-title" href="/2021/10/05/docker%E5%91%BD%E4%BB%A4%E5%A4%A7%E5%85%A8-%E5%AE%B9%E5%99%A8rootfs%E5%91%BD%E4%BB%A4%E4%B8%8E%E9%95%9C%E5%83%8F%E4%BB%93%E5%BA%93/" target="_blank">docker命令大全-rootfs命令及镜像仓库</a>
+  
+    </h1>
+  
+
+
+  
+  
+<a href="/2021/10/05/docker%E5%91%BD%E4%BB%A4%E5%A4%A7%E5%85%A8-%E5%AE%B9%E5%99%A8rootfs%E5%91%BD%E4%BB%A4%E4%B8%8E%E9%95%9C%E5%83%8F%E4%BB%93%E5%BA%93/" class="archive-article-date">
+        <time datetime="2021-10-05T14:45:23.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-10-05</time>
+</a>
+
+  
+  
+    
+
+  
+  </header>
+  
   <div class="article-entry" itemprop="articleBody">
     
-    <h1 id="SQL-注入原理分析（学习笔记）"><a href="#SQL-注入原理分析（学习笔记）" class="headerlink" title="SQL 注入原理分析（学习笔记）"></a>SQL 注入原理分析（学习笔记）</h1><p><strong>1.SQL语言介绍</strong></p>
-<p>​       SQL 全称是“结构化查询语言( Structured Query Language)”, 最早是IBM的圣约瑟研究实验室为其关系数据库管理系统SYSTEMR开发的一种查询语言,它的前身是SQUARE语言。SQL语言结构简洁,功能强大,简单易学,所以自从IBM公司1981年推出以来, SQL语言得到了广泛的应用。</p>
-<p>​        结构化查询语言SQL是一种介于关系代数与关系演算之间的语言,其功能包括查询、操纵、定义和控制四个方面,是一个通用的功能极强的关系数据库标准语言。在SQL语言中不需要告诉SQL如何访问数据库,只要告诉SQL需要数据库做什么。</p>
-<p><strong>2.SQL注入产生原因</strong></p>
-<p>​       在现在网络技术于信息技术高速发展的时代，越来越多程序编写应用于B/S模式，而BS模式建立在互联网上，对安全的控制能力较弱，由于开发人员的水平和经验参差不齐，相当一部分的程序员编写代码没有对用户输入的数据或者是页面中所携带的信息进行必要的合法性判断。攻击者利用这个机会提交一段数据库查询代码，根据程序返回的结果，就可以获得一些数据库信息。</p>
-<p><strong>3.SQL注入核心原理</strong></p>
-<p>​        SQL注入（SQLi）是一种注入攻击，可以执行恶意SQL语句。它通过将任意SQL代码插入数据库查询，使攻击者能够完全控制Web应用程序后面的数据库服务器。攻击者可以使用SQL注入漏洞绕过应用程序安全措施；可以绕过网页或Web应用程序的身份验证和授权，并检索整个SQL数据库的内容；还可以使用SQL注入来添加，修改和删除数据库中的记录。</p>
-<p>​        SQL注入漏洞可能会影响使用SQL数据库（如MySQL，Oracle，SQL Server或其他）的任何网站或Web应用程序。犯罪分子可能会利用它来未经授权访问用户的敏感数据：客户信息，个人数据，商业机密，知识产权等。SQL注入攻击是最古老，最流行，最危险的Web应用程序漏洞之一。</p>
-<p><strong>4.四程WEB框架</strong></p>
-<p><img src="https://i.loli.net/2021/10/01/xwctmrQfHguEFi4.png" alt="1"></p>
-<p>ps.灵活的SQL查询语句+用户输入的数据代入了SQL语句=用户直接操作数据库—&gt;SQL注入漏洞</p>
-<p>5.用户输入可控，代码对用户输入进行了对接，带入SQL语句，产生SQL注入漏洞</p>
-<p>eg：<a target="_blank" rel="noopener" href="http://xxx.com/index.php?id=1">http://xxx.com/index.php?id=1</a>  UNION SELECT 1,version()#</p>
-<p>​        <strong>↑</strong>                            <strong>↑</strong></p>
-<p>正常输入                           用户输入可自由控制</p>
-<p><img src="https://i.loli.net/2021/10/01/XsYkwtounj1CAla.png" alt="image-20211001134230447"></p>
-<p>select id,location from jobs where id=1——返回id为1的location</p>
-<p>select id,location from jobs where id =1 union select 1,version()#</p>
-<p>——返回id为1的location和数据库文本</p>
-
+    <h1 id="容器rootfs命令"><a href="#容器rootfs命令" class="headerlink" title="容器rootfs命令"></a>容器rootfs命令</h1><p>本文取自<a target="_blank" rel="noopener" href="https://www.runoob.com/docker/docker-rm-command.html">https://www.runoob.com/docker/docker-rm-command.html</a>，博主整理这些命令主要是方便自己或其他需要的人来查阅</p>
+<p>（1）docker commit :从容器创建一个新的镜像。</p>
+<p>语法<br>docker commit [OPTIONS] CONTAINER [REPOSITORY[:TAG]]<br>OPTIONS说明：</p>
+<p>-a :提交的镜像作者；</p>
+<p>-c :使用Dockerfile指令来创建镜像；</p>
+<p>-m :提交时的说明文字；</p>
+<p>-p :在commit时，将容器暂停。</p>
+    
+    <a class="article-more-a" href="/2021/10/05/docker%E5%91%BD%E4%BB%A4%E5%A4%A7%E5%85%A8-%E5%AE%B9%E5%99%A8rootfs%E5%91%BD%E4%BB%A4%E4%B8%8E%E9%95%9C%E5%83%8F%E4%BB%93%E5%BA%93/#more">more >></a>
+    
     
 
     
@@ -227,7 +241,338 @@
 
     
     <p class="article-more-link">
-      <a class="article-more-a" href="/2021/10/01/sql%E6%B3%A8%E5%85%A5%E5%8E%9F%E7%90%86/">展开全文 >></a>
+      <a class="article-more-a" href="/2021/10/05/docker%E5%91%BD%E4%BB%A4%E5%A4%A7%E5%85%A8-%E5%AE%B9%E5%99%A8rootfs%E5%91%BD%E4%BB%A4%E4%B8%8E%E9%95%9C%E5%83%8F%E4%BB%93%E5%BA%93/">展开全文 >></a>
+    </p>
+    
+
+    
+    <div class="clearfix"></div>
+  </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-docker命令大全-容器操作" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+  
+  
+    <h1 itemprop="name">
+	
+	  <a class="article-title" href="/2021/10/05/docker%E5%91%BD%E4%BB%A4%E5%A4%A7%E5%85%A8-%E5%AE%B9%E5%99%A8%E6%93%8D%E4%BD%9C/" target="_blank">docker命令大全-容器操作</a>
+  
+    </h1>
+  
+
+
+  
+  
+<a href="/2021/10/05/docker%E5%91%BD%E4%BB%A4%E5%A4%A7%E5%85%A8-%E5%AE%B9%E5%99%A8%E6%93%8D%E4%BD%9C/" class="archive-article-date">
+        <time datetime="2021-10-05T14:45:23.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-10-05</time>
+</a>
+
+  
+  
+    
+
+  
+  </header>
+  
+  <div class="article-entry" itemprop="articleBody">
+    
+    <h1 id="docker的常用命令-容器操作"><a href="#docker的常用命令-容器操作" class="headerlink" title="docker的常用命令-容器操作"></a>docker的常用命令-容器操作</h1><p>本文取自<a target="_blank" rel="noopener" href="https://www.runoob.com/docker/docker-rm-command.html">https://www.runoob.com/docker/docker-rm-command.html</a>，博主整理这些命令主要是方便自己或其他需要的人来查阅</p>
+<p>（1）docker ps : 列出容器</p>
+<p>语法<br>docker ps [OPTIONS]<br>OPTIONS说明：</p>
+<p>-a :显示所有的容器，包括未运行的。</p>
+<p>-f :根据条件过滤显示的内容。</p>
+<p>–format :指定返回值的模板文件。</p>
+<p>-l :显示最近创建的容器。</p>
+<p>-n :列出最近创建的n个容器。</p>
+<p>–no-trunc :不截断输出。</p>
+<p>-q :静默模式，只显示容器编号。</p>
+<p>-s :显示总的文件大小。</p>
+    
+    <a class="article-more-a" href="/2021/10/05/docker%E5%91%BD%E4%BB%A4%E5%A4%A7%E5%85%A8-%E5%AE%B9%E5%99%A8%E6%93%8D%E4%BD%9C/#more">more >></a>
+    
+    
+
+    
+
+    
+
+  </div>
+  <div class="article-info article-info-index">
+    
+    
+    
+
+    
+    <p class="article-more-link">
+      <a class="article-more-a" href="/2021/10/05/docker%E5%91%BD%E4%BB%A4%E5%A4%A7%E5%85%A8-%E5%AE%B9%E5%99%A8%E6%93%8D%E4%BD%9C/">展开全文 >></a>
+    </p>
+    
+
+    
+    <div class="clearfix"></div>
+  </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-docker命令大全-容器生命周期管理" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+  
+  
+    <h1 itemprop="name">
+	
+	  <a class="article-title" href="/2021/10/05/docker%E5%91%BD%E4%BB%A4%E5%A4%A7%E5%85%A8-%E5%AE%B9%E5%99%A8%E7%94%9F%E5%91%BD%E5%91%A8%E6%9C%9F%E7%AE%A1%E7%90%86/" target="_blank">docker命令大全-容器生命周期管理</a>
+  
+    </h1>
+  
+
+
+  
+  
+<a href="/2021/10/05/docker%E5%91%BD%E4%BB%A4%E5%A4%A7%E5%85%A8-%E5%AE%B9%E5%99%A8%E7%94%9F%E5%91%BD%E5%91%A8%E6%9C%9F%E7%AE%A1%E7%90%86/" class="archive-article-date">
+        <time datetime="2021-10-05T14:45:23.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-10-05</time>
+</a>
+
+  
+  
+    
+
+  
+  </header>
+  
+  <div class="article-entry" itemprop="articleBody">
+    
+    <h1 id="docker命令大全-容器生命周期管理"><a href="#docker命令大全-容器生命周期管理" class="headerlink" title="docker命令大全-容器生命周期管理"></a>docker命令大全-容器生命周期管理</h1><p>本文取自<a target="_blank" rel="noopener" href="https://www.runoob.com/docker/docker-rm-command.html">https://www.runoob.com/docker/docker-rm-command.html</a>，博主整理这些命令主要是方便自己或其他需要的人来查阅</p>
+<p>（1）docker start :启动一个或多个已经被停止的容器</p>
+<p>docker stop :停止一个运行中的容器</p>
+<p>docker restart :重启容器</p>
+    
+    <a class="article-more-a" href="/2021/10/05/docker%E5%91%BD%E4%BB%A4%E5%A4%A7%E5%85%A8-%E5%AE%B9%E5%99%A8%E7%94%9F%E5%91%BD%E5%91%A8%E6%9C%9F%E7%AE%A1%E7%90%86/#more">more >></a>
+    
+    
+
+    
+
+    
+
+  </div>
+  <div class="article-info article-info-index">
+    
+    
+    
+
+    
+    <p class="article-more-link">
+      <a class="article-more-a" href="/2021/10/05/docker%E5%91%BD%E4%BB%A4%E5%A4%A7%E5%85%A8-%E5%AE%B9%E5%99%A8%E7%94%9F%E5%91%BD%E5%91%A8%E6%9C%9F%E7%AE%A1%E7%90%86/">展开全文 >></a>
+    </p>
+    
+
+    
+    <div class="clearfix"></div>
+  </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-docker命令大全-本地镜像管理与infoversion" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+  
+  
+    <h1 itemprop="name">
+	
+	  <a class="article-title" href="/2021/10/05/docker%E5%91%BD%E4%BB%A4%E5%A4%A7%E5%85%A8-%E6%9C%AC%E5%9C%B0%E9%95%9C%E5%83%8F%E7%AE%A1%E7%90%86%E4%B8%8Einfoversion/" target="_blank">docker命令大全-本地镜像管理及Docker info 命令</a>
+  
+    </h1>
+  
+
+
+  
+  
+<a href="/2021/10/05/docker%E5%91%BD%E4%BB%A4%E5%A4%A7%E5%85%A8-%E6%9C%AC%E5%9C%B0%E9%95%9C%E5%83%8F%E7%AE%A1%E7%90%86%E4%B8%8Einfoversion/" class="archive-article-date">
+        <time datetime="2021-10-05T14:45:23.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-10-05</time>
+</a>
+
+  
+  
+    
+
+  
+  </header>
+  
+  <div class="article-entry" itemprop="articleBody">
+    
+    <h1 id="本地镜像管理"><a href="#本地镜像管理" class="headerlink" title="本地镜像管理"></a>本地镜像管理</h1><p>本文取自<a target="_blank" rel="noopener" href="https://www.runoob.com/docker/docker-rm-command.html">https://www.runoob.com/docker/docker-rm-command.html</a>，博主整理这些命令主要是方便自己或其他需要的人来查阅</p>
+<p>(1)docker images : 列出本地镜像。</p>
+<p>语法<br>docker images [OPTIONS] [REPOSITORY[:TAG]]<br>OPTIONS说明：</p>
+<p>-a :列出本地所有的镜像（含中间映像层，默认情况下，过滤掉中间映像层）；</p>
+<p>–digests :显示镜像的摘要信息；</p>
+<p>-f :显示满足条件的镜像；</p>
+<p>–format :指定返回值的模板文件；</p>
+<p>–no-trunc :显示完整的镜像信息；</p>
+<p>-q :只显示镜像ID。
+    
+    <a class="article-more-a" href="/2021/10/05/docker%E5%91%BD%E4%BB%A4%E5%A4%A7%E5%85%A8-%E6%9C%AC%E5%9C%B0%E9%95%9C%E5%83%8F%E7%AE%A1%E7%90%86%E4%B8%8Einfoversion/#more">more >></a>
+    
+    
+
+    
+
+    
+
+  </div>
+  <div class="article-info article-info-index">
+    
+    
+    
+
+    
+    <p class="article-more-link">
+      <a class="article-more-a" href="/2021/10/05/docker%E5%91%BD%E4%BB%A4%E5%A4%A7%E5%85%A8-%E6%9C%AC%E5%9C%B0%E9%95%9C%E5%83%8F%E7%AE%A1%E7%90%86%E4%B8%8Einfoversion/">展开全文 >></a>
+    </p>
+    
+
+    
+    <div class="clearfix"></div>
+  </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-sql注入原理" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+  
+  
+    <h1 itemprop="name">
+	
+	  <a class="article-title" href="/2021/10/02/sql%E6%B3%A8%E5%85%A5%E5%8E%9F%E7%90%86/" target="_blank">SQL 注入原理分析（学习笔记）</a>
+  
+    </h1>
+  
+
+
+  
+  
+<a href="/2021/10/02/sql%E6%B3%A8%E5%85%A5%E5%8E%9F%E7%90%86/" class="archive-article-date">
+        <time datetime="2021-10-02T14:45:23.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-10-02</time>
+</a>
+
+  
+  
+    
+
+  
+  </header>
+  
+  <div class="article-entry" itemprop="articleBody">
+    
+    <h1 id="SQL-注入原理分析（学习笔记）"><a href="#SQL-注入原理分析（学习笔记）" class="headerlink" title="SQL 注入原理分析（学习笔记）"></a>SQL 注入原理分析（学习笔记）</h1><p><strong>1.SQL语言介绍</strong></p>
+<p>​       SQL 全称是“结构化查询语言( Structured Query Language)”, 最早是IBM的圣约瑟研究实验室为其关系数据库管理系统SYSTEMR开发的一种查询语言,它的前身是SQUARE语言。SQL语言结构简洁,功能强大,简单易学,所以自从IBM公司1981年推出以来, SQL语言得到了广泛的应用。</p>
+<p>​        结构化查询语言SQL是一种介于关系代数与关系演算之间的语言,其功能包括查询、操纵、定义和控制四个方面,是一个通用的功能极强的关系数据库标准语言。在SQL语言中不需要告诉SQL如何访问数据库,只要告诉SQL需要数据库做什么。</p>
+    
+    <a class="article-more-a" href="/2021/10/02/sql%E6%B3%A8%E5%85%A5%E5%8E%9F%E7%90%86/#more">more >></a>
+    
+    
+
+    
+
+    
+
+  </div>
+  <div class="article-info article-info-index">
+    
+    
+    
+
+    
+    <p class="article-more-link">
+      <a class="article-more-a" href="/2021/10/02/sql%E6%B3%A8%E5%85%A5%E5%8E%9F%E7%90%86/">展开全文 >></a>
     </p>
     
 
@@ -288,46 +633,9 @@
     
     <h1 id="PHP-初学笔记——数据类型"><a href="#PHP-初学笔记——数据类型" class="headerlink" title="#PHP 初学笔记——数据类型"></a>#PHP 初学笔记——数据类型</h1><p>1.# 概念 #</p>
 <p>PHP（PHP: Hypertext Preprocessor）<br>即“超文本预处理器”，是在服务器端执行的脚本语言，尤其适用于Web开发并可嵌入HTML中。PHP语法学习了C语言，吸纳Java和Perl多个语言的特色发展出自己的特色语法，并根据它们的长项持续改进提升自己，例如java的面向对象编程，该语言当初创建的主要目标是让开发人员快速编写出优质的web网站。 PHP同时支持面向对象和面向过程的开发，使用上非常灵活。</p>
-<p>2.# 数据类型 #</p>
-<p>a.PHP支持8种数据类型：</p>
-<p>（1）integer-整形：只能整数，也可以正数或负数。</p>
-<p>（2）folat-浮点型：是数字，和整形数据不同的是它有小数位。</p>
-<p>（3）string-字符串型：是字符串，连续的字符序列，可以是计算机所能表示的一切字符的集合。</p>
-<p>（4）boolean-布尔型：只有两个值真和假。</p>
-<p>（5）array-数组：储存相同数据类型的多个数据项</p>
-<p>（6）object-对象：储存类的实例</p>
-<p>（7）resource-资源：储存着到外部资源的应用，如打开文件、数据库连接、图形画布区域等</p>
-<p>（8）null-空：没有被赋值、已经被重置或赋值为null的变量。</p>
-<p>b.PHP数据类型的转换：<br> PHP变量的数据类型是由付给它的值决定的，不用像C语言一样事先声明。</p>
-<p>（1）（int）、（integer）：转换成整形——(int)$boo,(integer)$str</p>
-<p>（float）、（double）、（real）：转换成浮点型——(float)$str,(doubel)$str,(real)$str</p>
-<p>（string）：转换成字符串————(string)$boo</p>
-<p>（bool）、（boolean）：转换成布尔类型————(bool)$num,(boolean)$str</p>
-<p>（array）：转换成数组————(array)$str</p>
-<p>（object）：转换成对象————(object)$str</p>
-<p>（unset）:转换为null————(unset)$str</p>
-<p>（2）ps.</p>
-<pre><code>       1.&quot;=&quot;是赋值操作符。
-
-       2.在进行数据类型转换过程中应注意：转换布尔型时，null、0和未赋值的变量或数组会被转换成false，其它为true。
-       
-       3.当转换成整形时，布尔型数据的false转换为0，true转换为1，浮点型的小数部分被舍去，字符串型数据如果以小数开头则截取到非数字位，否则转换为0。 
-
-       4.数据类型转换还可以通过set-type（）函数完成，该函数可以将指点的变量转换为指定的数据类型。————bool settype(mixed $var,string $type)
-      
-       5.参数type有7个可选值：boolean、float、integer、array、null、object和string如果转换成功，则返回true，否则返回false。
-
-       6.当将字符串转换为整形数据时，如果字符串是以数字开头的，那么先将数字部分转换为整形，在舍去后面的字符串；如果数字中含有小数点，那么截取到小数点前一位。
-</code></pre>
-<p>（3）检测数据类型</p>
-<p>1&gt;</p>
-<p><img src="https://i.loli.net/2021/09/23/HmtT4RJpiV5YxaX.jpg" alt="检测数据类型的函数"></p>
-<p>2&gt;例子</p>
-<p>in_numeric()检测变量是否由数字组成</p>
-<p><img src="https://i.loli.net/2021/09/23/ciLbxa5msF6ZMGE.jpg" alt="例子"></p>
-<p>结果</p>
-<p><img src="https://i.loli.net/2021/09/23/4VUEjMqfltGL2dO.jpg" alt="结果"></p>
-
+    
+    <a class="article-more-a" href="/2021/09/18/php%E5%88%9D%E5%AD%A6%E7%AC%94%E8%AE%B0/#more">more >></a>
+    
     
 
     

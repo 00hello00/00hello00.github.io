@@ -6,17 +6,23 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://example.com">
-  <title>Archives: 2021 | Hexo</title>
+  <title>docker命令大全-容器操作 | Hexo</title>
   <meta name="generator" content="hexo-theme-yilia-plus">
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   
-  <meta property="og:type" content="website">
-<meta property="og:title" content="Hexo">
-<meta property="og:url" content="http://example.com/archives/2021/index.html">
+  <meta name="description" content="docker的常用命令-容器操作本文取自https:&#x2F;&#x2F;www.runoob.com&#x2F;docker&#x2F;docker-rm-command.html，博主整理这些命令主要是方便自己或其他需要的人来查阅 （1）docker ps : 列出容器 语法docker ps [OPTIONS]OPTIONS说明： -a :显示所有的容器，包括未运行的。 -f :根据条件过滤显示的内容。 –format :指定返">
+<meta property="og:type" content="article">
+<meta property="og:title" content="docker命令大全-容器操作">
+<meta property="og:url" content="http://example.com/2021/10/05/docker%E5%91%BD%E4%BB%A4%E5%A4%A7%E5%85%A8-%E5%AE%B9%E5%99%A8%E6%93%8D%E4%BD%9C/index.html">
 <meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="docker的常用命令-容器操作本文取自https:&#x2F;&#x2F;www.runoob.com&#x2F;docker&#x2F;docker-rm-command.html，博主整理这些命令主要是方便自己或其他需要的人来查阅 （1）docker ps : 列出容器 语法docker ps [OPTIONS]OPTIONS说明： -a :显示所有的容器，包括未运行的。 -f :根据条件过滤显示的内容。 –format :指定返">
 <meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://i.loli.net/2021/10/05/1U2Z7fXBasKrCIM.png">
+<meta property="article:published_time" content="2021-10-05T14:45:23.000Z">
+<meta property="article:modified_time" content="2021-10-05T15:23:11.214Z">
 <meta property="article:author" content="00hello00">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://i.loli.net/2021/10/05/1U2Z7fXBasKrCIM.png">
   
     <link rel="alternative" href="/atom.xml" title="Hexo" type="application/atom+xml">
   
@@ -181,214 +187,410 @@
               class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-  
+            <article id="post-docker命令大全-容器操作" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
     
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2021" class="archive-year">2021</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	
-<a href="/2021/10/05/docker%E5%91%BD%E4%BB%A4%E5%A4%A7%E5%85%A8-%E5%AE%B9%E5%99%A8rootfs%E5%91%BD%E4%BB%A4%E4%B8%8E%E9%95%9C%E5%83%8F%E4%BB%93%E5%BA%93/" class="archive-article-date">
-        <time datetime="2021-10-05T14:45:23.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-10-05</time>
-</a>
-
-        </div>
-    	 
+      <header class="article-header">
   
-    <h1 itemprop="name">
-	
-	  <a class="archive-article-title" href="/2021/10/05/docker%E5%91%BD%E4%BB%A4%E5%A4%A7%E5%85%A8-%E5%AE%B9%E5%99%A8rootfs%E5%91%BD%E4%BB%A4%E4%B8%8E%E9%95%9C%E5%83%8F%E4%BB%93%E5%BA%93/" target="_blank">docker命令大全-rootfs命令及镜像仓库</a>
   
+    <h1 class="article-title" itemprop="name">
+      docker命令大全-容器操作
     </h1>
   
 
 
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	
+  
+        
+        <span id="busuanzi_container_page_pv" style='display:none' class="archive-article-date">
+              <i class="icon-smile icon"></i> 阅读数：<span id="busuanzi_value_page_pv"></span>次
+        </span>
+
 <a href="/2021/10/05/docker%E5%91%BD%E4%BB%A4%E5%A4%A7%E5%85%A8-%E5%AE%B9%E5%99%A8%E6%93%8D%E4%BD%9C/" class="archive-article-date">
         <time datetime="2021-10-05T14:45:23.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-10-05</time>
 </a>
 
+  
+  
+    
+<div style="margin-top:10px;">
+  <span class="post-time">
+    <span class="post-meta-item-icon">
+      <!-- fonts.scss -->
+      <!-- 百度字体平台:http://fontstore.baidu.com/static/editor/index.html -->
+      <i class="icon-statistics"></i>
+      <span class="post-meta-item-text"> 字数统计:</span>
+      <span class="post-count">1.9k字</span>
+    </span>
+  </span>
+
+  <span class="post-time">
+    &nbsp; | &nbsp;
+    <span class="post-meta-item-icon">
+      <i class="icon-book icon"></i>
+      <span class="post-meta-item-text"> 阅读时长≈</span>
+      <span class="post-count">9分</span>
+    </span>
+  </span>
+</div>
+
+
+  
+  </header>
+  
+  <div class="article-entry" itemprop="articleBody">
+    
+    <h1 id="docker的常用命令-容器操作"><a href="#docker的常用命令-容器操作" class="headerlink" title="docker的常用命令-容器操作"></a>docker的常用命令-容器操作</h1><p>本文取自<a target="_blank" rel="noopener" href="https://www.runoob.com/docker/docker-rm-command.html">https://www.runoob.com/docker/docker-rm-command.html</a>，博主整理这些命令主要是方便自己或其他需要的人来查阅</p>
+<p>（1）docker ps : 列出容器</p>
+<p>语法<br>docker ps [OPTIONS]<br>OPTIONS说明：</p>
+<p>-a :显示所有的容器，包括未运行的。</p>
+<p>-f :根据条件过滤显示的内容。</p>
+<p>–format :指定返回值的模板文件。</p>
+<p>-l :显示最近创建的容器。</p>
+<p>-n :列出最近创建的n个容器。</p>
+<p>–no-trunc :不截断输出。</p>
+<p>-q :静默模式，只显示容器编号。</p>
+<p>-s :显示总的文件大小。</p>
+<span id="more"></span>
+<p>实例</p>
+<p>列出所有在运行的容器信息。</p>
+<p>runoob@runoob:~$ docker ps</p>
+<p>CONTAINER ID   IMAGE          COMMAND                …  PORTS                    </p>
+<p>NAMES</p>
+<p>09b93464c2f7   nginx:latest   “nginx -g ‘daemon off” …  80/tcp, 443/tcp          </p>
+<p>myrunoob</p>
+<p>96f7f14e99ab   mysql:5.6      “docker-entrypoint.sh” …  0.0.0.0:3306-&gt;3306/tcp   </p>
+<p>mymysql</p>
+<p>输出详情介绍：</p>
+<p>CONTAINER ID: 容器 ID。</p>
+<p>IMAGE: 使用的镜像。</p>
+<p>COMMAND: 启动容器时运行的命令。</p>
+<p>CREATED: 容器的创建时间。</p>
+<p>STATUS: 容器状态。</p>
+<p>状态有7种：</p>
+<p>created（已创建）</p>
+<p>restarting（重启中）</p>
+<p>running（运行中）</p>
+<p>removing（迁移中）</p>
+<p>paused（暂停）</p>
+<p>exited（停止）</p>
+<p>dead（死亡）</p>
+<p>PORTS: 容器的端口信息和使用的连接类型（tcp\udp）。</p>
+<p>NAMES: 自动分配的容器名称。</p>
+<p>列出最近创建的5个容器信息。</p>
+<p>runoob@runoob:~$ docker ps -n 5</p>
+<pre><code>             CONTAINER ID           IMAGE               COMMAND                   CREATED           
+             09b93464c2f7        nginx:latest        &quot;nginx -g &#39;daemon off&quot;    2 days ago   ...     
+             b8573233d675       nginx:latest        &quot;/bin/bash&quot;               2 days ago   ...     
+             b1a0703e41e7        nginx:latest        &quot;nginx -g &#39;daemon off&quot;    2 days ago   ...    
+             f46fb1dec520        5c6e1090e771        &quot;/bin/sh -c &#39;set -x \t&quot;   2 days ago   ...   
+             a63b4a5597de        860c279d2fec        &quot;bash&quot;                    2 days ago   ...
+</code></pre>
+<p>列出所有创建的容器ID。</p>
+<p>runoob@runoob:~$ docker ps -a -q<br>09b93464c2f7</p>
+<p>b8573233d675</p>
+<p>b1a0703e41e7</p>
+<p>f46fb1dec520</p>
+<p>a63b4a5597de</p>
+<p>6a4aa42e947b</p>
+<p>de7bb36e7968</p>
+<p>43a432b73776</p>
+<p>664a8ab1a585</p>
+<p>ba52eb632bbd</p>
+<p>…</p>
+<hr>
+<p>(2)docker inspect : 获取容器/镜像的元数据。</p>
+<p>语法<br>docker inspect [OPTIONS] NAME|ID [NAME|ID…]<br>OPTIONS说明：</p>
+<p>-f :指定返回值的模板文件。</p>
+<p>-s :显示总的文件大小。</p>
+<p>–type :为指定类型返回JSON。</p>
+<p>实例<br>获取镜像mysql:5.6的元信息。</p>
+<p><img src="https://i.loli.net/2021/10/05/1U2Z7fXBasKrCIM.png" alt="1"></p>
+<p>获取正在运行的容器mymysql的 IP。</p>
+<p>``runoob@runoob:~$ docker inspect --format='{{range .NetworkSettings.Networks}}{{.IPAddress}}{{end}}' mymysql
+172.17.0.3```</p>
+<p>(3)docker top :查看容器中运行的进程信息，支持 ps 命令参数。</p>
+<p>语法<br>docker top [OPTIONS] CONTAINER [ps OPTIONS]</p>
+<p>容器运行时不一定有/bin/bash终端来交互执行top命令，而且容器还不一定有top命令，可以使用docker top来实现查看container中正在运行的进程。</p>
+<p>实例<br>查看容器mymysql的进程信息。</p>
+<pre><code>       runoob@runoob:~/mysql$ docker top mymysql
+       UID    PID    PPID    C      STIME   TTY  TIME       CMD
+       999    40347  40331   18     00:58   ?    00:00:02   mysqld
+</code></pre>
+<p>查看所有运行容器的进程信息。</p>
+<p>for i in  <code>docker ps |grep Up|awk &#39;&#123;print $1&#125;&#39;</code>;do echo \ &amp;&amp;docker top $i; done</p>
+<hr>
+<p>(3)docker attach :连接到正在运行中的容器。</p>
+<p>语法<br>docker attach [OPTIONS] CONTAINER<br>要attach上去的容器必须正在运行，可以同时连接上同一个container来共享屏幕（与screen命令的attach类似）。</p>
+<p>官方文档中说attach后可以通过CTRL-C来detach，但实际上经过我的测试，如果container当前在运行bash，CTRL-C自然是当前行的输入，没有退出；如果container当前正在前台运行进程，如输出nginx的access.log日志，CTRL-C不仅会导致退出容器，而且还stop了。这不是我们想要的，detach的意思按理应该是脱离容器终端，但容器依然运行。好在attach是可以带上–sig-proxy=false来确保CTRL-D或CTRL-C不会关闭容器。</p>
+<p>实例<br>容器mynginx将访问日志指到标准输出，连接到容器查看访问信息。</p>
+<pre><code>    runoob@runoob:~$ docker attach --sig-proxy=false mynginx
+    
+    192.168.239.1 - - [10/Jul/2016:16:54:26 +0000] &quot;GET / HTTP/1.1&quot; 304 0 &quot;-&quot; 
+
+    &quot;Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) 
+
+    Chrome/45.0.2454.93 Safari/537.36&quot; &quot;-&quot;
+</code></pre>
+<hr>
+<p>(4)docker events : 从服务器获取实时事件</p>
+<p>语法<br>docker events [OPTIONS]<br>OPTIONS说明：</p>
+<p>-f ：根据条件过滤事件；</p>
+<p>–since ：从指定的时间戳后显示所有事件;</p>
+<p>–until ：流水时间显示到指定的时间为止；</p>
+<p>实例<br>显示docker 2016年7月1日后的所有事件。</p>
+<pre><code> runoob@runoob:~/mysql$ docker events  --since=&quot;1467302400&quot;
+
+ 2016-07-08T19:44:54.501277677+08:00 network connect 
+
+ 66f958fd13dc4314ad20034e576d5c5eba72e0849dcc38ad9e8436314a4149d4 (container=b8573233d675705df8c89796a2c2687cd8e36e03646457a15fb51022db440e64, name=bridge, type=bridge)
+
+ 2016-07-08T19:44:54.723876221+08:00 container start b8573233d675705df8c89796a2c2687cd8e36e03646457a15fb51022db440e64 (image=nginx:latest, name=elegant_albattani)
+
+ 2016-07-08T19:44:54.726110498+08:00 container resize b8573233d675705df8c89796a2c2687cd8e36e03646457a15fb51022db440e64 (height=39, image=nginx:latest, name=elegant_albattani, width=167)
+
+ 2016-07-08T19:46:22.137250899+08:00 container die b8573233d675705df8c89796a2c2687cd8e36e03646457a15fb51022db440e64 (exitCode=0, image=nginx:latest, name=elegant_albattani)
+ ...
+</code></pre>
+<p>显示docker 镜像为mysql:5.6 2016年7月1日后的相关事件。</p>
+<pre><code>runoob@runoob:~/mysql$ docker events -f &quot;image&quot;=&quot;mysql:5.6&quot; --since=&quot;1467302400&quot; 
+
+2016-07-11T00:38:53.975174837+08:00 container start 96f7f14e99ab9d2f60943a50be23035eda1623782cc5f930411bbea407a2bb10 (image=mysql:5.6, name=mymysql)
+
+2016-07-11T00:51:17.022572452+08:00 container kill 96f7f14e99ab9d2f60943a50be23035eda1623782cc5f930411bbea407a2bb10 (image=mysql:5.6, name=mymysql, signal=9)
+
+2016-07-11T00:51:17.132532080+08:00 container die 96f7f14e99ab9d2f60943a50be23035eda1623782cc5f930411bbea407a2bb10 (exitCode=137, image=mysql:5.6, name=mymysql)
+
+2016-07-11T00:51:17.514661357+08:00 container destroy 96f7f14e99ab9d2f60943a50be23035eda1623782cc5f930411bbea407a2bb10 (image=mysql:5.6, name=mymysql)
+
+2016-07-11T00:57:18.551984549+08:00 container create c8f0a32f12f5ec061d286af0b1285601a3e33a90a08ff1706de619ac823c345c (image=mysql:5.6, name=mymysql)
+
+2016-07-11T00:57:18.557405864+08:00 container attach c8f0a32f12f5ec061d286af0b1285601a3e33a90a08ff1706de619ac823c345c (image=mysql:5.6, name=mymysql)
+
+2016-07-11T00:57:18.844134112+08:00 container start c8f0a32f12f5ec061d286af0b1285601a3e33a90a08ff1706de619ac823c345c (image=mysql:5.6, name=mymysql)
+
+2016-07-11T00:57:19.140141428+08:00 container die c8f0a32f12f5ec061d286af0b1285601a3e33a90a08ff1706de619ac823c345c (exitCode=1, image=mysql:5.6, name=mymysql)
+
+2016-07-11T00:58:05.941019136+08:00 container destroy c8f0a32f12f5ec061d286af0b1285601a3e33a90a08ff1706de619ac823c345c (image=mysql:5.6, name=mymysql)
+
+2016-07-11T00:58:07.965128417+08:00 container create a404c6c174a21c52f199cfce476e041074ab020453c7df2a13a7869b48f2f37e (image=mysql:5.6, name=mymysql)
+
+2016-07-11T00:58:08.188734598+08:00 container start a404c6c174a21c52f199cfce476e041074ab020453c7df2a13a7869b48f2f37e (image=mysql:5.6, name=mymysql)
+
+2016-07-11T00:58:20.010876777+08:00 container top a404c6c174a21c52f199cfce476e041074ab020453c7df2a13a7869b48f2f37e (image=mysql:5.6, name=mymysql)
+
+2016-07-11T01:06:01.395365098+08:00 container top a404c6c174a21c52f199cfce476e041074ab020453c7df2a13a7869b48f2f37e (image=mysql:5.6, name=mymysql)
+</code></pre>
+<p>如果指定的时间是到秒级的，需要将时间转成时间戳。如果时间为日期的话，可以直接使用，如–since=”2016-07-01”。</p>
+<hr>
+<p>(5)docker logs : 获取容器的日志</p>
+<p>语法<br>docker logs [OPTIONS] CONTAINER<br>OPTIONS说明：</p>
+<p>-f : 跟踪日志输出</p>
+<p>–since :显示某个开始时间的所有日志</p>
+<p>-t : 显示时间戳</p>
+<p>–tail :仅列出最新N条容器日志</p>
+<p>实例<br>跟踪查看容器mynginx的日志输出。</p>
+<pre><code>runoob@runoob:~$ docker logs -f mynginx
+192.168.239.1 - - [10/Jul/2016:16:53:33 +0000] &quot;GET / HTTP/1.1&quot; 200 612 &quot;-&quot; &quot;Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/45.0.2454.93 Safari/537.36&quot; &quot;-&quot;
+2016/07/10 16:53:33 [error] 5#5: *1 open() &quot;/usr/share/nginx/html/favicon.ico&quot; failed (2: No such file or directory), client: 192.168.239.1, server: localhost, request: &quot;GET /favicon.ico HTTP/1.1&quot;, host: &quot;192.168.239.130&quot;, referrer: &quot;http://192.168.239.130/&quot;
+192.168.239.1 - - [10/Jul/2016:16:53:33 +0000] &quot;GET /favicon.ico HTTP/1.1&quot; 404 571 &quot;http://192.168.239.130/&quot; &quot;Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/45.0.2454.93 Safari/537.36&quot; &quot;-&quot;
+192.168.239.1 - - [10/Jul/2016:16:53:59 +0000] &quot;GET / HTTP/1.1&quot; 304 0 &quot;-&quot; &quot;Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/45.0.2454.93 Safari/537.36&quot; &quot;-&quot;
+</code></pre>
+<p>…<br>查看容器mynginx从2016年7月1日后的最新10条日志。</p>
+<p>docker logs –since=”2016-07-01” –tail=10 mynginx</p>
+<hr>
+<p>(6)docker wait : 阻塞运行直到容器停止，然后打印出它的退出代码。</p>
+<p>语法</p>
+<p>docker wait [OPTIONS] CONTAINER [CONTAINER…]</p>
+<p>实例<br>docker wait CONTAINER</p>
+<hr>
+<p>(7)docker export :将文件系统作为一个tar归档文件导出到STDOUT。</p>
+<p>语法<br>docker export [OPTIONS] CONTAINER</p>
+<p>OPTIONS说明：</p>
+<p>-o :将输入内容写到文件。</p>
+<p>实例<br>将id为a404c6c174a2的容器按日期保存为tar文件。</p>
+<pre><code> runoob@runoob:~$ docker export -o mysql-`date +%Y%m%d`.tar a404c6c174a2
+ runoob@runoob:~$ ls mysql-`date +%Y%m%d`.tar
+ mysql-20160711.tar
+</code></pre>
+<p>(8)docker port :列出指定的容器的端口映射，或者查找将PRIVATE_PORT NAT到面向公众的端口。</p>
+<p>语法</p>
+<p>docker port [OPTIONS] CONTAINER [PRIVATE_PORT[/PROTO]]</p>
+<p>实例<br>查看容器mynginx的端口映射情况。</p>
+<p>runoob@runoob:~$ docker port mymysql<br>3306/tcp -&gt; 0.0.0.0:3306</p>
+
+    
+
+    
+    <div class="page-reward">
+      <a href="javascript:void(0);" class="page-reward-btn tooltip-top" target="_self">
+        <div class="tooltip tooltip-east">
+          <span class="tooltip-item">
+            赏
+          </span>
+          <span class="tooltip-content">
+            <span class="tooltip-text">
+              <span class="tooltip-inner">
+                <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你请我吃糖果<i
+                    class="icon icon-quo-right"></i></p>
+                <div class="reward-box">
+                  
+                  <div class="reward-box-item">
+                    <img class="reward-img" src="/img/alipay.jpg">
+                    <span class="reward-type">支付宝</span>
+                  </div>
+                  
+                  
+                  <div class="reward-box-item">
+                    <img class="reward-img" src="/img/weixin.png">
+                    <span class="reward-type">微信</span>
+                  </div>
+                  
+                </div>
+              </span>
+            </span>
+          </span>
         </div>
-    	 
-  
-    <h1 itemprop="name">
-	
-	  <a class="archive-article-title" href="/2021/10/05/docker%E5%91%BD%E4%BB%A4%E5%A4%A7%E5%85%A8-%E5%AE%B9%E5%99%A8%E6%93%8D%E4%BD%9C/" target="_blank">docker命令大全-容器操作</a>
-  
-    </h1>
-  
+      </a>
+    </div>
+    
 
-
-        <div class="article-info info-on-right">
+    
+    <div class="declare"> 
+      <ul class="post-copyright">
+        <li>
+          <strong>本文作者：</strong>
+          00hello00
+        </li>
+        <li>
+          <strong>本文链接：</strong>
+          <a href="http://example.com/2021/10/05/docker命令大全-容器操作/" title="docker命令大全-容器操作" target="_blank">http://example.com/2021/10/05/docker命令大全-容器操作/</a>
+        </li>
+        
+        <li>
+          <strong>版权声明： </strong>
           
-          
+          本博客所有文章除特别声明外，均采用 <a href="https://github.com/JoeyBling/hexo-theme-yilia-plus/blob/master/LICENSE" rel="external nofollow" target="_blank">MIT</a> 许可协议。转载请注明出处！
+        </li>
+        
+      </ul>
+    </div>
+    
 
+  </div>
+  <div class="article-info article-info-index">
+    
+    
+    
+
+    
+
+    
+    
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <!-- <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a> -->
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+     <!-- <img src="//pan.baidu.com/share/qrcode?url=http://example.com/2021/10/05/docker%E5%91%BD%E4%BB%A4%E5%A4%A7%E5%85%A8-%E5%AE%B9%E5%99%A8%E6%93%8D%E4%BD%9C/" alt="微信分享二维码"> -->
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+
+    
+    <div class="clearfix"></div>
+  </div>
   </div>
 </article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	
-<a href="/2021/10/05/docker%E5%91%BD%E4%BB%A4%E5%A4%A7%E5%85%A8-%E5%AE%B9%E5%99%A8%E7%94%9F%E5%91%BD%E5%91%A8%E6%9C%9F%E7%AE%A1%E7%90%86/" class="archive-article-date">
-        <time datetime="2021-10-05T14:45:23.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-10-05</time>
-</a>
 
+
+<nav id="article-nav">
+  
+    <a href="/2021/10/05/docker%E5%91%BD%E4%BB%A4%E5%A4%A7%E5%85%A8-%E5%AE%B9%E5%99%A8rootfs%E5%91%BD%E4%BB%A4%E4%B8%8E%E9%95%9C%E5%83%8F%E4%BB%93%E5%BA%93/" id="article-nav-newer" class="article-nav-link-wrap">
+      <i class="icon-circle-left"></i>
+      <div class="article-nav-title">
+        
+          docker命令大全-rootfs命令及镜像仓库
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2021/10/05/docker%E5%91%BD%E4%BB%A4%E5%A4%A7%E5%85%A8-%E5%AE%B9%E5%99%A8%E7%94%9F%E5%91%BD%E5%91%A8%E6%9C%9F%E7%AE%A1%E7%90%86/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">docker命令大全-容器生命周期管理</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
         </div>
-    	 
-  
-    <h1 itemprop="name">
-	
-	  <a class="archive-article-title" href="/2021/10/05/docker%E5%91%BD%E4%BB%A4%E5%A4%A7%E5%85%A8-%E5%AE%B9%E5%99%A8%E7%94%9F%E5%91%BD%E5%91%A8%E6%9C%9F%E7%AE%A1%E7%90%86/" target="_blank">docker命令大全-容器生命周期管理</a>
-  
-    </h1>
-  
+        
+        
+    </div>
+</aside>
 
 
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	
-<a href="/2021/10/05/docker%E5%91%BD%E4%BB%A4%E5%A4%A7%E5%85%A8-%E6%9C%AC%E5%9C%B0%E9%95%9C%E5%83%8F%E7%AE%A1%E7%90%86%E4%B8%8Einfoversion/" class="archive-article-date">
-        <time datetime="2021-10-05T14:45:23.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-10-05</time>
-</a>
-
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-	
-	  <a class="archive-article-title" href="/2021/10/05/docker%E5%91%BD%E4%BB%A4%E5%A4%A7%E5%85%A8-%E6%9C%AC%E5%9C%B0%E9%95%9C%E5%83%8F%E7%AE%A1%E7%90%86%E4%B8%8Einfoversion/" target="_blank">docker命令大全-本地镜像管理及Docker info 命令</a>
-  
-    </h1>
-  
 
 
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	
-<a href="/2021/10/02/sql%E6%B3%A8%E5%85%A5%E5%8E%9F%E7%90%86/" class="archive-article-date">
-        <time datetime="2021-10-02T14:45:23.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-10-02</time>
-</a>
-
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-	
-	  <a class="archive-article-title" href="/2021/10/02/sql%E6%B3%A8%E5%85%A5%E5%8E%9F%E7%90%86/" target="_blank">SQL 注入原理分析（学习笔记）</a>
-  
-    </h1>
-  
 
 
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	
-<a href="/2021/09/18/php%E5%88%9D%E5%AD%A6%E7%AC%94%E8%AE%B0/" class="archive-article-date">
-        <time datetime="2021-09-18T13:45:23.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-09-18</time>
-</a>
-
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-	
-	  <a class="archive-article-title" href="/2021/09/18/php%E5%88%9D%E5%AD%A6%E7%AC%94%E8%AE%B0/" target="_blank">php 初学笔记</a>
-  
-    </h1>
-  
 
 
-        <div class="article-info info-on-right">
-          
-          
 
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-  
-    </div></section>
-  
 
-    
+
+
 
 
           </div>
@@ -429,8 +631,8 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
-		isArchive: true,
+		isPost: true,
+		isArchive: false,
 		isTag: false,
 		isCategory: false,
 		open_in_new: true,
