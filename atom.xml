@@ -6,7 +6,7 @@
   <link href="http://example.com/atom.xml" rel="self"/>
   
   <link href="http://example.com/"/>
-  <updated>2021-10-05T14:47:21.510Z</updated>
+  <updated>2021-10-09T13:21:43.359Z</updated>
   <id>http://example.com/</id>
   
   <author>
@@ -15,6 +15,25 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>sql注入一般流程（学习笔记）</title>
+    <link href="http://example.com/2021/10/07/sqli-labs_1%E7%AC%94%E8%AE%B0/"/>
+    <id>http://example.com/2021/10/07/sqli-labs_1%E7%AC%94%E8%AE%B0/</id>
+    <published>2021-10-07T14:58:23.000Z</published>
+    <updated>2021-10-09T13:21:43.359Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="sql注入一般流程"><a href="#sql注入一般流程" class="headerlink" title="sql注入一般流程"></a>sql注入一般流程</h1><h2 id="（1）目标收集"><a href="#（1）目标收集" class="headerlink" title="（1）目标收集"></a>（1）目标收集</h2><p>a.无特定目标inurl:.php?id=//注意php前有一个小点</p><p>b.有特定目标inurl:.php?id=sit:target.com</p><p>c.工具爬取spider，对收索引擎和目标网站的链接经行爬取</p><span id="more"></span><h2 id="（2）注入识别"><a href="#（2）注入识别" class="headerlink" title="（2）注入识别"></a>（2）注入识别</h2><h3 id="a-手工简单识别"><a href="#a-手工简单识别" class="headerlink" title="a.手工简单识别"></a>a.手工简单识别</h3><p>:’</p><p>:and 1=1/and1=2</p><p>:and ‘1’=’1/and’1’=’2</p><p>:and 1 like 1/and 1 like 2</p><h3 id="b-工具识别"><a href="#b-工具识别" class="headerlink" title="b.工具识别"></a>b.工具识别</h3><p>sqlmap -m filename(filename中保存检测目标)</p><p>sqlmap -crawl(sqlmap对目标网站经行爬取然后依次进行测试)</p><p>ps.高级识别</p><p>扩展识别的广度和深度</p><p>sqlmap–level 增加测试级别，对header中相关参进行测试</p><p>sqlmap -r filename (filename 中为网站请求数据)</p><p>利用工具提高识别效率</p><p>Burp Suite + SqlMap</p><p>BurpSuite 拦截所有浏览器访问提交的数据</p><p>BurpSuite扩展插件，直接调用SqlMap测试</p><h3 id="ps-建议"><a href="#ps-建议" class="headerlink" title="ps.建议"></a>ps.建议</h3><p>1.可以在参数后输入’*’来确定想测试的参数</p><p>eg：参照暴力破解</p><p>2.可能出现注入的点：新闻、登入、搜索、留言……(常见疏忽防守的地方)</p><p>3.要站在开发者的角度去寻找</p><h3 id="c-代码审计"><a href="#c-代码审计" class="headerlink" title="c.代码审计"></a>c.代码审计</h3><p>搜索关键代码和函数</p><p>梳理业务流程</p><h2 id="（3）SQL注入"><a href="#（3）SQL注入" class="headerlink" title="（3）SQL注入"></a>（3）SQL注入</h2><p>①信息搜集</p><p>1&gt;.数据库类型：</p><p>a.check the manual that corresponds to your MySQL server version for the right syntax(mysql类型)</p><p>b.Microsoft JET Datebase Engine 错误 ‘80040e14’(website类型)</p><p>c.也可用函数version()、@@version进行查询</p><p>2&gt;.数据库版本：a.@@version v$version</p><p>3&gt;.数据库用户：user()</p><p>SYSTEM_VSER</p><p>4&gt;.数据库权限：super_priv</p><p>IS_SRVROLEMEMBER</p><p>②获得数据</p><p>a.获取库信息</p><p>b.获取表信息</p><p>c.获取列信息</p><p>d.获取数据</p><p>（1.通过语句查询2.通过暴力破解）</p><p>ps.暴力破解</p><p>wed.mdb</p><p>select[*] from xxx</p><p>select[xxx] from XXXXX</p><p>③提权</p><p>a.执行命令：SQLSever 权限</p><p>b.读文件：读中间件配置文件;读数据库配置文件</p><p>c.写webshell到网站目录</p>]]></content>
+    
+    
+    <summary type="html">&lt;h1 id=&quot;sql注入一般流程&quot;&gt;&lt;a href=&quot;#sql注入一般流程&quot; class=&quot;headerlink&quot; title=&quot;sql注入一般流程&quot;&gt;&lt;/a&gt;sql注入一般流程&lt;/h1&gt;&lt;h2 id=&quot;（1）目标收集&quot;&gt;&lt;a href=&quot;#（1）目标收集&quot; class=&quot;headerlink&quot; title=&quot;（1）目标收集&quot;&gt;&lt;/a&gt;（1）目标收集&lt;/h2&gt;&lt;p&gt;a.无特定目标inurl:.php?id=//注意php前有一个小点&lt;/p&gt;
+&lt;p&gt;b.有特定目标inurl:.php?id=sit:target.com&lt;/p&gt;
+&lt;p&gt;c.工具爬取spider，对收索引擎和目标网站的链接经行爬取&lt;/p&gt;</summary>
+    
+    
+    
+    
+  </entry>
   
   <entry>
     <title>docker命令大全-rootfs命令及镜像仓库</title>
