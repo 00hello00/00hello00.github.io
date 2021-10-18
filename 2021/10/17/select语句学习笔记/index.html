@@ -6,19 +6,19 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://example.com">
-  <title>Hexo</title>
+  <title>select语句学习笔记 | Hexo</title>
   <meta name="generator" content="hexo-theme-yilia-plus">
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   
-    
-    <!-- <meta name="keywords" content="">
-    <meta name="description" content=""> -->
-  
-  <meta property="og:type" content="website">
-<meta property="og:title" content="Hexo">
-<meta property="og:url" content="http://example.com/index.html">
+  <meta name="description" content="select语句（学习笔记）注：这篇博客是博主通过学习B站这位UP主（https:&#x2F;&#x2F;space.bilibili.com&#x2F;508641166&#x2F;video?tid&#x3D;0&amp;page&#x3D;1&amp;keyword&#x3D;&amp;order&#x3D;pubdate）18到22有关select语句的教程所得出的总结。 1.SELECT一般格式SELECT 目标表达式 别名(，目标表达式 别名...） FROM 表">
+<meta property="og:type" content="article">
+<meta property="og:title" content="select语句学习笔记">
+<meta property="og:url" content="http://example.com/2021/10/17/select%E8%AF%AD%E5%8F%A5%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/index.html">
 <meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="select语句（学习笔记）注：这篇博客是博主通过学习B站这位UP主（https:&#x2F;&#x2F;space.bilibili.com&#x2F;508641166&#x2F;video?tid&#x3D;0&amp;page&#x3D;1&amp;keyword&#x3D;&amp;order&#x3D;pubdate）18到22有关select语句的教程所得出的总结。 1.SELECT一般格式SELECT 目标表达式 别名(，目标表达式 别名...） FROM 表">
 <meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2021-10-16T16:30:55.000Z">
+<meta property="article:modified_time" content="2021-10-18T14:46:38.229Z">
 <meta property="article:author" content="00hello00">
 <meta name="twitter:card" content="summary">
   
@@ -185,25 +185,25 @@
               class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-
-  
-    <article id="post-select语句学习笔记" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+            <article id="post-select语句学习笔记" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
   
   
-    <h1 itemprop="name">
-	
-	  <a class="article-title" href="/2021/10/17/select%E8%AF%AD%E5%8F%A5%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" target="_blank">select语句学习笔记</a>
-  
+    <h1 class="article-title" itemprop="name">
+      select语句学习笔记
     </h1>
   
 
 
   
   
+        
+        <span id="busuanzi_container_page_pv" style='display:none' class="archive-article-date">
+              <i class="icon-smile icon"></i> 阅读数：<span id="busuanzi_value_page_pv"></span>次
+        </span>
+
 <a href="/2021/10/17/select%E8%AF%AD%E5%8F%A5%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" class="archive-article-date">
         <time datetime="2021-10-16T16:30:55.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-10-17</time>
 </a>
@@ -211,6 +211,27 @@
   
   
     
+<div style="margin-top:10px;">
+  <span class="post-time">
+    <span class="post-meta-item-icon">
+      <!-- fonts.scss -->
+      <!-- 百度字体平台:http://fontstore.baidu.com/static/editor/index.html -->
+      <i class="icon-statistics"></i>
+      <span class="post-meta-item-text"> 字数统计:</span>
+      <span class="post-count">1.2k字</span>
+    </span>
+  </span>
+
+  <span class="post-time">
+    &nbsp; | &nbsp;
+    <span class="post-meta-item-icon">
+      <i class="icon-book icon"></i>
+      <span class="post-meta-item-text"> 阅读时长≈</span>
+      <span class="post-count">5分</span>
+    </span>
+  </span>
+</div>
+
 
   
   </header>
@@ -224,13 +245,172 @@ WHERE 条件表达式
 GOUOP BY 列名（，列名...） HAVING 条件表达式
 ORDER BY 列名（，列名...）[ASC|DESE]
 </code></pre>
-    
-    <a class="article-more-a" href="/2021/10/17/select%E8%AF%AD%E5%8F%A5%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/#more">more >></a>
-    
-    
+<span id="more"></span>
+<h2 id="2-select子句"><a href="#2-select子句" class="headerlink" title="2.select子句"></a>2.select子句</h2><p>（1）属于投影运算——不消除重复行</p>
+<p>（2）SELECT语句后+全部列名或经过计算的值</p>
+<p>（3）各列的先后顺序可以与表中的逻辑顺序不一样，用户可以根据需要改变列的显示顺序</p>
+<pre><code>eg1.SELECT A FROM B
+
+eg2.SELECT *(代表全部列名) FROM A
+</code></pre>
+<p>PS.</p>
+<p>1.GETDATE()——函数得到系统时间</p>
+<p>2.YEAR()——返回指定日期的年日期部分的整数</p>
+<pre><code>eg3.SELECT A，YEAR(GETCHAR())-AGE FROM B
+注：这里的YEAR(GETCHAR())-AGE中-是减号
+</code></pre>
+<p>3.DISTLNCT筛选避免重复</p>
+<pre><code>eg4.SELECT DISTINCT A FROM B
+</code></pre>
+<h2 id="3-WHERE子句中的condition"><a href="#3-WHERE子句中的condition" class="headerlink" title="3.WHERE子句中的condition"></a>3.WHERE子句中的condition</h2><p>(1)使用比较运算符</p>
+<pre><code> =,&gt;,&lt;,&gt;=,&lt;=,!=或&lt;&gt;,!&gt;,!&lt;
+</code></pre>
+<p>ps.逻辑运算符NOT+含上述比较运算符表达式<br>    eg1.SELECT A FROM B WHERE NOT C&gt;20;</p>
+<p>(2)(NOT) BETWEEN…AND…</p>
+<p>ps.</p>
+<p> 1.BETWEEN后：范围的下限（及低值）；AND后范围的上限</p>
+<pre><code>eg1.SELECT A FROM WHERE A BETWEEN 1 AND 2;
+</code></pre>
+<p>(3)确定集合 (NOT) IN &lt;表值，表值，表值…&gt;</p>
+<pre><code>eg2.SELECT A FROM B WHERE C IN(&#39;a&#39;，&#39;b&#39;)
+</code></pre>
+<p>(4)使用字符串匹配（NOT）LIKE</p>
+<p>格式： [NOT] LIKE ‘&lt;匹配串&gt;’ [ESCAPE’&lt;转码字符&gt;’]</p>
+<ul>
+<li>匹配模板：固定字符串或含通配符的字符串（当匹配模板为固定字符时，可以用=运算符取代LIKE,用!=或&lt;&gt;取代NOT LIKE 谓语）</li>
+</ul>
+<p>(5)通配符：%——代表任意长度（长度可以为0）的字符串</p>
+<pre><code>eg3.a%b表示以a开头，以b结尾的任意长度的字符串。acb、addgb等都符合该匹配串。
+</code></pre>
+<p>(6)_——代表任意单个字符</p>
+<pre><code>eg4.a_b表示以a开头，以b结尾的长度为3的任意字符串。如acb等都满足该匹配串。
+
+eg5.查询第2个汉字为“阳”字的学生的姓名
+
+SELECT name FROM Student WHERE name LIKE&#39;_阳%&#39;
+</code></pre>
+<p>(7)ESCAPE短语</p>
+<ul>
+<li><p>用户查询字符串本身带有%或_时要用ESCAPE’&lt;转码字符&gt;’短语对通配符进行转义</p>
+<pre><code>  eg1.
+
+  错误表达：SELECT A FROM B WHERE C LIKE&#39;DB_DESIGN&#39;
+  注：C包含于A中
+  正确表达：SELECT A FROM B WHERE C LIKE&#39;DB\_DESIGN&#39; ESCAPE&#39;\&#39;
+
+  eg2.SELECT * FROM A WHERE LIKE &#39;DB\_%I__&#39; ESCAPE&#39;\&#39;
+</code></pre>
+</li>
+</ul>
+<p>(8)涉及空值的查询</p>
+<ul>
+<li><p>使用谓语IS NULL 或 IS NOT NULL </p>
+</li>
+<li><p>“IS NULL”不能用“=NULL”代替</p>
+<pre><code>  eg1.SELECT A FROM B WHERE A(C) IS NULL
+</code></pre>
+</li>
+</ul>
+<p>(10)多重条件查询：用逻辑运算符AND和OR来连接多个查询条件（注：1.AND的优先级高于OR ; 2.可以用括号改变优先级 ; 3.可以用来实现多种其他谓语）</p>
+<pre><code>eg1.SELECT A FROM B WHERE C=&#39;a&#39; AND D&lt;20;
+eg2.SELECT A FROM B WHERE C IN(&#39;a&#39;,&#39;b&#39;,&#39;c&#39;)
+</code></pre>
+<h2 id="4-对查询结果排序：使用ORDER-BY-子句"><a href="#4-对查询结果排序：使用ORDER-BY-子句" class="headerlink" title="4.对查询结果排序：使用ORDER BY 子句"></a>4.对查询结果排序：使用ORDER BY 子句</h2><ul>
+<li>可以按一个或多个属性列排序</li>
+</ul>
+<p>a.ASC(升序)：排序列为空值的元组最后显示</p>
+<p>b.DESC(降序)：排序列为空值的元组最先显示</p>
+<pre><code>eg1.SELECT A FROM B WHERE C=3 ORDER BY D DESC
+</code></pre>
+<h2 id="5-使用集函数·5类主要集函数"><a href="#5-使用集函数·5类主要集函数" class="headerlink" title="5.使用集函数·5类主要集函数"></a>5.使用集函数·5类主要集函数</h2><p>（1）COUNT(&lt;列名&gt;)：统计个数</p>
+<p>（2）SUM(&lt;列名&gt;)：求总和</p>
+<p>（3）ATG(&lt;列名&gt;)：求平均值</p>
+<p>（4）MAX(&lt;列名&gt;)：求最大值</p>
+<p>（5）MIN(&lt;列名&gt;)：求最小值</p>
+<pre><code>eg1.SELECT AVG(A) FROM B WHERE C=1;
+</code></pre>
+<ul>
+<li>ps</li>
+</ul>
+<p>1.统计时不计NULL值</p>
+<p>2.COUNT(*)统计行数</p>
+<p>3.DISTINCT 在列名前加DISTINCT则统计时去掉重复行</p>
+<h2 id="6-对查询结果分组"><a href="#6-对查询结果分组" class="headerlink" title="6.对查询结果分组"></a>6.对查询结果分组</h2><p>###a.使用GEOUP BY子句分组</p>
+<pre><code>eg1.SELECT A FROM B WHERE C&gt;=90 GROUP BY A;
+</code></pre>
+<ul>
+<li>ps</li>
+</ul>
+<p>1.分组方法按指定的一列或多列值分组，值相等的为一组</p>
+<p>2.使用GROUP BY 子句后，SELECT子句只能包含GROUP BY 后列名和集函数</p>
+<p>3.GROUP BY 子句作用对象是查询的中间结果表</p>
+<p>###b.使用HAVING短语筛选最终输出的结果<br>（WHERE是对FROM后的对象筛选，而HAVING是对ORDER BY分组后的结果筛选）</p>
+<pre><code>eg1.SELECT A FROM B GROUP BY A HAVING COUNT(*)&gt;=3
+</code></pre>
+<ul>
+<li>ps</li>
+</ul>
+<p>1.只有满足HAVING短语指定条件的组才输出</p>
+<p>2.HAVING短语与WHERE子句区别：作用对象不同</p>
+<p>WHERE子句作用于基表或视图，从中选择满足条件的元组</p>
+<p>HAVING短语作用于组，从中选择满足条件的组</p>
 
     
 
+    
+    <div class="page-reward">
+      <a href="javascript:void(0);" class="page-reward-btn tooltip-top" target="_self">
+        <div class="tooltip tooltip-east">
+          <span class="tooltip-item">
+            赏
+          </span>
+          <span class="tooltip-content">
+            <span class="tooltip-text">
+              <span class="tooltip-inner">
+                <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你请我吃糖果<i
+                    class="icon icon-quo-right"></i></p>
+                <div class="reward-box">
+                  
+                  <div class="reward-box-item">
+                    <img class="reward-img" src="/img/zfb.jpg">
+                    <span class="reward-type">支付宝</span>
+                  </div>
+                  
+                  
+                  <div class="reward-box-item">
+                    <img class="reward-img" src="/img/wx.png">
+                    <span class="reward-type">微信</span>
+                  </div>
+                  
+                </div>
+              </span>
+            </span>
+          </span>
+        </div>
+      </a>
+    </div>
+    
+
+    
+    <div class="declare"> 
+      <ul class="post-copyright">
+        <li>
+          <strong>本文作者：</strong>
+          00hello00
+        </li>
+        <li>
+          <strong>本文链接：</strong>
+          <a href="http://example.com/2021/10/17/select语句学习笔记/" title="select语句学习笔记" target="_blank">http://example.com/2021/10/17/select语句学习笔记/</a>
+        </li>
+        
+        <li>
+          <strong>版权声明： </strong>
+          
+          本博客所有文章除特别声明外，均采用 <a href="https://github.com/JoeyBling/hexo-theme-yilia-plus/blob/master/LICENSE" rel="external nofollow" target="_blank">MIT</a> 许可协议。转载请注明出处！
+        </li>
+        
+      </ul>
+    </div>
     
 
   </div>
@@ -240,16 +420,76 @@ ORDER BY 列名（，列名...）[ASC|DESE]
     
 
     
-    <p class="article-more-link">
-      <a class="article-more-a" href="/2021/10/17/select%E8%AF%AD%E5%8F%A5%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/">展开全文 >></a>
-    </p>
+
     
+    
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <!-- <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a> -->
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
+        </div>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+     <!-- <img src="//pan.baidu.com/share/qrcode?url=http://example.com/2021/10/17/select%E8%AF%AD%E5%8F%A5%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" alt="微信分享二维码"> -->
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
 
     
     <div class="clearfix"></div>
   </div>
   </div>
 </article>
+
+
+<nav id="article-nav">
+  
+  
+    <a href="/2021/10/10/sqli-lab-lesson1/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">sqli_lab_lesson1</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
 
 <aside class="wrap-side-operation">
     <div class="mod-side-operation">
@@ -270,658 +510,14 @@ ORDER BY 列名（，列名...）[ASC|DESE]
 
 
 
-  
-    <article id="post-sqli-lab-lesson1" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-  
-  
-    <h1 itemprop="name">
-	
-	  <a class="article-title" href="/2021/10/10/sqli-lab-lesson1/" target="_blank">sqli_lab_lesson1</a>
-  
-    </h1>
-  
 
 
-  
-  
-<a href="/2021/10/10/sqli-lab-lesson1/" class="archive-article-date">
-        <time datetime="2021-10-10T07:26:38.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-10-10</time>
-</a>
 
-  
-  
-    
 
-  
-  </header>
-  
-  <div class="article-entry" itemprop="articleBody">
-    
-    <h1 id="sqli-lab-lesson1问题解析（萌新版）"><a href="#sqli-lab-lesson1问题解析（萌新版）" class="headerlink" title="sqli-lab-lesson1问题解析（萌新版）"></a>sqli-lab-lesson1问题解析（萌新版）</h1><p>博主作为一位刚接触计算机萌新，有很多不懂的东西需要学习。以下是博主在按照别人的攻略通过sqli-libs-lesson1的遇到问题以及查找到的解答。</p>
-<p>1.具体步骤（攻略链接：<a target="_blank" rel="noopener" href="https://blog.csdn.net/weixin_51356351/article/details/109198820">https://blog.csdn.net/weixin_51356351/article/details/109198820</a>以下图片是博主根据攻略输入指令所得,部分内容有稍微进行修改）</p>
-<p>判断注入点—-判断是数字型还是字符型—-查询列数—-查询显示位—-获取数据库名—-获取数据库中的表名—-获取列名—-获取列中的数据 其实不管是联合查询还是盲注之类的基本都这样，大同小异。</p>
-    
-    <a class="article-more-a" href="/2021/10/10/sqli-lab-lesson1/#more">more >></a>
-    
-    
 
-    
 
-    
 
-  </div>
-  <div class="article-info article-info-index">
-    
-    
-    
 
-    
-    <p class="article-more-link">
-      <a class="article-more-a" href="/2021/10/10/sqli-lab-lesson1/">展开全文 >></a>
-    </p>
-    
-
-    
-    <div class="clearfix"></div>
-  </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-sqli注入流程笔记" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-  
-  
-    <h1 itemprop="name">
-	
-	  <a class="article-title" href="/2021/10/07/sqli%E6%B3%A8%E5%85%A5%E6%B5%81%E7%A8%8B%E7%AC%94%E8%AE%B0/" target="_blank">sql注入一般流程（学习笔记）</a>
-  
-    </h1>
-  
-
-
-  
-  
-<a href="/2021/10/07/sqli%E6%B3%A8%E5%85%A5%E6%B5%81%E7%A8%8B%E7%AC%94%E8%AE%B0/" class="archive-article-date">
-        <time datetime="2021-10-07T14:58:23.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-10-07</time>
-</a>
-
-  
-  
-    
-
-  
-  </header>
-  
-  <div class="article-entry" itemprop="articleBody">
-    
-    <h1 id="sql注入一般流程"><a href="#sql注入一般流程" class="headerlink" title="sql注入一般流程"></a>sql注入一般流程</h1><h2 id="（1）目标收集"><a href="#（1）目标收集" class="headerlink" title="（1）目标收集"></a>（1）目标收集</h2><p>a.无特定目标inurl:.php?id=//注意php前有一个小点</p>
-<p>b.有特定目标inurl:.php?id=sit:target.com</p>
-<p>c.工具爬取spider，对收索引擎和目标网站的链接经行爬取</p>
-    
-    <a class="article-more-a" href="/2021/10/07/sqli%E6%B3%A8%E5%85%A5%E6%B5%81%E7%A8%8B%E7%AC%94%E8%AE%B0/#more">more >></a>
-    
-    
-
-    
-
-    
-
-  </div>
-  <div class="article-info article-info-index">
-    
-    
-    
-
-    
-    <p class="article-more-link">
-      <a class="article-more-a" href="/2021/10/07/sqli%E6%B3%A8%E5%85%A5%E6%B5%81%E7%A8%8B%E7%AC%94%E8%AE%B0/">展开全文 >></a>
-    </p>
-    
-
-    
-    <div class="clearfix"></div>
-  </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-docker命令大全-容器rootfs命令与镜像仓库" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-  
-  
-    <h1 itemprop="name">
-	
-	  <a class="article-title" href="/2021/10/05/docker%E5%91%BD%E4%BB%A4%E5%A4%A7%E5%85%A8-%E5%AE%B9%E5%99%A8rootfs%E5%91%BD%E4%BB%A4%E4%B8%8E%E9%95%9C%E5%83%8F%E4%BB%93%E5%BA%93/" target="_blank">docker命令大全-rootfs命令及镜像仓库</a>
-  
-    </h1>
-  
-
-
-  
-  
-<a href="/2021/10/05/docker%E5%91%BD%E4%BB%A4%E5%A4%A7%E5%85%A8-%E5%AE%B9%E5%99%A8rootfs%E5%91%BD%E4%BB%A4%E4%B8%8E%E9%95%9C%E5%83%8F%E4%BB%93%E5%BA%93/" class="archive-article-date">
-        <time datetime="2021-10-05T14:45:23.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-10-05</time>
-</a>
-
-  
-  
-    
-
-  
-  </header>
-  
-  <div class="article-entry" itemprop="articleBody">
-    
-    <h1 id="容器rootfs命令"><a href="#容器rootfs命令" class="headerlink" title="容器rootfs命令"></a>容器rootfs命令</h1><p>本文取自<a target="_blank" rel="noopener" href="https://www.runoob.com/docker/docker-rm-command.html">https://www.runoob.com/docker/docker-rm-command.html</a>，博主整理这些命令主要是方便自己或其他需要的人来查阅</p>
-<p>（1）docker commit :从容器创建一个新的镜像。</p>
-<p>语法<br>docker commit [OPTIONS] CONTAINER [REPOSITORY[:TAG]]<br>OPTIONS说明：</p>
-<p>-a :提交的镜像作者；</p>
-<p>-c :使用Dockerfile指令来创建镜像；</p>
-<p>-m :提交时的说明文字；</p>
-<p>-p :在commit时，将容器暂停。</p>
-    
-    <a class="article-more-a" href="/2021/10/05/docker%E5%91%BD%E4%BB%A4%E5%A4%A7%E5%85%A8-%E5%AE%B9%E5%99%A8rootfs%E5%91%BD%E4%BB%A4%E4%B8%8E%E9%95%9C%E5%83%8F%E4%BB%93%E5%BA%93/#more">more >></a>
-    
-    
-
-    
-
-    
-
-  </div>
-  <div class="article-info article-info-index">
-    
-    
-    
-
-    
-    <p class="article-more-link">
-      <a class="article-more-a" href="/2021/10/05/docker%E5%91%BD%E4%BB%A4%E5%A4%A7%E5%85%A8-%E5%AE%B9%E5%99%A8rootfs%E5%91%BD%E4%BB%A4%E4%B8%8E%E9%95%9C%E5%83%8F%E4%BB%93%E5%BA%93/">展开全文 >></a>
-    </p>
-    
-
-    
-    <div class="clearfix"></div>
-  </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-docker命令大全-容器生命周期管理" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-  
-  
-    <h1 itemprop="name">
-	
-	  <a class="article-title" href="/2021/10/05/docker%E5%91%BD%E4%BB%A4%E5%A4%A7%E5%85%A8-%E5%AE%B9%E5%99%A8%E7%94%9F%E5%91%BD%E5%91%A8%E6%9C%9F%E7%AE%A1%E7%90%86/" target="_blank">docker命令大全-容器生命周期管理</a>
-  
-    </h1>
-  
-
-
-  
-  
-<a href="/2021/10/05/docker%E5%91%BD%E4%BB%A4%E5%A4%A7%E5%85%A8-%E5%AE%B9%E5%99%A8%E7%94%9F%E5%91%BD%E5%91%A8%E6%9C%9F%E7%AE%A1%E7%90%86/" class="archive-article-date">
-        <time datetime="2021-10-05T14:45:23.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-10-05</time>
-</a>
-
-  
-  
-    
-
-  
-  </header>
-  
-  <div class="article-entry" itemprop="articleBody">
-    
-    <h1 id="docker命令大全-容器生命周期管理"><a href="#docker命令大全-容器生命周期管理" class="headerlink" title="docker命令大全-容器生命周期管理"></a>docker命令大全-容器生命周期管理</h1><p>本文取自<a target="_blank" rel="noopener" href="https://www.runoob.com/docker/docker-rm-command.html">https://www.runoob.com/docker/docker-rm-command.html</a>，博主整理这些命令主要是方便自己或其他需要的人来查阅</p>
-<p>（1）docker start :启动一个或多个已经被停止的容器</p>
-<p>docker stop :停止一个运行中的容器</p>
-<p>docker restart :重启容器</p>
-    
-    <a class="article-more-a" href="/2021/10/05/docker%E5%91%BD%E4%BB%A4%E5%A4%A7%E5%85%A8-%E5%AE%B9%E5%99%A8%E7%94%9F%E5%91%BD%E5%91%A8%E6%9C%9F%E7%AE%A1%E7%90%86/#more">more >></a>
-    
-    
-
-    
-
-    
-
-  </div>
-  <div class="article-info article-info-index">
-    
-    
-    
-
-    
-    <p class="article-more-link">
-      <a class="article-more-a" href="/2021/10/05/docker%E5%91%BD%E4%BB%A4%E5%A4%A7%E5%85%A8-%E5%AE%B9%E5%99%A8%E7%94%9F%E5%91%BD%E5%91%A8%E6%9C%9F%E7%AE%A1%E7%90%86/">展开全文 >></a>
-    </p>
-    
-
-    
-    <div class="clearfix"></div>
-  </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-docker命令大全-本地镜像管理与infoversion" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-  
-  
-    <h1 itemprop="name">
-	
-	  <a class="article-title" href="/2021/10/05/docker%E5%91%BD%E4%BB%A4%E5%A4%A7%E5%85%A8-%E6%9C%AC%E5%9C%B0%E9%95%9C%E5%83%8F%E7%AE%A1%E7%90%86%E4%B8%8Einfoversion/" target="_blank">docker命令大全-本地镜像管理及Docker info 命令</a>
-  
-    </h1>
-  
-
-
-  
-  
-<a href="/2021/10/05/docker%E5%91%BD%E4%BB%A4%E5%A4%A7%E5%85%A8-%E6%9C%AC%E5%9C%B0%E9%95%9C%E5%83%8F%E7%AE%A1%E7%90%86%E4%B8%8Einfoversion/" class="archive-article-date">
-        <time datetime="2021-10-05T14:45:23.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-10-05</time>
-</a>
-
-  
-  
-    
-
-  
-  </header>
-  
-  <div class="article-entry" itemprop="articleBody">
-    
-    <h1 id="本地镜像管理"><a href="#本地镜像管理" class="headerlink" title="本地镜像管理"></a>本地镜像管理</h1><p>本文取自<a target="_blank" rel="noopener" href="https://www.runoob.com/docker/docker-rm-command.html">https://www.runoob.com/docker/docker-rm-command.html</a>，博主整理这些命令主要是方便自己或其他需要的人来查阅</p>
-<p>(1)docker images : 列出本地镜像。</p>
-<p>语法<br>docker images [OPTIONS] [REPOSITORY[:TAG]]<br>OPTIONS说明：</p>
-<p>-a :列出本地所有的镜像（含中间映像层，默认情况下，过滤掉中间映像层）；</p>
-<p>–digests :显示镜像的摘要信息；</p>
-<p>-f :显示满足条件的镜像；</p>
-<p>–format :指定返回值的模板文件；</p>
-<p>–no-trunc :显示完整的镜像信息；</p>
-<p>-q :只显示镜像ID。
-    
-    <a class="article-more-a" href="/2021/10/05/docker%E5%91%BD%E4%BB%A4%E5%A4%A7%E5%85%A8-%E6%9C%AC%E5%9C%B0%E9%95%9C%E5%83%8F%E7%AE%A1%E7%90%86%E4%B8%8Einfoversion/#more">more >></a>
-    
-    
-
-    
-
-    
-
-  </div>
-  <div class="article-info article-info-index">
-    
-    
-    
-
-    
-    <p class="article-more-link">
-      <a class="article-more-a" href="/2021/10/05/docker%E5%91%BD%E4%BB%A4%E5%A4%A7%E5%85%A8-%E6%9C%AC%E5%9C%B0%E9%95%9C%E5%83%8F%E7%AE%A1%E7%90%86%E4%B8%8Einfoversion/">展开全文 >></a>
-    </p>
-    
-
-    
-    <div class="clearfix"></div>
-  </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-docker命令大全-容器操作" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-  
-  
-    <h1 itemprop="name">
-	
-	  <a class="article-title" href="/2021/10/05/docker%E5%91%BD%E4%BB%A4%E5%A4%A7%E5%85%A8-%E5%AE%B9%E5%99%A8%E6%93%8D%E4%BD%9C/" target="_blank">docker命令大全-容器操作</a>
-  
-    </h1>
-  
-
-
-  
-  
-<a href="/2021/10/05/docker%E5%91%BD%E4%BB%A4%E5%A4%A7%E5%85%A8-%E5%AE%B9%E5%99%A8%E6%93%8D%E4%BD%9C/" class="archive-article-date">
-        <time datetime="2021-10-05T14:45:23.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-10-05</time>
-</a>
-
-  
-  
-    
-
-  
-  </header>
-  
-  <div class="article-entry" itemprop="articleBody">
-    
-    <h1 id="docker的常用命令-容器操作"><a href="#docker的常用命令-容器操作" class="headerlink" title="docker的常用命令-容器操作"></a>docker的常用命令-容器操作</h1><p>本文取自<a target="_blank" rel="noopener" href="https://www.runoob.com/docker/docker-rm-command.html">https://www.runoob.com/docker/docker-rm-command.html</a>，博主整理这些命令主要是方便自己或其他需要的人来查阅</p>
-<p>（1）docker ps : 列出容器</p>
-<p>语法<br>docker ps [OPTIONS]<br>OPTIONS说明：</p>
-<p>-a :显示所有的容器，包括未运行的。</p>
-<p>-f :根据条件过滤显示的内容。</p>
-<p>–format :指定返回值的模板文件。</p>
-<p>-l :显示最近创建的容器。</p>
-<p>-n :列出最近创建的n个容器。</p>
-<p>–no-trunc :不截断输出。</p>
-<p>-q :静默模式，只显示容器编号。</p>
-<p>-s :显示总的文件大小。</p>
-    
-    <a class="article-more-a" href="/2021/10/05/docker%E5%91%BD%E4%BB%A4%E5%A4%A7%E5%85%A8-%E5%AE%B9%E5%99%A8%E6%93%8D%E4%BD%9C/#more">more >></a>
-    
-    
-
-    
-
-    
-
-  </div>
-  <div class="article-info article-info-index">
-    
-    
-    
-
-    
-    <p class="article-more-link">
-      <a class="article-more-a" href="/2021/10/05/docker%E5%91%BD%E4%BB%A4%E5%A4%A7%E5%85%A8-%E5%AE%B9%E5%99%A8%E6%93%8D%E4%BD%9C/">展开全文 >></a>
-    </p>
-    
-
-    
-    <div class="clearfix"></div>
-  </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-sql注入原理" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-  
-  
-    <h1 itemprop="name">
-	
-	  <a class="article-title" href="/2021/10/02/sql%E6%B3%A8%E5%85%A5%E5%8E%9F%E7%90%86/" target="_blank">SQL 注入原理分析（学习笔记）</a>
-  
-    </h1>
-  
-
-
-  
-  
-<a href="/2021/10/02/sql%E6%B3%A8%E5%85%A5%E5%8E%9F%E7%90%86/" class="archive-article-date">
-        <time datetime="2021-10-02T14:45:23.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-10-02</time>
-</a>
-
-  
-  
-    
-
-  
-  </header>
-  
-  <div class="article-entry" itemprop="articleBody">
-    
-    <h1 id="SQL-注入原理分析（学习笔记）"><a href="#SQL-注入原理分析（学习笔记）" class="headerlink" title="SQL 注入原理分析（学习笔记）"></a>SQL 注入原理分析（学习笔记）</h1><p><strong>1.SQL语言介绍</strong></p>
-<p>​       SQL 全称是“结构化查询语言( Structured Query Language)”, 最早是IBM的圣约瑟研究实验室为其关系数据库管理系统SYSTEMR开发的一种查询语言,它的前身是SQUARE语言。SQL语言结构简洁,功能强大,简单易学,所以自从IBM公司1981年推出以来, SQL语言得到了广泛的应用。</p>
-<p>​        结构化查询语言SQL是一种介于关系代数与关系演算之间的语言,其功能包括查询、操纵、定义和控制四个方面,是一个通用的功能极强的关系数据库标准语言。在SQL语言中不需要告诉SQL如何访问数据库,只要告诉SQL需要数据库做什么。</p>
-    
-    <a class="article-more-a" href="/2021/10/02/sql%E6%B3%A8%E5%85%A5%E5%8E%9F%E7%90%86/#more">more >></a>
-    
-    
-
-    
-
-    
-
-  </div>
-  <div class="article-info article-info-index">
-    
-    
-    
-
-    
-    <p class="article-more-link">
-      <a class="article-more-a" href="/2021/10/02/sql%E6%B3%A8%E5%85%A5%E5%8E%9F%E7%90%86/">展开全文 >></a>
-    </p>
-    
-
-    
-    <div class="clearfix"></div>
-  </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-php初学笔记" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-  
-  
-    <h1 itemprop="name">
-	
-	  <a class="article-title" href="/2021/09/18/php%E5%88%9D%E5%AD%A6%E7%AC%94%E8%AE%B0/" target="_blank">php 初学笔记</a>
-  
-    </h1>
-  
-
-
-  
-  
-<a href="/2021/09/18/php%E5%88%9D%E5%AD%A6%E7%AC%94%E8%AE%B0/" class="archive-article-date">
-        <time datetime="2021-09-18T13:45:23.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-09-18</time>
-</a>
-
-  
-  
-    
-
-  
-  </header>
-  
-  <div class="article-entry" itemprop="articleBody">
-    
-    <h1 id="PHP-初学笔记——数据类型"><a href="#PHP-初学笔记——数据类型" class="headerlink" title="#PHP 初学笔记——数据类型"></a>#PHP 初学笔记——数据类型</h1><p>1.# 概念 #</p>
-<p>PHP（PHP: Hypertext Preprocessor）<br>即“超文本预处理器”，是在服务器端执行的脚本语言，尤其适用于Web开发并可嵌入HTML中。PHP语法学习了C语言，吸纳Java和Perl多个语言的特色发展出自己的特色语法，并根据它们的长项持续改进提升自己，例如java的面向对象编程，该语言当初创建的主要目标是让开发人员快速编写出优质的web网站。 PHP同时支持面向对象和面向过程的开发，使用上非常灵活。</p>
-    
-    <a class="article-more-a" href="/2021/09/18/php%E5%88%9D%E5%AD%A6%E7%AC%94%E8%AE%B0/#more">more >></a>
-    
-    
-
-    
-
-    
-
-  </div>
-  <div class="article-info article-info-index">
-    
-    
-    
-
-    
-    <p class="article-more-link">
-      <a class="article-more-a" href="/2021/09/18/php%E5%88%9D%E5%AD%A6%E7%AC%94%E8%AE%B0/">展开全文 >></a>
-    </p>
-    
-
-    
-    <div class="clearfix"></div>
-  </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-  
 
 
           </div>
@@ -961,8 +557,8 @@ ORDER BY 列名（，列名...）[ASC|DESE]
     <script>
 	var yiliaConfig = {
 		mathjax: false,
-		isHome: true,
-		isPost: false,
+		isHome: false,
+		isPost: true,
 		isArchive: false,
 		isTag: false,
 		isCategory: false,
