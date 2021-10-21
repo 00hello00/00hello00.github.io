@@ -227,72 +227,9 @@
   eg2（其中FROM后面的逗号也可以更改为CROSS JOIN）
       SELECT A.* B.* FROM A CROSS JOIN B
 </code></pre>
-</li>
-</ul>
-<p>（2）等值连接:运算符为“=”的连接操作</p>
-<p>a.格式：[表名1]&lt;列名1&gt;=[表名2]&lt;列名2&gt;</p>
-<p>b.注：任何子句中引用表1和表2中同名属性时，都必须加表名前缀；引用唯一属性名时可以加也可以省略表名前缀。</p>
-<pre><code> eg1.SELECT A.*,B.* FROM A,B WHERE A.C=B.C
- 这里AB表中同时包含了C这个属性，所以必须加前缀。
-</code></pre>
-<p>（3）自身连接：一个表于其自己进行连接，称为表的自身连接</p>
-<ul>
-<li><p>注：由于所有属性都是同名属性，所有需要给表起别名以示区别</p>
-<pre><code>  eg1.SELECT a1.B,a2.B FROM A a1，A a2 WHERE a1.B=a2.B
-  这里把A表分别命名为a1，a2以作区别
-  eg2.SELECT a1.B,a2.C FROM A a1，A a2 WHERE a1.B=a2.C
-</code></pre>
-</li>
-</ul>
-<p>（4）复合条件连接:WHERE子句中含多个连接条件时，称为复合条件连接</p>
-<ul>
-<li>复合条件连接类型又可分为：</li>
-</ul>
-<p>a.两表按多个属性连接</p>
-<p>b.自身按多个属性连接</p>
-<p>c.多表连接</p>
-<pre><code>eg1.SELECT A.a,B,C FROM A,D,E WHERE A.a=B.a AND B.b=C.b
-AB表中a属性相等和BC表中b属性相等
-</code></pre>
-<p>（5）内连接:相当于等值连接，只是表达方法不同（例子如下）</p>
-<pre><code>eg1.“,&quot;变JOIN,WHERE变ON  
-SELECT A.*,B.* FROM A,B WHERE A.a=B.a
-SELECT A.*,B.* FROM A JOIN B ON A.a=B.a
-</code></pre>
-<p>（6）外连接</p>
-<p>a.左连接（又称左外连接）：返回左表中所有行，如果左表行在右表中没有匹配行则返回NULL<br><img src="https://i.loli.net/2021/10/19/Fqwj7tLBAN1P6VE.png" alt="1"></p>
-<pre><code>eg1.SELECT 表一.* ，表二.* FROM 表一 LEFT JOIN 表二 ON 表一.num = 表二.num
-把表一与表二中num相等的连接起来
-</code></pre>
-<p><img src="https://i.loli.net/2021/10/19/BT6t2f7Vi1dsPHx.png" alt="2.png"></p>
-<p>b.右连接（又称右外连接）：返回右表中所有行，如果左右表行在左表中没有匹配行则返回NULL<br><img src="https://i.loli.net/2021/10/19/Fqwj7tLBAN1P6VE.png" alt="1"></p>
-<pre><code>eg2.SELECT 表一.* ，表二.* FROM 表一 RIGHT JOIN 表二 ON 表一.num = 表二.num
-把表一与表二中num相等的连接起来
-</code></pre>
-<p><img src="https://i.loli.net/2021/10/19/GgIlOFy6d9ebXJ1.png" alt="3.png"></p>
-<p>c.全连接:返回左表右表中所有行，当某行在另一表中没有匹配行，则另一表的列返回空值则返回NULL<br><img src="https://i.loli.net/2021/10/19/Fqwj7tLBAN1P6VE.png" alt="1"></p>
-<pre><code>eg1.SELECT 表一.* ，表二.* FROM 表一 FULL JOIN 表二 ON 表一.num = 表二.num
-把表一与表二中num相等的连接起来
-</code></pre>
-<p><img src="https://i.loli.net/2021/10/19/mJq3HtNY9cU24Mb.png" alt="4.png"></p>
-<h1 id="3-嵌套查询"><a href="#3-嵌套查询" class="headerlink" title="3.嵌套查询"></a>3.嵌套查询</h1><ul>
-<li>注：补充</li>
-</ul>
-<p>（1）查询块：一个SELECT语句称为一个查询块</p>
-<p>（2）嵌套查询：将一个查询块嵌套在另一个查询块的WHERE子句或HAVING短语的条件查询称为嵌套查询</p>
-<p>（3）外层查询/父查询 与 内层查询/子查询</p>
-<p>SELECT A FROM B WHERE A.c &lt;外层查询/父查询&gt; IN (SELECT C FROM D WHERE C.a=2)&lt;内层查询/子查询&gt;</p>
-<p>a.不相关子查询:内层查询与外层查询不关联即可独立运行（有里到外逐层查询）</p>
-<pre><code>eg1.SELECT A FROM B WHERE A.c IN (SELECT C FROM D WHERE C.a=2)
-这里的A在B中，C在D中，并且BD不相关联
-先从IN里面开始从D中选出当C.a=2的C的列表，再判断外层从B里选择（A.c等同C.a=2的C的列表）的A列表
-</code></pre>
-<ul>
-<li>ps.内层返回的结果数&gt;=2要用IN，如果用“=”会报错</li>
-</ul>
-<p>b.相关子查询</p>
-<p>c.</p>
-
+    
+    <a class="article-more-a" href="/2021/10/19/SELECT%E8%AF%AD%E5%8F%A5%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B02/#more">more >></a>
+    
     
 
     
@@ -578,6 +515,178 @@ ORDER BY 列名（，列名...）[ASC|DESE]
 
 
   
+    <article id="post-docker命令大全-容器操作" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+  
+  
+    <h1 itemprop="name">
+	
+	  <a class="article-title" href="/2021/10/05/docker%E5%91%BD%E4%BB%A4%E5%A4%A7%E5%85%A8-%E5%AE%B9%E5%99%A8%E6%93%8D%E4%BD%9C/" target="_blank">docker命令大全-容器操作</a>
+  
+    </h1>
+  
+
+
+  
+  
+<a href="/2021/10/05/docker%E5%91%BD%E4%BB%A4%E5%A4%A7%E5%85%A8-%E5%AE%B9%E5%99%A8%E6%93%8D%E4%BD%9C/" class="archive-article-date">
+        <time datetime="2021-10-05T14:45:23.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-10-05</time>
+</a>
+
+  
+  
+    
+
+  
+  </header>
+  
+  <div class="article-entry" itemprop="articleBody">
+    
+    <h1 id="docker的常用命令-容器操作"><a href="#docker的常用命令-容器操作" class="headerlink" title="docker的常用命令-容器操作"></a>docker的常用命令-容器操作</h1><p>本文取自<a target="_blank" rel="noopener" href="https://www.runoob.com/docker/docker-rm-command.html">https://www.runoob.com/docker/docker-rm-command.html</a>，博主整理这些命令主要是方便自己或其他需要的人来查阅</p>
+<p>（1）docker ps : 列出容器</p>
+<p>语法<br>docker ps [OPTIONS]<br>OPTIONS说明：</p>
+<p>-a :显示所有的容器，包括未运行的。</p>
+<p>-f :根据条件过滤显示的内容。</p>
+<p>–format :指定返回值的模板文件。</p>
+<p>-l :显示最近创建的容器。</p>
+<p>-n :列出最近创建的n个容器。</p>
+<p>–no-trunc :不截断输出。</p>
+<p>-q :静默模式，只显示容器编号。</p>
+<p>-s :显示总的文件大小。</p>
+    
+    <a class="article-more-a" href="/2021/10/05/docker%E5%91%BD%E4%BB%A4%E5%A4%A7%E5%85%A8-%E5%AE%B9%E5%99%A8%E6%93%8D%E4%BD%9C/#more">more >></a>
+    
+    
+
+    
+
+    
+
+  </div>
+  <div class="article-info article-info-index">
+    
+    
+    
+
+    
+    <p class="article-more-link">
+      <a class="article-more-a" href="/2021/10/05/docker%E5%91%BD%E4%BB%A4%E5%A4%A7%E5%85%A8-%E5%AE%B9%E5%99%A8%E6%93%8D%E4%BD%9C/">展开全文 >></a>
+    </p>
+    
+
+    
+    <div class="clearfix"></div>
+  </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-docker命令大全-本地镜像管理与infoversion" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+  
+  
+    <h1 itemprop="name">
+	
+	  <a class="article-title" href="/2021/10/05/docker%E5%91%BD%E4%BB%A4%E5%A4%A7%E5%85%A8-%E6%9C%AC%E5%9C%B0%E9%95%9C%E5%83%8F%E7%AE%A1%E7%90%86%E4%B8%8Einfoversion/" target="_blank">docker命令大全-本地镜像管理及Docker info 命令</a>
+  
+    </h1>
+  
+
+
+  
+  
+<a href="/2021/10/05/docker%E5%91%BD%E4%BB%A4%E5%A4%A7%E5%85%A8-%E6%9C%AC%E5%9C%B0%E9%95%9C%E5%83%8F%E7%AE%A1%E7%90%86%E4%B8%8Einfoversion/" class="archive-article-date">
+        <time datetime="2021-10-05T14:45:23.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-10-05</time>
+</a>
+
+  
+  
+    
+
+  
+  </header>
+  
+  <div class="article-entry" itemprop="articleBody">
+    
+    <h1 id="本地镜像管理"><a href="#本地镜像管理" class="headerlink" title="本地镜像管理"></a>本地镜像管理</h1><p>本文取自<a target="_blank" rel="noopener" href="https://www.runoob.com/docker/docker-rm-command.html">https://www.runoob.com/docker/docker-rm-command.html</a>，博主整理这些命令主要是方便自己或其他需要的人来查阅</p>
+<p>(1)docker images : 列出本地镜像。</p>
+<p>语法<br>docker images [OPTIONS] [REPOSITORY[:TAG]]<br>OPTIONS说明：</p>
+<p>-a :列出本地所有的镜像（含中间映像层，默认情况下，过滤掉中间映像层）；</p>
+<p>–digests :显示镜像的摘要信息；</p>
+<p>-f :显示满足条件的镜像；</p>
+<p>–format :指定返回值的模板文件；</p>
+<p>–no-trunc :显示完整的镜像信息；</p>
+<p>-q :只显示镜像ID。
+    
+    <a class="article-more-a" href="/2021/10/05/docker%E5%91%BD%E4%BB%A4%E5%A4%A7%E5%85%A8-%E6%9C%AC%E5%9C%B0%E9%95%9C%E5%83%8F%E7%AE%A1%E7%90%86%E4%B8%8Einfoversion/#more">more >></a>
+    
+    
+
+    
+
+    
+
+  </div>
+  <div class="article-info article-info-index">
+    
+    
+    
+
+    
+    <p class="article-more-link">
+      <a class="article-more-a" href="/2021/10/05/docker%E5%91%BD%E4%BB%A4%E5%A4%A7%E5%85%A8-%E6%9C%AC%E5%9C%B0%E9%95%9C%E5%83%8F%E7%AE%A1%E7%90%86%E4%B8%8Einfoversion/">展开全文 >></a>
+    </p>
+    
+
+    
+    <div class="clearfix"></div>
+  </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-docker命令大全-容器rootfs命令与镜像仓库" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -712,178 +821,6 @@ ORDER BY 列名（，列名...）[ASC|DESE]
     
     <p class="article-more-link">
       <a class="article-more-a" href="/2021/10/05/docker%E5%91%BD%E4%BB%A4%E5%A4%A7%E5%85%A8-%E5%AE%B9%E5%99%A8%E7%94%9F%E5%91%BD%E5%91%A8%E6%9C%9F%E7%AE%A1%E7%90%86/">展开全文 >></a>
-    </p>
-    
-
-    
-    <div class="clearfix"></div>
-  </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-docker命令大全-本地镜像管理与infoversion" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-  
-  
-    <h1 itemprop="name">
-	
-	  <a class="article-title" href="/2021/10/05/docker%E5%91%BD%E4%BB%A4%E5%A4%A7%E5%85%A8-%E6%9C%AC%E5%9C%B0%E9%95%9C%E5%83%8F%E7%AE%A1%E7%90%86%E4%B8%8Einfoversion/" target="_blank">docker命令大全-本地镜像管理及Docker info 命令</a>
-  
-    </h1>
-  
-
-
-  
-  
-<a href="/2021/10/05/docker%E5%91%BD%E4%BB%A4%E5%A4%A7%E5%85%A8-%E6%9C%AC%E5%9C%B0%E9%95%9C%E5%83%8F%E7%AE%A1%E7%90%86%E4%B8%8Einfoversion/" class="archive-article-date">
-        <time datetime="2021-10-05T14:45:23.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-10-05</time>
-</a>
-
-  
-  
-    
-
-  
-  </header>
-  
-  <div class="article-entry" itemprop="articleBody">
-    
-    <h1 id="本地镜像管理"><a href="#本地镜像管理" class="headerlink" title="本地镜像管理"></a>本地镜像管理</h1><p>本文取自<a target="_blank" rel="noopener" href="https://www.runoob.com/docker/docker-rm-command.html">https://www.runoob.com/docker/docker-rm-command.html</a>，博主整理这些命令主要是方便自己或其他需要的人来查阅</p>
-<p>(1)docker images : 列出本地镜像。</p>
-<p>语法<br>docker images [OPTIONS] [REPOSITORY[:TAG]]<br>OPTIONS说明：</p>
-<p>-a :列出本地所有的镜像（含中间映像层，默认情况下，过滤掉中间映像层）；</p>
-<p>–digests :显示镜像的摘要信息；</p>
-<p>-f :显示满足条件的镜像；</p>
-<p>–format :指定返回值的模板文件；</p>
-<p>–no-trunc :显示完整的镜像信息；</p>
-<p>-q :只显示镜像ID。
-    
-    <a class="article-more-a" href="/2021/10/05/docker%E5%91%BD%E4%BB%A4%E5%A4%A7%E5%85%A8-%E6%9C%AC%E5%9C%B0%E9%95%9C%E5%83%8F%E7%AE%A1%E7%90%86%E4%B8%8Einfoversion/#more">more >></a>
-    
-    
-
-    
-
-    
-
-  </div>
-  <div class="article-info article-info-index">
-    
-    
-    
-
-    
-    <p class="article-more-link">
-      <a class="article-more-a" href="/2021/10/05/docker%E5%91%BD%E4%BB%A4%E5%A4%A7%E5%85%A8-%E6%9C%AC%E5%9C%B0%E9%95%9C%E5%83%8F%E7%AE%A1%E7%90%86%E4%B8%8Einfoversion/">展开全文 >></a>
-    </p>
-    
-
-    
-    <div class="clearfix"></div>
-  </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-docker命令大全-容器操作" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-  
-  
-    <h1 itemprop="name">
-	
-	  <a class="article-title" href="/2021/10/05/docker%E5%91%BD%E4%BB%A4%E5%A4%A7%E5%85%A8-%E5%AE%B9%E5%99%A8%E6%93%8D%E4%BD%9C/" target="_blank">docker命令大全-容器操作</a>
-  
-    </h1>
-  
-
-
-  
-  
-<a href="/2021/10/05/docker%E5%91%BD%E4%BB%A4%E5%A4%A7%E5%85%A8-%E5%AE%B9%E5%99%A8%E6%93%8D%E4%BD%9C/" class="archive-article-date">
-        <time datetime="2021-10-05T14:45:23.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-10-05</time>
-</a>
-
-  
-  
-    
-
-  
-  </header>
-  
-  <div class="article-entry" itemprop="articleBody">
-    
-    <h1 id="docker的常用命令-容器操作"><a href="#docker的常用命令-容器操作" class="headerlink" title="docker的常用命令-容器操作"></a>docker的常用命令-容器操作</h1><p>本文取自<a target="_blank" rel="noopener" href="https://www.runoob.com/docker/docker-rm-command.html">https://www.runoob.com/docker/docker-rm-command.html</a>，博主整理这些命令主要是方便自己或其他需要的人来查阅</p>
-<p>（1）docker ps : 列出容器</p>
-<p>语法<br>docker ps [OPTIONS]<br>OPTIONS说明：</p>
-<p>-a :显示所有的容器，包括未运行的。</p>
-<p>-f :根据条件过滤显示的内容。</p>
-<p>–format :指定返回值的模板文件。</p>
-<p>-l :显示最近创建的容器。</p>
-<p>-n :列出最近创建的n个容器。</p>
-<p>–no-trunc :不截断输出。</p>
-<p>-q :静默模式，只显示容器编号。</p>
-<p>-s :显示总的文件大小。</p>
-    
-    <a class="article-more-a" href="/2021/10/05/docker%E5%91%BD%E4%BB%A4%E5%A4%A7%E5%85%A8-%E5%AE%B9%E5%99%A8%E6%93%8D%E4%BD%9C/#more">more >></a>
-    
-    
-
-    
-
-    
-
-  </div>
-  <div class="article-info article-info-index">
-    
-    
-    
-
-    
-    <p class="article-more-link">
-      <a class="article-more-a" href="/2021/10/05/docker%E5%91%BD%E4%BB%A4%E5%A4%A7%E5%85%A8-%E5%AE%B9%E5%99%A8%E6%93%8D%E4%BD%9C/">展开全文 >></a>
     </p>
     
 

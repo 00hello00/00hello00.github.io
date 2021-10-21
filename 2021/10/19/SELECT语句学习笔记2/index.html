@@ -24,7 +24,7 @@
 <meta property="og:image" content="https://i.loli.net/2021/10/19/Fqwj7tLBAN1P6VE.png">
 <meta property="og:image" content="https://i.loli.net/2021/10/19/mJq3HtNY9cU24Mb.png">
 <meta property="article:published_time" content="2021-10-19T11:41:03.000Z">
-<meta property="article:modified_time" content="2021-10-19T14:23:37.154Z">
+<meta property="article:modified_time" content="2021-10-21T13:19:35.274Z">
 <meta property="article:author" content="00hello00">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="https://i.loli.net/2021/10/19/Fqwj7tLBAN1P6VE.png">
@@ -225,7 +225,7 @@
       <!-- 百度字体平台:http://fontstore.baidu.com/static/editor/index.html -->
       <i class="icon-statistics"></i>
       <span class="post-meta-item-text"> 字数统计:</span>
-      <span class="post-count">1k字</span>
+      <span class="post-count">2.2k字</span>
     </span>
   </span>
 
@@ -234,7 +234,7 @@
     <span class="post-meta-item-icon">
       <i class="icon-book icon"></i>
       <span class="post-meta-item-text"> 阅读时长≈</span>
-      <span class="post-count">4分</span>
+      <span class="post-count">8分</span>
     </span>
   </span>
 </div>
@@ -255,9 +255,9 @@
   eg2（其中FROM后面的逗号也可以更改为CROSS JOIN）
       SELECT A.* B.* FROM A CROSS JOIN B
 </code></pre>
-</li>
+<span id="more"></span>
+（2）等值连接:运算符为“=”的连接操作</li>
 </ul>
-<p>（2）等值连接:运算符为“=”的连接操作</p>
 <p>a.格式：[表名1]&lt;列名1&gt;=[表名2]&lt;列名2&gt;</p>
 <p>b.注：任何子句中引用表1和表2中同名属性时，都必须加表名前缀；引用唯一属性名时可以加也可以省略表名前缀。</p>
 <pre><code> eg1.SELECT A.*,B.* FROM A,B WHERE A.C=B.C
@@ -319,7 +319,82 @@ SELECT A.*,B.* FROM A JOIN B ON A.a=B.a
 <li>ps.内层返回的结果数&gt;=2要用IN，如果用“=”会报错</li>
 </ul>
 <p>b.相关子查询</p>
-<p>c.</p>
+<ul>
+<li>ps.注：</li>
+</ul>
+<p>（1）首先取外层查询中表的第一个元组，根据它与内层查询相关的属性值处理内层查询，若WHERE子句的返回值为真，则取此元组放入结果表，然后再取外层表的下一个元组；重复这一过程，直到外层表全部检查完为止。（外往内）</p>
+<p>（2）子查询的限制：</p>
+<p>①不能使用ORDER BY 子句</p>
+<p>②层层嵌套方式反应了SQL语言的结构化</p>
+<p>③有些嵌套查询可以用连接运算代替</p>
+<pre><code>eg1.SELECT A FROM B WHERE EXISTS  (SELECT C FROM D WHERE C.a=2 AND C.b=A.b)
+这里的A在B中，C在D中，并且BD不相关联
+这里由于子查询中没有A.b这个值所以不能从子查询开始运行，应把从B表中取出的A的所有值分别带入子查询中,判断是否与子查询中得出的结果成立（即EXISTS得到的结果为TURE），如果成立则把那个A值放入结果集，重复这一过程，直到A中的值全部检查完为止。
+注：这里的EXISTS谓语用法可以参考下面的介绍。
+</code></pre>
+<p>c.嵌套查询的谓语</p>
+<p>（1）带有IN谓语的子查询：父查询与子查询用IN连接，子查询结果为集合。</p>
+<pre><code>这里的例子，博主还是用上面的例子，其中子查询的结果数大于等于2
+eg1.SELECT A FROM B WHERE A.c IN (SELECT C FROM D WHERE C.a=2)
+这里的A在B中，C在D中，并且BD不相关联
+先从IN里面开始从D中选出当C.a=2的C的列表，再判断外层从B里选择（A.c等同C.a=2的C的列表）的A列表
+</code></pre>
+<p>（2）带有运算符的子查询：当子查询返回的结果集为一个时，可以使用比较运算符（=,&gt;,&lt;,&gt;=,&lt;=,!=或&lt;&gt;,!&gt;,!&lt;）与ALL或ANY谓语配合使用。</p>
+<pre><code> eg1.SELECT A FROM B WHERE C&gt;(SELECT AVG(C) FROM B)
+ 其中C与A同在B表里
+计算B表中C的平均值，再选出A对应的C值大于C平均值的A
+ps.子查询要跟在运算符后面
+错误示范：SELECT A FROM B WHERE (SELECT AVG(C) FROM B)&lt;C
+正确示范如eg1
+</code></pre>
+<p>（3）带有ANY（任意一个值）或ALL（所有值）谓语的子查询</p>
+<ul>
+<li><p>ps：需配合使用比较运算符</p>
+</li>
+<li><p>格式：&lt;比较运算符&gt;ANY/ALL</p>
+<pre><code>  eg1.选择年段中成绩大于大于一班同学的所有同学名字
+  SELECT 学生姓名 FROM 年段 WHERE 成绩 &gt;ALL（SELECT 姓名 FROM 年段 WHERE 班级=一班）
+  注：这里的学生姓名、年段、成绩、姓名、班级、一班是表名或列名
+</code></pre>
+</li>
+</ul>
+<p>（4）带有EXISTS谓语的子查询（带有EXISTS谓语的子查询不返回任何实际数据它只生“ture”or“false”）</p>
+<pre><code>    eg1.查询选了语文这门课程的学生姓名
+    SELECT 学生姓名 FROM 年段 WHERE EXTSTS (SELECT * FROM 年段 WHERE 课程=语文)
+    注：例子中的文字为表名或列名
+</code></pre>
+<h1 id="4-集合查询"><a href="#4-集合查询" class="headerlink" title="4.集合查询"></a>4.集合查询</h1><p>（1）并操作：</p>
+<ul>
+<li><p>格式：&lt;查询块&gt;UNION&lt;查询块&gt;</p>
+</li>
+<li><p>ps.参加UNION操作的各结果表的列数必须相同，对应数据类型也必须相同</p>
+<pre><code>  eg.1选择学号是1和2的学生姓名
+  SELECT 姓名 FROM 学生 WHERE 学号=1 UNION SELECT 姓名 FROM 学生 WHERE 学号=2
+  这个例子其实可以运用比较运算符，博主为了举例故怎么使用。
+</code></pre>
+</li>
+</ul>
+<p>（2）交操作：标准的SQL中并没有提供集合交操作，但可以用其他方式间接实现</p>
+<pre><code>eg1.查询1班与身高不超190cm的学生交集(即查询1班中身高不超190cm的学生)
+SELECT * FROM 学生 WHERE 班级=1班 AND 身高&lt;=190;
+注：例子中的文字为表名或列名
+</code></pre>
+<p>（3）差操作：标准的SQL中并没有提供集合交操作，但可以用其他方式间接实现</p>
+<pre><code>eg1.查询1班与身高不超190cm的学生差集(即查询1班中身高超过190cm的学生)
+SELECT * FROM 学生 WHERE 班级=1班 AND 身高&gt;190;
+注：例子中的文字为表名或列名
+</code></pre>
+<p>（4）对集合操作结果的排序</p>
+<ul>
+<li>注：</li>
+</ul>
+<p>a.ORDER BY 子句只能对最终查询结果排序不能对中间结果排序</p>
+<p>b.任何情况下，ORDER BY 子句只能出现在整个语句的最后</p>
+<p>c.对于集合操作结果排序时，ORDER BY 子句中可以用数字指定排序属性（即列名），但尽量不用易产生歧义</p>
+<pre><code>eg1.查询1班中身高超过190cm的学生
+SELECT * FROM 学生 WHERE 班级=1班 UNION SELECT * FROM 学生 WHERE  身高&gt;190 ORDER BY 学号（或1）;
+注：例子中的文字为表名或列名，学号的列号为1
+</code></pre>
 
     
 
