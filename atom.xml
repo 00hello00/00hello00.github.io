@@ -6,7 +6,7 @@
   <link href="http://example.com/atom.xml" rel="self"/>
   
   <link href="http://example.com/"/>
-  <updated>2021-11-02T16:18:54.110Z</updated>
+  <updated>2021-11-02T16:36:47.328Z</updated>
   <id>http://example.com/</id>
   
   <author>
@@ -21,7 +21,7 @@
     <link href="http://example.com/2021/10/31/%E6%94%BB%E9%98%B2%E4%B8%96%E7%95%8CWEB%E6%96%B0%E6%89%8B%E5%8C%BA7%E3%80%818/"/>
     <id>http://example.com/2021/10/31/%E6%94%BB%E9%98%B2%E4%B8%96%E7%95%8CWEB%E6%96%B0%E6%89%8B%E5%8C%BA7%E3%80%818/</id>
     <published>2021-10-31T02:34:02.000Z</published>
-    <updated>2021-11-02T16:18:54.110Z</updated>
+    <updated>2021-11-02T16:36:47.328Z</updated>
     
     
     <summary type="html">&lt;h1 id=&quot;攻防世界WEB新手区7、8&quot;&gt;&lt;a href=&quot;#攻防世界WEB新手区7、8&quot; class=&quot;headerlink&quot; title=&quot;攻防世界WEB新手区7、8&quot;&gt;&lt;/a&gt;攻防世界WEB新手区7、8&lt;/h1&gt;&lt;h2 id=&quot;simple-php&quot;&gt;&lt;a href=&quot;#simple-php&quot; class=&quot;headerlink&quot; title=&quot;simple_php&quot;&gt;&lt;/a&gt;simple_php&lt;/h2&gt;&lt;ul&gt;
@@ -32,11 +32,7 @@
 &lt;li&gt;&lt;p&gt;分析&lt;/p&gt;
 &lt;/li&gt;
 &lt;/ul&gt;
-&lt;p&gt;(1) 进入网页&lt;/p&gt;
-&lt;p&gt;&lt;img src=&quot;https://i.loli.net/2021/11/01/9inGMOAj2rl7F5L.png&quot; alt=&quot;image.png&quot;&gt;&lt;/p&gt;
-&lt;p&gt;分析一下代码：&lt;/p&gt;
-&lt;p&gt;a.包含了’config.php’这个文件；&lt;/p&gt;
-&lt;p&gt;b.当$a为零时and $a 得到flag1；&lt;/p&gt;</summary>
+&lt;p&gt;(1) 进入网页&lt;/p&gt;</summary>
     
     
     
