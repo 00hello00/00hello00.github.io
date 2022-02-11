@@ -178,6 +178,92 @@
             
 
   
+    <article id="post-SELECT语句学习笔记2" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+  
+  
+    <h1 itemprop="name">
+	
+	  <a class="article-title" href="/2021/10/19/SELECT%E8%AF%AD%E5%8F%A5%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B02/" target="_blank">SELECT语句学习笔记2</a>
+  
+    </h1>
+  
+
+
+  
+  
+<a href="/2021/10/19/SELECT%E8%AF%AD%E5%8F%A5%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B02/" class="archive-article-date">
+        <time datetime="2021-10-19T11:41:03.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-10-19</time>
+</a>
+
+  
+  
+    
+
+  
+  </header>
+  
+  <div class="article-entry" itemprop="articleBody">
+    
+    <h1 id="SELECT语句四种查询"><a href="#SELECT语句四种查询" class="headerlink" title="SELECT语句四种查询"></a>SELECT语句四种查询</h1><p>注：这篇博客是博主通过学习B站这位UP主（<a target="_blank" rel="noopener" href="https://space.bilibili.com/508641166/video?tid=0&page=1&keyword=&order=pubdate">https://space.bilibili.com/508641166/video?tid=0&amp;page=1&amp;keyword=&amp;order=pubdate</a>）18到22有关select语句的教程所得出的总结。</p>
+<h1 id="1-单表查询："><a href="#1-单表查询：" class="headerlink" title="1.单表查询："></a>1.单表查询：</h1><p>比较常见不过多介绍，博主的上一篇博客介绍的主要内容即为单表查询 </p>
+<h1 id="2-连接查询"><a href="#2-连接查询" class="headerlink" title="2.连接查询"></a>2.连接查询</h1><p>注：连接查询又可分为以下6种形式</p>
+<p>（1）交叉连接（广义笛卡尔积）</p>
+<ul>
+<li>不带谓语的连接（很少使用，连接的表格信息不对等）<pre><code>  eg1.SELECT A.* B.* FROM A,B
+  从AB表中把AB列的所有数据连接起来，缺点为信息连接不对等
+  eg2（其中FROM后面的逗号也可以更改为CROSS JOIN）
+      SELECT A.* B.* FROM A CROSS JOIN B
+</code></pre>
+    
+    <a class="article-more-a" href="/2021/10/19/SELECT%E8%AF%AD%E5%8F%A5%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B02/#more">more >></a>
+    
+    
+
+    
+
+    
+
+  </div>
+  <div class="article-info article-info-index">
+    
+    
+    
+
+    
+    <p class="article-more-link">
+      <a class="article-more-a" href="/2021/10/19/SELECT%E8%AF%AD%E5%8F%A5%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B02/">展开全文 >></a>
+    </p>
+    
+
+    
+    <div class="clearfix"></div>
+  </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-select语句学习笔记1" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -419,7 +505,7 @@ ORDER BY 列名（，列名...）[ASC|DESE]
 
 
   
-    <article id="post-docker命令大全-容器生命周期管理" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+    <article id="post-docker命令大全-本地镜像管理与infoversion" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
@@ -427,7 +513,7 @@ ORDER BY 列名（，列名...）[ASC|DESE]
   
     <h1 itemprop="name">
 	
-	  <a class="article-title" href="/2021/10/05/docker%E5%91%BD%E4%BB%A4%E5%A4%A7%E5%85%A8-%E5%AE%B9%E5%99%A8%E7%94%9F%E5%91%BD%E5%91%A8%E6%9C%9F%E7%AE%A1%E7%90%86/" target="_blank">docker命令大全-容器生命周期管理</a>
+	  <a class="article-title" href="/2021/10/05/docker%E5%91%BD%E4%BB%A4%E5%A4%A7%E5%85%A8-%E6%9C%AC%E5%9C%B0%E9%95%9C%E5%83%8F%E7%AE%A1%E7%90%86%E4%B8%8Einfoversion/" target="_blank">docker命令大全-本地镜像管理及Docker info 命令</a>
   
     </h1>
   
@@ -435,7 +521,7 @@ ORDER BY 列名（，列名...）[ASC|DESE]
 
   
   
-<a href="/2021/10/05/docker%E5%91%BD%E4%BB%A4%E5%A4%A7%E5%85%A8-%E5%AE%B9%E5%99%A8%E7%94%9F%E5%91%BD%E5%91%A8%E6%9C%9F%E7%AE%A1%E7%90%86/" class="archive-article-date">
+<a href="/2021/10/05/docker%E5%91%BD%E4%BB%A4%E5%A4%A7%E5%85%A8-%E6%9C%AC%E5%9C%B0%E9%95%9C%E5%83%8F%E7%AE%A1%E7%90%86%E4%B8%8Einfoversion/" class="archive-article-date">
         <time datetime="2021-10-05T14:45:23.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-10-05</time>
 </a>
 
@@ -448,12 +534,17 @@ ORDER BY 列名（，列名...）[ASC|DESE]
   
   <div class="article-entry" itemprop="articleBody">
     
-    <h1 id="docker命令大全-容器生命周期管理"><a href="#docker命令大全-容器生命周期管理" class="headerlink" title="docker命令大全-容器生命周期管理"></a>docker命令大全-容器生命周期管理</h1><p>本文取自<a target="_blank" rel="noopener" href="https://www.runoob.com/docker/docker-rm-command.html">https://www.runoob.com/docker/docker-rm-command.html</a>，博主整理这些命令主要是方便自己或其他需要的人来查阅</p>
-<p>（1）docker start :启动一个或多个已经被停止的容器</p>
-<p>docker stop :停止一个运行中的容器</p>
-<p>docker restart :重启容器</p>
+    <h1 id="本地镜像管理"><a href="#本地镜像管理" class="headerlink" title="本地镜像管理"></a>本地镜像管理</h1><p>本文取自<a target="_blank" rel="noopener" href="https://www.runoob.com/docker/docker-rm-command.html">https://www.runoob.com/docker/docker-rm-command.html</a>，博主整理这些命令主要是方便自己或其他需要的人来查阅</p>
+<p>(1)docker images : 列出本地镜像。</p>
+<p>语法<br>docker images [OPTIONS] [REPOSITORY[:TAG]]<br>OPTIONS说明：</p>
+<p>-a :列出本地所有的镜像（含中间映像层，默认情况下，过滤掉中间映像层）；</p>
+<p>–digests :显示镜像的摘要信息；</p>
+<p>-f :显示满足条件的镜像；</p>
+<p>–format :指定返回值的模板文件；</p>
+<p>–no-trunc :显示完整的镜像信息；</p>
+<p>-q :只显示镜像ID。
     
-    <a class="article-more-a" href="/2021/10/05/docker%E5%91%BD%E4%BB%A4%E5%A4%A7%E5%85%A8-%E5%AE%B9%E5%99%A8%E7%94%9F%E5%91%BD%E5%91%A8%E6%9C%9F%E7%AE%A1%E7%90%86/#more">more >></a>
+    <a class="article-more-a" href="/2021/10/05/docker%E5%91%BD%E4%BB%A4%E5%A4%A7%E5%85%A8-%E6%9C%AC%E5%9C%B0%E9%95%9C%E5%83%8F%E7%AE%A1%E7%90%86%E4%B8%8Einfoversion/#more">more >></a>
     
     
 
@@ -469,90 +560,7 @@ ORDER BY 列名（，列名...）[ASC|DESE]
 
     
     <p class="article-more-link">
-      <a class="article-more-a" href="/2021/10/05/docker%E5%91%BD%E4%BB%A4%E5%A4%A7%E5%85%A8-%E5%AE%B9%E5%99%A8%E7%94%9F%E5%91%BD%E5%91%A8%E6%9C%9F%E7%AE%A1%E7%90%86/">展开全文 >></a>
-    </p>
-    
-
-    
-    <div class="clearfix"></div>
-  </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-docker命令大全-容器rootfs命令与镜像仓库" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-  
-  
-    <h1 itemprop="name">
-	
-	  <a class="article-title" href="/2021/10/05/docker%E5%91%BD%E4%BB%A4%E5%A4%A7%E5%85%A8-%E5%AE%B9%E5%99%A8rootfs%E5%91%BD%E4%BB%A4%E4%B8%8E%E9%95%9C%E5%83%8F%E4%BB%93%E5%BA%93/" target="_blank">docker命令大全-rootfs命令及镜像仓库</a>
-  
-    </h1>
-  
-
-
-  
-  
-<a href="/2021/10/05/docker%E5%91%BD%E4%BB%A4%E5%A4%A7%E5%85%A8-%E5%AE%B9%E5%99%A8rootfs%E5%91%BD%E4%BB%A4%E4%B8%8E%E9%95%9C%E5%83%8F%E4%BB%93%E5%BA%93/" class="archive-article-date">
-        <time datetime="2021-10-05T14:45:23.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-10-05</time>
-</a>
-
-  
-  
-    
-
-  
-  </header>
-  
-  <div class="article-entry" itemprop="articleBody">
-    
-    <h1 id="容器rootfs命令"><a href="#容器rootfs命令" class="headerlink" title="容器rootfs命令"></a>容器rootfs命令</h1><p>本文取自<a target="_blank" rel="noopener" href="https://www.runoob.com/docker/docker-rm-command.html">https://www.runoob.com/docker/docker-rm-command.html</a>，博主整理这些命令主要是方便自己或其他需要的人来查阅</p>
-<p>（1）docker commit :从容器创建一个新的镜像。</p>
-<p>语法<br>docker commit [OPTIONS] CONTAINER [REPOSITORY[:TAG]]<br>OPTIONS说明：</p>
-<p>-a :提交的镜像作者；</p>
-<p>-c :使用Dockerfile指令来创建镜像；</p>
-<p>-m :提交时的说明文字；</p>
-<p>-p :在commit时，将容器暂停。</p>
-    
-    <a class="article-more-a" href="/2021/10/05/docker%E5%91%BD%E4%BB%A4%E5%A4%A7%E5%85%A8-%E5%AE%B9%E5%99%A8rootfs%E5%91%BD%E4%BB%A4%E4%B8%8E%E9%95%9C%E5%83%8F%E4%BB%93%E5%BA%93/#more">more >></a>
-    
-    
-
-    
-
-    
-
-  </div>
-  <div class="article-info article-info-index">
-    
-    
-    
-
-    
-    <p class="article-more-link">
-      <a class="article-more-a" href="/2021/10/05/docker%E5%91%BD%E4%BB%A4%E5%A4%A7%E5%85%A8-%E5%AE%B9%E5%99%A8rootfs%E5%91%BD%E4%BB%A4%E4%B8%8E%E9%95%9C%E5%83%8F%E4%BB%93%E5%BA%93/">展开全文 >></a>
+      <a class="article-more-a" href="/2021/10/05/docker%E5%91%BD%E4%BB%A4%E5%A4%A7%E5%85%A8-%E6%9C%AC%E5%9C%B0%E9%95%9C%E5%83%8F%E7%AE%A1%E7%90%86%E4%B8%8Einfoversion/">展开全文 >></a>
     </p>
     
 
@@ -669,7 +677,7 @@ ORDER BY 列名（，列名...）[ASC|DESE]
 
 
   
-    <article id="post-docker命令大全-本地镜像管理与infoversion" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+    <article id="post-docker命令大全-容器rootfs命令与镜像仓库" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
@@ -677,7 +685,7 @@ ORDER BY 列名（，列名...）[ASC|DESE]
   
     <h1 itemprop="name">
 	
-	  <a class="article-title" href="/2021/10/05/docker%E5%91%BD%E4%BB%A4%E5%A4%A7%E5%85%A8-%E6%9C%AC%E5%9C%B0%E9%95%9C%E5%83%8F%E7%AE%A1%E7%90%86%E4%B8%8Einfoversion/" target="_blank">docker命令大全-本地镜像管理及Docker info 命令</a>
+	  <a class="article-title" href="/2021/10/05/docker%E5%91%BD%E4%BB%A4%E5%A4%A7%E5%85%A8-%E5%AE%B9%E5%99%A8rootfs%E5%91%BD%E4%BB%A4%E4%B8%8E%E9%95%9C%E5%83%8F%E4%BB%93%E5%BA%93/" target="_blank">docker命令大全-rootfs命令及镜像仓库</a>
   
     </h1>
   
@@ -685,7 +693,7 @@ ORDER BY 列名（，列名...）[ASC|DESE]
 
   
   
-<a href="/2021/10/05/docker%E5%91%BD%E4%BB%A4%E5%A4%A7%E5%85%A8-%E6%9C%AC%E5%9C%B0%E9%95%9C%E5%83%8F%E7%AE%A1%E7%90%86%E4%B8%8Einfoversion/" class="archive-article-date">
+<a href="/2021/10/05/docker%E5%91%BD%E4%BB%A4%E5%A4%A7%E5%85%A8-%E5%AE%B9%E5%99%A8rootfs%E5%91%BD%E4%BB%A4%E4%B8%8E%E9%95%9C%E5%83%8F%E4%BB%93%E5%BA%93/" class="archive-article-date">
         <time datetime="2021-10-05T14:45:23.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-10-05</time>
 </a>
 
@@ -698,17 +706,15 @@ ORDER BY 列名（，列名...）[ASC|DESE]
   
   <div class="article-entry" itemprop="articleBody">
     
-    <h1 id="本地镜像管理"><a href="#本地镜像管理" class="headerlink" title="本地镜像管理"></a>本地镜像管理</h1><p>本文取自<a target="_blank" rel="noopener" href="https://www.runoob.com/docker/docker-rm-command.html">https://www.runoob.com/docker/docker-rm-command.html</a>，博主整理这些命令主要是方便自己或其他需要的人来查阅</p>
-<p>(1)docker images : 列出本地镜像。</p>
-<p>语法<br>docker images [OPTIONS] [REPOSITORY[:TAG]]<br>OPTIONS说明：</p>
-<p>-a :列出本地所有的镜像（含中间映像层，默认情况下，过滤掉中间映像层）；</p>
-<p>–digests :显示镜像的摘要信息；</p>
-<p>-f :显示满足条件的镜像；</p>
-<p>–format :指定返回值的模板文件；</p>
-<p>–no-trunc :显示完整的镜像信息；</p>
-<p>-q :只显示镜像ID。
+    <h1 id="容器rootfs命令"><a href="#容器rootfs命令" class="headerlink" title="容器rootfs命令"></a>容器rootfs命令</h1><p>本文取自<a target="_blank" rel="noopener" href="https://www.runoob.com/docker/docker-rm-command.html">https://www.runoob.com/docker/docker-rm-command.html</a>，博主整理这些命令主要是方便自己或其他需要的人来查阅</p>
+<p>（1）docker commit :从容器创建一个新的镜像。</p>
+<p>语法<br>docker commit [OPTIONS] CONTAINER [REPOSITORY[:TAG]]<br>OPTIONS说明：</p>
+<p>-a :提交的镜像作者；</p>
+<p>-c :使用Dockerfile指令来创建镜像；</p>
+<p>-m :提交时的说明文字；</p>
+<p>-p :在commit时，将容器暂停。</p>
     
-    <a class="article-more-a" href="/2021/10/05/docker%E5%91%BD%E4%BB%A4%E5%A4%A7%E5%85%A8-%E6%9C%AC%E5%9C%B0%E9%95%9C%E5%83%8F%E7%AE%A1%E7%90%86%E4%B8%8Einfoversion/#more">more >></a>
+    <a class="article-more-a" href="/2021/10/05/docker%E5%91%BD%E4%BB%A4%E5%A4%A7%E5%85%A8-%E5%AE%B9%E5%99%A8rootfs%E5%91%BD%E4%BB%A4%E4%B8%8E%E9%95%9C%E5%83%8F%E4%BB%93%E5%BA%93/#more">more >></a>
     
     
 
@@ -724,7 +730,87 @@ ORDER BY 列名（，列名...）[ASC|DESE]
 
     
     <p class="article-more-link">
-      <a class="article-more-a" href="/2021/10/05/docker%E5%91%BD%E4%BB%A4%E5%A4%A7%E5%85%A8-%E6%9C%AC%E5%9C%B0%E9%95%9C%E5%83%8F%E7%AE%A1%E7%90%86%E4%B8%8Einfoversion/">展开全文 >></a>
+      <a class="article-more-a" href="/2021/10/05/docker%E5%91%BD%E4%BB%A4%E5%A4%A7%E5%85%A8-%E5%AE%B9%E5%99%A8rootfs%E5%91%BD%E4%BB%A4%E4%B8%8E%E9%95%9C%E5%83%8F%E4%BB%93%E5%BA%93/">展开全文 >></a>
+    </p>
+    
+
+    
+    <div class="clearfix"></div>
+  </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-docker命令大全-容器生命周期管理" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+  
+  
+    <h1 itemprop="name">
+	
+	  <a class="article-title" href="/2021/10/05/docker%E5%91%BD%E4%BB%A4%E5%A4%A7%E5%85%A8-%E5%AE%B9%E5%99%A8%E7%94%9F%E5%91%BD%E5%91%A8%E6%9C%9F%E7%AE%A1%E7%90%86/" target="_blank">docker命令大全-容器生命周期管理</a>
+  
+    </h1>
+  
+
+
+  
+  
+<a href="/2021/10/05/docker%E5%91%BD%E4%BB%A4%E5%A4%A7%E5%85%A8-%E5%AE%B9%E5%99%A8%E7%94%9F%E5%91%BD%E5%91%A8%E6%9C%9F%E7%AE%A1%E7%90%86/" class="archive-article-date">
+        <time datetime="2021-10-05T14:45:23.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-10-05</time>
+</a>
+
+  
+  
+    
+
+  
+  </header>
+  
+  <div class="article-entry" itemprop="articleBody">
+    
+    <h1 id="docker命令大全-容器生命周期管理"><a href="#docker命令大全-容器生命周期管理" class="headerlink" title="docker命令大全-容器生命周期管理"></a>docker命令大全-容器生命周期管理</h1><p>本文取自<a target="_blank" rel="noopener" href="https://www.runoob.com/docker/docker-rm-command.html">https://www.runoob.com/docker/docker-rm-command.html</a>，博主整理这些命令主要是方便自己或其他需要的人来查阅</p>
+<p>（1）docker start :启动一个或多个已经被停止的容器</p>
+<p>docker stop :停止一个运行中的容器</p>
+<p>docker restart :重启容器</p>
+    
+    <a class="article-more-a" href="/2021/10/05/docker%E5%91%BD%E4%BB%A4%E5%A4%A7%E5%85%A8-%E5%AE%B9%E5%99%A8%E7%94%9F%E5%91%BD%E5%91%A8%E6%9C%9F%E7%AE%A1%E7%90%86/#more">more >></a>
+    
+    
+
+    
+
+    
+
+  </div>
+  <div class="article-info article-info-index">
+    
+    
+    
+
+    
+    <p class="article-more-link">
+      <a class="article-more-a" href="/2021/10/05/docker%E5%91%BD%E4%BB%A4%E5%A4%A7%E5%85%A8-%E5%AE%B9%E5%99%A8%E7%94%9F%E5%91%BD%E5%91%A8%E6%9C%9F%E7%AE%A1%E7%90%86/">展开全文 >></a>
     </p>
     
 
