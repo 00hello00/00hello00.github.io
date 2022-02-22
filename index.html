@@ -255,6 +255,86 @@
 
 
   
+    <article id="post-sql注入-堆叠注入" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+  
+  
+    <h1 itemprop="name">
+	
+	  <a class="article-title" href="/2022/02/22/sql%E6%B3%A8%E5%85%A5-%E5%A0%86%E5%8F%A0%E6%B3%A8%E5%85%A5/" target="_blank">sql注入--堆叠注入</a>
+  
+    </h1>
+  
+
+
+  
+  
+<a href="/2022/02/22/sql%E6%B3%A8%E5%85%A5-%E5%A0%86%E5%8F%A0%E6%B3%A8%E5%85%A5/" class="archive-article-date">
+        <time datetime="2022-02-22T08:56:50.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-02-22</time>
+</a>
+
+  
+  
+    
+
+  
+  </header>
+  
+  <div class="article-entry" itemprop="articleBody">
+    
+    <h1 id="sql注入–堆叠注入"><a href="#sql注入–堆叠注入" class="headerlink" title="sql注入–堆叠注入"></a>sql注入–堆叠注入</h1><h2 id="（1）原理"><a href="#（1）原理" class="headerlink" title="（1）原理"></a>（1）原理</h2><p>Stacked injection 汉语翻译过来后，国内有的称为堆查询注入，也有称之为堆叠注入。在SQL中，分号（;）是用来表示一条sql语句的结束。结束一个sql语句后继续执行分号后面的下一条语句。</p>
+<p>堆叠注入的作用是同时执行多条任意语句，而union联合注入合并执行的语句有限，可以用来执行查询语句。</p>
+<h2 id="（2）堆叠注入的局限性"><a href="#（2）堆叠注入的局限性" class="headerlink" title="（2）堆叠注入的局限性"></a>（2）堆叠注入的局限性</h2><p>堆叠注入的局限性在于并不是每一个环境下都可以执行，可能受到API或者数据库引擎不支持的限制，当然了权限不足也可以解释为什么攻击者无法修改数据或者调用一些程序。</p>
+<ul>
+<li>注：Mysql、Sql server、Postgresql可执行堆叠注入，Oracle不行。</li>
+</ul>
+
+    
+
+    
+
+    
+
+  </div>
+  <div class="article-info article-info-index">
+    
+    
+    
+
+    
+    <p class="article-more-link">
+      <a class="article-more-a" href="/2022/02/22/sql%E6%B3%A8%E5%85%A5-%E5%A0%86%E5%8F%A0%E6%B3%A8%E5%85%A5/">展开全文 >></a>
+    </p>
+    
+
+    
+    <div class="clearfix"></div>
+  </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-[HCTF 2018]WarmUp" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -849,91 +929,6 @@
     
     <p class="article-more-link">
       <a class="article-more-a" href="/2021/11/09/%E6%94%BB%E9%98%B2%E4%B8%96%E7%95%8CWEB%E6%96%B0%E6%89%8B%E5%8C%BA9%E3%80%8110/">展开全文 >></a>
-    </p>
-    
-
-    
-    <div class="clearfix"></div>
-  </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-攻防世界WEB新手区7、8" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-  
-  
-    <h1 itemprop="name">
-	
-	  <a class="article-title" href="/2021/10/31/%E6%94%BB%E9%98%B2%E4%B8%96%E7%95%8CWEB%E6%96%B0%E6%89%8B%E5%8C%BA7%E3%80%818/" target="_blank">攻防世界WEB新手区7、8</a>
-  
-    </h1>
-  
-
-
-  
-  
-<a href="/2021/10/31/%E6%94%BB%E9%98%B2%E4%B8%96%E7%95%8CWEB%E6%96%B0%E6%89%8B%E5%8C%BA7%E3%80%818/" class="archive-article-date">
-        <time datetime="2021-10-31T02:34:02.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-10-31</time>
-</a>
-
-  
-  
-    
-
-  
-  </header>
-  
-  <div class="article-entry" itemprop="articleBody">
-    
-    <h1 id="攻防世界WEB新手区7、8"><a href="#攻防世界WEB新手区7、8" class="headerlink" title="攻防世界WEB新手区7、8"></a>攻防世界WEB新手区7、8</h1><h2 id="simple-php"><a href="#simple-php" class="headerlink" title="simple_php"></a>simple_php</h2><ul>
-<li><p>题目来源： Cyberpeace-n3k0</p>
-</li>
-<li><p>题目描述：小宁听说php是最好的语言,于是她简单学习之后写了几行php代码。</p>
-</li>
-<li><p>分析</p>
-</li>
-</ul>
-<p>(1) 进入网页</p>
-    
-    <a class="article-more-a" href="/2021/10/31/%E6%94%BB%E9%98%B2%E4%B8%96%E7%95%8CWEB%E6%96%B0%E6%89%8B%E5%8C%BA7%E3%80%818/#more">more >></a>
-    
-    
-
-    
-
-    
-
-  </div>
-  <div class="article-info article-info-index">
-    
-    
-    
-
-    
-    <p class="article-more-link">
-      <a class="article-more-a" href="/2021/10/31/%E6%94%BB%E9%98%B2%E4%B8%96%E7%95%8CWEB%E6%96%B0%E6%89%8B%E5%8C%BA7%E3%80%818/">展开全文 >></a>
     </p>
     
 
