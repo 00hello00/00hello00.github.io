@@ -6,7 +6,7 @@
   <link href="http://example.com/atom.xml" rel="self"/>
   
   <link href="http://example.com/"/>
-  <updated>2022-02-11T18:39:08.054Z</updated>
+  <updated>2022-02-22T12:21:19.186Z</updated>
   <id>http://example.com/</id>
   
   <author>
@@ -15,6 +15,21 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>[GXYCTF2019]BabyUpload</title>
+    <link href="http://example.com/2022/02/22/GXYCTF2019_BabyUpload/"/>
+    <id>http://example.com/2022/02/22/GXYCTF2019_BabyUpload/</id>
+    <published>2022-02-22T11:42:49.000Z</published>
+    <updated>2022-02-22T12:21:19.186Z</updated>
+    
+    
+    <summary type="html">&lt;h1 id=&quot;GXYCTF2019-BabyUpload&quot;&gt;&lt;a href=&quot;#GXYCTF2019-BabyUpload&quot; class=&quot;headerlink&quot; title=&quot;[GXYCTF2019]BabyUpload&quot;&gt;&lt;/a&gt;[GXYCTF2019]BabyUpload&lt;/h1&gt;&lt;p&gt;（1）先随便上传png文件看看&lt;/p&gt;</summary>
+    
+    
+    
+    
+  </entry>
   
   <entry>
     <title>[HCTF 2018]WarmUp</title>
@@ -369,23 +384,6 @@ ORDER BY 列名（，列名...）[ASC|DESE]
 &lt;p&gt;–format :指定返回值的模板文件；&lt;/p&gt;
 &lt;p&gt;–no-trunc :显示完整的镜像信息；&lt;/p&gt;
 &lt;p&gt;-q :只显示镜像ID。</summary>
-    
-    
-    
-    
-  </entry>
-  
-  <entry>
-    <title>SQL 注入原理分析（学习笔记）</title>
-    <link href="http://example.com/2021/10/02/sql%E6%B3%A8%E5%85%A5%E5%8E%9F%E7%90%86/"/>
-    <id>http://example.com/2021/10/02/sql%E6%B3%A8%E5%85%A5%E5%8E%9F%E7%90%86/</id>
-    <published>2021-10-02T14:45:23.000Z</published>
-    <updated>2021-10-05T14:44:14.004Z</updated>
-    
-    
-    <summary type="html">&lt;h1 id=&quot;SQL-注入原理分析（学习笔记）&quot;&gt;&lt;a href=&quot;#SQL-注入原理分析（学习笔记）&quot; class=&quot;headerlink&quot; title=&quot;SQL 注入原理分析（学习笔记）&quot;&gt;&lt;/a&gt;SQL 注入原理分析（学习笔记）&lt;/h1&gt;&lt;p&gt;&lt;strong&gt;1.SQL语言介绍&lt;/strong&gt;&lt;/p&gt;
-&lt;p&gt;​       SQL 全称是“结构化查询语言( Structured Query Language)”, 最早是IBM的圣约瑟研究实验室为其关系数据库管理系统SYSTEMR开发的一种查询语言,它的前身是SQUARE语言。SQL语言结构简洁,功能强大,简单易学,所以自从IBM公司1981年推出以来, SQL语言得到了广泛的应用。&lt;/p&gt;
-&lt;p&gt;​        结构化查询语言SQL是一种介于关系代数与关系演算之间的语言,其功能包括查询、操纵、定义和控制四个方面,是一个通用的功能极强的关系数据库标准语言。在SQL语言中不需要告诉SQL如何访问数据库,只要告诉SQL需要数据库做什么。&lt;/p&gt;</summary>
     
     
     
