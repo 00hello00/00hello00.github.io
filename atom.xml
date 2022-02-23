@@ -6,7 +6,7 @@
   <link href="http://example.com/atom.xml" rel="self"/>
   
   <link href="http://example.com/"/>
-  <updated>2022-02-23T11:56:12.331Z</updated>
+  <updated>2022-02-23T12:45:58.034Z</updated>
   <id>http://example.com/</id>
   
   <author>
@@ -15,6 +15,26 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>[SUCTF 2019]EasySQL</title>
+    <link href="http://example.com/2022/02/23/[SUCTF%202019]EasySQL/"/>
+    <id>http://example.com/2022/02/23/[SUCTF%202019]EasySQL/</id>
+    <published>2022-02-23T12:03:01.000Z</published>
+    <updated>2022-02-23T12:45:58.034Z</updated>
+    
+    
+    <summary type="html">&lt;h1 id=&quot;SUCTF-2019-EasySQL&quot;&gt;&lt;a href=&quot;#SUCTF-2019-EasySQL&quot; class=&quot;headerlink&quot; title=&quot;[SUCTF 2019]EasySQL&quot;&gt;&lt;/a&gt;[SUCTF 2019]EasySQL&lt;/h1&gt;&lt;p&gt;要点：&lt;/p&gt;
+&lt;p&gt;a.堆叠注入。&lt;/p&gt;
+&lt;p&gt;b.||在oracle和mysql数据库功能的联想，sql_mode=pipes_as_concat的使用。&lt;/p&gt;
+&lt;p&gt;c.猜测后端语句。（较难）&lt;/p&gt;</summary>
+    
+    
+    
+    
+    <category term="题目" scheme="http://example.com/tags/%E9%A2%98%E7%9B%AE/"/>
+    
+  </entry>
   
   <entry>
     <title>[GXYCTF2019]BabyUpload</title>
@@ -400,29 +420,6 @@ ORDER BY 列名（，列名...）[ASC|DESE]
 &lt;p&gt;–no-trunc :不截断输出。&lt;/p&gt;
 &lt;p&gt;-q :静默模式，只显示容器编号。&lt;/p&gt;
 &lt;p&gt;-s :显示总的文件大小。&lt;/p&gt;</summary>
-    
-    
-    
-    
-    <category term="笔记" scheme="http://example.com/tags/%E7%AC%94%E8%AE%B0/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>docker命令大全-rootfs命令及镜像仓库</title>
-    <link href="http://example.com/2021/10/05/docker%E5%91%BD%E4%BB%A4%E5%A4%A7%E5%85%A8-%E5%AE%B9%E5%99%A8rootfs%E5%91%BD%E4%BB%A4%E4%B8%8E%E9%95%9C%E5%83%8F%E4%BB%93%E5%BA%93/"/>
-    <id>http://example.com/2021/10/05/docker%E5%91%BD%E4%BB%A4%E5%A4%A7%E5%85%A8-%E5%AE%B9%E5%99%A8rootfs%E5%91%BD%E4%BB%A4%E4%B8%8E%E9%95%9C%E5%83%8F%E4%BB%93%E5%BA%93/</id>
-    <published>2021-10-05T14:45:23.000Z</published>
-    <updated>2022-02-23T11:59:33.126Z</updated>
-    
-    
-    <summary type="html">&lt;h1 id=&quot;容器rootfs命令&quot;&gt;&lt;a href=&quot;#容器rootfs命令&quot; class=&quot;headerlink&quot; title=&quot;容器rootfs命令&quot;&gt;&lt;/a&gt;容器rootfs命令&lt;/h1&gt;&lt;p&gt;本文取自&lt;a href=&quot;https://www.runoob.com/docker/docker-rm-command.html&quot;&gt;https://www.runoob.com/docker/docker-rm-command.html&lt;/a&gt;，博主整理这些命令主要是方便自己或其他需要的人来查阅&lt;/p&gt;
-&lt;p&gt;（1）docker commit :从容器创建一个新的镜像。&lt;/p&gt;
-&lt;p&gt;语法&lt;br&gt;docker commit [OPTIONS] CONTAINER [REPOSITORY[:TAG]]&lt;br&gt;OPTIONS说明：&lt;/p&gt;
-&lt;p&gt;-a :提交的镜像作者；&lt;/p&gt;
-&lt;p&gt;-c :使用Dockerfile指令来创建镜像；&lt;/p&gt;
-&lt;p&gt;-m :提交时的说明文字；&lt;/p&gt;
-&lt;p&gt;-p :在commit时，将容器暂停。&lt;/p&gt;</summary>
     
     
     
