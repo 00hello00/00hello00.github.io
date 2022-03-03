@@ -402,17 +402,20 @@ ORDER BY 列名（，列名...）[ASC|DESE]
   </entry>
   
   <entry>
-    <title>docker命令大全-容器生命周期管理</title>
-    <link href="http://example.com/2021/10/05/docker%E5%91%BD%E4%BB%A4%E5%A4%A7%E5%85%A8-%E5%AE%B9%E5%99%A8%E7%94%9F%E5%91%BD%E5%91%A8%E6%9C%9F%E7%AE%A1%E7%90%86/"/>
-    <id>http://example.com/2021/10/05/docker%E5%91%BD%E4%BB%A4%E5%A4%A7%E5%85%A8-%E5%AE%B9%E5%99%A8%E7%94%9F%E5%91%BD%E5%91%A8%E6%9C%9F%E7%AE%A1%E7%90%86/</id>
+    <title>docker命令大全-rootfs命令及镜像仓库</title>
+    <link href="http://example.com/2021/10/05/docker%E5%91%BD%E4%BB%A4%E5%A4%A7%E5%85%A8-%E5%AE%B9%E5%99%A8rootfs%E5%91%BD%E4%BB%A4%E4%B8%8E%E9%95%9C%E5%83%8F%E4%BB%93%E5%BA%93/"/>
+    <id>http://example.com/2021/10/05/docker%E5%91%BD%E4%BB%A4%E5%A4%A7%E5%85%A8-%E5%AE%B9%E5%99%A8rootfs%E5%91%BD%E4%BB%A4%E4%B8%8E%E9%95%9C%E5%83%8F%E4%BB%93%E5%BA%93/</id>
     <published>2021-10-05T14:45:23.000Z</published>
-    <updated>2022-02-23T11:59:18.305Z</updated>
+    <updated>2022-02-23T11:59:33.126Z</updated>
     
     
-    <summary type="html">&lt;h1 id=&quot;docker命令大全-容器生命周期管理&quot;&gt;&lt;a href=&quot;#docker命令大全-容器生命周期管理&quot; class=&quot;headerlink&quot; title=&quot;docker命令大全-容器生命周期管理&quot;&gt;&lt;/a&gt;docker命令大全-容器生命周期管理&lt;/h1&gt;&lt;p&gt;本文取自&lt;a href=&quot;https://www.runoob.com/docker/docker-rm-command.html&quot;&gt;https://www.runoob.com/docker/docker-rm-command.html&lt;/a&gt;，博主整理这些命令主要是方便自己或其他需要的人来查阅&lt;/p&gt;
-&lt;p&gt;（1）docker start :启动一个或多个已经被停止的容器&lt;/p&gt;
-&lt;p&gt;docker stop :停止一个运行中的容器&lt;/p&gt;
-&lt;p&gt;docker restart :重启容器&lt;/p&gt;</summary>
+    <summary type="html">&lt;h1 id=&quot;容器rootfs命令&quot;&gt;&lt;a href=&quot;#容器rootfs命令&quot; class=&quot;headerlink&quot; title=&quot;容器rootfs命令&quot;&gt;&lt;/a&gt;容器rootfs命令&lt;/h1&gt;&lt;p&gt;本文取自&lt;a href=&quot;https://www.runoob.com/docker/docker-rm-command.html&quot;&gt;https://www.runoob.com/docker/docker-rm-command.html&lt;/a&gt;，博主整理这些命令主要是方便自己或其他需要的人来查阅&lt;/p&gt;
+&lt;p&gt;（1）docker commit :从容器创建一个新的镜像。&lt;/p&gt;
+&lt;p&gt;语法&lt;br&gt;docker commit [OPTIONS] CONTAINER [REPOSITORY[:TAG]]&lt;br&gt;OPTIONS说明：&lt;/p&gt;
+&lt;p&gt;-a :提交的镜像作者；&lt;/p&gt;
+&lt;p&gt;-c :使用Dockerfile指令来创建镜像；&lt;/p&gt;
+&lt;p&gt;-m :提交时的说明文字；&lt;/p&gt;
+&lt;p&gt;-p :在commit时，将容器暂停。&lt;/p&gt;</summary>
     
     
     

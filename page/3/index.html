@@ -42,9 +42,6 @@
   
 
   
-    
- 	  <script src="/lib/clickLove.js"></script>
-  
   
 
 
@@ -196,7 +193,7 @@
             
 
   
-    <article id="post-docker命令大全-容器rootfs命令与镜像仓库" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+    <article id="post-docker命令大全-容器操作" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
@@ -204,7 +201,7 @@
   
     <h1 itemprop="name">
 	
-	  <a class="article-title" href="/2021/10/05/docker%E5%91%BD%E4%BB%A4%E5%A4%A7%E5%85%A8-%E5%AE%B9%E5%99%A8rootfs%E5%91%BD%E4%BB%A4%E4%B8%8E%E9%95%9C%E5%83%8F%E4%BB%93%E5%BA%93/" target="_blank">docker命令大全-rootfs命令及镜像仓库</a>
+	  <a class="article-title" href="/2021/10/05/docker%E5%91%BD%E4%BB%A4%E5%A4%A7%E5%85%A8-%E5%AE%B9%E5%99%A8%E6%93%8D%E4%BD%9C/" target="_blank">docker命令大全-容器操作</a>
   
     </h1>
   
@@ -212,7 +209,7 @@
 
   
   
-<a href="/2021/10/05/docker%E5%91%BD%E4%BB%A4%E5%A4%A7%E5%85%A8-%E5%AE%B9%E5%99%A8rootfs%E5%91%BD%E4%BB%A4%E4%B8%8E%E9%95%9C%E5%83%8F%E4%BB%93%E5%BA%93/" class="archive-article-date">
+<a href="/2021/10/05/docker%E5%91%BD%E4%BB%A4%E5%A4%A7%E5%85%A8-%E5%AE%B9%E5%99%A8%E6%93%8D%E4%BD%9C/" class="archive-article-date">
         <time datetime="2021-10-05T14:45:23.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-10-05</time>
 </a>
 
@@ -225,15 +222,19 @@
   
   <div class="article-entry" itemprop="articleBody">
     
-    <h1 id="容器rootfs命令"><a href="#容器rootfs命令" class="headerlink" title="容器rootfs命令"></a>容器rootfs命令</h1><p>本文取自<a target="_blank" rel="noopener" href="https://www.runoob.com/docker/docker-rm-command.html">https://www.runoob.com/docker/docker-rm-command.html</a>，博主整理这些命令主要是方便自己或其他需要的人来查阅</p>
-<p>（1）docker commit :从容器创建一个新的镜像。</p>
-<p>语法<br>docker commit [OPTIONS] CONTAINER [REPOSITORY[:TAG]]<br>OPTIONS说明：</p>
-<p>-a :提交的镜像作者；</p>
-<p>-c :使用Dockerfile指令来创建镜像；</p>
-<p>-m :提交时的说明文字；</p>
-<p>-p :在commit时，将容器暂停。</p>
+    <h1 id="docker的常用命令-容器操作"><a href="#docker的常用命令-容器操作" class="headerlink" title="docker的常用命令-容器操作"></a>docker的常用命令-容器操作</h1><p>本文取自<a target="_blank" rel="noopener" href="https://www.runoob.com/docker/docker-rm-command.html">https://www.runoob.com/docker/docker-rm-command.html</a>，博主整理这些命令主要是方便自己或其他需要的人来查阅</p>
+<p>（1）docker ps : 列出容器</p>
+<p>语法<br>docker ps [OPTIONS]<br>OPTIONS说明：</p>
+<p>-a :显示所有的容器，包括未运行的。</p>
+<p>-f :根据条件过滤显示的内容。</p>
+<p>–format :指定返回值的模板文件。</p>
+<p>-l :显示最近创建的容器。</p>
+<p>-n :列出最近创建的n个容器。</p>
+<p>–no-trunc :不截断输出。</p>
+<p>-q :静默模式，只显示容器编号。</p>
+<p>-s :显示总的文件大小。</p>
     
-    <a class="article-more-a" href="/2021/10/05/docker%E5%91%BD%E4%BB%A4%E5%A4%A7%E5%85%A8-%E5%AE%B9%E5%99%A8rootfs%E5%91%BD%E4%BB%A4%E4%B8%8E%E9%95%9C%E5%83%8F%E4%BB%93%E5%BA%93/#more">more >></a>
+    <a class="article-more-a" href="/2021/10/05/docker%E5%91%BD%E4%BB%A4%E5%A4%A7%E5%85%A8-%E5%AE%B9%E5%99%A8%E6%93%8D%E4%BD%9C/#more">more >></a>
     
     
 
@@ -260,7 +261,98 @@
 
     
     <p class="article-more-link">
-      <a class="article-more-a" href="/2021/10/05/docker%E5%91%BD%E4%BB%A4%E5%A4%A7%E5%85%A8-%E5%AE%B9%E5%99%A8rootfs%E5%91%BD%E4%BB%A4%E4%B8%8E%E9%95%9C%E5%83%8F%E4%BB%93%E5%BA%93/">展开全文 >></a>
+      <a class="article-more-a" href="/2021/10/05/docker%E5%91%BD%E4%BB%A4%E5%A4%A7%E5%85%A8-%E5%AE%B9%E5%99%A8%E6%93%8D%E4%BD%9C/">展开全文 >></a>
+    </p>
+    
+
+    
+    <div class="clearfix"></div>
+  </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-docker命令大全-容器生命周期管理" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+  
+  
+    <h1 itemprop="name">
+	
+	  <a class="article-title" href="/2021/10/05/docker%E5%91%BD%E4%BB%A4%E5%A4%A7%E5%85%A8-%E5%AE%B9%E5%99%A8%E7%94%9F%E5%91%BD%E5%91%A8%E6%9C%9F%E7%AE%A1%E7%90%86/" target="_blank">docker命令大全-容器生命周期管理</a>
+  
+    </h1>
+  
+
+
+  
+  
+<a href="/2021/10/05/docker%E5%91%BD%E4%BB%A4%E5%A4%A7%E5%85%A8-%E5%AE%B9%E5%99%A8%E7%94%9F%E5%91%BD%E5%91%A8%E6%9C%9F%E7%AE%A1%E7%90%86/" class="archive-article-date">
+        <time datetime="2021-10-05T14:45:23.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-10-05</time>
+</a>
+
+  
+  
+    
+
+  
+  </header>
+  
+  <div class="article-entry" itemprop="articleBody">
+    
+    <h1 id="docker命令大全-容器生命周期管理"><a href="#docker命令大全-容器生命周期管理" class="headerlink" title="docker命令大全-容器生命周期管理"></a>docker命令大全-容器生命周期管理</h1><p>本文取自<a target="_blank" rel="noopener" href="https://www.runoob.com/docker/docker-rm-command.html">https://www.runoob.com/docker/docker-rm-command.html</a>，博主整理这些命令主要是方便自己或其他需要的人来查阅</p>
+<p>（1）docker start :启动一个或多个已经被停止的容器</p>
+<p>docker stop :停止一个运行中的容器</p>
+<p>docker restart :重启容器</p>
+    
+    <a class="article-more-a" href="/2021/10/05/docker%E5%91%BD%E4%BB%A4%E5%A4%A7%E5%85%A8-%E5%AE%B9%E5%99%A8%E7%94%9F%E5%91%BD%E5%91%A8%E6%9C%9F%E7%AE%A1%E7%90%86/#more">more >></a>
+    
+    
+
+    
+
+    
+
+  </div>
+  <div class="article-info article-info-index">
+    
+    
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">笔记</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+    
+
+    
+    <p class="article-more-link">
+      <a class="article-more-a" href="/2021/10/05/docker%E5%91%BD%E4%BB%A4%E5%A4%A7%E5%85%A8-%E5%AE%B9%E5%99%A8%E7%94%9F%E5%91%BD%E5%91%A8%E6%9C%9F%E7%AE%A1%E7%90%86/">展开全文 >></a>
     </p>
     
 
@@ -357,104 +449,6 @@
     
     <p class="article-more-link">
       <a class="article-more-a" href="/2021/10/05/docker%E5%91%BD%E4%BB%A4%E5%A4%A7%E5%85%A8-%E6%9C%AC%E5%9C%B0%E9%95%9C%E5%83%8F%E7%AE%A1%E7%90%86%E4%B8%8Einfoversion/">展开全文 >></a>
-    </p>
-    
-
-    
-    <div class="clearfix"></div>
-  </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-docker命令大全-容器操作" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-  
-  
-    <h1 itemprop="name">
-	
-	  <a class="article-title" href="/2021/10/05/docker%E5%91%BD%E4%BB%A4%E5%A4%A7%E5%85%A8-%E5%AE%B9%E5%99%A8%E6%93%8D%E4%BD%9C/" target="_blank">docker命令大全-容器操作</a>
-  
-    </h1>
-  
-
-
-  
-  
-<a href="/2021/10/05/docker%E5%91%BD%E4%BB%A4%E5%A4%A7%E5%85%A8-%E5%AE%B9%E5%99%A8%E6%93%8D%E4%BD%9C/" class="archive-article-date">
-        <time datetime="2021-10-05T14:45:23.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-10-05</time>
-</a>
-
-  
-  
-    
-
-  
-  </header>
-  
-  <div class="article-entry" itemprop="articleBody">
-    
-    <h1 id="docker的常用命令-容器操作"><a href="#docker的常用命令-容器操作" class="headerlink" title="docker的常用命令-容器操作"></a>docker的常用命令-容器操作</h1><p>本文取自<a target="_blank" rel="noopener" href="https://www.runoob.com/docker/docker-rm-command.html">https://www.runoob.com/docker/docker-rm-command.html</a>，博主整理这些命令主要是方便自己或其他需要的人来查阅</p>
-<p>（1）docker ps : 列出容器</p>
-<p>语法<br>docker ps [OPTIONS]<br>OPTIONS说明：</p>
-<p>-a :显示所有的容器，包括未运行的。</p>
-<p>-f :根据条件过滤显示的内容。</p>
-<p>–format :指定返回值的模板文件。</p>
-<p>-l :显示最近创建的容器。</p>
-<p>-n :列出最近创建的n个容器。</p>
-<p>–no-trunc :不截断输出。</p>
-<p>-q :静默模式，只显示容器编号。</p>
-<p>-s :显示总的文件大小。</p>
-    
-    <a class="article-more-a" href="/2021/10/05/docker%E5%91%BD%E4%BB%A4%E5%A4%A7%E5%85%A8-%E5%AE%B9%E5%99%A8%E6%93%8D%E4%BD%9C/#more">more >></a>
-    
-    
-
-    
-
-    
-
-  </div>
-  <div class="article-info article-info-index">
-    
-    
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">笔记</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-    
-
-    
-    <p class="article-more-link">
-      <a class="article-more-a" href="/2021/10/05/docker%E5%91%BD%E4%BB%A4%E5%A4%A7%E5%85%A8-%E5%AE%B9%E5%99%A8%E6%93%8D%E4%BD%9C/">展开全文 >></a>
     </p>
     
 
