@@ -402,24 +402,17 @@ ORDER BY 列名（，列名...）[ASC|DESE]
   </entry>
   
   <entry>
-    <title>docker命令大全-容器操作</title>
-    <link href="http://example.com/2021/10/05/docker%E5%91%BD%E4%BB%A4%E5%A4%A7%E5%85%A8-%E5%AE%B9%E5%99%A8%E6%93%8D%E4%BD%9C/"/>
-    <id>http://example.com/2021/10/05/docker%E5%91%BD%E4%BB%A4%E5%A4%A7%E5%85%A8-%E5%AE%B9%E5%99%A8%E6%93%8D%E4%BD%9C/</id>
+    <title>docker命令大全-容器生命周期管理</title>
+    <link href="http://example.com/2021/10/05/docker%E5%91%BD%E4%BB%A4%E5%A4%A7%E5%85%A8-%E5%AE%B9%E5%99%A8%E7%94%9F%E5%91%BD%E5%91%A8%E6%9C%9F%E7%AE%A1%E7%90%86/"/>
+    <id>http://example.com/2021/10/05/docker%E5%91%BD%E4%BB%A4%E5%A4%A7%E5%85%A8-%E5%AE%B9%E5%99%A8%E7%94%9F%E5%91%BD%E5%91%A8%E6%9C%9F%E7%AE%A1%E7%90%86/</id>
     <published>2021-10-05T14:45:23.000Z</published>
-    <updated>2022-02-23T11:59:12.266Z</updated>
+    <updated>2022-02-23T11:59:18.305Z</updated>
     
     
-    <summary type="html">&lt;h1 id=&quot;docker的常用命令-容器操作&quot;&gt;&lt;a href=&quot;#docker的常用命令-容器操作&quot; class=&quot;headerlink&quot; title=&quot;docker的常用命令-容器操作&quot;&gt;&lt;/a&gt;docker的常用命令-容器操作&lt;/h1&gt;&lt;p&gt;本文取自&lt;a href=&quot;https://www.runoob.com/docker/docker-rm-command.html&quot;&gt;https://www.runoob.com/docker/docker-rm-command.html&lt;/a&gt;，博主整理这些命令主要是方便自己或其他需要的人来查阅&lt;/p&gt;
-&lt;p&gt;（1）docker ps : 列出容器&lt;/p&gt;
-&lt;p&gt;语法&lt;br&gt;docker ps [OPTIONS]&lt;br&gt;OPTIONS说明：&lt;/p&gt;
-&lt;p&gt;-a :显示所有的容器，包括未运行的。&lt;/p&gt;
-&lt;p&gt;-f :根据条件过滤显示的内容。&lt;/p&gt;
-&lt;p&gt;–format :指定返回值的模板文件。&lt;/p&gt;
-&lt;p&gt;-l :显示最近创建的容器。&lt;/p&gt;
-&lt;p&gt;-n :列出最近创建的n个容器。&lt;/p&gt;
-&lt;p&gt;–no-trunc :不截断输出。&lt;/p&gt;
-&lt;p&gt;-q :静默模式，只显示容器编号。&lt;/p&gt;
-&lt;p&gt;-s :显示总的文件大小。&lt;/p&gt;</summary>
+    <summary type="html">&lt;h1 id=&quot;docker命令大全-容器生命周期管理&quot;&gt;&lt;a href=&quot;#docker命令大全-容器生命周期管理&quot; class=&quot;headerlink&quot; title=&quot;docker命令大全-容器生命周期管理&quot;&gt;&lt;/a&gt;docker命令大全-容器生命周期管理&lt;/h1&gt;&lt;p&gt;本文取自&lt;a href=&quot;https://www.runoob.com/docker/docker-rm-command.html&quot;&gt;https://www.runoob.com/docker/docker-rm-command.html&lt;/a&gt;，博主整理这些命令主要是方便自己或其他需要的人来查阅&lt;/p&gt;
+&lt;p&gt;（1）docker start :启动一个或多个已经被停止的容器&lt;/p&gt;
+&lt;p&gt;docker stop :停止一个运行中的容器&lt;/p&gt;
+&lt;p&gt;docker restart :重启容器&lt;/p&gt;</summary>
     
     
     
