@@ -49,7 +49,7 @@
 <meta property="og:image" content="https://s2.loli.net/2022/03/11/6S3jRhMQC4m5eK2.png">
 <meta property="og:image" content="https://s2.loli.net/2022/03/11/yvu34oeIB1MJgil.png">
 <meta property="article:published_time" content="2022-03-03T12:32:40.000Z">
-<meta property="article:modified_time" content="2022-03-13T08:36:10.290Z">
+<meta property="article:modified_time" content="2022-03-13T08:40:01.731Z">
 <meta property="article:author" content="00hello00">
 <meta property="article:tag" content="靶场">
 <meta name="twitter:card" content="summary">
@@ -574,7 +574,8 @@ while True:
 <p><img src="https://s2.loli.net/2022/03/11/Et2FQSK1PasZnYT.png" alt="图片.png"><br><img src="https://s2.loli.net/2022/03/11/q1DSQ8r4iZ6X5Ot.png" alt="图片.png"></p>
 <p>出现了yes就代表成功了。</p>
 <p>（5）接下来就直接用蚁剑去连接</p>
-<h2 id="pass19"><a href="#pass19" class="headerlink" title="pass19"></a>pass19</h2><h2 id="pass20"><a href="#pass20" class="headerlink" title="pass20"></a>pass20</h2><p>（1）提示</p>
+<h2 id="pass19"><a href="#pass19" class="headerlink" title="pass19"></a>pass19</h2><p>等待更新</p>
+<h2 id="pass20"><a href="#pass20" class="headerlink" title="pass20"></a>pass20</h2><p>（1）提示</p>
 <pre><code>    $deny_ext = array(&quot;php&quot;,&quot;php5&quot;,&quot;php4&quot;,&quot;php3&quot;,&quot;php2&quot;,&quot;html&quot;,&quot;htm&quot;,&quot;phtml&quot;,&quot;pht&quot;,&quot;jsp&quot;,&quot;jspa&quot;,&quot;jspx&quot;,&quot;jsw&quot;,&quot;jsv&quot;,&quot;jspf&quot;,&quot;jtml&quot;,&quot;asp&quot;,&quot;aspx&quot;,&quot;asa&quot;,&quot;asax&quot;,&quot;ascx&quot;,&quot;ashx&quot;,&quot;asmx&quot;,&quot;cer&quot;,&quot;swf&quot;,&quot;htaccess&quot;);
 
     $file_name = $_POST[&#39;save_name&#39;];
@@ -633,7 +634,7 @@ PATHINFO_FILENAME - 只返回 filename
         ……
 </code></pre>
 <p>首先要绕过MIME的检查，这个我们通过bp抓包修改Content-Type:的值就可以了。然后savename的值如果不是数组则会被拆为数组，那不妨我们直接构造一个数组传给file。</p>
-<p>同时我们可以利用php数组下标不不为连续数问题（可详细参考这篇博客）</p>
+<p>同时我们可以利用php数组下标不不为连续数问题（可详细参考博主的下一篇博客）</p>
 <p>传入：</p>
 <p>save_name[0]=1.php</p>
 <p>save_name[2]=jpg</p>
