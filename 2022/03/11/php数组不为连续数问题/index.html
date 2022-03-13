@@ -6,30 +6,26 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://example.com">
-  <title>[GXYCTF2019]BabyUpload | Hexo</title>
+  <title>php数组不为连续数问题 | Hexo</title>
   <meta name="generator" content="hexo-theme-yilia-plus">
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   
-  <meta name="description" content="[GXYCTF2019]BabyUpload（1）先随便上传png文件看看">
+  <meta name="description" content="php数组下标不为连续数问题（1）前言">
 <meta property="og:type" content="article">
-<meta property="og:title" content="[GXYCTF2019]BabyUpload">
-<meta property="og:url" content="http://example.com/2022/02/22/GXYCTF2019_BabyUpload/index.html">
+<meta property="og:title" content="php数组不为连续数问题">
+<meta property="og:url" content="http://example.com/2022/03/11/php%E6%95%B0%E7%BB%84%E4%B8%8D%E4%B8%BA%E8%BF%9E%E7%BB%AD%E6%95%B0%E9%97%AE%E9%A2%98/index.html">
 <meta property="og:site_name" content="Hexo">
-<meta property="og:description" content="[GXYCTF2019]BabyUpload（1）先随便上传png文件看看">
+<meta property="og:description" content="php数组下标不为连续数问题（1）前言">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="https://s2.loli.net/2022/02/22/Nx8Oy5AHWofVgl3.png">
-<meta property="og:image" content="https://s2.loli.net/2022/02/22/4rM2se91V85zFyh.png">
-<meta property="og:image" content="https://s2.loli.net/2022/02/22/QPZzb5wvXJoypAe.png">
-<meta property="og:image" content="https://s2.loli.net/2022/02/22/9iEOodT6tQ1wbFc.png">
-<meta property="og:image" content="https://s2.loli.net/2022/02/22/KthdPOGfjs7AywT.png">
-<meta property="og:image" content="https://s2.loli.net/2022/02/22/BOpNA4KEkMw1Iso.png">
-<meta property="og:image" content="https://s2.loli.net/2022/02/22/FfnD3HiNIlG2cud.png">
-<meta property="article:published_time" content="2022-02-22T11:42:49.000Z">
-<meta property="article:modified_time" content="2022-02-23T11:56:12.331Z">
+<meta property="og:image" content="https://s2.loli.net/2022/03/12/HXGcup392QqCIlo.png">
+<meta property="og:image" content="https://s2.loli.net/2022/03/12/RYQSvuNpPtqeK4L.png">
+<meta property="og:image" content="https://s2.loli.net/2022/03/12/i1gPQqdHywpaCfc.png">
+<meta property="article:published_time" content="2022-03-11T14:05:18.000Z">
+<meta property="article:modified_time" content="2022-03-13T08:35:54.343Z">
 <meta property="article:author" content="00hello00">
-<meta property="article:tag" content="题目">
+<meta property="article:tag" content="笔记">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://s2.loli.net/2022/02/22/Nx8Oy5AHWofVgl3.png">
+<meta name="twitter:image" content="https://s2.loli.net/2022/03/12/HXGcup392QqCIlo.png">
   
     <link rel="alternative" href="/atom.xml" title="Hexo" type="application/atom+xml">
   
@@ -199,22 +195,22 @@
               class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-GXYCTF2019_BabyUpload" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="post-php数组不为连续数问题" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
   
   
     <h1 class="article-title" itemprop="name">
-      [GXYCTF2019]BabyUpload
+      php数组不为连续数问题
     </h1>
   
 
 
   
   
-<a href="/2022/02/22/GXYCTF2019_BabyUpload/" class="archive-article-date">
-        <time datetime="2022-02-22T11:42:49.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-02-22</time>
+<a href="/2022/03/11/php%E6%95%B0%E7%BB%84%E4%B8%8D%E4%B8%BA%E8%BF%9E%E7%BB%AD%E6%95%B0%E9%97%AE%E9%A2%98/" class="archive-article-date">
+        <time datetime="2022-03-11T14:05:18.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-03-11</time>
 </a>
 
   
@@ -227,7 +223,7 @@
       <!-- 百度字体平台:http://fontstore.baidu.com/static/editor/index.html -->
       <i class="icon-statistics"></i>
       <span class="post-meta-item-text"> 字数统计:</span>
-      <span class="post-count">159字</span>
+      <span class="post-count">401字</span>
     </span>
   </span>
 
@@ -247,17 +243,31 @@
   
   <div class="article-entry" itemprop="articleBody">
     
-    <h1 id="GXYCTF2019-BabyUpload"><a href="#GXYCTF2019-BabyUpload" class="headerlink" title="[GXYCTF2019]BabyUpload"></a>[GXYCTF2019]BabyUpload</h1><p>（1）先随便上传png文件看看</p>
+    <h1 id="php数组下标不为连续数问题"><a href="#php数组下标不为连续数问题" class="headerlink" title="php数组下标不为连续数问题"></a>php数组下标不为连续数问题</h1><p>（1）前言</p>
 <span id="more"></span>
 
-<p><img src="https://s2.loli.net/2022/02/22/Nx8Oy5AHWofVgl3.png" alt="图片.png"></p>
-<p>好像不行</p>
-<p>（2）抓包，写一句话木马，不断改后缀，直到jpeg好像传上去了。<br><img src="https://s2.loli.net/2022/02/22/4rM2se91V85zFyh.png" alt="图片.png"></p>
-<p>（3）后缀改成php看看<br><img src="https://s2.loli.net/2022/02/22/QPZzb5wvXJoypAe.png" alt="图片.png"><br>ph的后缀好像都不行</p>
-<p>（4）这时候就要用.htaccess文件把后缀直接更改成php文件<br><img src="https://s2.loli.net/2022/02/22/9iEOodT6tQ1wbFc.png" alt="图片.png"></p>
-<p>（5）抓包<br>改Content-Type:image/jpeg绕过<br><img src="https://s2.loli.net/2022/02/22/KthdPOGfjs7AywT.png" alt="图片.png"><br>filename后缀不要动！只要改改Content-Type:image/jpeg就可以。</p>
-<p>博主设置的.htaccess文件是把带png后缀的文件改为php文件，博主之前也把filename后缀改为jpeg以致一直连接不上蚁剑。</p>
-<p>（6）最后用蚁剑连接，再根目录下找到flag。<br><img src="https://s2.loli.net/2022/02/22/BOpNA4KEkMw1Iso.png" alt="图片.png"><br><img src="https://s2.loli.net/2022/02/22/FfnD3HiNIlG2cud.png" alt="图片.png"></p>
+<p>这个问题是博主在刷upload靶场时遇到的。</p>
+<p>（2）问题描述</p>
+<p><img src="https://s2.loli.net/2022/03/12/HXGcup392QqCIlo.png" alt="图片.png"></p>
+<p>这里博主分别定义了a[0]与a[2]并赋值，然后计算a这个数组共有多少的元素并打印，同时打印a[2];</p>
+<p>如果a为数组，又因为a[1]并没有进行赋值，则按理来说会自动赋予空字符。因此用count函数去计算a数组的元素返回值应为3，但却返回了2。</p>
+<p>（3）问题的解决</p>
+<p>这可能是博主php的代码不过关。遇到了这个问题博主立刻去恶补了一下php数组的知识，了解到了一下特性。</p>
+<ul>
+<li>php数组特点（以下内容参考黑马程序员的相关教程）</li>
+</ul>
+<p>（1）可以整数下标或者字符串下标</p>
+<p>如果数组下标都为整数：索引数组</p>
+<p>如果数组下标都为字符串：关联数组</p>
+<p>（2）不同下标可以混合存在：混合数组</p>
+<p>（3）数组元素的顺序以放入顺序为准，跟下标无关</p>
+<p><img src="https://s2.loli.net/2022/03/12/RYQSvuNpPtqeK4L.png" alt="图片.png"></p>
+<p>（4）数字下标的自增长特性：从0开始自动增长，如果中间手动出现较大的，那么后面的自增长元素从最大的值+1开始</p>
+<p>（5）特殊值下标自动转换</p>
+<p><img src="https://s2.loli.net/2022/03/12/i1gPQqdHywpaCfc.png" alt="图片.png"></p>
+<p>（7）php数组元素没有类型限制</p>
+<p>（8）php数组元素没有长度限制</p>
+<p>（9）php中的数组是很大的数据，所以存储的位置是堆区，为当前数组分配一块连续的内存。</p>
 
     
 
@@ -304,7 +314,7 @@
         </li>
         <li>
           <strong>本文链接：</strong>
-          <a href="http://example.com/2022/02/22/GXYCTF2019_BabyUpload/" title="[GXYCTF2019]BabyUpload" target="_blank">http://example.com/2022/02/22/GXYCTF2019_BabyUpload/</a>
+          <a href="http://example.com/2022/03/11/php数组不为连续数问题/" title="php数组不为连续数问题" target="_blank">http://example.com/2022/03/11/php数组不为连续数问题/</a>
         </li>
         
         <li>
@@ -326,7 +336,7 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">题目</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">笔记</a>
         		</li>
       		
 		</ul>
@@ -382,7 +392,7 @@
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-     <!-- <img src="//pan.baidu.com/share/qrcode?url=http://example.com/2022/02/22/GXYCTF2019_BabyUpload/" alt="微信分享二维码"> -->
+     <!-- <img src="//pan.baidu.com/share/qrcode?url=http://example.com/2022/03/11/php%E6%95%B0%E7%BB%84%E4%B8%8D%E4%B8%BA%E8%BF%9E%E7%BB%AD%E6%95%B0%E9%97%AE%E9%A2%98/" alt="微信分享二维码"> -->
     </div>
 </div>
 
@@ -397,18 +407,9 @@
 
 <nav id="article-nav">
   
-    <a href="/2022/02/23/%5BSUCTF%202019%5DEasySQL/" id="article-nav-newer" class="article-nav-link-wrap">
-      <i class="icon-circle-left"></i>
-      <div class="article-nav-title">
-        
-          [SUCTF 2019]EasySQL
-        
-      </div>
-    </a>
   
-  
-    <a href="/2022/02/22/sql%E6%B3%A8%E5%85%A5-%E5%A0%86%E5%8F%A0%E6%B3%A8%E5%85%A5/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">sql注入--堆叠注入</div>
+    <a href="/2022/03/03/upload-labs/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">upload_labs</div>
       <i class="icon-circle-right"></i>
     </a>
   
@@ -435,7 +436,7 @@
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#GXYCTF2019-BabyUpload"><span class="toc-number">1.</span> <span class="toc-text">[GXYCTF2019]BabyUpload</span></a></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#php%E6%95%B0%E7%BB%84%E4%B8%8B%E6%A0%87%E4%B8%8D%E4%B8%BA%E8%BF%9E%E7%BB%AD%E6%95%B0%E9%97%AE%E9%A2%98"><span class="toc-number">1.</span> <span class="toc-text">php数组下标不为连续数问题</span></a></li></ol>
                     </div>
                 </span>
             </div>
