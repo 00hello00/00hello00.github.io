@@ -6,7 +6,7 @@
   <link href="http://example.com/atom.xml" rel="self"/>
   
   <link href="http://example.com/"/>
-  <updated>2022-03-13T08:35:54.343Z</updated>
+  <updated>2022-03-18T13:55:58.144Z</updated>
   <id>http://example.com/</id>
   
   <author>
@@ -15,6 +15,51 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>强网杯2019_随便注</title>
+    <link href="http://example.com/2022/03/17/%E5%BC%BA%E7%BD%91%E6%9D%AF2019-%E9%9A%8F%E4%BE%BF%E6%B3%A8/"/>
+    <id>http://example.com/2022/03/17/%E5%BC%BA%E7%BD%91%E6%9D%AF2019-%E9%9A%8F%E4%BE%BF%E6%B3%A8/</id>
+    <published>2022-03-17T13:01:39.000Z</published>
+    <updated>2022-03-18T13:55:58.144Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h1 id=&quot;强网杯2019-随便注&quot;&gt;&lt;a href=&quot;#强网杯2019-随便注&quot; class=&quot;headerlink&quot;</summary>
+        
+      
+    
+    
+    
+    
+    <category term="题目" scheme="http://example.com/tags/%E9%A2%98%E7%9B%AE/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>BJDCTF2020_Easy_MD5</title>
+    <link href="http://example.com/2022/03/14/BJDCTF2020-Easy-MD5/"/>
+    <id>http://example.com/2022/03/14/BJDCTF2020-Easy-MD5/</id>
+    <published>2022-03-14T11:58:42.000Z</published>
+    <updated>2022-03-14T12:51:07.711Z</updated>
+    
+    
+    <summary type="html">&lt;h1 id=&quot;BUU-BJDCTF2020-Easy-MD5&quot;&gt;&lt;a href=&quot;#BUU-BJDCTF2020-Easy-MD5&quot; class=&quot;headerlink&quot; title=&quot;BUU-BJDCTF2020_Easy_MD5&quot;&gt;&lt;/a&gt;BUU-BJDCTF2020_Easy_MD5&lt;/h1&gt;&lt;p&gt;（1）前言&lt;/p&gt;
+&lt;p&gt;博主今天来刷一刷之前从未碰过的md5题型。&lt;/p&gt;
+&lt;p&gt;本题的主要知识点是：&lt;/p&gt;
+&lt;p&gt;a.password=md5($pass,true)绕过&lt;/p&gt;
+&lt;p&gt;b.MD5的弱碰撞&lt;/p&gt;
+&lt;p&gt;c.md5强比较&lt;/p&gt;</summary>
+    
+    
+    
+    
+    <category term="题目" scheme="http://example.com/tags/%E9%A2%98%E7%9B%AE/"/>
+    
+  </entry>
   
   <entry>
     <title>php数组不为连续数问题</title>
@@ -38,7 +83,7 @@
     <link href="http://example.com/2022/03/03/upload-labs/"/>
     <id>http://example.com/2022/03/03/upload-labs/</id>
     <published>2022-03-03T12:32:40.000Z</published>
-    <updated>2022-03-13T08:40:01.731Z</updated>
+    <updated>2022-03-13T13:30:45.733Z</updated>
     
     
     <summary type="html">&lt;h1 id=&quot;upload-labs&quot;&gt;&lt;a href=&quot;#upload-labs&quot; class=&quot;headerlink&quot; title=&quot;upload_labs&quot;&gt;&lt;/a&gt;upload_labs&lt;/h1&gt;&lt;p&gt;前言：博主之前因为一些其它的事一直拖拉，终于在这几天把这个靶场完成了。&lt;/p&gt;</summary>
@@ -326,6 +371,29 @@
   </entry>
   
   <entry>
+    <title>mysql增删查改语句</title>
+    <link href="http://example.com/2021/10/22/mysql%E5%A2%9E%E5%88%A0%E6%9F%A5%E6%94%B9%E8%AF%AD%E5%8F%A5/"/>
+    <id>http://example.com/2021/10/22/mysql%E5%A2%9E%E5%88%A0%E6%9F%A5%E6%94%B9%E8%AF%AD%E5%8F%A5/</id>
+    <published>2021-10-22T12:32:36.000Z</published>
+    <updated>2022-04-08T17:02:21.621Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h1 id=&quot;mysql增删查改语句&quot;&gt;&lt;a href=&quot;#mysql增删查改语句&quot; class=&quot;headerlink&quot; title=&quot;mysql增删查改语句&quot;&gt;&lt;/a&gt;mysql增删查改语句&lt;/h1&gt;&lt;h2 id=&quot;1-进入mysql库&quot;&gt;&lt;a</summary>
+        
+      
+    
+    
+    
+    
+    <category term="笔记" scheme="http://example.com/tags/%E7%AC%94%E8%AE%B0/"/>
+    
+  </entry>
+  
+  <entry>
     <title>SELECT语句学习笔记2</title>
     <link href="http://example.com/2021/10/19/SELECT%E8%AF%AD%E5%8F%A5%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B02/"/>
     <id>http://example.com/2021/10/19/SELECT%E8%AF%AD%E5%8F%A5%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B02/</id>
@@ -343,67 +411,6 @@
   eg2（其中FROM后面的逗号也可以更改为CROSS JOIN）
       SELECT A.* B.* FROM A CROSS JOIN B
 &lt;/code&gt;&lt;/pre&gt;</summary>
-    
-    
-    
-    
-    <category term="笔记" scheme="http://example.com/tags/%E7%AC%94%E8%AE%B0/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>select语句学习笔记</title>
-    <link href="http://example.com/2021/10/17/select%E8%AF%AD%E5%8F%A5%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B01/"/>
-    <id>http://example.com/2021/10/17/select%E8%AF%AD%E5%8F%A5%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B01/</id>
-    <published>2021-10-16T16:30:55.000Z</published>
-    <updated>2022-02-23T11:58:51.308Z</updated>
-    
-    
-    <summary type="html">&lt;h1 id=&quot;select语句（学习笔记1）&quot;&gt;&lt;a href=&quot;#select语句（学习笔记1）&quot; class=&quot;headerlink&quot; title=&quot;select语句（学习笔记1）&quot;&gt;&lt;/a&gt;select语句（学习笔记1）&lt;/h1&gt;&lt;p&gt;注：这篇博客是博主通过学习B站这位UP主（&lt;a href=&quot;https://space.bilibili.com/508641166/video?tid=0&amp;page=1&amp;keyword=&amp;order=pubdate&quot;&gt;https://space.bilibili.com/508641166/video?tid=0&amp;amp;page=1&amp;amp;keyword=&amp;amp;order=pubdate&lt;/a&gt;）18到22有关select语句的教程所得出的总结。&lt;/p&gt;
-&lt;h2 id=&quot;1-SELECT一般格式&quot;&gt;&lt;a href=&quot;#1-SELECT一般格式&quot; class=&quot;headerlink&quot; title=&quot;1.SELECT一般格式&quot;&gt;&lt;/a&gt;1.SELECT一般格式&lt;/h2&gt;&lt;pre&gt;&lt;code&gt;SELECT 目标表达式 别名(，目标表达式 别名...）
-FROM 表名或视图名 别名 （，表名或视图名 别名... ）
-WHERE 条件表达式  
-GOUOP BY 列名（，列名...） HAVING 条件表达式
-ORDER BY 列名（，列名...）[ASC|DESE]
-&lt;/code&gt;&lt;/pre&gt;</summary>
-    
-    
-    
-    
-    <category term="笔记" scheme="http://example.com/tags/%E7%AC%94%E8%AE%B0/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>sqli_lab_lesson1</title>
-    <link href="http://example.com/2021/10/10/sqli-lab-lesson1/"/>
-    <id>http://example.com/2021/10/10/sqli-lab-lesson1/</id>
-    <published>2021-10-10T07:26:38.000Z</published>
-    <updated>2022-02-23T11:58:26.470Z</updated>
-    
-    
-    <summary type="html">&lt;h1 id=&quot;sqli-lab-lesson1问题解析（萌新版）&quot;&gt;&lt;a href=&quot;#sqli-lab-lesson1问题解析（萌新版）&quot; class=&quot;headerlink&quot; title=&quot;sqli-lab-lesson1问题解析（萌新版）&quot;&gt;&lt;/a&gt;sqli-lab-lesson1问题解析（萌新版）&lt;/h1&gt;&lt;p&gt;博主作为一位刚接触计算机萌新，有很多不懂的东西需要学习。以下是博主在按照别人的攻略通过sqli-libs-lesson1的遇到问题以及查找到的解答。&lt;/p&gt;
-&lt;p&gt;1.具体步骤（攻略链接：&lt;a href=&quot;https://blog.csdn.net/weixin_51356351/article/details/109198820&quot;&gt;https://blog.csdn.net/weixin_51356351/article/details/109198820&lt;/a&gt;以下图片是博主根据攻略输入指令所得,部分内容有稍微进行修改）&lt;/p&gt;
-&lt;p&gt;判断注入点—-判断是数字型还是字符型—-查询列数—-查询显示位—-获取数据库名—-获取数据库中的表名—-获取列名—-获取列中的数据 其实不管是联合查询还是盲注之类的基本都这样，大同小异。&lt;/p&gt;</summary>
-    
-    
-    
-    
-    <category term="题目" scheme="http://example.com/tags/%E9%A2%98%E7%9B%AE/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>sql注入一般流程（学习笔记）</title>
-    <link href="http://example.com/2021/10/07/sqli%E6%B3%A8%E5%85%A5%E6%B5%81%E7%A8%8B%E7%AC%94%E8%AE%B0/"/>
-    <id>http://example.com/2021/10/07/sqli%E6%B3%A8%E5%85%A5%E6%B5%81%E7%A8%8B%E7%AC%94%E8%AE%B0/</id>
-    <published>2021-10-07T14:58:23.000Z</published>
-    <updated>2022-02-23T11:59:05.227Z</updated>
-    
-    
-    <summary type="html">&lt;h1 id=&quot;sql注入一般流程&quot;&gt;&lt;a href=&quot;#sql注入一般流程&quot; class=&quot;headerlink&quot; title=&quot;sql注入一般流程&quot;&gt;&lt;/a&gt;sql注入一般流程&lt;/h1&gt;&lt;h2 id=&quot;（1）目标收集&quot;&gt;&lt;a href=&quot;#（1）目标收集&quot; class=&quot;headerlink&quot; title=&quot;（1）目标收集&quot;&gt;&lt;/a&gt;（1）目标收集&lt;/h2&gt;&lt;p&gt;a.无特定目标inurl:.php?id=//注意php前有一个小点&lt;/p&gt;
-&lt;p&gt;b.有特定目标inurl:.php?id=sit:target.com&lt;/p&gt;
-&lt;p&gt;c.工具爬取spider，对收索引擎和目标网站的链接经行爬取&lt;/p&gt;</summary>
     
     
     
