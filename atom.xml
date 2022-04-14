@@ -6,7 +6,7 @@
   <link href="http://example.com/atom.xml" rel="self"/>
   
   <link href="http://example.com/"/>
-  <updated>2022-03-18T13:55:58.144Z</updated>
+  <updated>2022-03-14T12:51:07.711Z</updated>
   <id>http://example.com/</id>
   
   <author>
@@ -15,29 +15,6 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
-  
-  <entry>
-    <title>强网杯2019_随便注</title>
-    <link href="http://example.com/2022/03/17/%E5%BC%BA%E7%BD%91%E6%9D%AF2019-%E9%9A%8F%E4%BE%BF%E6%B3%A8/"/>
-    <id>http://example.com/2022/03/17/%E5%BC%BA%E7%BD%91%E6%9D%AF2019-%E9%9A%8F%E4%BE%BF%E6%B3%A8/</id>
-    <published>2022-03-17T13:01:39.000Z</published>
-    <updated>2022-03-18T13:55:58.144Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;h1 id=&quot;强网杯2019-随便注&quot;&gt;&lt;a href=&quot;#强网杯2019-随便注&quot; class=&quot;headerlink&quot;</summary>
-        
-      
-    
-    
-    
-    
-    <category term="题目" scheme="http://example.com/tags/%E9%A2%98%E7%9B%AE/"/>
-    
-  </entry>
   
   <entry>
     <title>BJDCTF2020_Easy_MD5</title>
@@ -410,6 +387,29 @@
   从AB表中把AB列的所有数据连接起来，缺点为信息连接不对等
   eg2（其中FROM后面的逗号也可以更改为CROSS JOIN）
       SELECT A.* B.* FROM A CROSS JOIN B
+&lt;/code&gt;&lt;/pre&gt;</summary>
+    
+    
+    
+    
+    <category term="笔记" scheme="http://example.com/tags/%E7%AC%94%E8%AE%B0/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>select语句学习笔记</title>
+    <link href="http://example.com/2021/10/17/select%E8%AF%AD%E5%8F%A5%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B01/"/>
+    <id>http://example.com/2021/10/17/select%E8%AF%AD%E5%8F%A5%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B01/</id>
+    <published>2021-10-16T16:30:55.000Z</published>
+    <updated>2022-02-23T11:58:51.308Z</updated>
+    
+    
+    <summary type="html">&lt;h1 id=&quot;select语句（学习笔记1）&quot;&gt;&lt;a href=&quot;#select语句（学习笔记1）&quot; class=&quot;headerlink&quot; title=&quot;select语句（学习笔记1）&quot;&gt;&lt;/a&gt;select语句（学习笔记1）&lt;/h1&gt;&lt;p&gt;注：这篇博客是博主通过学习B站这位UP主（&lt;a href=&quot;https://space.bilibili.com/508641166/video?tid=0&amp;page=1&amp;keyword=&amp;order=pubdate&quot;&gt;https://space.bilibili.com/508641166/video?tid=0&amp;amp;page=1&amp;amp;keyword=&amp;amp;order=pubdate&lt;/a&gt;）18到22有关select语句的教程所得出的总结。&lt;/p&gt;
+&lt;h2 id=&quot;1-SELECT一般格式&quot;&gt;&lt;a href=&quot;#1-SELECT一般格式&quot; class=&quot;headerlink&quot; title=&quot;1.SELECT一般格式&quot;&gt;&lt;/a&gt;1.SELECT一般格式&lt;/h2&gt;&lt;pre&gt;&lt;code&gt;SELECT 目标表达式 别名(，目标表达式 别名...）
+FROM 表名或视图名 别名 （，表名或视图名 别名... ）
+WHERE 条件表达式  
+GOUOP BY 列名（，列名...） HAVING 条件表达式
+ORDER BY 列名（，列名...）[ASC|DESE]
 &lt;/code&gt;&lt;/pre&gt;</summary>
     
     
