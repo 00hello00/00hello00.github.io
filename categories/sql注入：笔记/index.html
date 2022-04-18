@@ -11,7 +11,7 @@
         name="viewport"
         content="width=device-width, initial-scale=1, maximum-scale=1"
       />
-      <title>sql注入--堆叠注入 |  欲</title>
+      <title>sql注入：笔记 |  欲</title>
   <meta name="generator" content="hexo-theme-ayer">
       
       <link rel="shortcut icon" href="/favicon.ico" />
@@ -53,181 +53,58 @@
       
     <main class="content on">
       <section class="outer">
-  <article
-  id="post-sql注入-堆叠注入"
-  class="article article-type-post"
-  itemscope
-  itemprop="blogPost"
-  data-scroll-reveal
->
-  <div class="article-inner">
+  
+  
+  <article class="articles">
     
-    <header class="article-header">
+    
+    <h1 class="page-type-title">sql注入：笔记</h1>
+    
+    
+  
+  
+  
+  
+  
+  
+  <div class="archives-wrap">
+    <div class="archive-year-wrap">
+      <a href="/archives/2021" class="archive-year">2021</a>
+    </div>
+    <div class="archives">
+      
+      <article class="archive-article archive-type-post">
+  <div class="archive-article-inner">
+    <header class="archive-article-header">
+      <a href="/2021/10/17/select%E8%AF%AD%E5%8F%A5%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B01/" class="archive-article-date">
+  <time datetime="2021-10-16T16:30:55.000Z" itemprop="datePublished">10/17</time>
+</a>
        
-<h1 class="article-title sea-center" style="border-left:0" itemprop="name">
-  sql注入--堆叠注入
-</h1>
+<h2 itemprop="name">
+  <a class="archive-article-title" href="/2021/10/17/select%E8%AF%AD%E5%8F%A5%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B01/"
+    >select语句学习笔记</a> 
+</h2>
  
 
-      
     </header>
-     
-    <div class="article-meta">
-      <a href="/2022/02/22/sql%E6%B3%A8%E5%85%A5-%E5%A0%86%E5%8F%A0%E6%B3%A8%E5%85%A5/" class="article-date">
-  <time datetime="2022-02-22T08:56:50.000Z" itemprop="datePublished">2022-02-22</time>
-</a> 
+    
+      
   <div class="article-category">
-    <a class="article-category-link" href="/categories/sql%E6%B3%A8%E5%85%A5/">sql注入</a>
-  </div>
-  
-<div class="word_count">
-    <span class="post-time">
-        <span class="post-meta-item-icon">
-            <i class="ri-quill-pen-line"></i>
-            <span class="post-meta-item-text"> 字数统计:</span>
-            <span class="post-count">220</span>
-        </span>
-    </span>
-
-    <span class="post-time">
-        &nbsp; | &nbsp;
-        <span class="post-meta-item-icon">
-            <i class="ri-book-open-line"></i>
-            <span class="post-meta-item-text"> 阅读时长≈</span>
-            <span class="post-count">1 分钟</span>
-        </span>
-    </span>
-</div>
- 
-    </div>
-      
-    <div class="tocbot"></div>
-
-
-
-
-  
-    <div class="article-entry" itemprop="articleBody">
-       
-  <h1 id="sql注入–堆叠注入"><a href="#sql注入–堆叠注入" class="headerlink" title="sql注入–堆叠注入"></a>sql注入–堆叠注入</h1><h2 id="（1）原理"><a href="#（1）原理" class="headerlink" title="（1）原理"></a>（1）原理</h2><p>Stacked injection 汉语翻译过来后，国内有的称为堆查询注入，也有称之为堆叠注入。在SQL中，分号（;）是用来表示一条sql语句的结束。结束一个sql语句后继续执行分号后面的下一条语句。</p>
-<p>堆叠注入的作用是同时执行多条任意语句，而union联合注入合并执行的语句有限，可以用来执行查询语句。</p>
-<h2 id="（2）堆叠注入的局限性"><a href="#（2）堆叠注入的局限性" class="headerlink" title="（2）堆叠注入的局限性"></a>（2）堆叠注入的局限性</h2><p>堆叠注入的局限性在于并不是每一个环境下都可以执行，可能受到API或者数据库引擎不支持的限制，当然了权限不足也可以解释为什么攻击者无法修改数据或者调用一些程序。</p>
-<ul>
-<li>注：Mysql、Sql server、Postgresql可执行堆叠注入，Oracle不行。</li>
-</ul>
- 
-      <!-- reward -->
-      
-      <div id="reword-out">
-        <div id="reward-btn">
-          打赏
-        </div>
-      </div>
-      
-    </div>
-    
-
-    <!-- copyright -->
-    
-    <div class="declare">
-      <ul class="post-copyright">
-        <li>
-          <i class="ri-copyright-line"></i>
-          <strong>版权声明： </strong>
-          
-          本博客所有文章除特别声明外，著作权归作者所有。转载请注明出处！
-          
-        </li>
-      </ul>
-    </div>
-    
-    <footer class="article-footer">
-       
-<div class="share-btn">
-      <span class="share-sns share-outer">
-        <i class="ri-share-forward-line"></i>
-        分享
-      </span>
-      <div class="share-wrap">
-        <i class="arrow"></i>
-        <div class="share-icons">
-          
-          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
-            <i class="ri-weibo-fill"></i>
-          </a>
-          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
-            <i class="ri-wechat-fill"></i>
-          </a>
-          <a class="qq share-sns" href="javascript:;" data-type="qq">
-            <i class="ri-qq-fill"></i>
-          </a>
-          <a class="douban share-sns" href="javascript:;" data-type="douban">
-            <i class="ri-douban-line"></i>
-          </a>
-          <!-- <a class="qzone share-sns" href="javascript:;" data-type="qzone">
-            <i class="icon icon-qzone"></i>
-          </a> -->
-          
-          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
-            <i class="ri-facebook-circle-fill"></i>
-          </a>
-          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
-            <i class="ri-twitter-fill"></i>
-          </a>
-          <a class="google share-sns" href="javascript:;" data-type="google">
-            <i class="ri-google-fill"></i>
-          </a>
-        </div>
-      </div>
-</div>
-
-<div class="wx-share-modal">
-    <a class="modal-close" href="javascript:;"><i class="ri-close-circle-line"></i></a>
-    <p>扫一扫，分享到微信</p>
-    <div class="wx-qrcode">
-      <img src="//api.qrserver.com/v1/create-qr-code/?size=150x150&data=http://example.com/2022/02/22/sql%E6%B3%A8%E5%85%A5-%E5%A0%86%E5%8F%A0%E6%B3%A8%E5%85%A5/" alt="微信分享二维码">
-    </div>
-</div>
-
-<div id="share-mask"></div>  
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E7%AC%94%E8%AE%B0/" rel="tag">笔记</a></li></ul>
-
-    </footer>
+    <a class="article-category-link" href="/categories/sql%E6%B3%A8%E5%85%A5%EF%BC%9A%E7%AC%94%E8%AE%B0/">sql注入：笔记</a>
   </div>
 
-   
-  <nav class="article-nav">
-    
-      <a href="/2022/02/22/GXYCTF2019_BabyUpload/" class="article-nav-link">
-        <strong class="article-nav-caption">上一篇</strong>
-        <div class="article-nav-title">
-          
-            [GXYCTF2019]BabyUpload
-          
-        </div>
-      </a>
     
     
-      <a href="/2022/02/11/%5BHCTF%202018%5DWarmUp/" class="article-nav-link">
-        <strong class="article-nav-caption">下一篇</strong>
-        <div class="article-nav-title">[HCTF 2018]WarmUp</div>
-      </a>
-    
-  </nav>
-
-  
-   
-    
-    <script src="https://cdn.staticfile.org/twikoo/1.4.18/twikoo.all.min.js"></script>
-    <div id="twikoo" class="twikoo"></div>
-    <script>
-        twikoo.init({
-            envId: ""
-        })
-    </script>
- 
+  </div>
 </article>
+      
+      
+    </div>
+  </div>
+  
+  
 
+  
 </section>
       <footer class="footer">
   <div class="outer">
@@ -361,22 +238,6 @@
 <script src="/js/lazyload.min.js"></script>
 
 <!-- Tocbot -->
- 
-<script src="/js/tocbot.min.js"></script>
-
-<script>
-  tocbot.init({
-    tocSelector: ".tocbot",
-    contentSelector: ".article-entry",
-    headingSelector: "h1, h2, h3, h4, h5, h6",
-    hasInnerContainers: true,
-    scrollSmooth: true,
-    scrollContainer: "main",
-    positionFixedSelector: ".tocbot",
-    positionFixedClass: "is-position-fixed",
-    fixedSidebarOffset: "auto",
-  });
-</script>
 
 <script src="https://cdn.staticfile.org/jquery-modal/0.9.2/jquery.modal.min.js"></script>
 <link
