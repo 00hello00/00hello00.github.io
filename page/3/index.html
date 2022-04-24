@@ -155,6 +155,88 @@
     
     
     <article
+  id="post-mysql增删查改语句"
+  class="article article-type-post"
+  itemscope
+  itemprop="blogPost"
+  data-scroll-reveal
+>
+  <div class="article-inner">
+    
+    <header class="article-header">
+       
+<h2 itemprop="name">
+  <a class="article-title" href="/2021/10/22/mysql%E5%A2%9E%E5%88%A0%E6%9F%A5%E6%94%B9%E8%AF%AD%E5%8F%A5/"
+    >mysql增删查改语句</a> 
+</h2>
+ 
+
+      
+    </header>
+     
+    <div class="article-meta">
+      <a href="/2021/10/22/mysql%E5%A2%9E%E5%88%A0%E6%9F%A5%E6%94%B9%E8%AF%AD%E5%8F%A5/" class="article-date">
+  <time datetime="2021-10-22T12:32:36.000Z" itemprop="datePublished">2021-10-22</time>
+</a> 
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/sql%E6%B3%A8%E5%85%A5/">sql注入</a> / <a class="article-category-link" href="/categories/sql%E6%B3%A8%E5%85%A5/%E7%AC%94%E8%AE%B0/">笔记</a>
+  </div>
+   
+    </div>
+      
+    <div class="article-entry" itemprop="articleBody">
+       
+  <h1 id="mysql增删查改语句"><a href="#mysql增删查改语句" class="headerlink" title="mysql增删查改语句"></a>mysql增删查改语句</h1><h2 id="1-进入mysql库"><a href="#1-进入mysql库" class="headerlink" title="1.进入mysql库"></a>1.进入mysql库</h2><pre><code>mysql -u 用户名 -p
+</code></pre>
+<p><img src="https://s2.loli.net/2022/04/05/9Le32JuHov6Eia7.png" alt="图片.png"></p>
+<h2 id="2-数据库的增删查改语句"><a href="#2-数据库的增删查改语句" class="headerlink" title="2.数据库的增删查改语句"></a>2.数据库的增删查改语句</h2><p>（1）增–数据库新建语句：create database 库名 default charset=utf8;</p>
+<p><img src="https://s2.loli.net/2022/02/22/TIWkcfC9SAaunPv.png" alt="图片.png"></p>
+<ul>
+<li><p>注：我们再cmd中输入的字符，采用的字符集是GBK，也就是说客户端(client)的字符集是GBK。而在mysql服务器(server)的字符集是UTF8。首先，在客户端输入的字符，使用的字符集是GBK。当经过连接器的时候，连接器会进行”字符集的自动转换”，将原来的子符(以GBK进行编码)转换为以UTF8格式的编码字符，临时存储在连接器中。接着，连接器发现mysql服务器使用的字符集，与自身字符集完全一致，都是UTF8。于是，直接发给mysql服务器，进行最终的存储。</p>
+</li>
+<li><p>default charset=utf8设置默认的字符集为UTF8。</p>
+</li>
+</ul>
+<p><img src="https://s2.loli.net/2022/04/09/wfMh6j1s7WFLRZg.png" alt="图片.png"></p>
+<p>（2）删–删除数据库：drop database 库名;</p>
+<p><img src="https://s2.loli.net/2022/02/22/s4eWOg1JoU9SPnd.png" alt="图片.png"></p>
+<p>（3）查–查找数据库：show databases;</p>
+<h2 id="3-数据表的增删改查语句"><a href="#3-数据表的增删改查语句" class="headerlink" title="3.数据表的增删改查语句"></a>3.数据表的增删改查语句</h2><p>（1）使用数据库：use 数据库;</p>
+<p><img src="https://s2.loli.net/2022/02/22/l8eyHP1nUzF3CEB.png" alt="图片.png"></p>
+<p>（2）增–新建数据表：create table 数据表名(字段 类型）engine=innodb default charset=utf8；</p>
+<p><img src="https://s2.loli.net/2022/04/06/MRfCzoGjtdBEun1.png" alt="图片.png"></p>
+<ul>
+<li>注：存储引擎是innodb。innoDB 是 MySQL 上第一个提供外键约束的数据存储引擎，除了提供事务处理外，InnoDB 还支持行锁，提供和 Oracle 一样的一致性的不加锁读取，能增加并发读的用户数量并提高性能，不会增加锁的数量。InnoDB 的设计目标是处理大容量数据时最大化性能，它的 CPU 利用率是其他所有基于磁盘的关系数据库引擎中最有效率的。</li>
+</ul>
+<p>（3）删–删除数据表：drop table +数据表名称</p>
+<p><img src="https://s2.loli.net/2022/04/05/5Zr4A8WYc1tMpVU.png" alt="图片.png"></p>
+<p>（4）增–插入数据：insert into 数据表名(字段) values(数值);</p>
+<p><img src="https://s2.loli.net/2022/04/06/Of2MwxdQzclr7WP.png" alt="图片.png"><br><img src="https://s2.loli.net/2022/04/06/aLZe4WEBF2J8Qdz.png" alt="图片.png"></p>
+<p>（5）删–删除某条数据：delete from 表名 where 标识；</p>
+<p><img src="https://s2.loli.net/2022/04/06/iBhbMNODVmzwl4F.png" alt="图片.png"></p>
+<p>（6）改–修改内容：update 表名 set 需要修改的内容 where 需要修改的标识；</p>
+<p><img src="https://s2.loli.net/2022/04/06/xC1rnPWBSfikMjK.png" alt="图片.png"></p>
+ 
+      <!-- reward -->
+      
+    </div>
+    
+
+    <!-- copyright -->
+    
+    <footer class="article-footer">
+       
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E7%AC%94%E8%AE%B0/" rel="tag">笔记</a></li></ul>
+
+    </footer>
+  </div>
+
+   
+    
+</article>
+
+    
+    <article
   id="post-SELECT语句学习笔记2"
   class="article article-type-post"
   itemscope
@@ -690,66 +772,13 @@ ORDER BY 列名（，列名...）[ASC|DESE]
 </article>
 
     
-    <article
-  id="post-php初学笔记"
-  class="article article-type-post"
-  itemscope
-  itemprop="blogPost"
-  data-scroll-reveal
->
-  <div class="article-inner">
-    
-    <header class="article-header">
-       
-<h2 itemprop="name">
-  <a class="article-title" href="/2021/09/18/php%E5%88%9D%E5%AD%A6%E7%AC%94%E8%AE%B0/"
-    >php 初学笔记</a> 
-</h2>
- 
-
-      
-    </header>
-     
-    <div class="article-meta">
-      <a href="/2021/09/18/php%E5%88%9D%E5%AD%A6%E7%AC%94%E8%AE%B0/" class="article-date">
-  <time datetime="2021-09-18T13:45:23.000Z" itemprop="datePublished">2021-09-18</time>
-</a>    
-    </div>
-      
-    <div class="article-entry" itemprop="articleBody">
-       
-  <h1 id="PHP-初学笔记——数据类型"><a href="#PHP-初学笔记——数据类型" class="headerlink" title="#PHP 初学笔记——数据类型"></a>#PHP 初学笔记——数据类型</h1><p>1.# 概念 #</p>
-<p>PHP（PHP: Hypertext Preprocessor）<br>即“超文本预处理器”，是在服务器端执行的脚本语言，尤其适用于Web开发并可嵌入HTML中。PHP语法学习了C语言，吸纳Java和Perl多个语言的特色发展出自己的特色语法，并根据它们的长项持续改进提升自己，例如java的面向对象编程，该语言当初创建的主要目标是让开发人员快速编写出优质的web网站。 PHP同时支持面向对象和面向过程的开发，使用上非常灵活。</p> 
-      <a class="article-more-link" href="/2021/09/18/php%E5%88%9D%E5%AD%A6%E7%AC%94%E8%AE%B0/"
-        >more...</a
-      >
-       
-      <!-- reward -->
-      
-    </div>
-    
-
-    <!-- copyright -->
-    
-    <footer class="article-footer">
-       
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E7%AC%94%E8%AE%B0/" rel="tag">笔记</a></li></ul>
-
-    </footer>
-  </div>
-
-   
-    
-</article>
-
-    
   </article>
   
 
   
   <nav class="page-nav">
     
-    <a class="extend prev" rel="prev" href="/page/2/">上一页</a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><span class="page-number current">3</span>
+    <a class="extend prev" rel="prev" href="/page/2/">上一页</a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><span class="page-number current">3</span><a class="page-number" href="/page/4/">4</a><a class="extend next" rel="next" href="/page/4/">下一页</a>
   </nav>
   
 </section>
