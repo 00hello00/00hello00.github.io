@@ -81,7 +81,7 @@
         <span class="post-meta-item-icon">
             <i class="ri-quill-pen-line"></i>
             <span class="post-meta-item-text"> 字数统计:</span>
-            <span class="post-count">1.3k</span>
+            <span class="post-count">1.5k</span>
         </span>
     </span>
 
@@ -90,7 +90,7 @@
         <span class="post-meta-item-icon">
             <i class="ri-book-open-line"></i>
             <span class="post-meta-item-text"> 阅读时长≈</span>
-            <span class="post-count">6 分钟</span>
+            <span class="post-count">7 分钟</span>
         </span>
     </span>
 </div>
@@ -238,6 +238,18 @@ unserialize($b);
 <p>（4）看txt里的内容加密的方式应该是snow加密，配合上面解出来的密码，用snow.exe，解密一下。</p>
 <p>得到一串这个玩意，QUmu-U6LP-Gcto</p>
 <p>套进ISCC{}看看，好像可以。</p>
+<h2 id="whereistheflag"><a href="#whereistheflag" class="headerlink" title="whereistheflag"></a>whereistheflag</h2><p>博主太菜了，开始的时候也有试过lsb隐写，rgb000也看过很多次，就愣是看不出有问题。后面看大佬的wp才知道，真的有问题。</p>
+<p>（1）先把题目的那一串base64码解密一下，解开压缩包。</p>
+<p>（2）用stegsolve里的lsb隐写</p>
+<p><img src="https://s2.loli.net/2022/05/26/GAepakH7NJoIlUv.png" alt="图片.png"></p>
+<p>提取出最前面一段的十六进制码（我就为什么看不出来呢）</p>
+<pre><code>ffffd254d0d0dedc90de569bdc1a0cd5cd1893921bd89c118dd9145f41f8007ffffc7e3fe00fff0071ffff
+</code></pre>
+<p>（3）把上面的码转为二进制</p>
+<p>由于0~127位前面的ascii码是由00000000到01111111，因此转码出来后把第一个0前面的东西都删掉。每八位对应一个字符。</p>
+<pre><code>01001001 01010011 01000011 01000011 01111011 01110010 01000011 01111001 01011010 01101111 01110000 01101000 00110011 01010111 00110100 01100010 01001110 01001000 01101111 01100010 01110000 01000110 00110111 01100100 01010001 01111101 00000111
+</code></pre>
+<p>后面由以1开头的则去掉，弄好后转成ASCII码对应的字符就行了。</p>
  
       <!-- reward -->
       
@@ -313,7 +325,7 @@ unserialize($b);
 </div>
 
 <div id="share-mask"></div>  
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E9%A2%98%E7%9B%AE/" rel="tag">题目</a></li></ul>
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/ctf/" rel="tag">ctf</a></li></ul>
 
     </footer>
   </div>
