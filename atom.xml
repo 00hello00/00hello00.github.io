@@ -6,7 +6,7 @@
   <link href="http://example.com/atom.xml" rel="self"/>
   
   <link href="http://example.com/"/>
-  <updated>2022-05-26T13:27:47.828Z</updated>
+  <updated>2022-06-20T16:48:53.882Z</updated>
   <id>http://example.com/</id>
   
   <author>
@@ -15,6 +15,24 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>sdctf2022_Ishihara_test++</title>
+    <link href="http://example.com/2022/06/21/sdctf2022_Ishihara_test++/"/>
+    <id>http://example.com/2022/06/21/sdctf2022_Ishihara_test++/</id>
+    <published>2022-06-20T16:17:11.000Z</published>
+    <updated>2022-06-20T16:48:53.882Z</updated>
+    
+    
+    <summary type="html">&lt;h1 id=&quot;sdctf2022-Ishihara-test&quot;&gt;&lt;a href=&quot;#sdctf2022-Ishihara-test&quot; class=&quot;headerlink&quot; title=&quot;sdctf2022_Ishihara_test++&quot;&gt;&lt;/a&gt;sdctf2022_Ishihara_test++&lt;/h1&gt;&lt;p&gt;（1）前言&lt;/p&gt;
+&lt;p&gt;考试月，太忙了，赶紧找点题目来水水博客。&lt;/p&gt;</summary>
+    
+    
+    
+    
+    <category term="题目" scheme="http://example.com/tags/%E9%A2%98%E7%9B%AE/"/>
+    
+  </entry>
   
   <entry>
     <title>ISCC-2022（部分wp）</title>
@@ -366,31 +384,6 @@
 &lt;li&gt;&lt;p&gt;题目来源： Cyberpeace-n3k0&lt;/p&gt;
 &lt;/li&gt;
 &lt;li&gt;&lt;p&gt;题目描述：X老师告诉小宁其实xff和referer是可以伪造的&lt;/p&gt;</summary>
-    
-    
-    
-    
-    <category term="题目" scheme="http://example.com/tags/%E9%A2%98%E7%9B%AE/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>攻防世界WEB新手区7、8</title>
-    <link href="http://example.com/2021/10/31/%E6%94%BB%E9%98%B2%E4%B8%96%E7%95%8CWEB%E6%96%B0%E6%89%8B%E5%8C%BA7%E3%80%818/"/>
-    <id>http://example.com/2021/10/31/%E6%94%BB%E9%98%B2%E4%B8%96%E7%95%8CWEB%E6%96%B0%E6%89%8B%E5%8C%BA7%E3%80%818/</id>
-    <published>2021-10-31T02:34:02.000Z</published>
-    <updated>2022-02-23T11:58:03.896Z</updated>
-    
-    
-    <summary type="html">&lt;h1 id=&quot;攻防世界WEB新手区7、8&quot;&gt;&lt;a href=&quot;#攻防世界WEB新手区7、8&quot; class=&quot;headerlink&quot; title=&quot;攻防世界WEB新手区7、8&quot;&gt;&lt;/a&gt;攻防世界WEB新手区7、8&lt;/h1&gt;&lt;h2 id=&quot;simple-php&quot;&gt;&lt;a href=&quot;#simple-php&quot; class=&quot;headerlink&quot; title=&quot;simple_php&quot;&gt;&lt;/a&gt;simple_php&lt;/h2&gt;&lt;ul&gt;
-&lt;li&gt;&lt;p&gt;题目来源： Cyberpeace-n3k0&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;题目描述：小宁听说php是最好的语言,于是她简单学习之后写了几行php代码。&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;分析&lt;/p&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;(1) 进入网页&lt;/p&gt;</summary>
     
     
     
