@@ -6,7 +6,7 @@
   <link href="http://example.com/atom.xml" rel="self"/>
   
   <link href="http://example.com/"/>
-  <updated>2022-07-07T12:22:18.003Z</updated>
+  <updated>2022-07-07T13:03:54.543Z</updated>
   <id>http://example.com/</id>
   
   <author>
@@ -15,6 +15,32 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>漏洞</title>
+    <link href="http://example.com/2022/07/07/%E6%BC%8F%E6%B4%9E/"/>
+    <id>http://example.com/2022/07/07/%E6%BC%8F%E6%B4%9E/</id>
+    <published>2022-07-07T13:02:51.000Z</published>
+    <updated>2022-07-07T13:03:54.543Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;p&gt;说明&lt;/p&gt;
+</summary>
+        
+      
+    
+    
+    
+    <category term="漏洞" scheme="http://example.com/categories/%E6%BC%8F%E6%B4%9E/"/>
+    
+    <category term="说明" scheme="http://example.com/categories/%E6%BC%8F%E6%B4%9E/%E8%AF%B4%E6%98%8E/"/>
+    
+    
+  </entry>
   
   <entry>
     <title>ciscn2019_hack_world</title>
@@ -365,23 +391,6 @@
 &lt;/ul&gt;
 &lt;ul&gt;
 &lt;li&gt;题目描述：小宁写了个ping功能,但没有写waf,X老师告诉她这是非常危险的，你知道为什么吗。</summary>
-    
-    
-    
-    
-    <category term="题目" scheme="http://example.com/tags/%E9%A2%98%E7%9B%AE/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>极客大挑战2019LoveSQL解析</title>
-    <link href="http://example.com/2021/11/11/%E6%9E%81%E5%AE%A2%E5%A4%A7%E6%8C%91%E6%88%982019LoveSQL%E8%A7%A3%E6%9E%90/"/>
-    <id>http://example.com/2021/11/11/%E6%9E%81%E5%AE%A2%E5%A4%A7%E6%8C%91%E6%88%982019LoveSQL%E8%A7%A3%E6%9E%90/</id>
-    <published>2021-11-11T12:57:34.000Z</published>
-    <updated>2022-02-23T11:57:48.282Z</updated>
-    
-    
-    <summary type="html">&lt;h1 id=&quot;极客大挑战2019LoveSQL解析&quot;&gt;&lt;a href=&quot;#极客大挑战2019LoveSQL解析&quot; class=&quot;headerlink&quot; title=&quot;极客大挑战2019LoveSQL解析&quot;&gt;&lt;/a&gt;极客大挑战2019LoveSQL解析&lt;/h1&gt;&lt;p&gt;（1）打开网页&lt;/p&gt;</summary>
     
     
     
