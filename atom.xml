@@ -6,7 +6,7 @@
   <link href="http://example.com/atom.xml" rel="self"/>
   
   <link href="http://example.com/"/>
-  <updated>2022-06-20T16:48:53.882Z</updated>
+  <updated>2022-07-07T12:22:18.003Z</updated>
   <id>http://example.com/</id>
   
   <author>
@@ -15,6 +15,24 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>ciscn2019_hack_world</title>
+    <link href="http://example.com/2022/07/07/ciscn2019-hack-world/"/>
+    <id>http://example.com/2022/07/07/ciscn2019-hack-world/</id>
+    <published>2022-07-07T09:44:36.000Z</published>
+    <updated>2022-07-07T12:22:18.003Z</updated>
+    
+    
+    <summary type="html">&lt;h1 id=&quot;ciscn2019-hack-world&quot;&gt;&lt;a href=&quot;#ciscn2019-hack-world&quot; class=&quot;headerlink&quot; title=&quot;ciscn2019_hack_world&quot;&gt;&lt;/a&gt;ciscn2019_hack_world&lt;/h1&gt;&lt;p&gt;(1)前言&lt;/p&gt;
+&lt;p&gt; 好久没有做sql注入的题目了，找一道做一下&lt;/p&gt;</summary>
+    
+    
+    
+    
+    <category term="题目" scheme="http://example.com/tags/%E9%A2%98%E7%9B%AE/"/>
+    
+  </entry>
   
   <entry>
     <title>sdctf2022_Ishihara_test++</title>
@@ -364,26 +382,6 @@
     
     
     <summary type="html">&lt;h1 id=&quot;极客大挑战2019LoveSQL解析&quot;&gt;&lt;a href=&quot;#极客大挑战2019LoveSQL解析&quot; class=&quot;headerlink&quot; title=&quot;极客大挑战2019LoveSQL解析&quot;&gt;&lt;/a&gt;极客大挑战2019LoveSQL解析&lt;/h1&gt;&lt;p&gt;（1）打开网页&lt;/p&gt;</summary>
-    
-    
-    
-    
-    <category term="题目" scheme="http://example.com/tags/%E9%A2%98%E7%9B%AE/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>攻防世界WEB新手区9、10</title>
-    <link href="http://example.com/2021/11/09/%E6%94%BB%E9%98%B2%E4%B8%96%E7%95%8CWEB%E6%96%B0%E6%89%8B%E5%8C%BA9%E3%80%8110/"/>
-    <id>http://example.com/2021/11/09/%E6%94%BB%E9%98%B2%E4%B8%96%E7%95%8CWEB%E6%96%B0%E6%89%8B%E5%8C%BA9%E3%80%8110/</id>
-    <published>2021-11-09T14:01:14.000Z</published>
-    <updated>2022-02-23T11:57:55.907Z</updated>
-    
-    
-    <summary type="html">&lt;h1 id=&quot;xff-referer&quot;&gt;&lt;a href=&quot;#xff-referer&quot; class=&quot;headerlink&quot; title=&quot;xff_referer&quot;&gt;&lt;/a&gt;xff_referer&lt;/h1&gt;&lt;ul&gt;
-&lt;li&gt;&lt;p&gt;题目来源： Cyberpeace-n3k0&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;题目描述：X老师告诉小宁其实xff和referer是可以伪造的&lt;/p&gt;</summary>
     
     
     
