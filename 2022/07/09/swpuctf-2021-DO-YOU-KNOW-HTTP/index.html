@@ -11,7 +11,7 @@
         name="viewport"
         content="width=device-width, initial-scale=1, maximum-scale=1"
       />
-      <title>漏洞 |  欲</title>
+      <title>swpuctf_2021_DO_YOU_KNOW_HTTP |  欲</title>
   <meta name="generator" content="hexo-theme-ayer">
       
       <link rel="shortcut icon" href="/favicon.ico" />
@@ -54,7 +54,7 @@
     <main class="content on">
       <section class="outer">
   <article
-  id="post-漏洞"
+  id="post-swpuctf-2021-DO-YOU-KNOW-HTTP"
   class="article article-type-post"
   itemscope
   itemprop="blogPost"
@@ -65,7 +65,7 @@
     <header class="article-header">
        
 <h1 class="article-title sea-center" style="border-left:0" itemprop="name">
-  漏洞
+  swpuctf_2021_DO_YOU_KNOW_HTTP
 </h1>
  
 
@@ -73,19 +73,15 @@
     </header>
      
     <div class="article-meta">
-      <a href="/2022/07/07/%E6%BC%8F%E6%B4%9E/" class="article-date">
-  <time datetime="2022-07-07T13:02:51.000Z" itemprop="datePublished">2022-07-07</time>
-</a> 
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/%E6%BC%8F%E6%B4%9E/">漏洞</a> / <a class="article-category-link" href="/categories/%E6%BC%8F%E6%B4%9E/%E8%AF%B4%E6%98%8E/">说明</a>
-  </div>
-  
+      <a href="/2022/07/09/swpuctf-2021-DO-YOU-KNOW-HTTP/" class="article-date">
+  <time datetime="2022-07-09T12:52:38.000Z" itemprop="datePublished">2022-07-09</time>
+</a>   
 <div class="word_count">
     <span class="post-time">
         <span class="post-meta-item-icon">
             <i class="ri-quill-pen-line"></i>
             <span class="post-meta-item-text"> 字数统计:</span>
-            <span class="post-count">2</span>
+            <span class="post-count">334</span>
         </span>
     </span>
 
@@ -101,13 +97,47 @@
  
     </div>
       
+    <div class="tocbot"></div>
+
 
 
 
   
     <div class="article-entry" itemprop="articleBody">
        
-  <p>说明</p>
+  <h1 id="swpuctf-2021-DO-YOU-KNOW-HTTP"><a href="#swpuctf-2021-DO-YOU-KNOW-HTTP" class="headerlink" title="swpuctf_2021_DO_YOU_KNOW_HTTP"></a>swpuctf_2021_DO_YOU_KNOW_HTTP</h1><p>（1）前言</p>
+<p>补充一些http请求头的知识</p>
+<span id="more"></span>
+
+<p>（2）题目</p>
+<ul>
+<li><p>hello.php</p>
+<pre><code>  Please use &#39;WLLM&#39; browser!
+</code></pre>
+<p>刚开始让我们使用WLLM的浏览器。</p>
+<pre><code>  User-Agent
+  
+  　　说明：HTTP客户端运行的浏览器类型的详细信息。通过该头部信息，web服务器可以判断到当前HTTP请求的客户端浏览器类别。
+  
+  　　实例：User-Agent: Mozilla/5.0 (Windows; U; Windows NT 5.1; zh-CN; rv:1.8.1.11) Gecko/20071127 Firefox/2.0.0.11
+</code></pre>
+</li>
+</ul>
+<p>用bp抓包修改一下，得到了另外一个页面<br><img src="https://s2.loli.net/2022/07/09/jcBilXVK9usrHT6.png" alt="图片.png"></p>
+<ul>
+<li>a.php<pre><code>  You can only read this at local!
+  Your address117.136.75.112 
+</code></pre>
+</li>
+</ul>
+<p>这里要自己添加、并修改X-Forwarded-For的值。</p>
+<pre><code>    X-Forwarded-For 是一个 HTTP 扩展头部，用来表示HTTP请求端真实 IP，HTTP/1.1 协议并没有对它的定义，但现如今
+X-Forwarded-For已被各大 HTTP 代理、负载均衡等转发服务广泛使用。
+    X-Forwarded-For 作为 HTTP 请求的扩展头，在请求的过程中可以被直接的进行修改。正常情况下，我们所获得的 ips 第一部分应该是
+客户端 IP，但是如果客户端对 X-Forwarded-For 进行了修改，我们仍旧采用以上方法获得客户端 IP，那么客户端 IP 将会是被伪造过的。
+</code></pre>
+<p><img src="https://s2.loli.net/2022/07/09/vXUuKfOV2tewRmq.png" alt="图片.png"></p>
+<p>（3）进入第三个页面后得到flag。</p>
  
       <!-- reward -->
       
@@ -178,30 +208,23 @@
     <a class="modal-close" href="javascript:;"><i class="ri-close-circle-line"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//api.qrserver.com/v1/create-qr-code/?size=150x150&data=http://example.com/2022/07/07/%E6%BC%8F%E6%B4%9E/" alt="微信分享二维码">
+      <img src="//api.qrserver.com/v1/create-qr-code/?size=150x150&data=http://example.com/2022/07/09/swpuctf-2021-DO-YOU-KNOW-HTTP/" alt="微信分享二维码">
     </div>
 </div>
 
 <div id="share-mask"></div>  
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E9%A2%98%E7%9B%AE/" rel="tag">题目</a></li></ul>
+
     </footer>
   </div>
 
    
   <nav class="article-nav">
     
-      <a href="/2022/07/09/swpuctf-2021-DO-YOU-KNOW-HTTP/" class="article-nav-link">
-        <strong class="article-nav-caption">上一篇</strong>
-        <div class="article-nav-title">
-          
-            swpuctf_2021_DO_YOU_KNOW_HTTP
-          
-        </div>
-      </a>
     
-    
-      <a href="/2022/07/07/ciscn2019-hack-world/" class="article-nav-link">
+      <a href="/2022/07/07/%E6%BC%8F%E6%B4%9E/" class="article-nav-link">
         <strong class="article-nav-caption">下一篇</strong>
-        <div class="article-nav-title">ciscn2019_hack_world</div>
+        <div class="article-nav-title">漏洞</div>
       </a>
     
   </nav>

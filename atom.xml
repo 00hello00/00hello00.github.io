@@ -6,7 +6,7 @@
   <link href="http://example.com/atom.xml" rel="self"/>
   
   <link href="http://example.com/"/>
-  <updated>2022-07-07T13:03:54.543Z</updated>
+  <updated>2022-07-09T13:36:03.913Z</updated>
   <id>http://example.com/</id>
   
   <author>
@@ -15,6 +15,24 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>swpuctf_2021_DO_YOU_KNOW_HTTP</title>
+    <link href="http://example.com/2022/07/09/swpuctf-2021-DO-YOU-KNOW-HTTP/"/>
+    <id>http://example.com/2022/07/09/swpuctf-2021-DO-YOU-KNOW-HTTP/</id>
+    <published>2022-07-09T12:52:38.000Z</published>
+    <updated>2022-07-09T13:36:03.913Z</updated>
+    
+    
+    <summary type="html">&lt;h1 id=&quot;swpuctf-2021-DO-YOU-KNOW-HTTP&quot;&gt;&lt;a href=&quot;#swpuctf-2021-DO-YOU-KNOW-HTTP&quot; class=&quot;headerlink&quot; title=&quot;swpuctf_2021_DO_YOU_KNOW_HTTP&quot;&gt;&lt;/a&gt;swpuctf_2021_DO_YOU_KNOW_HTTP&lt;/h1&gt;&lt;p&gt;（1）前言&lt;/p&gt;
+&lt;p&gt;补充一些http请求头的知识&lt;/p&gt;</summary>
+    
+    
+    
+    
+    <category term="题目" scheme="http://example.com/tags/%E9%A2%98%E7%9B%AE/"/>
+    
+  </entry>
   
   <entry>
     <title>漏洞</title>
@@ -370,27 +388,6 @@
     
     
     <summary type="html">&lt;h1 id=&quot;极客大挑战-2019-EasySQL&quot;&gt;&lt;a href=&quot;#极客大挑战-2019-EasySQL&quot; class=&quot;headerlink&quot; title=&quot;[极客大挑战 2019]EasySQL&quot;&gt;&lt;/a&gt;[极客大挑战 2019]EasySQL&lt;/h1&gt;&lt;p&gt;1.先试一下万能钥匙，提示密码的单引号没有闭合。&lt;/p&gt;</summary>
-    
-    
-    
-    
-    <category term="题目" scheme="http://example.com/tags/%E9%A2%98%E7%9B%AE/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>攻防世界WEB新手区11、12</title>
-    <link href="http://example.com/2021/11/17/%E6%94%BB%E9%98%B2%E4%B8%96%E7%95%8CWEB%E6%96%B0%E6%89%8B%E5%8C%BA11%E3%80%8112/"/>
-    <id>http://example.com/2021/11/17/%E6%94%BB%E9%98%B2%E4%B8%96%E7%95%8CWEB%E6%96%B0%E6%89%8B%E5%8C%BA11%E3%80%8112/</id>
-    <published>2021-11-17T07:51:59.000Z</published>
-    <updated>2022-02-23T11:57:40.688Z</updated>
-    
-    
-    <summary type="html">&lt;h1 id=&quot;command-execution&quot;&gt;&lt;a href=&quot;#command-execution&quot; class=&quot;headerlink&quot; title=&quot;command_execution&quot;&gt;&lt;/a&gt;command_execution&lt;/h1&gt;&lt;ul&gt;
-&lt;li&gt;题目来源： Cyberpeace-n3k0&lt;/li&gt;
-&lt;/ul&gt;
-&lt;ul&gt;
-&lt;li&gt;题目描述：小宁写了个ping功能,但没有写waf,X老师告诉她这是非常危险的，你知道为什么吗。</summary>
     
     
     
