@@ -155,6 +155,71 @@
     
     
     <article
+  id="post-SELECT语句学习笔记2"
+  class="article article-type-post"
+  itemscope
+  itemprop="blogPost"
+  data-scroll-reveal
+>
+  <div class="article-inner">
+    
+    <header class="article-header">
+       
+<h2 itemprop="name">
+  <a class="article-title" href="/2021/10/19/SELECT%E8%AF%AD%E5%8F%A5%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B02/"
+    >SELECT语句学习笔记2</a> 
+</h2>
+ 
+
+      
+    </header>
+     
+    <div class="article-meta">
+      <a href="/2021/10/19/SELECT%E8%AF%AD%E5%8F%A5%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B02/" class="article-date">
+  <time datetime="2021-10-19T11:41:03.000Z" itemprop="datePublished">2021-10-19</time>
+</a> 
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/sql%E6%B3%A8%E5%85%A5/">sql注入</a> / <a class="article-category-link" href="/categories/sql%E6%B3%A8%E5%85%A5/%E7%AC%94%E8%AE%B0/">笔记</a>
+  </div>
+ 
+    </div>
+      
+    <div class="article-entry" itemprop="articleBody">
+       
+  <h1 id="SELECT语句四种查询"><a href="#SELECT语句四种查询" class="headerlink" title="SELECT语句四种查询"></a>SELECT语句四种查询</h1><p>注：这篇博客是博主通过学习B站这位UP主（<a target="_blank" rel="noopener" href="https://space.bilibili.com/508641166/video?tid=0&page=1&keyword=&order=pubdate">https://space.bilibili.com/508641166/video?tid=0&amp;page=1&amp;keyword=&amp;order=pubdate</a>）18到22有关select语句的教程所得出的总结。</p>
+<h1 id="1-单表查询："><a href="#1-单表查询：" class="headerlink" title="1.单表查询："></a>1.单表查询：</h1><p>比较常见不过多介绍，博主的上一篇博客介绍的主要内容即为单表查询 </p>
+<h1 id="2-连接查询"><a href="#2-连接查询" class="headerlink" title="2.连接查询"></a>2.连接查询</h1><p>注：连接查询又可分为以下6种形式</p>
+<p>（1）交叉连接（广义笛卡尔积）</p>
+<ul>
+<li>不带谓语的连接（很少使用，连接的表格信息不对等）<pre><code>  eg1.SELECT A.* B.* FROM A,B
+  从AB表中把AB列的所有数据连接起来，缺点为信息连接不对等
+  eg2（其中FROM后面的逗号也可以更改为CROSS JOIN）
+      SELECT A.* B.* FROM A CROSS JOIN B
+</code></pre> 
+      <a class="article-more-link" href="/2021/10/19/SELECT%E8%AF%AD%E5%8F%A5%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B02/"
+        >more...</a
+      >
+       
+      <!-- reward -->
+      
+    </div>
+    
+
+    <!-- copyright -->
+    
+    <footer class="article-footer">
+       
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E7%AC%94%E8%AE%B0/" rel="tag">笔记</a></li></ul>
+
+    </footer>
+  </div>
+
+   
+    
+</article>
+
+    
+    <article
   id="post-select语句学习笔记1"
   class="article article-type-post"
   itemscope
