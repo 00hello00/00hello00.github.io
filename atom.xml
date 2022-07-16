@@ -6,7 +6,7 @@
   <link href="http://example.com/atom.xml" rel="self"/>
   
   <link href="http://example.com/"/>
-  <updated>2022-07-16T14:49:42.297Z</updated>
+  <updated>2022-07-16T15:55:40.131Z</updated>
   <id>http://example.com/</id>
   
   <author>
@@ -21,16 +21,11 @@
     <link href="http://example.com/2022/07/16/git%E6%B3%84%E9%9C%B2/"/>
     <id>http://example.com/2022/07/16/git%E6%B3%84%E9%9C%B2/</id>
     <published>2022-07-16T09:40:05.000Z</published>
-    <updated>2022-07-16T14:49:42.297Z</updated>
+    <updated>2022-07-16T15:55:40.131Z</updated>
     
     
-      
-      
-        
-        
-    <summary type="html">&lt;h1 id=&quot;git泄露&quot;&gt;&lt;a href=&quot;#git泄露&quot; class=&quot;headerlink&quot; title=&quot;git泄露&quot;&gt;&lt;/a&gt;git泄露&lt;/h1&gt;&lt;h2 id=&quot;1-漏洞介绍&quot;&gt;&lt;a href=&quot;#1-漏洞介绍&quot; class=&quot;headerlink&quot;</summary>
-        
-      
+    <summary type="html">&lt;h1 id=&quot;git泄露&quot;&gt;&lt;a href=&quot;#git泄露&quot; class=&quot;headerlink&quot; title=&quot;git泄露&quot;&gt;&lt;/a&gt;git泄露&lt;/h1&gt;&lt;h2 id=&quot;1-漏洞介绍&quot;&gt;&lt;a href=&quot;#1-漏洞介绍&quot; class=&quot;headerlink&quot; title=&quot;1.漏洞介绍&quot;&gt;&lt;/a&gt;1.漏洞介绍&lt;/h2&gt;&lt;p&gt;当前大量开发人员使用git进行版本控制，对站点自动部署。如果配置不当，可能会将.git文件夹直接部署到线上环境。这就引起了git泄露漏洞。&lt;/p&gt;
+&lt;p&gt;攻击者可以利用该漏洞下载git文件夹里的所有内容。如果文件夹内有敏感信息比如站点源码、数据库账户密码等，攻击者可能直接控制服务器。渗透测试人员、攻击者可以进一步代码审计、挖掘文件上传，sql注入等安全漏洞。&lt;/p&gt;</summary>
     
     
     
