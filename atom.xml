@@ -6,7 +6,7 @@
   <link href="http://example.com/atom.xml" rel="self"/>
   
   <link href="http://example.com/"/>
-  <updated>2022-07-16T12:42:57.422Z</updated>
+  <updated>2022-07-16T14:49:42.297Z</updated>
   <id>http://example.com/</id>
   
   <author>
@@ -21,18 +21,20 @@
     <link href="http://example.com/2022/07/16/git%E6%B3%84%E9%9C%B2/"/>
     <id>http://example.com/2022/07/16/git%E6%B3%84%E9%9C%B2/</id>
     <published>2022-07-16T09:40:05.000Z</published>
-    <updated>2022-07-16T12:42:57.422Z</updated>
+    <updated>2022-07-16T14:49:42.297Z</updated>
     
     
       
       
         
         
-    <summary type="html">&lt;h2 id=&quot;例题&quot;&gt;&lt;a href=&quot;#例题&quot; class=&quot;headerlink&quot; title=&quot;例题&quot;&gt;&lt;/a&gt;例题&lt;/h2&gt;&lt;p&gt;[GXYCTF</summary>
+    <summary type="html">&lt;h1 id=&quot;git泄露&quot;&gt;&lt;a href=&quot;#git泄露&quot; class=&quot;headerlink&quot; title=&quot;git泄露&quot;&gt;&lt;/a&gt;git泄露&lt;/h1&gt;&lt;h2 id=&quot;1-漏洞介绍&quot;&gt;&lt;a href=&quot;#1-漏洞介绍&quot; class=&quot;headerlink&quot;</summary>
         
       
     
     
+    
+    <category term="漏洞" scheme="http://example.com/categories/%E6%BC%8F%E6%B4%9E/"/>
     
     
     <category term="笔记" scheme="http://example.com/tags/%E7%AC%94%E8%AE%B0/"/>
