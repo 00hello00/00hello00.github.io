@@ -6,7 +6,7 @@
   <link href="http://example.com/atom.xml" rel="self"/>
   
   <link href="http://example.com/"/>
-  <updated>2022-07-16T15:55:40.131Z</updated>
+  <updated>2022-08-29T10:58:50.046Z</updated>
   <id>http://example.com/</id>
   
   <author>
@@ -15,6 +15,38 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Templated</title>
+    <link href="http://example.com/2022/08/27/Templated/"/>
+    <id>http://example.com/2022/08/27/Templated/</id>
+    <published>2022-08-27T11:27:02.000Z</published>
+    <updated>2022-08-29T10:58:50.046Z</updated>
+    
+    
+    <summary type="html">&lt;h1 id=&quot;Flask-Jinja2框架的ssti漏洞-沙箱逃逸-CVE-2019-8341&quot;&gt;&lt;a href=&quot;#Flask-Jinja2框架的ssti漏洞-沙箱逃逸-CVE-2019-8341&quot; class=&quot;headerlink&quot; title=&quot;Flask/Jinja2框架的ssti漏洞(沙箱逃逸)(CVE-2019-8341)#&quot;&gt;&lt;/a&gt;Flask/Jinja2框架的ssti漏洞(沙箱逃逸)(CVE-2019-8341)#&lt;/h1&gt;&lt;h3 id=&quot;1-背景介绍&quot;&gt;&lt;a href=&quot;#1-背景介绍&quot; class=&quot;headerlink&quot; title=&quot;1.背景介绍&quot;&gt;&lt;/a&gt;1.背景介绍&lt;/h3&gt;&lt;p&gt;flask是基于python开发的一种web服务器。&lt;/p&gt;</summary>
+    
+    
+    
+    <category term="漏洞" scheme="http://example.com/categories/%E6%BC%8F%E6%B4%9E/"/>
+    
+    
+    <category term="笔记" scheme="http://example.com/tags/%E7%AC%94%E8%AE%B0/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>CISCN_2022_web</title>
+    <link href="http://example.com/2022/08/02/CISCN-2022-web/"/>
+    <id>http://example.com/2022/08/02/CISCN-2022-web/</id>
+    <published>2022-08-02T14:17:39.000Z</published>
+    <updated>2022-08-02T14:17:39.927Z</updated>
+    
+    
+    
+    
+    
+  </entry>
   
   <entry>
     <title>git泄露</title>
@@ -50,6 +82,23 @@
     
     
     <category term="题目" scheme="http://example.com/tags/%E9%A2%98%E7%9B%AE/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>curl介绍及使用</title>
+    <link href="http://example.com/2022/07/11/curl%E4%BB%8B%E7%BB%8D%E5%8F%8A%E4%BD%BF%E7%94%A8/"/>
+    <id>http://example.com/2022/07/11/curl%E4%BB%8B%E7%BB%8D%E5%8F%8A%E4%BD%BF%E7%94%A8/</id>
+    <published>2022-07-11T08:13:01.000Z</published>
+    <updated>2022-08-29T10:41:33.125Z</updated>
+    
+    
+    <summary type="html">&lt;h1 id=&quot;curl介绍及php中curl的相关函数&quot;&gt;&lt;a href=&quot;#curl介绍及php中curl的相关函数&quot; class=&quot;headerlink&quot; title=&quot;curl介绍及php中curl的相关函数&quot;&gt;&lt;/a&gt;curl介绍及php中curl的相关函数&lt;/h1&gt;&lt;h2 id=&quot;（1）前言&quot;&gt;&lt;a href=&quot;#（1）前言&quot; class=&quot;headerlink&quot; title=&quot;（1）前言&quot;&gt;&lt;/a&gt;（1）前言&lt;/h2&gt;&lt;p&gt;这里主要介绍的还是php中curl的相关函数。&lt;/p&gt;</summary>
+    
+    
+    
+    
+    <category term="笔记" scheme="http://example.com/tags/%E7%AC%94%E8%AE%B0/"/>
     
   </entry>
   
@@ -327,67 +376,6 @@
     
     
     <summary type="html">&lt;h1 id=&quot;GXYCTF2019-BabyUpload&quot;&gt;&lt;a href=&quot;#GXYCTF2019-BabyUpload&quot; class=&quot;headerlink&quot; title=&quot;[GXYCTF2019]BabyUpload&quot;&gt;&lt;/a&gt;[GXYCTF2019]BabyUpload&lt;/h1&gt;&lt;p&gt;（1）先随便上传png文件看看&lt;/p&gt;</summary>
-    
-    
-    
-    
-    <category term="题目" scheme="http://example.com/tags/%E9%A2%98%E7%9B%AE/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>sql注入--堆叠注入</title>
-    <link href="http://example.com/2022/02/22/sql%E6%B3%A8%E5%85%A5-%E5%A0%86%E5%8F%A0%E6%B3%A8%E5%85%A5/"/>
-    <id>http://example.com/2022/02/22/sql%E6%B3%A8%E5%85%A5-%E5%A0%86%E5%8F%A0%E6%B3%A8%E5%85%A5/</id>
-    <published>2022-02-22T08:56:50.000Z</published>
-    <updated>2022-04-18T14:03:22.236Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;h1 id=&quot;sql注入–堆叠注入&quot;&gt;&lt;a href=&quot;#sql注入–堆叠注入&quot; class=&quot;headerlink&quot; title=&quot;sql注入–堆叠注入&quot;&gt;&lt;/a&gt;sql注入–堆叠注入&lt;/h1&gt;&lt;h2 id=&quot;（1）原理&quot;&gt;&lt;a href=&quot;#（1）原理&quot;</summary>
-        
-      
-    
-    
-    
-    <category term="sql注入" scheme="http://example.com/categories/sql%E6%B3%A8%E5%85%A5/"/>
-    
-    <category term="笔记" scheme="http://example.com/categories/sql%E6%B3%A8%E5%85%A5/%E7%AC%94%E8%AE%B0/"/>
-    
-    
-    <category term="笔记" scheme="http://example.com/tags/%E7%AC%94%E8%AE%B0/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>[HCTF 2018]WarmUp</title>
-    <link href="http://example.com/2022/02/11/[HCTF%202018]WarmUp/"/>
-    <id>http://example.com/2022/02/11/[HCTF%202018]WarmUp/</id>
-    <published>2022-02-11T12:31:07.000Z</published>
-    <updated>2022-02-23T11:56:58.747Z</updated>
-    
-    
-    <summary type="html">&lt;h1 id=&quot;HCTF-2018-WarmUp&quot;&gt;&lt;a href=&quot;#HCTF-2018-WarmUp&quot; class=&quot;headerlink&quot; title=&quot;[HCTF 2018]WarmUp&quot;&gt;&lt;/a&gt;[HCTF 2018]WarmUp&lt;/h1&gt;&lt;p&gt;（1）开局一张滑稽脸。&lt;/p&gt;</summary>
-    
-    
-    
-    
-    <category term="题目" scheme="http://example.com/tags/%E9%A2%98%E7%9B%AE/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>[ACTF2020 新生赛]Upload1</title>
-    <link href="http://example.com/2022/02/10/%E6%96%B0%E7%94%9F%E8%B5%9B-Upload1/"/>
-    <id>http://example.com/2022/02/10/%E6%96%B0%E7%94%9F%E8%B5%9B-Upload1/</id>
-    <published>2022-02-10T14:56:18.000Z</published>
-    <updated>2022-02-23T11:57:08.602Z</updated>
-    
-    
-    <summary type="html">&lt;h1 id=&quot;ACTF2020-新生赛-Upload1&quot;&gt;&lt;a href=&quot;#ACTF2020-新生赛-Upload1&quot; class=&quot;headerlink&quot; title=&quot;[ACTF2020 新生赛]Upload1&quot;&gt;&lt;/a&gt;[ACTF2020 新生赛]Upload1&lt;/h1&gt;&lt;p&gt;（1）很明显文件上传题&lt;/p&gt;</summary>
     
     
     

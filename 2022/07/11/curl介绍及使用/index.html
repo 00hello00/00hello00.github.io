@@ -11,7 +11,7 @@
         name="viewport"
         content="width=device-width, initial-scale=1, maximum-scale=1"
       />
-      <title>docker命令大全-rootfs命令及镜像仓库 |  欲</title>
+      <title>curl介绍及使用 |  欲</title>
   <meta name="generator" content="hexo-theme-ayer">
       
       <link rel="shortcut icon" href="/favicon.ico" />
@@ -54,7 +54,7 @@
     <main class="content on">
       <section class="outer">
   <article
-  id="post-docker命令大全-容器rootfs命令与镜像仓库"
+  id="post-curl介绍及使用"
   class="article article-type-post"
   itemscope
   itemprop="blogPost"
@@ -65,7 +65,7 @@
     <header class="article-header">
        
 <h1 class="article-title sea-center" style="border-left:0" itemprop="name">
-  docker命令大全-rootfs命令及镜像仓库
+  curl介绍及使用
 </h1>
  
 
@@ -73,8 +73,8 @@
     </header>
      
     <div class="article-meta">
-      <a href="/2021/10/05/docker%E5%91%BD%E4%BB%A4%E5%A4%A7%E5%85%A8-%E5%AE%B9%E5%99%A8rootfs%E5%91%BD%E4%BB%A4%E4%B8%8E%E9%95%9C%E5%83%8F%E4%BB%93%E5%BA%93/" class="article-date">
-  <time datetime="2021-10-05T14:45:23.000Z" itemprop="datePublished">2021-10-05</time>
+      <a href="/2022/07/11/curl%E4%BB%8B%E7%BB%8D%E5%8F%8A%E4%BD%BF%E7%94%A8/" class="article-date">
+  <time datetime="2022-07-11T08:13:01.000Z" itemprop="datePublished">2022-07-11</time>
 </a>  
     </div>
       
@@ -86,99 +86,267 @@
   
     <div class="article-entry" itemprop="articleBody">
        
-  <h1 id="容器rootfs命令"><a href="#容器rootfs命令" class="headerlink" title="容器rootfs命令"></a>容器rootfs命令</h1><p>本文取自<a target="_blank" rel="noopener" href="https://www.runoob.com/docker/docker-rm-command.html">https://www.runoob.com/docker/docker-rm-command.html</a>，博主整理这些命令主要是方便自己或其他需要的人来查阅</p>
-<p>（1）docker commit :从容器创建一个新的镜像。</p>
-<p>语法<br>docker commit [OPTIONS] CONTAINER [REPOSITORY[:TAG]]<br>OPTIONS说明：</p>
-<p>-a :提交的镜像作者；</p>
-<p>-c :使用Dockerfile指令来创建镜像；</p>
-<p>-m :提交时的说明文字；</p>
-<p>-p :在commit时，将容器暂停。</p>
+  <h1 id="curl介绍及php中curl的相关函数"><a href="#curl介绍及php中curl的相关函数" class="headerlink" title="curl介绍及php中curl的相关函数"></a>curl介绍及php中curl的相关函数</h1><h2 id="（1）前言"><a href="#（1）前言" class="headerlink" title="（1）前言"></a>（1）前言</h2><p>这里主要介绍的还是php中curl的相关函数。</p>
 <span id="more"></span>
-<p>实例<br>将容器a404c6c174a2 保存为新的镜像,并添加提交人信息和说明信息。</p>
-<pre><code>runoob@runoob:~$ docker commit -a &quot;runoob.com&quot; -m &quot;my apache&quot; a404c6c174a2  mymysql:v1 
-sha256:37af1236adef1544e8886be23010b66577647a40bc02c0885a6600b33ee28057
-runoob@runoob:~$ docker images mymysql:v1
-REPOSITORY          TAG                 IMAGE ID            CREATED             SIZE
-mymysql             v1                  37af1236adef        15 seconds ago      329 MB
+
+
+<h2 id="（2）工具介绍"><a href="#（2）工具介绍" class="headerlink" title="（2）工具介绍"></a>（2）工具介绍</h2><p>cURL是一个利用URL语法在命令行下工作的文件传输工具，1997年首次发行。它支持文件上传和下载，所以是综合传输工具，但按传统，习惯称cURL为下载工具。cURL还包含了用于程序开发的libcurl。</p>
+<p>cURL支持的通信协议有FTP、FTPS、HTTP、HTTPS、TFTP、SFTP、Gopher、SCP、Telnet、DICT、FILE、LDAP、LDAPS、IMAP、POP3、SMTP和RTSP。</p>
+<p>curl还支持SSL认证、HTTP POST、HTTP PUT、FTP上传, HTTP form based upload、proxies、HTTP/2、cookies、用户名+密码认证(Basic, Plain, Digest, CRAM-MD5, NTLM, Negotiate and Kerberos)、file transfer resume、proxy tunneling。</p>
+<h2 id="（3）php中curl简单使用步骤"><a href="#（3）php中curl简单使用步骤" class="headerlink" title="（3）php中curl简单使用步骤"></a>（3）php中curl简单使用步骤</h2><p>a.curl的简单使用步骤(以下内容参考自<a target="_blank" rel="noopener" href="https://www.jianshu.com/p/dd2c76f6da26">https://www.jianshu.com/p/dd2c76f6da26</a>)</p>
+<p>初始化一个cURL会话</p>
+<pre><code>    $ch = curl_init();
 </code></pre>
-<hr>
-<p>（2）docker cp :用于容器与主机之间的数据拷贝。</p>
-<p>语法<br>docker cp [OPTIONS] CONTAINER:SRC_PATH DEST_PATH|-</p>
-<p>docker cp [OPTIONS] SRC_PATH|- CONTAINER:DEST_PATH</p>
-<p>OPTIONS说明：</p>
-<p>-L :保持源目标中的链接</p>
-<p>实例<br>将主机/www/runoob目录拷贝到容器96f7f14e99ab的/www目录下。</p>
-<p>docker cp /www/runoob 96f7f14e99ab:/www/</p>
-<p>将主机/www/runoob目录拷贝到容器96f7f14e99ab中，目录重命名为www。</p>
-<p>docker cp /www/runoob 96f7f14e99ab:/www</p>
-<p>将容器96f7f14e99ab的/www目录拷贝到主机的/tmp目录中。</p>
-<p>docker cp  96f7f14e99ab:/www /tmp/</p>
-<hr>
-<p>（3）docker diff : 检查容器里文件结构的更改。</p>
-<p>语法</p>
-<p>docker diff [OPTIONS] CONTAINER</p>
-<p>实例<br>查看容器mymysql的文件结构更改。</p>
-<pre><code> runoob@runoob:~$ docker diff mymysql
- A /logs
- A /mysql_data
- C /run
- C /run/mysqld
- A /run/mysqld/mysqld.pid
- A /run/mysqld/mysqld.sock
- C /tmp
+<p>设置请求选项</p>
+<pre><code>    curl_setopt($ch, CURLOPT_URL, &quot;http://www.360weboy.com&quot;);
+
+    curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
+
+    curl_setopt($ch, CURLOPT_HEADER, 0);
 </code></pre>
-<hr>
-<h1 id="镜像仓库"><a href="#镜像仓库" class="headerlink" title="镜像仓库"></a>镜像仓库</h1><p>（1）docker login : 登陆到一个Docker镜像仓库，如果未指定镜像仓库地址，默认为官方仓库 Docker Hub</p>
-<p>docker logout : 登出一个Docker镜像仓库，如果未指定镜像仓库地址，默认为官方仓库 Docker Hub</p>
-<p>语法<br>docker login [OPTIONS] [SERVER]</p>
-<p>docker logout [OPTIONS] [SERVER]</p>
-<p>OPTIONS说明：</p>
-<p>-u :登陆的用户名</p>
-<p>-p :登陆的密码</p>
-<p>实例<br>登陆到Docker Hub</p>
-<p>docker login -u 用户名 -p 密码</p>
-<p>登出Docker Hub</p>
-<p>docker logout</p>
-<hr>
-<p>（2）docker pull : 从镜像仓库中拉取或者更新指定镜像</p>
-<p>语法<br>docker pull [OPTIONS] NAME[:TAG|@DIGEST]</p>
-<p>OPTIONS说明：</p>
-<p>-a :拉取所有 tagged 镜像</p>
-<p>–disable-content-trust :忽略镜像的校验,默认开启</p>
-<p>实例<br>从Docker Hub下载java最新版镜像。</p>
-<p>docker pull java</p>
-<p>从Docker Hub下载REPOSITORY为java的所有镜像。</p>
-<p>docker pull -a java</p>
-<hr>
-<p>（3）docker push : 将本地的镜像上传到镜像仓库,要先登陆到镜像仓库</p>
-<p>语法<br>docker push [OPTIONS] NAME[:TAG]</p>
-<p>OPTIONS说明：</p>
-<p>–disable-content-trust :忽略镜像的校验,默认开启</p>
-<p>实例<br>上传本地镜像myapache:v1到镜像仓库中。</p>
-<p>docker push myapache:v1</p>
-<hr>
-<p>（4）docker search : 从Docker Hub查找镜像</p>
-<p>语法<br>docker search [OPTIONS] TERM</p>
-<p>OPTIONS说明：</p>
-<p>–automated :只列出 automated build类型的镜像；</p>
-<p>–no-trunc :显示完整的镜像描述；</p>
-<p>-f &lt;过滤条件&gt;:列出收藏数不小于指定值的镜像。</p>
-<p>实例<br>从 Docker Hub 查找所有镜像名包含 java，并且收藏数大于 10 的镜像</p>
-<pre><code>runoob@runoob:~$ docker search -f stars=10 java
-NAME                  DESCRIPTION                           STARS   OFFICIAL   AUTOMATED
-java                  Java is a concurrent, class-based...   1037    [OK]       
-anapsix/alpine-java   Oracle Java 8 (and 7) with GLIBC ...   115                [OK]
-develar/java                                                 46                 [OK]
-isuper/java-oracle    This repository contains all java...   38                 [OK]
-lwieske/java-8        Oracle Java 8 Container - Full + ...   27                 [OK]
-nimmis/java-centos    This is docker images of CentOS 7...   13                 [OK]
+<p>执行Curl会话获取相关回复</p>
+<pre><code>     $response = curl_exec($ch);
 </code></pre>
-<p>参数说明：</p>
-<p>NAME: 镜像仓库源的名称</p>
-<p>DESCRIPTION: 镜像的描述</p>
-<p>OFFICIAL: 是否 docker 官方发布</p>
-<p>stars: 类似 Github 里面的 star，表示点赞、喜欢的意思。</p>
-<p>AUTOMATED: 自动构建。</p>
+<p>释放Curl 句柄， 关闭Cur会话       </p>
+<pre><code>      curl_close($ch);
+</code></pre>
+<p>b.curl 错误处理</p>
+<pre><code>  $response = curl_exec($ch); 
+
+       if ($response  === FALSE) &#123;
+
+          echo &quot;cURL 具体出错信息: &quot; . curl_error($ch);
+
+        &#125;
+</code></pre>
+<p>c.获取curl请求的具体信息</p>
+<p>可以使用curl_getinfo获取该请求的具体信息:</p>
+<pre><code>      curl_exec($ch);
+
+     $curl_info= curl_getinfo($ch);
+
+      echo &quot;收到的http回复的code为： &#123;$curl_info[&#39;http_code&#39;]&#125;&quot;;
+</code></pre>
+<p>d.使用curl 发送post请求</p>
+<pre><code>    $url = &quot;http://www.360weboy.me/post.php&quot;;
+
+     $post_data = array (
+
+         &quot;blog_name&quot; =&gt; &quot;360weboy&quot;,
+
+         &quot;blog_url&quot; =&gt; &quot;http://www.360weboy.com&quot;,
+
+         &quot;action&quot; =&gt; &quot;Submit&quot;
+
+      );
+
+
+     $ch = curl_init();
+
+     curl_setopt($ch, CURLOPT_URL, $url);
+
+     curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
+
+
+     // 设置请求为post类型
+
+     curl_setopt($ch, CURLOPT_POST, 1);
+
+     // 添加post数据到请求中
+
+     curl_setopt($ch, CURLOPT_POSTFIELDS, $post_data);
+
+
+      // 执行post请求，获得回复
+
+     $response= curl_exec($ch);
+
+     curl_close($ch);
+
+     echo $response;
+</code></pre>
+<p>e.使用curl发送上传文件   </p>
+<pre><code>     $url = &quot;http://www.360weboy.me/upload.php&quot;;
+
+
+    $post_data = array (
+
+         &quot;attachment&quot; =&gt; &quot;@E:/jackblog/boy.jpg&quot;
+
+    );
+
+
+     //初始化cURL会话
+
+    $ch = curl_init();
+
+
+    //设置请求的url
+
+    curl_setopt($ch, CURLOPT_URL, $url);
+
+    curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
+
+
+    //设置为post请求类型
+
+    curl_setopt($ch, CURLOPT_POST, 1);
+
+
+    //设置具体的post数据
+
+    curl_setopt($ch, CURLOPT_POSTFIELDS, $post_data);
+
+
+    $response = curl_exec($ch);
+
+    curl_close($ch);
+
+    print_r($response);
+</code></pre>
+<p>f.</p>
+<p>上述将了文件上传，同样的也可以使用curl来自动地完成文件的下载以及保存。有一点要补充下，在执行一个curl请求时，如果你需要获取返回的内容，而不是直接输出返回的内容的话，别忘记使用下面的代码设置，因为curl的默认是输出请求的回复内容:</p>
+<p> 代码如下:</p>
+<pre><code>    curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
+
+ 假如在360weboy的服务器根目录下面有一个test.zip文件，我们需要将其下载下来，并且保存到本地文件中，就可以尝试使用下面的代码来实现
+</code></pre>
+<p> 代码如下:</p>
+<pre><code>    //设置请求的下载文件的url
+
+    $url  = &#39;http://www.360weboy.com/test.zip&#39;;
+
+
+    //保存到本地的文件路径
+
+    $path = &#39;local/path/to/test.zip&#39;;
+
+
+    //初始化请求，设置请求，获取回复,关闭会话
+
+    $ch = curl_init($url);
+
+    curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+
+    $data = curl_exec($ch);
+
+
+    curl_close($ch);
+
+
+    //将文件内容写入本地文件
+
+    file_put_contents($path, $data);
+</code></pre>
+<p>   注意：我以上省略了错误处理方面的代码，只是简单做个示例, 在实际中，你还需要通过curl_getinfo函数来进行错误处理!</p>
+<p>上述代码对于下载比较大型的文件是不适用的，因为需要先将文件读取到内存中，等所有内容都读取完毕，然后再写入到本地硬盘中。即使php中设置的memory limit非常大，这种情况对性能的影响也是很大的。所以，我们对于大型文件的下载，应该让curl来接管这个任务，实现边下载，边写入的处理，这样的话，就没什么问题了。请看下述代码:</p>
+<p> 代码如下:</p>
+<pre><code>    $url  = &#39;http://www.360weboy.com/test.zip&#39;;
+
+    $path = &#39;local/path/to/test.zip&#39;;
+
+    // 打开本地文件
+
+    $fp = fopen($path, &#39;w&#39;);
+
+    // 告诉curl本地文件句柄
+
+    $ch = curl_init($url);
+
+    curl_setopt($ch, CURLOPT_FILE, $fp);
+
+   curl_exec($ch);
+
+    curl_close($ch);
+
+    fclose($fp);
+</code></pre>
+<p>在上述代码中，我们先打开个本地文件，并将文件句柄设置到curl中，然后让curl一边读取远程数据，一边写入到本地文件中。因为我们不需要在程序中获取远程回复的内容了，所以只要执行请求就可以。</p>
+<p>g.http 验证</p>
+<p> 如果服务器端需要验证请求，可以通过类似一下示例代码来实现:</p>
+<pre><code> 代码如下:
+
+  $url = &quot;http://www.360weboy.com/users/&quot;;
+
+    $ch = curl_init();
+
+    curl_setopt($ch, CURLOPT_URL, $url);
+
+    curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
+
+
+    // 设置用户名以及密码
+
+    curl_setopt($ch, CURLOPT_USERPWD, &quot;username:password&quot;);
+
+
+    // 设置重导向
+
+    curl_setopt($ch, CURLOPT_FOLLOWLOCATION, 1);
+
+    curl_setopt($ch, CURLOPT_UNRESTRICTED_AUTH, 1);
+
+
+    $response = curl_exec($ch);
+
+    curl_close($ch);
+</code></pre>
+<p>h.通过代理发送请求</p>
+<p>cURL还可以通过代理服务器来向发送请求，请看一下示例代码:</p>
+<p> 代码如下:</p>
+<pre><code>     $ch = curl_init();
+
+     curl_setopt($ch, CURLOPT_URL,&#39;http://www.360weboy.com&#39;);
+
+     curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
+
+
+    // 设置代理ip地址
+
+    curl_setopt($ch, CURLOPT_PROXY, &#39;222.73.173.50:8080&#39;);
+
+
+    // 要验证的话，这里设置用户名以及密码
+
+    curl_setopt($ch, CURLOPT_PROXYUSERPWD,&#39;username:password&#39;);
+
+
+    $response = curl_exec($ch);
+
+    curl_close ($ch);
+</code></pre>
+<h2 id="（4）PHP-cURL-函数"><a href="#（4）PHP-cURL-函数" class="headerlink" title="（4）PHP cURL 函数"></a>（4）PHP cURL 函数</h2><p>PHP支持的由Daniel Stenberg创建的libcurl库允许你与各种的服务器使用各种类型的协议进行连接和通讯。libcurl支持http、https、ftp、gopher、telnet、dict、file和ldap协议。libcurl同时也支持HTTPS认证、HTTP POST、HTTP PUT、 FTP 上传(这个也能通过PHP的FTP扩展完成)、HTTP 基于表单的上传、代理、cookies和用户名+密码的认证。</p>
+<p> PHP中使用cURL实现Get和Post请求的方法这些函数在PHP 4.0.2中被引入。 </p>
+<p>[1]  以下包含了PHP cURL函数列表：</p>
+<p>curl_close()——关闭一个cURL会话。</p>
+<p>curl_copy_handle()——复制一个cURL句柄和它的所有选项。</p>
+<p>curl_errno()——返回最后一次的错误号。</p>
+<p>curl_error()——返回一个保护当前会话最近一次错误的字符串。</p>
+<p>curl_escape()——返回转义字符串，对给定的字符串进行URL编码。</p>
+<p>curl_exec()——执行一个cURL会话。</p>
+<p>curl_file_create()——创建一个CURLFile对象。</p>
+<p>curl_getinfo()——获取一个cURL连接资源句柄的信息。</p>
+<p>curl_init()——初始化一个cURL会话。</p>
+<p>curl_multi_add_handle()——向curl批处理会话中添加单独的curl句柄。</p>
+<p>curl_multi_close()——关闭一组cURL句柄。</p>
+<p>curl_multi_exec()——运行当前cURL句柄的子连接</p>
+<p>curl_multi_getcontent()——如果设置了CURLOPT_RETURNTRANSFER，则返回获取的输出的文本流。</p>
+<p>curl_multi_info_read()——获取当前解析的cURL的相关传输信息。</p>
+<p>curl_multi_init()——返回一个新cURL批处理句柄。</p>
+<p>curl_multi_remove_handle()——移除curl批处理句柄资源中的某个句柄资源。</p>
+<p>curl_multi_select()——等待所有cURL批处理中的活动连接。</p>
+<p>curl_multi_setopt()——设置一个批处理cURL传输选项。</p>
+<p>curl_multi_strerror()——返回描述错误码的字符串文本。</p>
+<p>curl_pause()——暂停及恢复连接。</p>
+<p>curl_reset()——重置libcurl的会话句柄的所有选项。</p>
+<p>curl_setopt_array()——为cURL传输会话批量设置选项。</p>
+<p>curl_setopt()——设置一个cURL传输选项。</p>
+<p>curl_share_close()——关闭cURL共享句柄。</p>
+<p>curl_share_init()——初始化cURL共享句柄。</p>
+<p>curl_share_setopt()——设置一个共享句柄的cURL传输选项。</p>
+<p>curl_strerror()——返回错误代码的字符串描述。</p>
+<p>curl_unescape()——解码URL编码后的字符串。</p>
+<p>curl_version()——获取cURL版本信息。</p>
  
       <!-- reward -->
       
@@ -249,7 +417,7 @@ nimmis/java-centos    This is docker images of CentOS 7...   13                 
     <a class="modal-close" href="javascript:;"><i class="ri-close-circle-line"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//api.qrserver.com/v1/create-qr-code/?size=150x150&data=http://example.com/2021/10/05/docker%E5%91%BD%E4%BB%A4%E5%A4%A7%E5%85%A8-%E5%AE%B9%E5%99%A8rootfs%E5%91%BD%E4%BB%A4%E4%B8%8E%E9%95%9C%E5%83%8F%E4%BB%93%E5%BA%93/" alt="微信分享二维码">
+      <img src="//api.qrserver.com/v1/create-qr-code/?size=150x150&data=http://example.com/2022/07/11/curl%E4%BB%8B%E7%BB%8D%E5%8F%8A%E4%BD%BF%E7%94%A8/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -262,19 +430,19 @@ nimmis/java-centos    This is docker images of CentOS 7...   13                 
    
   <nav class="article-nav">
     
-      <a href="/2021/10/05/docker%E5%91%BD%E4%BB%A4%E5%A4%A7%E5%85%A8-%E5%AE%B9%E5%99%A8%E7%94%9F%E5%91%BD%E5%91%A8%E6%9C%9F%E7%AE%A1%E7%90%86/" class="article-nav-link">
+      <a href="/2022/07/11/%E7%BD%91%E9%BC%8E%E6%9D%AF2018-fackbook/" class="article-nav-link">
         <strong class="article-nav-caption">上一篇</strong>
         <div class="article-nav-title">
           
-            docker命令大全-容器生命周期管理
+            网鼎杯2018_fackbook
           
         </div>
       </a>
     
     
-      <a href="/2021/10/05/docker%E5%91%BD%E4%BB%A4%E5%A4%A7%E5%85%A8-%E5%AE%B9%E5%99%A8%E6%93%8D%E4%BD%9C/" class="article-nav-link">
+      <a href="/2022/07/09/swpuctf-2021-DO-YOU-KNOW-HTTP/" class="article-nav-link">
         <strong class="article-nav-caption">下一篇</strong>
-        <div class="article-nav-title">docker命令大全-容器操作</div>
+        <div class="article-nav-title">swpuctf_2021_DO_YOU_KNOW_HTTP</div>
       </a>
     
   </nav>
