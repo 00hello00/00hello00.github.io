@@ -11,7 +11,7 @@
         name="viewport"
         content="width=device-width, initial-scale=1, maximum-scale=1"
       />
-      <title>CISCN_2022_web |  欲</title>
+      <title>本地图库搭建 |  欲</title>
   <meta name="generator" content="hexo-theme-ayer">
       
       <link rel="shortcut icon" href="/favicon.ico" />
@@ -54,7 +54,7 @@
     <main class="content on">
       <section class="outer">
   <article
-  id="post-CISCN-2022-web"
+  id="post-本地图库搭建"
   class="article article-type-post"
   itemscope
   itemprop="blogPost"
@@ -65,7 +65,7 @@
     <header class="article-header">
        
 <h1 class="article-title sea-center" style="border-left:0" itemprop="name">
-  CISCN_2022_web
+  本地图库搭建
 </h1>
  
 
@@ -73,18 +73,27 @@
     </header>
      
     <div class="article-meta">
-      <a href="/2022/08/02/CISCN-2022-web/" class="article-date">
-  <time datetime="2022-08-02T14:17:39.000Z" itemprop="datePublished">2022-08-02</time>
+      <a href="/2022/09/02/%E6%9C%AC%E5%9C%B0%E5%9B%BE%E5%BA%93%E6%90%AD%E5%BB%BA/" class="article-date">
+  <time datetime="2022-09-02T15:21:05.000Z" itemprop="datePublished">2022-09-02</time>
 </a>  
     </div>
       
+    <div class="tocbot"></div>
+
 
 
 
   
     <div class="article-entry" itemprop="articleBody">
        
-   
+  <h1 id="本地图库搭建"><a href="#本地图库搭建" class="headerlink" title="本地图库搭建"></a>本地图库搭建</h1><h3 id="1-前言"><a href="#1-前言" class="headerlink" title="1.前言"></a>1.前言</h3><p>这段时间内<a target="_blank" rel="noopener" href="https://sm.ms/%E7%AB%9F%E7%84%B6%E4%B8%8D%E8%AE%A9%E4%B8%AD%E5%9B%BD%E7%94%A8%E6%88%B7%E7%99%BB%E5%85%A5%E4%BA%86%EF%BC%8C%E6%88%91%E7%9C%9F%E7%9A%84%E6%98%AF%E3%80%82%E3%80%82%E3%80%82">https://sm.ms/竟然不让中国用户登入了，我真的是。。。</a></p>
+<p>如果要登入还要用vpn有点麻烦，于是准备搞个本地图库。</p>
+<p>不过本地图库也是有一个问题，在本地查看md文件图片不会显示出来</p>
+<span id="more"></span>
+
+<h3 id="2-新建本地图片库"><a href="#2-新建本地图片库" class="headerlink" title="2.新建本地图片库"></a>2.新建本地图片库</h3><p>主题文件的图片存在了source-img文件夹中，所以我们在这个文件夹中新建一个postimg文件夹，用于存放博客中需要保存的图片。然后我们把图片存进去，执行hexo g，会发现在public-img文件夹中也多了一个postimg文件夹，里面有我们刚刚存进去的图片。这说明Hexo在部署博客时，也将postimg部署到了博客里。同理，上传时也会将postimg一起上传到Github上，这说明利用相对路径保存图片的方法可行。</p>
+<h3 id="图片的相对路径"><a href="#图片的相对路径" class="headerlink" title="图片的相对路径"></a>图片的相对路径</h3><p><a target="_blank" rel="noopener" href="https://xxx/img/postimg/XXXXX.jpg">https://XXX/img/postimg/XXXXX.jpg</a></p>
+ 
       <!-- reward -->
       
       <div id="reword-out">
@@ -154,7 +163,7 @@
     <a class="modal-close" href="javascript:;"><i class="ri-close-circle-line"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//api.qrserver.com/v1/create-qr-code/?size=150x150&data=http://example.com/2022/08/02/CISCN-2022-web/" alt="微信分享二维码">
+      <img src="//api.qrserver.com/v1/create-qr-code/?size=150x150&data=http://example.com/2022/09/02/%E6%9C%AC%E5%9C%B0%E5%9B%BE%E5%BA%93%E6%90%AD%E5%BB%BA/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -165,19 +174,10 @@
    
   <nav class="article-nav">
     
+    
       <a href="/2022/08/27/Templated/" class="article-nav-link">
-        <strong class="article-nav-caption">上一篇</strong>
-        <div class="article-nav-title">
-          
-            Templated
-          
-        </div>
-      </a>
-    
-    
-      <a href="/2022/07/16/git%E6%B3%84%E9%9C%B2/" class="article-nav-link">
         <strong class="article-nav-caption">下一篇</strong>
-        <div class="article-nav-title">git泄露</div>
+        <div class="article-nav-title">Templated</div>
       </a>
     
   </nav>
