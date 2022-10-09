@@ -11,7 +11,7 @@
         name="viewport"
         content="width=device-width, initial-scale=1, maximum-scale=1"
       />
-      <title> 欲</title>
+      <title>美团mtctf_2022复现 |  欲</title>
   <meta name="generator" content="hexo-theme-ayer">
       
       <link rel="shortcut icon" href="/favicon.ico" />
@@ -52,353 +52,192 @@
     
       
     <main class="content on">
-      
-<section class="cover">
+      <section class="outer">
+  <article
+  id="post-美团mtctf-2022复现"
+  class="article article-type-post"
+  itemscope
+  itemprop="blogPost"
+  data-scroll-reveal
+>
+  <div class="article-inner">
     
+    <header class="article-header">
+       
+<h1 class="article-title sea-center" style="border-left:0" itemprop="name">
+  美团mtctf_2022复现
+</h1>
+ 
+
       
-      <a class="forkMe" href="https://github.com/00hello00"
-        target="_blank"><img width="149" height="149" src="/images/forkme.png"
-          class="attachment-full size-full" alt="Fork me on GitHub" data-recalc-dims="1"></a>
+    </header>
+     
+    <div class="article-meta">
+      <a href="/2022/09/22/%E7%BE%8E%E5%9B%A2mtctf-2022%E5%A4%8D%E7%8E%B0/" class="article-date">
+  <time datetime="2022-09-22T14:58:27.000Z" itemprop="datePublished">2022-09-22</time>
+</a>  
+    </div>
+      
+    <div class="tocbot"></div>
+
+
+
+
+  
+    <div class="article-entry" itemprop="articleBody">
+       
+  <h1 id="美团mtctf-2022部分复现"><a href="#美团mtctf-2022部分复现" class="headerlink" title="美团mtctf_2022部分复现#"></a>美团mtctf_2022部分复现#</h1><p>太菜了，只赛后复现出这一题。</p>
+<span id="more"></span>
+<h2 id="crypto"><a href="#crypto" class="headerlink" title="crypto"></a>crypto</h2><h3 id="1-rsa1"><a href="#1-rsa1" class="headerlink" title="1.rsa1"></a>1.rsa1</h3><pre><code>from Crypto.Util.number import *
+from sage.all import RealField
+from secret import flag1
+
+
+Bits = 512
+p = getPrime(Bits)
+q = getPrime(Bits)
+n = p * q
+
+gift = RealField(prec=Bits*2)(p) / RealField(prec=Bits*2)(q)
+e = 0x10001
+m = bytes_to_long(flag1)
+c = pow(m, e, n)
+
+output = open(&#39;output.txt&#39;, &#39;w&#39;)
+output.write(&#39;n = &#39; + str(n) + &#39;\n&#39;)
+output.write(&#39;c = &#39; + str(c) + &#39;\n&#39;)
+output.write(&#39;gift = &#39; + str(gift) + &#39;\n&#39;)
+
+n = 108525167048069618588175976867846563247592681279699764935868571805537995466244621039138584734968186962015154069834228913223982840558626369903697856981515674800664445719963249384904839446749699482532818680540192673814671582032905573381188420997231842144989027400106624744146739238687818312012920530048166672413
+c = 23970397560482326418544500895982564794681055333385186829686707802322923345863102521635786012870368948010933275558746273559080917607938457905967618777124428711098087525967347923209347190956512520350806766416108324895660243364661936801627882577951784569589707943966009295758316967368650512558923594173887431924
+gift = 0.9878713210057139023298389025767652308503013961919282440169053652488565206963320721234736480911437918373201299590078678742136736290349578719187645145615363088975706222696090029443619975380433122746296316430693294386663490221891787292112964989501856435389725149610724585156154688515007983846599924478524442938
+</code></pre>
+<p>这里给了你gift=p/q,我们们可以通过数学运算算出p的近似值，又因为gift的值是不够精确的我们要在一定的范围内找到精确的p，在进行计算。</p>
+<p>脚本:</p>
+<pre><code>n = 108525167048069618588175976867846563247592681279699764935868571805537995466244621039138584734968186962015154069834228913223982840558626369903697856981515674800664445719963249384904839446749699482532818680540192673814671582032905573381188420997231842144989027400106624744146739238687818312012920530048166672413
+c = 23970397560482326418544500895982564794681055333385186829686707802322923345863102521635786012870368948010933275558746273559080917607938457905967618777124428711098087525967347923209347190956512520350806766416108324895660243364661936801627882577951784569589707943966009295758316967368650512558923594173887431924
+gift = 0.9878713210057139023298389025767652308503013961919282440169053652488565206963320721234736480911437918373201299590078678742136736290349578719187645145615363088975706222696090029443619975380433122746296316430693294386663490221891787292112964989501856435389725149610724585156154688515007983846599924478524442938
+p = int(sqrt(int(n*gift)))
+print(p)
+num = 100000
+for i in range(num):
+    if (n%p)==0:
+        q = int(n/p)
+        print(p)
+        print(q)
+        break
+    else:
+        p += 1
+
+#p=10354173078239628635626920146059887542108509101478542108107457141390325356890199583373894457500644181987484104714492532470944829664847264360542662124954077
+#q=10481297369477678688647473426264404751672609241332968992310058598922120259940804922095197051670288498112926299671514217457279033970326518832408003060034369
+</code></pre>
+<p>最后算出flag<br><img src="https://00hello00.github.io/img/postimg/%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE2022-10-09213740.png"></p>
+ 
+      <!-- reward -->
+      
+      <div id="reword-out">
+        <div id="reward-btn">
+          打赏
+        </div>
+      </div>
+      
+    </div>
     
-  <div class="cover-frame">
-    <div class="bg-box">
-      <img src="/images/yu.png" alt="image frame" />
+
+    <!-- copyright -->
+    
+    <div class="declare">
+      <ul class="post-copyright">
+        <li>
+          <i class="ri-copyright-line"></i>
+          <strong>版权声明： </strong>
+          
+          本博客所有文章除特别声明外，著作权归作者所有。转载请注明出处！
+          
+        </li>
+      </ul>
     </div>
-    <div class="cover-inner text-center text-white">
-      <h1><a href="/">欲</a></h1>
-      <div id="subtitle-box">
-        
-        <span id="subtitle"></span>
-        
+    
+    <footer class="article-footer">
+       
+<div class="share-btn">
+      <span class="share-sns share-outer">
+        <i class="ri-share-forward-line"></i>
+        分享
+      </span>
+      <div class="share-wrap">
+        <i class="arrow"></i>
+        <div class="share-icons">
+          
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="ri-weibo-fill"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="ri-wechat-fill"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="ri-qq-fill"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="ri-douban-line"></i>
+          </a>
+          <!-- <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a> -->
+          
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="ri-facebook-circle-fill"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="ri-twitter-fill"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="ri-google-fill"></i>
+          </a>
+        </div>
       </div>
-      <div>
-        
-      </div>
-    </div>
-  </div>
-  <div class="cover-learn-more">
-    <a href="javascript:void(0)" class="anchor"><i class="ri-arrow-down-line"></i></a>
-  </div>
-</section>
-
-
-
-<script src="https://cdn.staticfile.org/typed.js/2.0.12/typed.min.js"></script>
-
-
-<!-- Subtitle -->
-
-  <script>
-    try {
-      var typed = new Typed("#subtitle", {
-        strings: ['', '', '想要的都拥有，得不到的都释怀'],
-        startDelay: 0,
-        typeSpeed: 200,
-        loop: true,
-        backSpeed: 100,
-        showCursor: true
-      });
-    } catch (err) {
-      console.log(err)
-    }
-  </script>
-  
-<div id="main">
-  <section class="outer">
-  
-  
-  
-
-<div class="notice" style="margin-top:50px">
-    <i class="ri-heart-fill"></i>
-    <div class="notice-content" id="broad"></div>
 </div>
-<script type="text/javascript">
-    fetch('https://v1.hitokoto.cn')
-        .then(response => response.json())
-        .then(data => {
-            document.getElementById("broad").innerHTML = data.hitokoto;
-        })
-        .catch(console.error)
-</script>
 
-<style>
-    .notice {
-        padding: 20px;
-        border: 1px dashed #e6e6e6;
-        color: #969696;
-        position: relative;
-        display: inline-block;
-        width: 100%;
-        background: #fbfbfb50;
-        border-radius: 10px;
-    }
-
-    .notice i {
-        float: left;
-        color: #999;
-        font-size: 16px;
-        padding-right: 10px;
-        vertical-align: middle;
-        margin-top: -2px;
-    }
-
-    .notice-content {
-        display: initial;
-        vertical-align: middle;
-    }
-</style>
-  
-  <article class="articles">
-    
-    
-    
-    
-    <article
-  id="post-docker命令大全-容器操作"
-  class="article article-type-post"
-  itemscope
-  itemprop="blogPost"
-  data-scroll-reveal
->
-  <div class="article-inner">
-    
-    <header class="article-header">
-       
-<h2 itemprop="name">
-  <a class="article-title" href="/2021/10/05/docker%E5%91%BD%E4%BB%A4%E5%A4%A7%E5%85%A8-%E5%AE%B9%E5%99%A8%E6%93%8D%E4%BD%9C/"
-    >docker命令大全-容器操作</a> 
-</h2>
- 
-
-      
-    </header>
-     
-    <div class="article-meta">
-      <a href="/2021/10/05/docker%E5%91%BD%E4%BB%A4%E5%A4%A7%E5%85%A8-%E5%AE%B9%E5%99%A8%E6%93%8D%E4%BD%9C/" class="article-date">
-  <time datetime="2021-10-05T14:45:23.000Z" itemprop="datePublished">2021-10-05</time>
-</a>  
+<div class="wx-share-modal">
+    <a class="modal-close" href="javascript:;"><i class="ri-close-circle-line"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//api.qrserver.com/v1/create-qr-code/?size=150x150&data=http://example.com/2022/09/22/%E7%BE%8E%E5%9B%A2mtctf-2022%E5%A4%8D%E7%8E%B0/" alt="微信分享二维码">
     </div>
-      
-    <div class="article-entry" itemprop="articleBody">
-       
-  <h1 id="docker的常用命令-容器操作"><a href="#docker的常用命令-容器操作" class="headerlink" title="docker的常用命令-容器操作"></a>docker的常用命令-容器操作</h1><p>本文取自<a target="_blank" rel="noopener" href="https://www.runoob.com/docker/docker-rm-command.html">https://www.runoob.com/docker/docker-rm-command.html</a>，博主整理这些命令主要是方便自己或其他需要的人来查阅</p>
-<p>（1）docker ps : 列出容器</p>
-<p>语法<br>docker ps [OPTIONS]<br>OPTIONS说明：</p>
-<p>-a :显示所有的容器，包括未运行的。</p>
-<p>-f :根据条件过滤显示的内容。</p>
-<p>–format :指定返回值的模板文件。</p>
-<p>-l :显示最近创建的容器。</p>
-<p>-n :列出最近创建的n个容器。</p>
-<p>–no-trunc :不截断输出。</p>
-<p>-q :静默模式，只显示容器编号。</p>
-<p>-s :显示总的文件大小。</p> 
-      <a class="article-more-link" href="/2021/10/05/docker%E5%91%BD%E4%BB%A4%E5%A4%A7%E5%85%A8-%E5%AE%B9%E5%99%A8%E6%93%8D%E4%BD%9C/"
-        >more...</a
-      >
-       
-      <!-- reward -->
-      
-    </div>
-    
+</div>
 
-    <!-- copyright -->
-    
-    <footer class="article-footer">
-       
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E7%AC%94%E8%AE%B0/" rel="tag">笔记</a></li></ul>
+<div id="share-mask"></div>  
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E9%A2%98%E7%9B%AE/" rel="tag">题目</a></li></ul>
 
     </footer>
   </div>
 
    
+  <nav class="article-nav">
     
-</article>
-
     
-    <article
-  id="post-docker命令大全-本地镜像管理与infoversion"
-  class="article article-type-post"
-  itemscope
-  itemprop="blogPost"
-  data-scroll-reveal
->
-  <div class="article-inner">
+      <a href="/2022/09/02/%E6%9C%AC%E5%9C%B0%E5%9B%BE%E5%BA%93%E6%90%AD%E5%BB%BA/" class="article-nav-link">
+        <strong class="article-nav-caption">下一篇</strong>
+        <div class="article-nav-title">本地图库搭建</div>
+      </a>
     
-    <header class="article-header">
-       
-<h2 itemprop="name">
-  <a class="article-title" href="/2021/10/05/docker%E5%91%BD%E4%BB%A4%E5%A4%A7%E5%85%A8-%E6%9C%AC%E5%9C%B0%E9%95%9C%E5%83%8F%E7%AE%A1%E7%90%86%E4%B8%8Einfoversion/"
-    >docker命令大全-本地镜像管理及Docker info 命令</a> 
-</h2>
- 
-
-      
-    </header>
-     
-    <div class="article-meta">
-      <a href="/2021/10/05/docker%E5%91%BD%E4%BB%A4%E5%A4%A7%E5%85%A8-%E6%9C%AC%E5%9C%B0%E9%95%9C%E5%83%8F%E7%AE%A1%E7%90%86%E4%B8%8Einfoversion/" class="article-date">
-  <time datetime="2021-10-05T14:45:23.000Z" itemprop="datePublished">2021-10-05</time>
-</a>  
-    </div>
-      
-    <div class="article-entry" itemprop="articleBody">
-       
-  <h1 id="本地镜像管理"><a href="#本地镜像管理" class="headerlink" title="本地镜像管理"></a>本地镜像管理</h1><p>本文取自<a target="_blank" rel="noopener" href="https://www.runoob.com/docker/docker-rm-command.html">https://www.runoob.com/docker/docker-rm-command.html</a>，博主整理这些命令主要是方便自己或其他需要的人来查阅</p>
-<p>(1)docker images : 列出本地镜像。</p>
-<p>语法<br>docker images [OPTIONS] [REPOSITORY[:TAG]]<br>OPTIONS说明：</p>
-<p>-a :列出本地所有的镜像（含中间映像层，默认情况下，过滤掉中间映像层）；</p>
-<p>–digests :显示镜像的摘要信息；</p>
-<p>-f :显示满足条件的镜像；</p>
-<p>–format :指定返回值的模板文件；</p>
-<p>–no-trunc :显示完整的镜像信息；</p>
-<p>-q :只显示镜像ID。 
-      <a class="article-more-link" href="/2021/10/05/docker%E5%91%BD%E4%BB%A4%E5%A4%A7%E5%85%A8-%E6%9C%AC%E5%9C%B0%E9%95%9C%E5%83%8F%E7%AE%A1%E7%90%86%E4%B8%8Einfoversion/"
-        >more...</a
-      >
-       
-      <!-- reward -->
-      
-    </div>
-    
-
-    <!-- copyright -->
-    
-    <footer class="article-footer">
-       
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E7%AC%94%E8%AE%B0/" rel="tag">笔记</a></li></ul>
-
-    </footer>
-  </div>
-
-   
-    
-</article>
-
-    
-    <article
-  id="post-sql注入原理"
-  class="article article-type-post"
-  itemscope
-  itemprop="blogPost"
-  data-scroll-reveal
->
-  <div class="article-inner">
-    
-    <header class="article-header">
-       
-<h2 itemprop="name">
-  <a class="article-title" href="/2021/10/02/sql%E6%B3%A8%E5%85%A5%E5%8E%9F%E7%90%86/"
-    >SQL 注入原理分析（学习笔记）</a> 
-</h2>
- 
-
-      
-    </header>
-     
-    <div class="article-meta">
-      <a href="/2021/10/02/sql%E6%B3%A8%E5%85%A5%E5%8E%9F%E7%90%86/" class="article-date">
-  <time datetime="2021-10-02T14:45:23.000Z" itemprop="datePublished">2021-10-02</time>
-</a> 
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/sql%E6%B3%A8%E5%85%A5/">sql注入</a> / <a class="article-category-link" href="/categories/sql%E6%B3%A8%E5%85%A5/%E7%AC%94%E8%AE%B0/">笔记</a>
-  </div>
- 
-    </div>
-      
-    <div class="article-entry" itemprop="articleBody">
-       
-  <h1 id="SQL-注入原理分析（学习笔记）"><a href="#SQL-注入原理分析（学习笔记）" class="headerlink" title="SQL 注入原理分析（学习笔记）"></a>SQL 注入原理分析（学习笔记）</h1><p><strong>1.SQL语言介绍</strong></p>
-<p>​       SQL 全称是“结构化查询语言( Structured Query Language)”, 最早是IBM的圣约瑟研究实验室为其关系数据库管理系统SYSTEMR开发的一种查询语言,它的前身是SQUARE语言。SQL语言结构简洁,功能强大,简单易学,所以自从IBM公司1981年推出以来, SQL语言得到了广泛的应用。</p>
-<p>​        结构化查询语言SQL是一种介于关系代数与关系演算之间的语言,其功能包括查询、操纵、定义和控制四个方面,是一个通用的功能极强的关系数据库标准语言。在SQL语言中不需要告诉SQL如何访问数据库,只要告诉SQL需要数据库做什么。</p> 
-      <a class="article-more-link" href="/2021/10/02/sql%E6%B3%A8%E5%85%A5%E5%8E%9F%E7%90%86/"
-        >more...</a
-      >
-       
-      <!-- reward -->
-      
-    </div>
-    
-
-    <!-- copyright -->
-    
-    <footer class="article-footer">
-       
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E7%AC%94%E8%AE%B0/" rel="tag">笔记</a></li></ul>
-
-    </footer>
-  </div>
-
-   
-    
-</article>
-
-    
-    <article
-  id="post-php初学笔记"
-  class="article article-type-post"
-  itemscope
-  itemprop="blogPost"
-  data-scroll-reveal
->
-  <div class="article-inner">
-    
-    <header class="article-header">
-       
-<h2 itemprop="name">
-  <a class="article-title" href="/2021/09/18/php%E5%88%9D%E5%AD%A6%E7%AC%94%E8%AE%B0/"
-    >php 初学笔记</a> 
-</h2>
- 
-
-      
-    </header>
-     
-    <div class="article-meta">
-      <a href="/2021/09/18/php%E5%88%9D%E5%AD%A6%E7%AC%94%E8%AE%B0/" class="article-date">
-  <time datetime="2021-09-18T13:45:23.000Z" itemprop="datePublished">2021-09-18</time>
-</a>  
-    </div>
-      
-    <div class="article-entry" itemprop="articleBody">
-       
-  <h1 id="PHP-初学笔记——数据类型"><a href="#PHP-初学笔记——数据类型" class="headerlink" title="#PHP 初学笔记——数据类型"></a>#PHP 初学笔记——数据类型</h1><p>1.# 概念 #</p>
-<p>PHP（PHP: Hypertext Preprocessor）<br>即“超文本预处理器”，是在服务器端执行的脚本语言，尤其适用于Web开发并可嵌入HTML中。PHP语法学习了C语言，吸纳Java和Perl多个语言的特色发展出自己的特色语法，并根据它们的长项持续改进提升自己，例如java的面向对象编程，该语言当初创建的主要目标是让开发人员快速编写出优质的web网站。 PHP同时支持面向对象和面向过程的开发，使用上非常灵活。</p> 
-      <a class="article-more-link" href="/2021/09/18/php%E5%88%9D%E5%AD%A6%E7%AC%94%E8%AE%B0/"
-        >more...</a
-      >
-       
-      <!-- reward -->
-      
-    </div>
-    
-
-    <!-- copyright -->
-    
-    <footer class="article-footer">
-       
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E7%AC%94%E8%AE%B0/" rel="tag">笔记</a></li></ul>
-
-    </footer>
-  </div>
-
-   
-    
-</article>
-
-    
-  </article>
-  
-
-  
-  <nav class="page-nav">
-    
-    <a class="extend prev" rel="prev" href="/page/4/">上一页</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/3/">3</a><a class="page-number" href="/page/4/">4</a><span class="page-number current">5</span>
   </nav>
-  
-</section>
-</div>
 
+  
+   
+    
+    <script src="https://cdn.staticfile.org/twikoo/1.4.18/twikoo.all.min.js"></script>
+    <div id="twikoo" class="twikoo"></div>
+    <script>
+        twikoo.init({
+            envId: ""
+        })
+    </script>
+ 
+</article>
+
+</section>
       <footer class="footer">
   <div class="outer">
     <ul>
@@ -535,6 +374,22 @@
 <script src="/js/lazyload.min.js"></script>
 
 <!-- Tocbot -->
+ 
+<script src="/js/tocbot.min.js"></script>
+
+<script>
+  tocbot.init({
+    tocSelector: ".tocbot",
+    contentSelector: ".article-entry",
+    headingSelector: "h1, h2, h3, h4, h5, h6",
+    hasInnerContainers: true,
+    scrollSmooth: true,
+    scrollContainer: "main",
+    positionFixedSelector: ".tocbot",
+    positionFixedClass: "is-position-fixed",
+    fixedSidebarOffset: "auto",
+  });
+</script>
 
 <script src="https://cdn.staticfile.org/jquery-modal/0.9.2/jquery.modal.min.js"></script>
 <link
