@@ -11,7 +11,7 @@
         name="viewport"
         content="width=device-width, initial-scale=1, maximum-scale=1"
       />
-      <title>2022_1024b站_t3复现 |  欲</title>
+      <title>2022_1024安全挑战赛_t3复现 |  欲</title>
   <meta name="generator" content="hexo-theme-ayer">
       
       <link rel="shortcut icon" href="/favicon.ico" />
@@ -54,7 +54,7 @@
     <main class="content on">
       <section class="outer">
   <article
-  id="post-2022-1024b站-t3复现"
+  id="post-2022-1024安全挑战赛-t3复现"
   class="article article-type-post"
   itemscope
   itemprop="blogPost"
@@ -65,7 +65,7 @@
     <header class="article-header">
        
 <h1 class="article-title sea-center" style="border-left:0" itemprop="name">
-  2022_1024b站_t3复现
+  2022_1024安全挑战赛_t3复现
 </h1>
  
 
@@ -73,7 +73,7 @@
     </header>
      
     <div class="article-meta">
-      <a href="/2022/11/01/2022-1024b%E7%AB%99-t3%E5%A4%8D%E7%8E%B0/" class="article-date">
+      <a href="/2022/11/01/2022-1024%E5%AE%89%E5%85%A8%E6%8C%91%E6%88%98%E8%B5%9B-t3%E5%A4%8D%E7%8E%B0/" class="article-date">
   <time datetime="2022-11-01T00:42:16.000Z" itemprop="datePublished">2022-11-01</time>
 </a>  
     </div>
@@ -89,65 +89,59 @@
   <h1 id="2022-1024安全挑战赛-t3复现"><a href="#2022-1024安全挑战赛-t3复现" class="headerlink" title="2022_1024安全挑战赛_t3复现"></a>2022_1024安全挑战赛_t3复现</h1><p>太菜了，哎。。。。。。</p>
 <p>（1）题目</p>
 <p>通过网上大佬的评论得知这是一个异或的冰蝎流量加密。</p>
-<!--more>
+<span id="more"></span>
 
-参考博客：https://liriu.life/PHP-5ba36eb0362743ed8fa5588c97325f7e
+<p>参考博客：<a target="_blank" rel="noopener" href="https://liriu.life/PHP-5ba36eb0362743ed8fa5588c97325f7e">https://liriu.life/PHP-5ba36eb0362743ed8fa5588c97325f7e</a></p>
+<p>（2）分析</p>
+<p>我们可以通过明文与密文异或算出key。</p>
+<p>做题时卡死在了这里。</p>
+<p><img src="https://00hello00.github.io/images/posting/%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE2022-11-01095724.png"></p>
+<p>冰蝎传上去的php文件与这几个php文件内容相识，其中前面有几个字符是不变的，于是就可以选来作为明文。</p>
+<pre><code>import base64
+from base64 import b64decode
 
-（2）分析
+phrases = [ b&#39;&lt;?\n@error_reporting(0);\n\n\nfuncti&#39;,
+            b&#39;&lt;?\n@error_reporting(0);\n\nfunctio&#39;,
+            b&#39;&lt;?\n@error_reporting(0);\n@set_tim&#39;,
+            b&#39;&lt;?\n@error_reporting(0);\nset_time&#39;,
+            b&#39;&lt;?\nerror_reporting(0);\nfunction &#39;,
+            b&quot;&lt;?\nerror_reporting(0);\nheader(&#39;C&quot;,
+            b&#39;&lt;?\nfunction main($action, $remot&#39;,
+            b&#39;&lt;?php\n@error_reporting(0);\n\n\nfuncti&#39;,
+            b&#39;&lt;?php\n@error_reporting(0);\n\nfunctio&#39;,
+            b&#39;&lt;?php\n@error_reporting(0);\n@set_tim&#39;,
+            b&#39;&lt;?php\n@error_reporting(0);\nset_time&#39;,
+            b&#39;&lt;?php\nerror_reporting(0);\nfunction &#39;,
+            b&quot;&lt;?php\nerror_reporting(0);\nheader(&#39;C&quot;,
+            b&#39;&lt;?php\nfunction main($action, $remot&#39;,
+            b&#39;&lt;?php\n\n$taskResult = array();\n$p&#39;,
+            b&#39;@error_reporting(0);\n\nfunction g&#39;,
+            b&#39;@error_reporting(0);\nfunction ma&#39;,
+            b&quot;assert|eval(base64_decode(&#39;&quot;,
+            ]
 
-我们可以通过明文与密文异或算出key。
+def xor(l0, l1):
+    ret = [chr(ord(chr(a)) ^ ord(chr(b))) for a, b in zip(l0, l1)]
+    return &quot;&quot;.join(ret)
 
-做题时卡死在了这里。
+def check(cipher):
+    cipher = b64decode(cipher)
+    for phrase in phrases:
+        print(phrase)
+        p = phrase[0:16]
+        c = cipher[0:16]
+        k = xor(p, c)
+        print(&quot;-&quot;*99)
+        print(k)
 
-![](https://00hello00.github.io/images/posting/屏幕截图2022-11-01095724.png)
-
-冰蝎传上去的php文件与这几个php文件内容相识，其中前面有几个字符是不变的，于是就可以选来作为明文。
-
-
-    import base64
-    from base64 import b64decode
-    
-    phrases = [ b'<?\n@error_reporting(0);\n\n\nfuncti',
-                b'<?\n@error_reporting(0);\n\nfunctio',
-                b'<?\n@error_reporting(0);\n@set_tim',
-                b'<?\n@error_reporting(0);\nset_time',
-                b'<?\nerror_reporting(0);\nfunction ',
-                b"<?\nerror_reporting(0);\nheader('C",
-                b'<?\nfunction main($action, $remot',
-                b'<?php\n@error_reporting(0);\n\n\nfuncti',
-                b'<?php\n@error_reporting(0);\n\nfunctio',
-                b'<?php\n@error_reporting(0);\n@set_tim',
-                b'<?php\n@error_reporting(0);\nset_time',
-                b'<?php\nerror_reporting(0);\nfunction ',
-                b"<?php\nerror_reporting(0);\nheader('C",
-                b'<?php\nfunction main($action, $remot',
-                b'<?php\n\n$taskResult = array();\n$p',
-                b'@error_reporting(0);\n\nfunction g',
-                b'@error_reporting(0);\nfunction ma',
-                b"assert|eval(base64_decode('",
-                ]
-    
-    def xor(l0, l1):
-        ret = [chr(ord(chr(a)) ^ ord(chr(b))) for a, b in zip(l0, l1)]
-        return "".join(ret)
-    
-    def check(cipher):
-        cipher = b64decode(cipher)
-        for phrase in phrases:
-            print(phrase)
-            p = phrase[0:16]
-            c = cipher[0:16]
-            k = xor(p, c)
-            print("-"*99)
-            print(k)
-    
-    if __name__ == '__main__':
-        cipher="密文"
-        key = check(cipher)
-
-爆出flag
-
-    flag3{Beh1_nder} 
+if __name__ == &#39;__main__&#39;:
+    cipher=&quot;密文&quot;
+    key = check(cipher)
+</code></pre>
+<p>爆出flag</p>
+<pre><code>flag3&#123;Beh1_nder&#125;
+</code></pre>
+ 
       <!-- reward -->
       
       <div id="reword-out">
@@ -217,7 +211,7 @@
     <a class="modal-close" href="javascript:;"><i class="ri-close-circle-line"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//api.qrserver.com/v1/create-qr-code/?size=150x150&data=http://example.com/2022/11/01/2022-1024b%E7%AB%99-t3%E5%A4%8D%E7%8E%B0/" alt="微信分享二维码">
+      <img src="//api.qrserver.com/v1/create-qr-code/?size=150x150&data=http://example.com/2022/11/01/2022-1024%E5%AE%89%E5%85%A8%E6%8C%91%E6%88%98%E8%B5%9B-t3%E5%A4%8D%E7%8E%B0/" alt="微信分享二维码">
     </div>
 </div>
 

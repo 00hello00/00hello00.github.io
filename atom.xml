@@ -6,7 +6,7 @@
   <link href="http://example.com/atom.xml" rel="self"/>
   
   <link href="http://example.com/"/>
-  <updated>2022-11-01T02:47:39.113Z</updated>
+  <updated>2022-11-01T02:51:34.246Z</updated>
   <id>http://example.com/</id>
   
   <author>
@@ -17,20 +17,16 @@
   <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
-    <title>2022_1024b站_t3复现</title>
-    <link href="http://example.com/2022/11/01/2022-1024b%E7%AB%99-t3%E5%A4%8D%E7%8E%B0/"/>
-    <id>http://example.com/2022/11/01/2022-1024b%E7%AB%99-t3%E5%A4%8D%E7%8E%B0/</id>
+    <title>2022_1024安全挑战赛_t3复现</title>
+    <link href="http://example.com/2022/11/01/2022-1024%E5%AE%89%E5%85%A8%E6%8C%91%E6%88%98%E8%B5%9B-t3%E5%A4%8D%E7%8E%B0/"/>
+    <id>http://example.com/2022/11/01/2022-1024%E5%AE%89%E5%85%A8%E6%8C%91%E6%88%98%E8%B5%9B-t3%E5%A4%8D%E7%8E%B0/</id>
     <published>2022-11-01T00:42:16.000Z</published>
-    <updated>2022-11-01T02:47:39.113Z</updated>
+    <updated>2022-11-01T02:51:34.246Z</updated>
     
     
-      
-      
-        
-        
-    <summary type="html">&lt;h1 id=&quot;2022-1024安全挑战赛-t3复现&quot;&gt;&lt;a href=&quot;#2022-1024安全挑战赛-t3复现&quot; class=&quot;headerlink&quot;</summary>
-        
-      
+    <summary type="html">&lt;h1 id=&quot;2022-1024安全挑战赛-t3复现&quot;&gt;&lt;a href=&quot;#2022-1024安全挑战赛-t3复现&quot; class=&quot;headerlink&quot; title=&quot;2022_1024安全挑战赛_t3复现&quot;&gt;&lt;/a&gt;2022_1024安全挑战赛_t3复现&lt;/h1&gt;&lt;p&gt;太菜了，哎。。。。。。&lt;/p&gt;
+&lt;p&gt;（1）题目&lt;/p&gt;
+&lt;p&gt;通过网上大佬的评论得知这是一个异或的冰蝎流量加密。&lt;/p&gt;</summary>
     
     
     
