@@ -155,6 +155,113 @@
     
     
     <article
+  id="post-2022-1024b站-t3复现"
+  class="article article-type-post"
+  itemscope
+  itemprop="blogPost"
+  data-scroll-reveal
+>
+  <div class="article-inner">
+    
+    <header class="article-header">
+       
+<h2 itemprop="name">
+  <a class="article-title" href="/2022/11/01/2022-1024b%E7%AB%99-t3%E5%A4%8D%E7%8E%B0/"
+    >2022_1024b站_t3复现</a> 
+</h2>
+ 
+
+      
+    </header>
+     
+    <div class="article-meta">
+      <a href="/2022/11/01/2022-1024b%E7%AB%99-t3%E5%A4%8D%E7%8E%B0/" class="article-date">
+  <time datetime="2022-11-01T00:42:16.000Z" itemprop="datePublished">2022-11-01</time>
+</a>  
+    </div>
+      
+    <div class="article-entry" itemprop="articleBody">
+       
+  <h1 id="2022-1024安全挑战赛-t3复现"><a href="#2022-1024安全挑战赛-t3复现" class="headerlink" title="2022_1024安全挑战赛_t3复现"></a>2022_1024安全挑战赛_t3复现</h1><p>太菜了，哎。。。。。。</p>
+<p>（1）题目</p>
+<p>通过网上大佬的评论得知这是一个异或的冰蝎流量加密。</p>
+<!--more>
+
+参考博客：https://liriu.life/PHP-5ba36eb0362743ed8fa5588c97325f7e
+
+（2）分析
+
+我们可以通过明文与密文异或算出key。
+
+做题时卡死在了这里。
+
+![](https://00hello00.github.io/images/posting/屏幕截图2022-11-01095724.png)
+
+冰蝎传上去的php文件与这几个php文件内容相识，其中前面有几个字符是不变的，于是就可以选来作为明文。
+
+
+    import base64
+    from base64 import b64decode
+    
+    phrases = [ b'<?\n@error_reporting(0);\n\n\nfuncti',
+                b'<?\n@error_reporting(0);\n\nfunctio',
+                b'<?\n@error_reporting(0);\n@set_tim',
+                b'<?\n@error_reporting(0);\nset_time',
+                b'<?\nerror_reporting(0);\nfunction ',
+                b"<?\nerror_reporting(0);\nheader('C",
+                b'<?\nfunction main($action, $remot',
+                b'<?php\n@error_reporting(0);\n\n\nfuncti',
+                b'<?php\n@error_reporting(0);\n\nfunctio',
+                b'<?php\n@error_reporting(0);\n@set_tim',
+                b'<?php\n@error_reporting(0);\nset_time',
+                b'<?php\nerror_reporting(0);\nfunction ',
+                b"<?php\nerror_reporting(0);\nheader('C",
+                b'<?php\nfunction main($action, $remot',
+                b'<?php\n\n$taskResult = array();\n$p',
+                b'@error_reporting(0);\n\nfunction g',
+                b'@error_reporting(0);\nfunction ma',
+                b"assert|eval(base64_decode('",
+                ]
+    
+    def xor(l0, l1):
+        ret = [chr(ord(chr(a)) ^ ord(chr(b))) for a, b in zip(l0, l1)]
+        return "".join(ret)
+    
+    def check(cipher):
+        cipher = b64decode(cipher)
+        for phrase in phrases:
+            print(phrase)
+            p = phrase[0:16]
+            c = cipher[0:16]
+            k = xor(p, c)
+            print("-"*99)
+            print(k)
+    
+    if __name__ == '__main__':
+        cipher="密文"
+        key = check(cipher)
+
+爆出flag
+
+    flag3{Beh1_nder} 
+      <!-- reward -->
+      
+    </div>
+    
+
+    <!-- copyright -->
+    
+    <footer class="article-footer">
+       
+    </footer>
+  </div>
+
+   
+    
+</article>
+
+    
+    <article
   id="post-美团mtctf-2022复现"
   class="article article-type-post"
   itemscope
@@ -624,59 +731,6 @@
     
     <footer class="article-footer">
        
-    </footer>
-  </div>
-
-   
-    
-</article>
-
-    
-    <article
-  id="post-ciscn2019-hack-world"
-  class="article article-type-post"
-  itemscope
-  itemprop="blogPost"
-  data-scroll-reveal
->
-  <div class="article-inner">
-    
-    <header class="article-header">
-       
-<h2 itemprop="name">
-  <a class="article-title" href="/2022/07/07/ciscn2019-hack-world/"
-    >ciscn2019_hack_world</a> 
-</h2>
- 
-
-      
-    </header>
-     
-    <div class="article-meta">
-      <a href="/2022/07/07/ciscn2019-hack-world/" class="article-date">
-  <time datetime="2022-07-07T09:44:36.000Z" itemprop="datePublished">2022-07-07</time>
-</a>  
-    </div>
-      
-    <div class="article-entry" itemprop="articleBody">
-       
-  <h1 id="ciscn2019-hack-world"><a href="#ciscn2019-hack-world" class="headerlink" title="ciscn2019_hack_world"></a>ciscn2019_hack_world</h1><p>(1)前言</p>
-<p> 好久没有做sql注入的题目了，找一道做一下</p> 
-      <a class="article-more-link" href="/2022/07/07/ciscn2019-hack-world/"
-        >more...</a
-      >
-       
-      <!-- reward -->
-      
-    </div>
-    
-
-    <!-- copyright -->
-    
-    <footer class="article-footer">
-       
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E9%A2%98%E7%9B%AE/" rel="tag">题目</a></li></ul>
-
     </footer>
   </div>
 
