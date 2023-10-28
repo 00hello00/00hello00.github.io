@@ -6,7 +6,7 @@
   <link href="http://example.com/atom.xml" rel="self"/>
   
   <link href="http://example.com/"/>
-  <updated>2022-11-01T02:51:34.246Z</updated>
+  <updated>2023-10-28T14:28:19.141Z</updated>
   <id>http://example.com/</id>
   
   <author>
@@ -15,6 +15,25 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Templated</title>
+    <link href="http://example.com/2023/08/27/Templated/"/>
+    <id>http://example.com/2023/08/27/Templated/</id>
+    <published>2023-08-27T11:27:02.000Z</published>
+    <updated>2023-10-28T14:28:19.141Z</updated>
+    
+    
+    <summary type="html">&lt;h1 id=&quot;Flask-Jinja2框架的ssti漏洞-沙箱逃逸-CVE-2019-8341&quot;&gt;&lt;a href=&quot;#Flask-Jinja2框架的ssti漏洞-沙箱逃逸-CVE-2019-8341&quot; class=&quot;headerlink&quot; title=&quot;Flask/Jinja2框架的ssti漏洞(沙箱逃逸)(CVE-2019-8341)#&quot;&gt;&lt;/a&gt;Flask/Jinja2框架的ssti漏洞(沙箱逃逸)(CVE-2019-8341)#&lt;/h1&gt;&lt;h3 id=&quot;1-背景介绍&quot;&gt;&lt;a href=&quot;#1-背景介绍&quot; class=&quot;headerlink&quot; title=&quot;1.背景介绍&quot;&gt;&lt;/a&gt;1.背景介绍&lt;/h3&gt;&lt;p&gt;flask是基于python开发的一种web服务器。&lt;/p&gt;</summary>
+    
+    
+    
+    <category term="漏洞" scheme="http://example.com/categories/%E6%BC%8F%E6%B4%9E/"/>
+    
+    
+    <category term="笔记" scheme="http://example.com/tags/%E7%AC%94%E8%AE%B0/"/>
+    
+  </entry>
   
   <entry>
     <title>2022_1024安全挑战赛_t3复现</title>
@@ -64,25 +83,6 @@
     
     
     
-    
-  </entry>
-  
-  <entry>
-    <title>Templated</title>
-    <link href="http://example.com/2022/08/27/Templated/"/>
-    <id>http://example.com/2022/08/27/Templated/</id>
-    <published>2022-08-27T11:27:02.000Z</published>
-    <updated>2022-08-29T10:58:50.046Z</updated>
-    
-    
-    <summary type="html">&lt;h1 id=&quot;Flask-Jinja2框架的ssti漏洞-沙箱逃逸-CVE-2019-8341&quot;&gt;&lt;a href=&quot;#Flask-Jinja2框架的ssti漏洞-沙箱逃逸-CVE-2019-8341&quot; class=&quot;headerlink&quot; title=&quot;Flask/Jinja2框架的ssti漏洞(沙箱逃逸)(CVE-2019-8341)#&quot;&gt;&lt;/a&gt;Flask/Jinja2框架的ssti漏洞(沙箱逃逸)(CVE-2019-8341)#&lt;/h1&gt;&lt;h3 id=&quot;1-背景介绍&quot;&gt;&lt;a href=&quot;#1-背景介绍&quot; class=&quot;headerlink&quot; title=&quot;1.背景介绍&quot;&gt;&lt;/a&gt;1.背景介绍&lt;/h3&gt;&lt;p&gt;flask是基于python开发的一种web服务器。&lt;/p&gt;</summary>
-    
-    
-    
-    <category term="漏洞" scheme="http://example.com/categories/%E6%BC%8F%E6%B4%9E/"/>
-    
-    
-    <category term="笔记" scheme="http://example.com/tags/%E7%AC%94%E8%AE%B0/"/>
     
   </entry>
   
